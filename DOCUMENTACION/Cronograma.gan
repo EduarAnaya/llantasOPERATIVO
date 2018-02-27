@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="llantasAPP" company="TranserSA" webLink="http://www.transer.com.co" view-date="2018-02-21" view-index="0" gantt-divider-location="580" resource-divider-location="386" version="2.8.6" locale="es_CO">
+    <description>
+        <![CDATA[
+        Desarrollo de la version web del modulo llantas del sistema de informacion MILENIO
+    ]]>
+    </description>
+    <view zooming-state="default:0" id="gantt-chart">
+        <field id="tpd3" name="Nombre" width="275" order="0"/>
+        <field id="tpd4" name="Fecha de inicio" width="151" order="1"/>
+        <field id="tpd5" name="Fecha de fin" width="150" order="2"/>
+        <timeline>
+            <![CDATA[0]]>
+        </timeline>
+        <option id="color.recent">
+            <![CDATA[#999999 #666666 #cc0000]]>
+        </option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Nombre" width="253" order="0"/>
+        <field id="1" name="Función" width="129" order="1"/>
+    </view>
+    <!-- -->
+    <calendars base-id="Colombia">
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+        <date year="2006" month="1" date="1" type="HOLIDAY"/>
+        <date year="2006" month="1" date="9" type="HOLIDAY"/>
+        <date year="2006" month="3" date="20" type="HOLIDAY"/>
+        <date year="2006" month="4" date="13" type="HOLIDAY"/>
+        <date year="2006" month="4" date="14" type="HOLIDAY"/>
+        <date year="2006" month="5" date="1" type="HOLIDAY"/>
+        <date year="2006" month="5" date="29" type="HOLIDAY"/>
+        <date year="2006" month="6" date="19" type="HOLIDAY"/>
+        <date year="2006" month="6" date="26" type="HOLIDAY"/>
+        <date year="2006" month="7" date="3" type="HOLIDAY"/>
+        <date year="2006" month="7" date="20" type="HOLIDAY"/>
+        <date year="2006" month="8" date="7" type="HOLIDAY"/>
+        <date year="2006" month="8" date="21" type="HOLIDAY"/>
+        <date year="2006" month="10" date="16" type="HOLIDAY"/>
+        <date year="2006" month="11" date="6" type="HOLIDAY"/>
+        <date year="2006" month="11" date="13" type="HOLIDAY"/>
+        <date year="2006" month="12" date="8" type="HOLIDAY"/>
+        <date year="2006" month="12" date="25" type="HOLIDAY"/>
+        <date year="2007" month="1" date="1" type="HOLIDAY"/>
+        <date year="2007" month="1" date="8" type="HOLIDAY"/>
+        <date year="2007" month="3" date="19" type="HOLIDAY"/>
+        <date year="2007" month="4" date="5" type="HOLIDAY"/>
+        <date year="2007" month="4" date="6" type="HOLIDAY"/>
+        <date year="2007" month="5" date="1" type="HOLIDAY"/>
+        <date year="2007" month="5" date="21" type="HOLIDAY"/>
+        <date year="2007" month="6" date="11" type="HOLIDAY"/>
+        <date year="2007" month="6" date="18" type="HOLIDAY"/>
+        <date year="2007" month="7" date="2" type="HOLIDAY"/>
+        <date year="2007" month="7" date="20" type="HOLIDAY"/>
+        <date year="2007" month="8" date="7" type="HOLIDAY"/>
+        <date year="2007" month="8" date="20" type="HOLIDAY"/>
+        <date year="2007" month="10" date="15" type="HOLIDAY"/>
+        <date year="2007" month="11" date="5" type="HOLIDAY"/>
+        <date year="2007" month="11" date="12" type="HOLIDAY"/>
+        <date year="2007" month="12" date="8" type="HOLIDAY"/>
+        <date year="2007" month="12" date="25" type="HOLIDAY"/>
+        <date year="2008" month="1" date="1" type="HOLIDAY"/>
+        <date year="2008" month="1" date="7" type="HOLIDAY"/>
+        <date year="2008" month="3" date="20" type="HOLIDAY"/>
+        <date year="2008" month="3" date="21" type="HOLIDAY"/>
+        <date year="2008" month="3" date="24" type="HOLIDAY"/>
+        <date year="2008" month="5" date="1" type="HOLIDAY"/>
+        <date year="2008" month="5" date="5" type="HOLIDAY"/>
+        <date year="2008" month="5" date="26" type="HOLIDAY"/>
+        <date year="2008" month="6" date="16" type="HOLIDAY"/>
+        <date year="2008" month="6" date="30" type="HOLIDAY"/>
+        <date year="2008" month="7" date="20" type="HOLIDAY"/>
+        <date year="2008" month="8" date="7" type="HOLIDAY"/>
+        <date year="2008" month="8" date="18" type="HOLIDAY"/>
+        <date year="2008" month="10" date="13" type="HOLIDAY"/>
+        <date year="2008" month="11" date="3" type="HOLIDAY"/>
+        <date year="2008" month="11" date="17" type="HOLIDAY"/>
+        <date year="2008" month="12" date="8" type="HOLIDAY"/>
+        <date year="2008" month="12" date="25" type="HOLIDAY"/>
+        <date year="2009" month="1" date="1" type="HOLIDAY"/>
+        <date year="2009" month="1" date="12" type="HOLIDAY"/>
+        <date year="2009" month="3" date="23" type="HOLIDAY"/>
+        <date year="2009" month="4" date="5" type="HOLIDAY"/>
+        <date year="2009" month="4" date="9" type="HOLIDAY"/>
+        <date year="2009" month="4" date="10" type="HOLIDAY"/>
+        <date year="2009" month="5" date="1" type="HOLIDAY"/>
+        <date year="2009" month="5" date="25" type="HOLIDAY"/>
+        <date year="2009" month="6" date="15" type="HOLIDAY"/>
+        <date year="2009" month="6" date="22" type="HOLIDAY"/>
+        <date year="2009" month="6" date="29" type="HOLIDAY"/>
+        <date year="2009" month="7" date="20" type="HOLIDAY"/>
+        <date year="2009" month="8" date="7" type="HOLIDAY"/>
+        <date year="2009" month="8" date="17" type="HOLIDAY"/>
+        <date year="2009" month="10" date="12" type="HOLIDAY"/>
+        <date year="2009" month="11" date="2" type="HOLIDAY"/>
+        <date year="2009" month="11" date="16" type="HOLIDAY"/>
+        <date year="2009" month="12" date="8" type="HOLIDAY"/>
+        <date year="2009" month="12" date="25" type="HOLIDAY"/>
+        <date year="2010" month="1" date="1" type="HOLIDAY"/>
+        <date year="2010" month="1" date="11" type="HOLIDAY"/>
+        <date year="2010" month="3" date="22" type="HOLIDAY"/>
+        <date year="2010" month="4" date="1" type="HOLIDAY"/>
+        <date year="2010" month="4" date="2" type="HOLIDAY"/>
+        <date year="2010" month="5" date="1" type="HOLIDAY"/>
+        <date year="2010" month="5" date="17" type="HOLIDAY"/>
+        <date year="2010" month="6" date="7" type="HOLIDAY"/>
+        <date year="2010" month="6" date="14" type="HOLIDAY"/>
+        <date year="2010" month="7" date="5" type="HOLIDAY"/>
+        <date year="2010" month="7" date="20" type="HOLIDAY"/>
+        <date year="2010" month="8" date="7" type="HOLIDAY"/>
+        <date year="2010" month="8" date="16" type="HOLIDAY"/>
+        <date year="2010" month="10" date="18" type="HOLIDAY"/>
+        <date year="2010" month="11" date="1" type="HOLIDAY"/>
+        <date year="2010" month="11" date="15" type="HOLIDAY"/>
+        <date year="2010" month="12" date="8" type="HOLIDAY"/>
+        <date year="2010" month="12" date="25" type="HOLIDAY"/>
+        <date year="2011" month="1" date="1" type="HOLIDAY"/>
+        <date year="2011" month="1" date="10" type="HOLIDAY"/>
+        <date year="2011" month="3" date="21" type="HOLIDAY"/>
+        <date year="2011" month="4" date="21" type="HOLIDAY"/>
+        <date year="2011" month="4" date="22" type="HOLIDAY"/>
+        <date year="2011" month="6" date="6" type="HOLIDAY"/>
+        <date year="2011" month="6" date="27" type="HOLIDAY"/>
+        <date year="2011" month="7" date="4" type="HOLIDAY"/>
+        <date year="2011" month="7" date="20" type="HOLIDAY"/>
+        <date year="2011" month="8" date="15" type="HOLIDAY"/>
+        <date year="2011" month="10" date="17" type="HOLIDAY"/>
+        <date year="2011" month="11" date="7" type="HOLIDAY"/>
+        <date year="2011" month="11" date="14" type="HOLIDAY"/>
+        <date year="2011" month="12" date="8" type="HOLIDAY"/>
+        <date year="2011" month="12" date="25" type="HOLIDAY"/>
+        <date year="2012" month="1" date="1" type="HOLIDAY"/>
+        <date year="2012" month="1" date="9" type="HOLIDAY"/>
+        <date year="2012" month="3" date="19" type="HOLIDAY"/>
+        <date year="2012" month="4" date="5" type="HOLIDAY"/>
+        <date year="2012" month="4" date="6" type="HOLIDAY"/>
+        <date year="2012" month="5" date="1" type="HOLIDAY"/>
+        <date year="2012" month="5" date="21" type="HOLIDAY"/>
+        <date year="2012" month="6" date="11" type="HOLIDAY"/>
+        <date year="2012" month="6" date="18" type="HOLIDAY"/>
+        <date year="2012" month="7" date="2" type="HOLIDAY"/>
+        <date year="2012" month="7" date="20" type="HOLIDAY"/>
+        <date year="2012" month="8" date="7" type="HOLIDAY"/>
+        <date year="2012" month="8" date="20" type="HOLIDAY"/>
+        <date year="2012" month="10" date="15" type="HOLIDAY"/>
+        <date year="2012" month="11" date="5" type="HOLIDAY"/>
+        <date year="2012" month="11" date="12" type="HOLIDAY"/>
+        <date year="2012" month="12" date="8" type="HOLIDAY"/>
+        <date year="2012" month="12" date="25" type="HOLIDAY"/>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" name="Recoleccion de Informacion" color="#8cb6ce" meeting="false" start="2018-02-28" duration="1" complete="0" thirdDate="2018-02-28" thirdDate-constraint="0" priority="2" expand="true"/>
+        <task id="9" name="entrevista" color="#8cb6ce" meeting="false" start="2018-02-28" duration="1" complete="0" thirdDate="2018-02-21" thirdDate-constraint="0" priority="2" expand="true"/>
+    </tasks>
+    <resources>
+        <resource id="0" name="Eduar Anaya_Analisis" function="SoftwareDevelopment:8" contacts="auxsoporte1@transer.com.co" phone="3116849204">
+            <rate name="standard" value="30000"/>
+        </resource>
+        <resource id="1" name="Eduar Anaya_Desarrollador" function="SoftwareDevelopment:2" contacts="auxsoporte1@transer.com.co" phone="3116849204">
+            <rate name="standard" value="30000"/>
+        </resource>
+        <resource id="2" name="Eduar Anaya_DiseñadorWeb" function="SoftwareDevelopment:9" contacts="auxsoporte1@transer.com.co" phone="3116849204">
+            <rate name="standard" value="30000"/>
+        </resource>
+        <resource id="3" name="Eduar Anaya_Documentador" function="SoftwareDevelopment:3" contacts="auxsoporte1@transer.com.co" phone="3116849204">
+            <rate name="standard" value="30000"/>
+        </resource>
+    </resources>
+    <allocations>
+        <allocation task-id="9" resource-id="0" function="SoftwareDevelopment:8" responsible="true" load="100.0"/>
+        <allocation task-id="9" resource-id="3" function="SoftwareDevelopment:3" responsible="false" load="100.0"/>
+    </allocations>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+    <roles roleset-name="SoftwareDevelopment"/>
+</project>
