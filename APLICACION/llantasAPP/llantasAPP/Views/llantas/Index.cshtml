@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Lllantas-Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/cssEdit/llantasHome.css" rel="stylesheet" />
+<div class="container" style="text-align: center;">
+
+    <div class="row" style="text-align: left;">
+        <h1>
+            <img src="~/Content/medios/llanta_ini.png" style="width: 15%;" />
+            Llantas operativo
+        </h1>
+    </div>
+    <div class="row d-flex justify-content-around">
+
+        <div class="col-sm-12 col-md-3 card opcMenu mb-3">
+            <div class="card-header">
+                <h6>Inventario de Llantas</h6>
+            </div>
+            <div class="card-body">
+                <a href="@Url.Action("Inventario", "llantas")">
+                    <img src="~/Content/medios/llanta_invent.png" style="width: 50%;" /></a>
+                <p class="card-text">Ver existencias de llantas.</p>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-3 card opcMenu mb-3">
+            <div class="card-header">
+                <h6>Edición de Llantas</h6>
+            </div>
+            <div class="card-body">
+                <img src="~/Content/medios/cambio_llantas.png" style="width: 50%;" />
+                <p class="card-text">Añade, quita y rota las llantas de un vehículo.</p>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-3 card opcMenu mb-3">
+            <div class="card-header">
+                <h6>Recircular Llantas</h6>
+            </div>
+            <div class="card-body">
+                <img src="~/Content/medios/llanta_circula.png" style="width: 50%;" />
+                <p class="card-text">Pasar llantas de recircular o transición a Inventario.</p>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-3 card opcMenu mb-3">
+            <div class="card-header">
+                <h6>Reencauche de Llantas</h6>
+            </div>
+            <div class="card-body">
+                <img src="~/Content/medios/llanta_reencauche.png" style="width: 50%;" />
+                <p class="card-text">Enviar llantas a proceso de reencauche.</p>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-3 card opcMenu mb-3">
+            <div class="card-header">
+                <h6>Reparación de Llantas</h6>
+            </div>
+            <div class="card-body">
+                <img src="~/Content/medios/llanta_repara.png" style="width: 50%;" />
+                <p class="card-text">Reparación de llantas sin retirar del vehículo.</p>
+            </div>
+        </div>
+
+    </div>
+</div>

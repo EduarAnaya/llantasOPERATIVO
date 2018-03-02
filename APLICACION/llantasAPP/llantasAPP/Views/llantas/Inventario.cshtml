@@ -1,0 +1,83 @@
+﻿@model IEnumerable<llantasAPP.Models.llantasInventario>
+
+@{
+    ViewBag.Title = "Inventario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Scripts/jsPersonalisados/datatables/datatables.min.css" rel="stylesheet" />
+<script src="~/Scripts/jsPersonalisados/datatables/datatables.min.js"></script>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "llantas")">Inicio</a></li>
+        <li class="breadcrumb-item" aria-current="page">Inventario de llantas</li>
+    </ol>
+</nav>
+
+<h2>Inventario de Llantas</h2>
+<script type="text/javascript">
+    $(function () {
+        $("#table_id").DataTable();
+    });
+</script>
+<table id="table_id" class=" table display" style="font-size: small;">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LLANTA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GRUPO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.INVENT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VALOR)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FECHA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PROVE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FACTURA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FICHA)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LLANTA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GRUPO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.INVENT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VALOR)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FECHA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PROVE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FACTURA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FICHA)
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
