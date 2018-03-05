@@ -50,7 +50,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/02/2018 10:12:02</publishTime>
     </File>
     <File Include="bin/llantasAPP.dll">
-      <publishTime>03/02/2018 17:36:40</publishTime>
+      <publishTime>03/05/2018 10:46:28</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>03/02/2018 10:11:59</publishTime>
@@ -97,8 +97,11 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="Content/bootstrap/bootstrap.min.css">
       <publishTime>03/02/2018 14:06:51</publishTime>
     </File>
+    <File Include="Content/cssEdit/cssGeneral.css">
+      <publishTime>03/05/2018 10:33:51</publishTime>
+    </File>
     <File Include="Content/cssEdit/llantasHome.css">
-      <publishTime>03/02/2018 16:38:00</publishTime>
+      <publishTime>03/05/2018 10:22:20</publishTime>
     </File>
     <File Include="Content/cssEdit/Site.css">
       <publishTime>03/02/2018 10:11:43</publishTime>
@@ -119,7 +122,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/02/2018 17:23:59</publishTime>
     </File>
     <File Include="Content/medios/llanta_ini.png">
-      <publishTime>02/23/2018 18:34:17</publishTime>
+      <publishTime>03/05/2018 10:14:36</publishTime>
     </File>
     <File Include="Content/medios/llanta_invent.png">
       <publishTime>03/02/2018 16:05:56</publishTime>
@@ -361,6 +364,408 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="Scripts/jsPersonalisados/bootstrap.min.js">
       <publishTime>01/18/2018 11:33:36</publishTime>
     </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/css/autoFill.bootstrap.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/css/autoFill.bootstrap.min.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/css/autoFill.bootstrap4.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/css/autoFill.bootstrap4.min.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/css/autoFill.dataTables.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/css/autoFill.dataTables.min.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/css/autoFill.foundation.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/css/autoFill.foundation.min.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/css/autoFill.jqueryui.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/css/autoFill.jqueryui.min.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/css/autoFill.semanticui.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/css/autoFill.semanticui.min.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/js/autoFill.bootstrap.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/js/autoFill.bootstrap.min.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/js/autoFill.bootstrap4.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/js/autoFill.bootstrap4.min.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/js/autoFill.foundation.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/js/autoFill.foundation.min.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/js/autoFill.jqueryui.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/js/autoFill.jqueryui.min.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/js/autoFill.semanticui.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/js/autoFill.semanticui.min.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/js/dataTables.autoFill.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/js/dataTables.autoFill.min.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/css/buttons.bootstrap.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/css/buttons.bootstrap.min.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/css/buttons.bootstrap4.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/css/buttons.bootstrap4.min.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/css/buttons.dataTables.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/css/buttons.dataTables.min.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/css/buttons.foundation.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/css/buttons.foundation.min.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/css/buttons.jqueryui.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/css/buttons.jqueryui.min.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/css/buttons.semanticui.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/css/buttons.semanticui.min.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/css/common.scss">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/css/mixins.scss">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/js/buttons.bootstrap.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/js/buttons.bootstrap.min.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/js/buttons.bootstrap4.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/js/buttons.bootstrap4.min.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/js/buttons.colVis.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/js/buttons.colVis.min.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/js/buttons.flash.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/js/buttons.flash.min.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/js/buttons.foundation.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/js/buttons.foundation.min.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/js/buttons.html5.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/js/buttons.html5.min.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/js/buttons.jqueryui.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/js/buttons.jqueryui.min.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/js/buttons.print.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/js/buttons.print.min.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/js/buttons.semanticui.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/js/buttons.semanticui.min.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/js/dataTables.buttons.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/js/dataTables.buttons.min.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Buttons-1.5.1/swf/flashExport.swf">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/ColReorder-1.4.1/css/colReorder.bootstrap.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/ColReorder-1.4.1/css/colReorder.bootstrap.min.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/ColReorder-1.4.1/css/colReorder.bootstrap4.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/ColReorder-1.4.1/css/colReorder.bootstrap4.min.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/ColReorder-1.4.1/css/colReorder.dataTables.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/ColReorder-1.4.1/css/colReorder.dataTables.min.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/ColReorder-1.4.1/css/colReorder.foundation.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/ColReorder-1.4.1/css/colReorder.foundation.min.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/ColReorder-1.4.1/css/colReorder.jqueryui.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/ColReorder-1.4.1/css/colReorder.jqueryui.min.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/ColReorder-1.4.1/css/colReorder.semanticui.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/ColReorder-1.4.1/css/colReorder.semanticui.min.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/ColReorder-1.4.1/js/dataTables.colReorder.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/ColReorder-1.4.1/js/dataTables.colReorder.min.js">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/css/dataTables.bootstrap.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/css/dataTables.bootstrap.min.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/css/dataTables.foundation.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/css/dataTables.foundation.min.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/css/dataTables.jqueryui.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/css/dataTables.jqueryui.min.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/css/dataTables.semanticui.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/css/dataTables.semanticui.min.css">
+      <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/css/jquery.dataTables.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/css/jquery.dataTables.min.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/images/sort_asc.png">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/images/sort_asc_disabled.png">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/images/sort_both.png">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/images/sort_desc.png">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/images/sort_desc_disabled.png">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/js/dataTables.bootstrap.js">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/js/dataTables.bootstrap.min.js">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.js">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/js/dataTables.foundation.js">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/js/dataTables.foundation.min.js">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/js/dataTables.jqueryui.js">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/js/dataTables.jqueryui.min.js">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/js/dataTables.semanticui.js">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/js/dataTables.semanticui.min.js">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/js/jquery.dataTables.js">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/DataTables-1.10.16/js/jquery.dataTables.min.js">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/datatables.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/datatables.js">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/datatables.min.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/datatables.min.js">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Scroller-1.4.4/css/scroller.bootstrap.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Scroller-1.4.4/css/scroller.bootstrap.min.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Scroller-1.4.4/css/scroller.bootstrap4.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Scroller-1.4.4/css/scroller.bootstrap4.min.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Scroller-1.4.4/css/scroller.dataTables.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Scroller-1.4.4/css/scroller.dataTables.min.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Scroller-1.4.4/css/scroller.foundation.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Scroller-1.4.4/css/scroller.foundation.min.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Scroller-1.4.4/css/scroller.jqueryui.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Scroller-1.4.4/css/scroller.jqueryui.min.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Scroller-1.4.4/css/scroller.semanticui.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Scroller-1.4.4/css/scroller.semanticui.min.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Scroller-1.4.4/js/dataTables.scroller.js">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Scroller-1.4.4/js/dataTables.scroller.min.js">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Select-1.2.5/css/select.bootstrap.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Select-1.2.5/css/select.bootstrap.min.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Select-1.2.5/css/select.bootstrap4.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Select-1.2.5/css/select.bootstrap4.min.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Select-1.2.5/css/select.dataTables.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Select-1.2.5/css/select.dataTables.min.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Select-1.2.5/css/select.foundation.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Select-1.2.5/css/select.foundation.min.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Select-1.2.5/css/select.jqueryui.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Select-1.2.5/css/select.jqueryui.min.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Select-1.2.5/css/select.semanticui.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Select-1.2.5/css/select.semanticui.min.css">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Select-1.2.5/js/dataTables.select.js">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/datatables/Select-1.2.5/js/dataTables.select.min.js">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
     <File Include="Scripts/jsPersonalisados/jquery-3.2.1.min.js">
       <publishTime>02/23/2018 18:34:17</publishTime>
     </File>
@@ -377,13 +782,16 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/02/2018 10:11:58</publishTime>
     </File>
     <File Include="Views/llantas/Index.cshtml">
-      <publishTime>03/02/2018 17:34:58</publishTime>
+      <publishTime>03/05/2018 10:36:24</publishTime>
+    </File>
+    <File Include="Views/llantas/Inventario.cshtml">
+      <publishTime>03/05/2018 10:44:34</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>03/02/2018 10:11:43</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>03/02/2018 14:50:34</publishTime>
+      <publishTime>03/05/2018 10:35:44</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>03/02/2018 10:11:43</publishTime>
@@ -392,7 +800,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/02/2018 10:11:43</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/02/2018 17:36:40</publishTime>
+      <publishTime>03/05/2018 10:46:29</publishTime>
     </File>
   </ItemGroup>
 </Project>

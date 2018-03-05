@@ -1,8 +1,10 @@
 ﻿.opcMenu {
-    background-color: #ffc107!important;
+    background-color: #82dd47!important;
     padding: 0;
     margin: 10px;
     box-shadow: 1px 1px 10px 1px #9a9a9a;
+    color: #323232;
+    text-shadow: 0 0 1px black;
 }
 
     .opcMenu .card-body {

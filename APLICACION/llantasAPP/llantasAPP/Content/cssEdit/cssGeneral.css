@@ -1,0 +1,19 @@
+﻿header {
+    background-color: #ffffff;
+    color: #495057;
+    text-shadow: 0 0 4px #dee2e6;
+    border-bottom: solid;
+    margin-top: 10px;
+}
+
+footer {
+    border-top: solid;
+    background-color: #ffffff;
+    color: #495057;
+    text-shadow: 0 0 4px #dee2e6;
+    margin-top: 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color:#495057;
+}

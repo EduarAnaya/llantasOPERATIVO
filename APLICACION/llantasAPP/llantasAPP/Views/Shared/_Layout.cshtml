@@ -4,7 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@ViewBag.Title</title>
+    @* Bootstrap *@
     <link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    @* locales *@
+    <link href="~/Content/cssEdit/cssGeneral.css" rel="stylesheet" />
 
     <link href="~/css/jquery-ui.min.css" rel="stylesheet" />
     @Scripts.Render("~/bundles/modernizr")
@@ -14,7 +17,20 @@
     <script src="~/Scripts/jsPersonalisados/bootstrap.js"></script>
     <script src="~/Scripts/jsPersonalisados/bootstrap.min.js"></script>
     <div class="container">
+        <header>
+            <div class="row" style="text-align: left;">
+                <div class="col">
+                    <h1>
+                        <img src="~/Content/medios/llanta_ini.png" style="width: 5%;" />
+                        Llantas operativo
+                    </h1>
+                </div>
+            </div>
+        </header>
+
         @RenderBody()
+
+
         <footer>
             version 3.0 marzo 2018
         </footer>
