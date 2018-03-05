@@ -15,5 +15,29 @@ footer {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color:#495057;
+    color: #495057;
+}
+
+.breadcrumb {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: #e9ecef;
+    border-radius: .25rem;
+}
+
+.bg-dark {
+    background-color: #000000a1!important;
+}
+
+
+@media (max-width:1100px) {
+    .container {
+        min-width: 100%;
+    }
 }

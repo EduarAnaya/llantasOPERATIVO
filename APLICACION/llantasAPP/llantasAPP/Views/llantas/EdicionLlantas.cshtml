@@ -1,0 +1,217 @@
+﻿@{
+    ViewBag.Title = "Llantas-Edicion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/cssEdit/css_Editllantas.css" rel="stylesheet" />
+<link href="~/Content/LibreriasProv/jquery-ui.min.css" rel="stylesheet" />
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "llantas")">Inicio</a></li>
+        <li class="breadcrumb-item" aria-current="page">Rotación de llantas</li>
+    </ol>
+</nav>
+
+@* formulario *@
+<div class="col">
+    <div id="cont_editLlantas" class="row">
+        <div id="cajacontrolesizq" class="col-sm-12 col-md-2 col-lg-2">
+
+            <form id="formBuscarPlaca">
+                <fieldset id="controlform">
+                    <legend><span class="tituloform">Buscar Placa</span></legend>
+                    <div class="form-row">
+                        <div class="form-group col-8 ">
+                            <input type="text" class="form-control text-uppercase" id="inputsplaca" name="placa" placeholder="PLACA" maxlength="6" required="required">
+                            <input type="number" class="form-control text-uppercase" id="inputskm" name="km" placeholder="KM" required="required">
+                        </div>
+                        <div class="form-group col-4">
+                            <button id="cargarplaca" type="submit" class="btn btn-success btn-sm">
+                                <img src="~/Content/medios/search.svg" />
+                            </button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <form>
+                <fieldset id="dtllTrabajoactual" class="visible">
+                    <legend><span class="tituloform">Trabajo Actual</span></legend>
+                    <dl class="row">
+                        <dt class="col">Placa</dt>
+                        <dd class="col"><span id="tActual" class="badge badge-secondary">N/A</span></dd>
+                        <dt class="col">Kilometraje</dt>
+                        <dd class="col"><span id="kmActual"></span></dd>
+                        <dt class="col">Fecha</dt>
+                        <dd class="col"><span id="dateActual"></span></dd>
+                    </dl>
+                </fieldset>
+
+
+
+                <span id="lblMresultados" class="badge badge-warning visible">Sin resultados!</span>
+            </form>
+            <button id="bntGuardar" type="button" class="btn btn-success btn-lg btn-block" disabled>Guardar</button>
+        </div>
+        <div id="cajacontrolcent" class="col visible">
+            <div id="camion" class="row">
+                @*Epacio para las llantas *@
+            </div>
+        </div>
+        <div id="cajacontrolesderc" class="col-sm-3 col-md-2 col-lg-2 cajacontrolesder visible">
+            <div class="contAddllantas">
+                <form id="formAddLlanta">
+                    <fieldset>
+                        <legend>Montar llantas</legend>
+                        <div class="form-row">
+                            <div class="form-group col-8">
+                                <input type="text" class="form-control text-uppercase" id="inputnllanta" name="nllanta" placeholder="LLANTA" required="required">
+                            </div>
+                            <div class="form-group col-4">
+                                <button id="addllanta" type="submit" class="btn btn-success">
+                                    <img src="~/Content/medios/plus.svg" /></button>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </form>
+                <div id="nuevallanta">
+                </div>
+            </div>
+            <div class="contBasura">
+                <form>
+                    <fieldset>
+                        <legend>Remover Llanta</legend>
+
+                    </fieldset>
+                    <div class="clas caneca">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@* guardar *@
+<div class="modal fade" id="modales" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    <img src="~/Content/medios/success.png" style="width: 60px" />Transacción guardada</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @*                <div class="modal-body">
+                    <div class="row">
+                        <div id="conimpor" class="col card">
+                            <h5>IMOPRTADAS</h5>
+                            <ol id="lImportadas">
+                            </ol>
+                        </div>
+                        <div class="col card">
+                            <h5>MONTADAS</h5>
+                            <ol id="lMontadas">
+                            </ol>
+                        </div>
+                        <div class="col card">
+                            <h5>REMOVIDAS</h5>
+                            <ol id="lRemovidas">
+                            </ol>
+                        </div>
+                    </div>
+                </div>*@
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* toma de muestras *@
+<div class="modal fade" id="modMuestra" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    <img src="~/Content/medios/medidas_llantas.png" style="width: 30%;" />
+                    Muestreo
+                </h3>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col text-right">
+                            <h5>Placa</h5>
+                        </div>
+                        <div class="col-7">
+                            <h4><span class="badge badge-success" id="idPlacaMed"></span></h4>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col text-right">
+                            <h5>Llanta</h5>
+                        </div>
+                        <div class="col-7">
+                            <h4><span class="badge badge-success" id="idLlantaMed"></span></h4>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form id="formMuestras">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="inputPresion" name="inputPresion" placeholder="Presión" required="required">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="inputLizq" name="inputLizq" placeholder="Labrado Izquierdo" required="required">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="inputCent" name="inputCent" placeholder="Labrado Centro" required="required">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="inputDere" name="inputDere" placeholder="Labrado Derecho" required="required">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <img src="~/Content/medios/labrado.png" class="imgGuia" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col">
+                            <span>KM DE MUESTRA: </span>
+                            <input type="number" class="form-control" id="kmMuestra" name="kmMuestra" placeholder="KM DE MUESTRA" required="required">
+                        </div>
+                        <div class="form-group col">
+                            <span>FECHA DE MUESTRA: </span>
+                            <input type="text" class="form-control" id="datepicker">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-outline-success btn-lg btn-block">Guardar</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jsPersonalisados/index.js"></script>
+<script src="~/Scripts/jsPersonalisados/tactil.js"></script>

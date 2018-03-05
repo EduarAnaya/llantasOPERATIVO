@@ -1,0 +1,228 @@
+﻿legend {
+    color: white;
+    font-size: medium;
+}
+
+label.error {
+    color: red;
+}
+
+.tituloform {
+    font-size: larger;
+    color: white;
+    text-shadow: 1px 1px 5px black;
+}
+
+.ui-autocomplete {
+    max-height: 200px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+}
+
+/* tabla consulta inventario */
+
+.dataTables_wrapper {
+
+    position: relative;
+    clear: both;
+    *zoom: 1;
+    zoom: 1;
+    font-size: xx-small;
+
+}
+
+dl {
+    color: white;
+}
+
+dt {
+    font-weight: 300;
+}
+
+span.tdesc {
+    color: white;
+}
+
+.btn, input {
+    box-shadow: 1px 1px 5px black;
+}
+
+.badge-secondary {
+    color: #fff;
+    background-color: #ff0202;
+    color: #fff;
+    background-color: #ff0202;
+    font-size: medium;
+}
+
+.row.nllantas {
+    height: 60%;
+}
+
+
+
+button#cargarplaca, button#addllanta {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+
+#camion {
+    background-size: 100% 100%;
+    height: 100%;
+}
+
+.caja {
+    margin: auto;
+    width: auto;
+    height: auto;
+    min-width: auto;
+    min-height: -webkit-fill-available;
+    background-color: grey;
+    border-radius: 10px;
+}
+
+.llanta {
+    background: url(../medios/rueda.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: inherit;
+    z-index: 1;
+    width: 100%;
+    height: 30px;
+    border: 1px solid;
+    display: flex !important;
+    border-radius: 15px;
+    color: white;
+    font-size: small;
+    align-items: center;
+}
+
+.eje {
+    background-color: rgba(255, 255, 255, 0);
+    position: absolute;
+    width: 14%;
+    height: 31px;
+}
+
+.idllanta {
+    text-shadow: 0 0 1px black;
+    color: black;
+}
+
+.caneca {
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+    border-radius: 10px;
+    background-color: #fff7f7;
+    box-shadow: 0px 0 11px black;
+    min-height: 100px;
+    max-height: 100px;
+}
+
+    .caneca .llanta {
+        width: 50%;
+        height: 20%;
+    }
+
+
+.caneca_over {
+    box-shadow: 0px 0px 15px 4px #ff0a07;
+}
+
+.llanta_dragg {
+    box-shadow: 0 0 15px 4px #07b0ff;
+}
+
+div#nuevallanta {
+    max-height: 106px;
+    background-color: #fff7f7;
+    border-radius: 10px;
+    margin: auto;
+    box-shadow: 0px 0 11px black;
+    display: flex;
+    flex-flow: wrap;
+}
+
+#nuevallanta .llanta {
+    width: 50%;
+    height: 20%;
+}
+
+div#cont_editLlantas {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#cajacontrolesizq {
+    background-color: #525252;
+    box-shadow: 0 0 10px black;
+    padding-bottom: 10px;
+    border-radius: 10px 0px 0px 10px;
+}
+
+#cajacontrolesderc {
+    background-color: #525252;
+    box-shadow: 0 0 10px black;
+    padding-bottom: 10px;
+    border-radius: 0px 10px 10px 0px;
+}
+
+div#cajacontrolcent {
+    min-height: 360px;
+}
+
+.visible {
+    display: none;
+}
+
+.contAddllantas {
+    padding: 0;
+}
+
+.imgGuia {
+    width: 90%;
+    box-shadow: 4px 4px 5px #cecece;
+    border-radius: 20px;
+}
+
+input#inputLizq {
+    box-shadow: 1px 1px 5px #038fcc;
+}
+
+input#inputCent {
+    box-shadow: 1px 1px 5px #00c915;
+}
+
+input#inputDere {
+    box-shadow: 1px 1px 5px #f41f4a;
+}
+.camionLimpio{
+    background-image: none !important;
+}
+.camionCabezote{
+    background-image:url("../medios/camion.png");
+}
+.camionTrailerx1{
+    background-image:url("../medios/trailerx1.png");
+}
+.camionTrailerx2{
+    background-image:url("../medios/trailerx2.png");
+}
+.camionTrailerx3{
+    background-image:url("../medios/trailerx3.png");
+
+}
+.sobre {
+    box-shadow: 0px 0 10px 0px #ffc107;
+}
+
+.selectOpcion {
+    background-color: #ffc107;
+}
+
+.visible {
+    display: none;
+}

@@ -40,6 +40,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Oracle.DataAccess, Version=4.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\orant\Oda11\product\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -126,13 +130,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\bdConexion.cs" />
     <Compile Include="Models\llantasModel.cs" />
+    <Compile Include="Models\paramConn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap\bootstrap.css" />
     <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\cssEdit\cssGeneral.css" />
+    <Content Include="Content\cssEdit\css_Editllantas.css" />
     <Content Include="Content\cssEdit\llantasHome.css" />
     <Content Include="Content\cssEdit\Site.css" />
     <Content Include="Content\LibreriasProv\jquery-ui.min.css" />
@@ -355,7 +362,10 @@
     <Content Include="Scripts\jsPersonalisados\datatables\Select-1.2.5\css\select.semanticui.min.css" />
     <Content Include="Scripts\jsPersonalisados\datatables\Select-1.2.5\js\dataTables.select.js" />
     <Content Include="Scripts\jsPersonalisados\datatables\Select-1.2.5\js\dataTables.select.min.js" />
+    <Content Include="Scripts\jsPersonalisados\index.js" />
     <Content Include="Scripts\jsPersonalisados\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jsPersonalisados\tactil.js" />
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
@@ -375,6 +385,7 @@
     <Content Include="Views\llantas\Inventario.cshtml" />
     <Content Include="Scripts\jsPersonalisados\datatables\Buttons-1.5.1\css\common.scss" />
     <Content Include="Scripts\jsPersonalisados\datatables\Buttons-1.5.1\css\mixins.scss" />
+    <Content Include="Views\llantas\EdicionLlantas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

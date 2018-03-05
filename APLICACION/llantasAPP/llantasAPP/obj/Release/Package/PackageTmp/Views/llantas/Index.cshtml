@@ -9,7 +9,7 @@
 
         <div class="col-sm-12 col-md-3 card opcMenu mb-3">
             <div class="card-header">
-                <h3>Inventario de Llantas</h3>
+                <h6>Inventario de Llantas</h6>
             </div>
             <div class="card-body">
                 <a href="@Url.Action("Inventario", "llantas")">
@@ -23,7 +23,8 @@
                 <h6>Edición de Llantas</h6>
             </div>
             <div class="card-body">
-                <img src="~/Content/medios/cambio_llantas.png" style="width: 50%;" />
+                <a href="@Url.Action("EdicionLlantas","llantas")">
+                    <img src="~/Content/medios/cambio_llantas.png" style="width: 50%;" /></a>
                 <p class="card-text">Añade, quita y rota las llantas de un vehículo.</p>
             </div>
         </div>
