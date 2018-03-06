@@ -50,7 +50,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/02/2018 10:12:02</publishTime>
     </File>
     <File Include="bin/llantasAPP.dll">
-      <publishTime>03/05/2018 12:59:55</publishTime>
+      <publishTime>03/06/2018 16:38:03</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>03/02/2018 10:11:59</publishTime>
@@ -101,10 +101,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/02/2018 14:06:51</publishTime>
     </File>
     <File Include="Content/cssEdit/cssGeneral.css">
-      <publishTime>03/05/2018 13:40:30</publishTime>
+      <publishTime>03/05/2018 18:16:54</publishTime>
     </File>
     <File Include="Content/cssEdit/css_Editllantas.css">
-      <publishTime>03/05/2018 12:56:17</publishTime>
+      <publishTime>03/05/2018 18:16:54</publishTime>
     </File>
     <File Include="Content/cssEdit/css_home.css">
       <publishTime>03/05/2018 12:12:09</publishTime>
@@ -113,10 +113,31 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/05/2018 11:57:47</publishTime>
     </File>
     <File Include="Content/cssEdit/llantasHome.css">
-      <publishTime>03/05/2018 10:22:20</publishTime>
+      <publishTime>03/05/2018 18:16:54</publishTime>
     </File>
     <File Include="Content/cssEdit/Site.css">
       <publishTime>03/02/2018 10:11:43</publishTime>
+    </File>
+    <File Include="Content/LibreriasProv/flie/jquery-ui-demo-ie8.css">
+      <publishTime>02/19/2018 07:12:29</publishTime>
+    </File>
+    <File Include="Content/LibreriasProv/flie/jquery-ui-demo.css">
+      <publishTime>02/19/2018 07:12:29</publishTime>
+    </File>
+    <File Include="Content/LibreriasProv/flie/jquery.fileupload-noscript.css">
+      <publishTime>02/19/2018 07:12:29</publishTime>
+    </File>
+    <File Include="Content/LibreriasProv/flie/jquery.fileupload-ui-noscript.css">
+      <publishTime>02/19/2018 07:12:29</publishTime>
+    </File>
+    <File Include="Content/LibreriasProv/flie/jquery.fileupload-ui.css">
+      <publishTime>02/19/2018 07:12:29</publishTime>
+    </File>
+    <File Include="Content/LibreriasProv/flie/jquery.fileupload.css">
+      <publishTime>02/19/2018 07:12:29</publishTime>
+    </File>
+    <File Include="Content/LibreriasProv/flie/style.css">
+      <publishTime>02/19/2018 07:12:29</publishTime>
     </File>
     <File Include="Content/LibreriasProv/jquery-ui.min.css">
       <publishTime>02/23/2018 18:34:16</publishTime>
@@ -133,8 +154,11 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="Content/medios/llanta_circula.png">
       <publishTime>03/02/2018 17:23:59</publishTime>
     </File>
+    <File Include="Content/medios/llanta_desmonta.png">
+      <publishTime>03/06/2018 11:25:13</publishTime>
+    </File>
     <File Include="Content/medios/llanta_ini.png">
-      <publishTime>03/05/2018 10:14:36</publishTime>
+      <publishTime>03/05/2018 18:16:54</publishTime>
     </File>
     <File Include="Content/medios/llanta_invent.png">
       <publishTime>03/02/2018 16:05:56</publishTime>
@@ -353,7 +377,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/02/2018 10:11:59</publishTime>
     </File>
     <File Include="Scripts/jquery-ui.min.js">
-      <publishTime>03/05/2018 11:49:26</publishTime>
+      <publishTime>03/05/2018 18:16:54</publishTime>
     </File>
     <File Include="Scripts/jquery.unobtrusive-ajax.js">
       <publishTime>03/02/2018 10:11:59</publishTime>
@@ -782,19 +806,55 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/23/2018 18:34:17</publishTime>
     </File>
     <File Include="Scripts/jsPersonalisados/index.js">
-      <publishTime>02/26/2018 18:09:25</publishTime>
+      <publishTime>03/06/2018 16:25:51</publishTime>
     </File>
     <File Include="Scripts/jsPersonalisados/jquery-3.2.1.min.js">
       <publishTime>02/23/2018 18:34:17</publishTime>
     </File>
     <File Include="Scripts/jsPersonalisados/tactil.js">
-      <publishTime>03/05/2018 12:30:05</publishTime>
+      <publishTime>03/05/2018 18:16:54</publishTime>
     </File>
     <File Include="Scripts/knockout-2.1.0.debug.js">
       <publishTime>03/02/2018 10:12:02</publishTime>
     </File>
     <File Include="Scripts/knockout-2.1.0.js">
       <publishTime>03/02/2018 10:12:02</publishTime>
+    </File>
+    <File Include="Scripts/libreriasPRoveedores/app.js">
+      <publishTime>02/19/2018 07:12:29</publishTime>
+    </File>
+    <File Include="Scripts/libreriasPRoveedores/jquery.fileupload-angular.js">
+      <publishTime>02/19/2018 07:12:29</publishTime>
+    </File>
+    <File Include="Scripts/libreriasPRoveedores/jquery.fileupload-audio.js">
+      <publishTime>02/19/2018 07:12:29</publishTime>
+    </File>
+    <File Include="Scripts/libreriasPRoveedores/jquery.fileupload-image.js">
+      <publishTime>02/19/2018 07:12:29</publishTime>
+    </File>
+    <File Include="Scripts/libreriasPRoveedores/jquery.fileupload-jquery-ui.js">
+      <publishTime>02/19/2018 07:12:29</publishTime>
+    </File>
+    <File Include="Scripts/libreriasPRoveedores/jquery.fileupload-process.js">
+      <publishTime>02/19/2018 07:12:29</publishTime>
+    </File>
+    <File Include="Scripts/libreriasPRoveedores/jquery.fileupload-ui.js">
+      <publishTime>02/19/2018 07:12:29</publishTime>
+    </File>
+    <File Include="Scripts/libreriasPRoveedores/jquery.fileupload-validate.js">
+      <publishTime>02/19/2018 07:12:29</publishTime>
+    </File>
+    <File Include="Scripts/libreriasPRoveedores/jquery.fileupload-video.js">
+      <publishTime>02/19/2018 07:12:29</publishTime>
+    </File>
+    <File Include="Scripts/libreriasPRoveedores/jquery.fileupload.js">
+      <publishTime>02/19/2018 07:12:29</publishTime>
+    </File>
+    <File Include="Scripts/libreriasPRoveedores/jquery.iframe-transport.js">
+      <publishTime>02/19/2018 07:12:29</publishTime>
+    </File>
+    <File Include="Scripts/libreriasPRoveedores/main.js">
+      <publishTime>02/19/2018 07:12:29</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.5.3.js">
       <publishTime>03/02/2018 10:11:59</publishTime>
@@ -803,19 +863,19 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/02/2018 10:11:58</publishTime>
     </File>
     <File Include="Views/llantas/EdicionLlantas.cshtml">
-      <publishTime>03/05/2018 13:33:28</publishTime>
+      <publishTime>03/06/2018 16:33:30</publishTime>
     </File>
     <File Include="Views/llantas/Index.cshtml">
-      <publishTime>03/05/2018 10:55:24</publishTime>
+      <publishTime>03/05/2018 18:16:54</publishTime>
     </File>
     <File Include="Views/llantas/Inventario.cshtml">
-      <publishTime>03/05/2018 10:44:34</publishTime>
+      <publishTime>03/05/2018 18:16:54</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>03/02/2018 10:11:43</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>03/05/2018 13:01:21</publishTime>
+      <publishTime>03/06/2018 15:32:03</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>03/02/2018 10:11:43</publishTime>
@@ -824,7 +884,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/02/2018 10:11:43</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/05/2018 13:40:50</publishTime>
+      <publishTime>03/06/2018 16:38:03</publishTime>
     </File>
   </ItemGroup>
 </Project>

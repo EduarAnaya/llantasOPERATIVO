@@ -4,7 +4,7 @@
 }
 
 <link href="~/Content/cssEdit/css_Editllantas.css" rel="stylesheet" />
-<link href="~/Content/LibreriasProv/jquery-ui.min.css" rel="stylesheet" />
+
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="@Url.Action("Index", "llantas")">Inicio</a></li>
@@ -127,14 +127,14 @@
     </div>
 </div>
 
-@* toma de muestras *@
-<div class="modal fade" id="modMuestra" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+@* toma de muestras para montar *@
+<div class="modal fade" id="modMuestraMonta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title">
                     <img src="~/Content/medios/medidas_llantas.png" style="width: 30%;" />
-                    Muestreo
+                    Muestreo para montar
                 </h3>
                 <div class="col-6">
                     <div class="row">
@@ -211,7 +211,144 @@
     </div>
 </div>
 
-<script src="~/Scripts/jquery-ui.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jsPersonalisados/index.js"></script>
-<script src="~/Scripts/jsPersonalisados/tactil.js"></script>
+
+@* toma de muestras para desmontar*@
+@*espacio para el script  *@
+<div class="modal fade bd-example-modal" id="modMuestraDesmonta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="max-width: 1000px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="col-5">
+                    <h3 class="modal-title">
+                        <img src="~/Content/medios/medidas_llantas.png" style="width: 20%;" />
+                        Desmontar llanta
+                    </h3>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col text-right">
+                                    <h5>Placa</h5>
+                                </div>
+                                <div class="col-7">
+                                    <h4><span class="badge badge-success" id="idPlacaRmv"></span></h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col text-right">
+                                    <h5>Llanta</h5>
+                                </div>
+                                <div class="col-7">
+                                    <h4><span class="badge badge-success" id="idLlantaRmv"></span></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col text-right">
+                                    <h5>KM</h5>
+                                </div>
+                                <div class="col-7">
+                                    <h4><span class="badge badge-success" id="idKMMed"></span></h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col text-right">
+                                    <h5>FECHA</h5>
+                                </div>
+                                <div class="col-7">
+                                    <h4><span class="badge badge-success" id="idFechaMed"></span></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form id="formMuestrasDesmonta">
+                    <div class="row">
+                        <div class="col" style="border-right: solid">
+                            <fieldset>
+                                <legend style="color: black !important;">Muestreo del desmonte</legend>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group row">
+                                            <div class="col">
+                                                <input type="number" class="form-control" id="inputPresionRmv" name="inputPresionRmv" placeholder="Presión" required="required">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col">
+                                                <input type="number" class="form-control" id="inputLizqRmv" name="inputLizqRmv" placeholder="Labrado Izquierdo" required="required">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col">
+                                                <input type="number" class="form-control" id="inputCentRmv" name="inputCentRmv" placeholder="Labrado Centro" required="required">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col">
+                                                <input type="number" class="form-control" id="inputDereRmv" name="inputDereRmv" placeholder="Labrado Derecho" required="required">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <img src="~/Content/medios/labrado.png" class="imgGuia" />
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col">
+
+                            <fieldset>
+                                <legend style="color: black !important;">Detalles del desmonte</legend>
+                                <div class="form-group">
+                                    <label for="inputState">Causa</label>
+                                    <select id="inputState" class="form-control">
+                                        <option selected>Seleccione...</option>
+                                        <option value="1">Llanta para rehusar en otro vehículo</option>
+                                        <option value="2">Llanta estallada</option>
+                                        <option value="3">Llanta quemada</option>
+                                        <option value="4">Llanta para rreparar</option>
+                                        <option value="5">Llanta prestada en carretera</option>
+                                        <option value="6">Llanta en limite de desgaste</option>
+                                        <option value="7">Llanta para enviar a ajuste</option>
+                                        <option value="8">Llanta con filtración de aire</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Observaciones del desmonte</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>
+                                <fieldset>
+                                    <legend style="color: black !important;">Documentación de soporte</legend>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label" for="customFile">Subir archivos</label>
+                                    </div>
+                                </fieldset>
+
+                            </fieldset>
+
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-outline-success btn-lg btn-block">Guardar</button>
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

@@ -7,7 +7,6 @@ $(function () {
     /*  var _LlantasInicial = [], */
     var _llantasImportadas = [],
         _llantasMontadas = [],
-        _llantasManipuladas = [],
         _llantasRemovidas = [],
         _llantasData = [];
     var _llantaData = 0,
@@ -22,6 +21,9 @@ $(function () {
 
         var fecha = new Date();
         var dia = fecha.getDate();
+        if (dia < 10) {
+            dia = '0' + dia;
+        }
         var mesA = new Array();
         mesA[0] = "01";
         mesA[1] = "02";
@@ -280,7 +282,7 @@ $(function () {
             if (paqueteLlantas.length >= 0 || paqueteLlantas.length <= 10) {
                 for (var i = 0; i < 10; i++) {
                     var ejes = '<div id="eje' + (i + 1) + '" class="eje ">'
-                        + '<div class="caja">'
+                        + '<div id="caja' + (i + 1) + '" class="caja">'
                         + '</div>'
                         + '</div>';//SE ARMA LA BASE DE LA LLANTA CAJA+EJE+LLANTA
                     $("#camion").append(ejes);//SE AGREGA AL CAMION LA NUEVA LLANTA
@@ -573,7 +575,7 @@ $(function () {
         })
     };
 
-    //ENVIAR UNA LLANTA A LA CANECA (DESAPARESER)
+    //ENVIAR UNA LLANTA A LA CANECA
     function remover($item) {
         var $nitem = $($item)
             .detach()
@@ -582,7 +584,11 @@ $(function () {
                 "top": "0"
             });
         $(_Caneca).append($nitem);
-        console.log("Se removio la llanta " + $nitem[0].innerText);
+        var valor = $nitem.text();
+        var llanta= valor.split("-")[0];
+        var grupo= valor.split("-")[1];
+        desmontarLlanta(_placaActual,llanta,grupo,_kmTrabajoactual,_fechaActual)
+        console.log("Se removio la llanta " + valor.split("-")[0] + " del grupo " + valor.split("-")[1]);
 
     };
 
@@ -603,7 +609,7 @@ $(function () {
         papa_destino.append($(Nuevo)).fadeIn();
         papa_origen.append($(Actual)).fadeIn();
 
-        console.log(papa_origen.attr("id") + " " + " " + papa_destino.attr("id"));
+        console.log("Del eje " + papa_origen.attr("id") + " al eje " + papa_destino.attr("id"));
     };
 
     //FOTOGRAFIA DE LAS LLANTAS AL TEMINAR
@@ -631,9 +637,20 @@ $(function () {
             _llantasImportadas.push(llantaImport);
         }
 
+        //LISTAR LAS REMOVIDAS
+        var llantasRemove = $(".caneca .llanta");
+        for (var i = 0; i < llantasRemove.length; i++) {
+            var valor = $(llantasRemove[i]).text();
+            var llLLanta = valor.split("-")[0];
+            var GRUPO = valor.split("-")[1];
+
+            var llantaRemove = { LLANTA: llLLanta, GRUPO: GRUPO }
+            _llantasRemovidas.push(llantaRemove);
+        }
+
         $.post(
             "/llantas/llantasGuardar",
-            { _placa: _placaActual, _fechaInstala: _fechaActual, _kmIntsla: _kmTrabajoactual, llantasMontadas: JSON.stringify(_llantasMontadas), llantasImportadas: JSON.stringify(_llantasImportadas) }
+            { _placa: _placaActual, _fechaInstala: _fechaActual, _kmIntsla: _kmTrabajoactual, llantasMontadas: JSON.stringify(_llantasMontadas), llantasImportadas: JSON.stringify(_llantasImportadas), llantasDesmontadas: JSON.stringify(_llantasRemovidas) }
         ).done(function (data) {
             if (data == 1) {
                 mostrarRespuesta();
@@ -650,24 +667,24 @@ $(function () {
 
     //REENDERIZAR LA RESPUESTA
     function mostrarRespuesta() {
-      /*   //LISTAR LAS  IMPORTADAS
-        for (var i = 0; i < _llantasImportadas.length; i++) {
-            var valor = _llantasImportadas[i];
-            var elemento = "<li>" + valor + "</li>"
-            $("#lImportadas").append(elemento);
-        }
-        //LISTAR LAS ACTUALES
-        for (var i = 0; i < _llantasMontadas.length; i++) {
-            var valor = _llantasMontadas[i];
-            var elemento = "<li>" + valor + "</li>"
-            $("#lMontadas").append(elemento);
-        }
-        //LISTAR LAS REMOVIDAS
-        for (var i = 0; i < _llantasRemovidas.length; i++) {
-            var valor = _llantasRemovidas[i];
-            var elemento = "<li>" + valor + "</li>"
-            $("#lRemovidas").append(elemento);
-        } */
+        /*   //LISTAR LAS  IMPORTADAS
+          for (var i = 0; i < _llantasImportadas.length; i++) {
+              var valor = _llantasImportadas[i];
+              var elemento = "<li>" + valor + "</li>"
+              $("#lImportadas").append(elemento);
+          }
+          //LISTAR LAS ACTUALES
+          for (var i = 0; i < _llantasMontadas.length; i++) {
+              var valor = _llantasMontadas[i];
+              var elemento = "<li>" + valor + "</li>"
+              $("#lMontadas").append(elemento);
+          }
+          //LISTAR LAS REMOVIDAS
+          for (var i = 0; i < _llantasRemovidas.length; i++) {
+              var valor = _llantasRemovidas[i];
+              var elemento = "<li>" + valor + "</li>"
+              $("#lRemovidas").append(elemento);
+          } */
         //MOSTRAR MODAL
         $('#modales').modal('show');
 
@@ -727,6 +744,19 @@ $(function () {
 
     };
 
+    //MUESTRA EL MODAL PARA DESMONTAR UNA LLANTA
+    function desmontarLlanta(_placa,_llanta,_grupo,_kmMEdida,_fechaMedida) {
+        $("#idPlacaRmv").html("");
+        $("#idPlacaRmv").html(_placa);
+        $("#idLlantaRmv").html("");
+        $("#idLlantaRmv").html(_llanta + "-" + _grupo);
+        $("#idKMMed").html("");
+        $("#idKMMed").html(_kmMEdida);
+        $("#idFechaMed").html("");
+        $("#idFechaMed").html(_fechaMedida);
+        $("#modMuestraDesmonta").modal('show');
+
+    };
     //FUNCION QUE LIMPIA EL FORMULARIO DE INGRESODE PRESIONES DE LAS LLANTAS
     function eliminarPRessionesllantas() {
         $("#inputPresion").val("");

@@ -8,7 +8,7 @@ namespace llantasAPP.Models
 
     public class llantasInventario
     {
-        public string LLANTA {get;set;}
+        public string LLANTA { get; set; }
         public string GRUPO { get; set; }
         public int INVENT { get; set; }
         public int VALOR { get; set; }
@@ -35,5 +35,18 @@ namespace llantasAPP.Models
         public int POSICION { get; set; }
         public int KINSTALA { get; set; }
         public string FECHAI { get; set; }
+    }
+
+    public class llantas_delete
+    {
+        public string par_vehiculo { get; set; }
+        public string par_llanta { get; set; }
+        string par_grupo { get; set; }
+        public string par_profi { get; set; }
+        public string par_profc { get; set; }
+        public string par_profd { get; set; }
+        public int par_posicion { get; set; }
+        public int par_kilomi { get; set; }
+        public int par_presion { get; set; }
     }
 }

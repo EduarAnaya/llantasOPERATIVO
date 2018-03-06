@@ -188,15 +188,15 @@ div#cajacontrolcent {
     border-radius: 20px;
 }
 
-input#inputLizq {
+input#inputLizqRmv {
     box-shadow: 1px 1px 5px #038fcc;
 }
 
-input#inputCent {
+input#inputCentRmv {
     box-shadow: 1px 1px 5px #00c915;
 }
 
-input#inputDere {
+input#inputDereRmv {
     box-shadow: 1px 1px 5px #f41f4a;
 }
 .camionLimpio{

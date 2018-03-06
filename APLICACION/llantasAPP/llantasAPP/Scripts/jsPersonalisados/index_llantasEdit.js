@@ -84,53 +84,45 @@ $(function () {
             }
         }
     });
-
-    $("#formMuestras").validate({
+    //validacion del formulario
+    $("#modMuestraDesmonta").validate({
         rules: {
-            inputPresion: {
+            inputPresionRmv: {
                 required: true,
                 validarDecimal: true,
                 number: true
             },
-            inputLizq: {
+            inputLizqRmv: {
                 required: true,
                 validarDecimal: true,
                 number: true
             },
-            inputCent: {
+            inputCentRmv: {
                 required: true,
                 validarDecimal: true,
                 number: true
             },
-            inputDere: {
+            inputDereRmv: {
                 required: true,
                 validarDecimal: true,
-                number: true
-            },
-            kmMuestra: {
-                required: true,
                 number: true
             }
         },
         messages: {
-            inputPresion: {
+            inputPresionRmv: {
                 required: "Presión Obligatoria",
                 number: "Solo números!"
             },
-            inputLizq: {
+            inputLizqRmv: {
                 required: "Obligatorio!",
                 number: "Solo números!"
             },
-            inputCent: {
+            inputCentRmv: {
                 required: "Obligatorio!",
                 number: "Solo números!"
             },
-            inputDere: {
+            inputDereRmv: {
                 required: "Obligatorio!",
-                number: "Solo números!"
-            },
-            kmMuestra: {
-                required: "Km Obligatorio!",
                 number: "Solo números!"
             }
         }
@@ -188,21 +180,21 @@ $(function () {
         llantasGuardar();
     });
 
-    $("#formMuestras").on("submit", function (event) {
+    //VALIDAR DECIMALES (CARGA PROF LLANTAS)
+    jQuery.validator.addMethod("validarDecimal", function (value, element) {
+        return this.optional(element) || /(^\d{1,2}$|^\d{1,2}[.]\d{1,2}$)/.test(value);
+    }, "Formato incorrecto!");
+
+    $("#modMuestraDesmonta").on("submit", function (event) {
         event.preventDefault();
-        $("#formMuestras").validate();
-        var estado = $("#formMuestras").valid();
-        fechaTrabajo = $("#datepicker").val();
-        alert(fechaTrabajo)
+        $("#modMuestraDesmonta").validate();
+        var estado = $("#modMuestraDesmonta").valid();
 
         if (estado != false) {
             //REALIZAR ACCIONES CON LOS DATOS RECOGIDOS
-            eliminarPRessionesllantas();
-            $('#modMuestra').modal('hide');
-
+            $('#modMuestraDesmonta').modal('hide');
         }
     });
-
 
 
     //*********     FUNCIONES     *********//
@@ -282,7 +274,7 @@ $(function () {
             if (paqueteLlantas.length >= 0 || paqueteLlantas.length <= 10) {
                 for (var i = 0; i < 10; i++) {
                     var ejes = '<div id="eje' + (i + 1) + '" class="eje ">'
-                        + '<div class="caja">'
+                        + '<div id="caja' + (i + 1) + '" class="caja">'
                         + '</div>'
                         + '</div>';//SE ARMA LA BASE DE LA LLANTA CAJA+EJE+LLANTA
                     $("#camion").append(ejes);//SE AGREGA AL CAMION LA NUEVA LLANTA
@@ -575,7 +567,7 @@ $(function () {
         })
     };
 
-    //ENVIAR UNA LLANTA A LA CANECA (DESAPARESER)
+    //ENVIAR UNA LLANTA A LA CANECA
     function remover($item) {
         var $nitem = $($item)
             .detach()
@@ -584,7 +576,11 @@ $(function () {
                 "top": "0"
             });
         $(_Caneca).append($nitem);
-        console.log("Se removio la llanta " + $nitem[0].innerText);
+        var valor = $nitem.text();
+        var llanta = valor.split("-")[0];
+        var grupo = valor.split("-")[1];
+        desmontarLlanta(_placaActual, llanta, grupo, _kmTrabajoactual, _fechaActual)
+        console.log("Se removio la llanta " + valor.split("-")[0] + " del grupo " + valor.split("-")[1]);
 
     };
 
@@ -605,7 +601,7 @@ $(function () {
         papa_destino.append($(Nuevo)).fadeIn();
         papa_origen.append($(Actual)).fadeIn();
 
-        console.log(papa_origen.attr("id") + " " + " " + papa_destino.attr("id"));
+        console.log("Del eje " + papa_origen.attr("id") + " al eje " + papa_destino.attr("id"));
     };
 
     //FOTOGRAFIA DE LAS LLANTAS AL TEMINAR
@@ -740,6 +736,19 @@ $(function () {
 
     };
 
+    //MUESTRA EL MODAL PARA DESMONTAR UNA LLANTA
+    function desmontarLlanta(_placa, _llanta, _grupo, _kmMEdida, _fechaMedida) {
+        $("#idPlacaRmv").html("");
+        $("#idPlacaRmv").html(_placa);
+        $("#idLlantaRmv").html("");
+        $("#idLlantaRmv").html(_llanta + "-" + _grupo);
+        $("#idKMMed").html("");
+        $("#idKMMed").html(_kmMEdida);
+        $("#idFechaMed").html("");
+        $("#idFechaMed").html(_fechaMedida);
+        $("#modMuestraDesmonta").modal('show');
+
+    };
     //FUNCION QUE LIMPIA EL FORMULARIO DE INGRESODE PRESIONES DE LAS LLANTAS
     function eliminarPRessionesllantas() {
         $("#inputPresion").val("");

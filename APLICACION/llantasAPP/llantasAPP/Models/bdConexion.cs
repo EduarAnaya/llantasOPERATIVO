@@ -250,22 +250,15 @@ namespace llantasAPP
         }
 
 
-        public string desmontarLlantas(
-            string par_vehiculo,
-            string par_llanta,
-            string par_grupo,
-            string par_profi,
-            string par_profc,
-            string par_profd,
-            int par_posicion,
-            int par_kilomi,
-            int par_presion)
+        public string desmontarLlantas
+            (string par_vehiculo, string par_llanta, string par_grupo, string par_profi, string par_profc, string par_profd, int par_posicion, int par_kilomi, int par_presion)
         {
             string resu = string.Empty;
             return resu;
         }
+    
+    
     }
-    /*ejecutar movimientos desde paquetes*/
 
 
 

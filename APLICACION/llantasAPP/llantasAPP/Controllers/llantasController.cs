@@ -213,25 +213,24 @@ namespace llantasAPP.Controllers
         public ActionResult llantasGuardar(
             string _placa, string _fechaInstala, int _kmIntsla, string llantasMontadas,
             string llantasImportadas, string llantasDesmontadas)
-
         {
 
             dynamic llantasRemovidas = JsonConvert.DeserializeObject(llantasDesmontadas);
 
-            for (int i = 0; i <llantasRemovidas.Count; i++)
+            for (int i = 0; i < llantasRemovidas.Count; i++)
             {
-                 string par_vehiculo,
-            string par_llanta,
-            string par_grupo,
-            string par_profi,
-            string par_profc,
-            string par_profd,
-            int par_posicion,
-            int par_kilomi,
-            int par_presion;
+
             }
 
-            return Json("");
+            return Json(1);
+        }
+
+
+        [HttpPost]
+        public ActionResult removerllantas(string par_vehiculo, string par_llanta, string par_grupo, string par_profi, string par_profc, string par_profd, int par_posicion, int par_kilomi, int par_presion)
+        {
+
+            return View();
         }
     }
 }
