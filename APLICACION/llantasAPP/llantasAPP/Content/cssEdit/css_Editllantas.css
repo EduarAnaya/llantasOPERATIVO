@@ -23,13 +23,11 @@ label.error {
 /* tabla consulta inventario */
 
 .dataTables_wrapper {
-
     position: relative;
     clear: both;
     *zoom: 1;
     zoom: 1;
     font-size: xx-small;
-
 }
 
 dl {
@@ -199,22 +197,27 @@ input#inputCentRmv {
 input#inputDereRmv {
     box-shadow: 1px 1px 5px #f41f4a;
 }
-.camionLimpio{
+
+.camionLimpio {
     background-image: none !important;
 }
-.camionCabezote{
-    background-image:url("../medios/camion.png");
-}
-.camionTrailerx1{
-    background-image:url("../medios/trailerx1.png");
-}
-.camionTrailerx2{
-    background-image:url("../medios/trailerx2.png");
-}
-.camionTrailerx3{
-    background-image:url("../medios/trailerx3.png");
 
+.camionCabezote {
+    background-image: url("../medios/camion.png");
 }
+
+.camionTrailerx1 {
+    background-image: url("../medios/trailerx1.png");
+}
+
+.camionTrailerx2 {
+    background-image: url("../medios/trailerx2.png");
+}
+
+.camionTrailerx3 {
+    background-image: url("../medios/trailerx3.png");
+}
+
 .sobre {
     box-shadow: 0px 0 10px 0px #ffc107;
 }
@@ -225,4 +228,10 @@ input#inputDereRmv {
 
 .visible {
     display: none;
+}
+
+.badge-success {
+    color: #fff;
+    background-color: #28a745;
+    width: 100%;
 }

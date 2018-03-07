@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="llantasAPP" company="TranserSA" webLink="http://www.transer.com.co" view-date="2018-02-22" view-index="0" gantt-divider-location="580" resource-divider-location="386" version="2.8.6" locale="es_CO">
+<?xml version="1.0" encoding="UTF-8"?><project name="llantasAPP" company="TranserSA" webLink="http://www.transer.com.co" view-date="2018-03-02" view-index="0" gantt-divider-location="580" resource-divider-location="386" version="2.8.6" locale="es">
     <description>
         <![CDATA[
         
+        
+        
         Desarrollo de la version web del modulo llantas del sistema de informacion MILENIO
+    
+    
     
     ]]>
     </description>
@@ -174,7 +178,10 @@
             <task id="9" name="entrevista" color="#8cb6ce" meeting="false" start="2018-02-28" duration="1" complete="100" thirdDate="2018-02-28" thirdDate-constraint="0" priority="2" expand="true"/>
             <task id="14" name="observacion" color="#8cb6ce" meeting="false" start="2018-02-28" duration="1" complete="100" thirdDate="2018-02-28" thirdDate-constraint="0" priority="2" expand="true"/>
         </task>
-        <task id="10" name="ANALISIS DE REQUISITOS" color="#8cb6ce" meeting="false" start="2018-03-01" duration="2" complete="30" thirdDate="2018-03-01" thirdDate-constraint="0" expand="true"/>
+        <task id="10" name="ANALISIS DE REQUISITOS" color="#8cb6ce" meeting="false" start="2018-03-01" duration="2" complete="30" thirdDate="2018-03-01" thirdDate-constraint="0" expand="true">
+            <depend id="15" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="15" name="Creacion de interfaces" color="#8cb6ce" meeting="false" start="2018-03-05" duration="5" complete="40" thirdDate="2018-02-22" thirdDate-constraint="0" priority="2" expand="true"/>
     </tasks>
     <resources>
         <resource id="0" name="Eduar Anaya_Analisis" function="SoftwareDevelopment:8" contacts="auxsoporte1@transer.com.co" phone="3116849204">
@@ -193,6 +200,7 @@
     <allocations>
         <allocation task-id="9" resource-id="0" function="SoftwareDevelopment:8" responsible="true" load="100.0"/>
         <allocation task-id="10" resource-id="0" function="SoftwareDevelopment:8" responsible="true" load="100.0"/>
+        <allocation task-id="15" resource-id="2" function="SoftwareDevelopment:9" responsible="true" load="100.0"/>
         <allocation task-id="9" resource-id="3" function="SoftwareDevelopment:3" responsible="false" load="100.0"/>
     </allocations>
     <vacations/>

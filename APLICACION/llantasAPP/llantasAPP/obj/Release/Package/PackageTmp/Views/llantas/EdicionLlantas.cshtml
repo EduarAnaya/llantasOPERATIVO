@@ -3,14 +3,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<link href="~/Content/cssEdit/css_Editllantas.css" rel="stylesheet" />
-<link href="~/Content/LibreriasProv/jquery-ui.min.css" rel="stylesheet" />
+@* navegacion *@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="@Url.Action("Index", "llantas")">Inicio</a></li>
-        <li class="breadcrumb-item" aria-current="page">Rotación de llantas</li>
+        <li class="breadcrumb-item" aria-current="page">Edición de llantas</li>
     </ol>
 </nav>
+
 
 @* formulario *@
 <div class="col">
@@ -37,17 +37,14 @@
                 <fieldset id="dtllTrabajoactual" class="visible">
                     <legend><span class="tituloform">Trabajo Actual</span></legend>
                     <dl class="row">
-                        <dt class="col">Placa</dt>
+                        <dt class="col"><strong>Placa </strong></dt>
                         <dd class="col"><span id="tActual" class="badge badge-secondary">N/A</span></dd>
-                        <dt class="col">Kilometraje</dt>
+                        <dt class="col"><strong>Kilometraje </strong></dt>
                         <dd class="col"><span id="kmActual"></span></dd>
-                        <dt class="col">Fecha</dt>
+                        <dt class="col"><strong>Fecha </strong></dt>
                         <dd class="col"><span id="dateActual"></span></dd>
                     </dl>
                 </fieldset>
-
-
-
                 <span id="lblMresultados" class="badge badge-warning visible">Sin resultados!</span>
             </form>
             <button id="bntGuardar" type="button" class="btn btn-success btn-lg btn-block" disabled>Guardar</button>
@@ -267,6 +264,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
+
             </div>
 
             <div class="modal-body">
@@ -279,22 +277,22 @@
                                     <div class="col">
                                         <div class="form-group row">
                                             <div class="col">
-                                                <input type="number" class="form-control" id="inputPresion" name="inputPresion" placeholder="Presión" required="required">
+                                                <input type="number" class="form-control" id="inputPresionRmv" name="inputPresionRmv" placeholder="Presión" required="required">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col">
-                                                <input type="number" class="form-control" id="inputLizq" name="inputLizq" placeholder="Labrado Izquierdo" required="required">
+                                                <input type="number" class="form-control" id="inputLizqRmv" name="inputLizqRmv" placeholder="Labrado Izquierdo" required="required">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col">
-                                                <input type="number" class="form-control" id="inputCent" name="inputCent" placeholder="Labrado Centro" required="required">
+                                                <input type="number" class="form-control" id="inputCentRmv" name="inputCentRmv" placeholder="Labrado Centro" required="required">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col">
-                                                <input type="number" class="form-control" id="inputDere" name="inputDere" placeholder="Labrado Derecho" required="required">
+                                                <input type="number" class="form-control" id="inputDereRmv" name="inputDereRmv" placeholder="Labrado Derecho" required="required">
                                             </div>
                                         </div>
                                     </div>
@@ -310,8 +308,8 @@
                                 <legend style="color: black !important;">Detalles del desmonte</legend>
                                 <div class="form-group">
                                     <label for="inputState">Causa</label>
-                                    <select id="inputState" class="form-control">
-                                        <option selected>Seleccione...</option>
+                                    <select id="selectCausa" name="selectCausa" class="form-control" required="required">
+                                        <option value="" selected>Seleccione...</option>
                                         <option value="1">Llanta para rehusar en otro vehículo</option>
                                         <option value="2">Llanta estallada</option>
                                         <option value="3">Llanta quemada</option>
@@ -328,10 +326,7 @@
                                 </div>
                                 <fieldset>
                                     <legend style="color: black !important;">Documentación de soporte</legend>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="customFile">
-                                        <label class="custom-file-label" for="customFile">Subir archivos</label>
-                                    </div>
+                                    @Html.Partial("subir_archivo")
                                 </fieldset>
 
                             </fieldset>
@@ -340,26 +335,12 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-outline-success btn-lg btn-block">Guardar</button>
+                        <button type="submit" class="btn btn-outline-success btn-lg btn-block">Retirar</button>
 
                     </div>
                 </form>
-                <script>
-                    $(function () {
-                        $("#formMuestrasDesmonta").on("submit", function (e) {
-                            e.preventDefault();
-                            $("#modMuestraDesmonta").modal('hide');
-                        })
-                    })
-                </script>
             </div>
 
         </div>
     </div>
 </div>
-<script src="~/Scripts/jquery-ui.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jsPersonalisados/index.js"></script>
-<script src="~/Scripts/jsPersonalisados/tactil.js"></script>
-
-

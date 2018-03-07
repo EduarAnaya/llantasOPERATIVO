@@ -164,6 +164,7 @@
     <Content Include="Content\medios\plus.svg" />
     <Content Include="Content\medios\rueda.png" />
     <Content Include="Content\medios\search.svg" />
+    <Content Include="Content\medios\sitioContruccion.png" />
     <Content Include="Content\medios\success.png" />
     <Content Include="Content\medios\trailerx1.png" />
     <Content Include="Content\medios\trailerx2.png" />
@@ -225,6 +226,25 @@
     <Content Include="Global.asax" />
     <None Include="Properties\PublishProfiles\llantasAPPOP.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Content\LibreriasProv\css\jquery-ui-demo-ie8.css" />
+    <Content Include="Content\LibreriasProv\css\jquery-ui-demo.css" />
+    <Content Include="Content\LibreriasProv\css\jquery.fileupload-noscript.css" />
+    <Content Include="Content\LibreriasProv\css\jquery.fileupload-ui-noscript.css" />
+    <Content Include="Content\LibreriasProv\css\jquery.fileupload-ui.css" />
+    <Content Include="Content\LibreriasProv\css\jquery.fileupload.css" />
+    <Content Include="Content\LibreriasProv\css\style.css" />
+    <Content Include="Scripts\libreriasPRoveedores\js\app.js" />
+    <Content Include="Scripts\libreriasPRoveedores\js\jquery.fileupload-angular.js" />
+    <Content Include="Scripts\libreriasPRoveedores\js\jquery.fileupload-audio.js" />
+    <Content Include="Scripts\libreriasPRoveedores\js\jquery.fileupload-image.js" />
+    <Content Include="Scripts\libreriasPRoveedores\js\jquery.fileupload-jquery-ui.js" />
+    <Content Include="Scripts\libreriasPRoveedores\js\jquery.fileupload-process.js" />
+    <Content Include="Scripts\libreriasPRoveedores\js\jquery.fileupload-ui.js" />
+    <Content Include="Scripts\libreriasPRoveedores\js\jquery.fileupload-validate.js" />
+    <Content Include="Scripts\libreriasPRoveedores\js\jquery.fileupload-video.js" />
+    <Content Include="Scripts\libreriasPRoveedores\js\jquery.fileupload.js" />
+    <Content Include="Scripts\libreriasPRoveedores\js\jquery.iframe-transport.js" />
+    <Content Include="Scripts\libreriasPRoveedores\js\main.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -407,6 +427,10 @@
     <Content Include="Scripts\jsPersonalisados\datatables\Buttons-1.5.1\css\common.scss" />
     <Content Include="Scripts\jsPersonalisados\datatables\Buttons-1.5.1\css\mixins.scss" />
     <Content Include="Views\llantas\EdicionLlantas.cshtml" />
+    <Content Include="Views\Shared\siteConstruccion.cshtml" />
+    <Content Include="Views\llantas\RecircularLlantas.cshtml" />
+    <Content Include="Views\llantas\ReencaucheLlantas.cshtml" />
+    <Content Include="Views\Shared\subir_archivo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

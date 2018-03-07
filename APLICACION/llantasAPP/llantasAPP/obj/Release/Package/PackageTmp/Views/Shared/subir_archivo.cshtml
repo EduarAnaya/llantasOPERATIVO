@@ -1,0 +1,25 @@
+﻿<div class="custom-file">
+    <input type="file" class="custom-file-input" id="soportesDesmonte" multiple>
+    <label class="custom-file-label" for="customFile">Subir archivos</label>
+</div>
+<table id="subidos" class="table table-dark">
+    <tbody>
+    </tbody>
+</table>
+<script>
+    $(function () {
+
+        $("#soportesDesmonte").on("change", function () {
+
+            var archivos = $("#soportesDesmonte")[0].files;
+            var nombreDoc = archivos[archivos.length - 1].name;
+            var tamañoDoc = archivos[archivos.length - 1].size;
+
+            //agregar a la tabla
+            var registro = '<tr><th scope="row">1</th><td>' + nombreDoc + '</td><td>' + tamañoDoc + '</td><td>X</td></tr>';
+
+            $("#subidos tbody").append(registro)
+
+        })
+    })
+</script>

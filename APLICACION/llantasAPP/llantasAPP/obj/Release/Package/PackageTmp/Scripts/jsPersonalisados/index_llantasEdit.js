@@ -85,57 +85,6 @@ $(function () {
         }
     });
 
-    $("#formMuestras").validate({
-        rules: {
-            inputPresion: {
-                required: true,
-                validarDecimal: true,
-                number: true
-            },
-            inputLizq: {
-                required: true,
-                validarDecimal: true,
-                number: true
-            },
-            inputCent: {
-                required: true,
-                validarDecimal: true,
-                number: true
-            },
-            inputDere: {
-                required: true,
-                validarDecimal: true,
-                number: true
-            },
-            kmMuestra: {
-                required: true,
-                number: true
-            }
-        },
-        messages: {
-            inputPresion: {
-                required: "Presión Obligatoria",
-                number: "Solo números!"
-            },
-            inputLizq: {
-                required: "Obligatorio!",
-                number: "Solo números!"
-            },
-            inputCent: {
-                required: "Obligatorio!",
-                number: "Solo números!"
-            },
-            inputDere: {
-                required: "Obligatorio!",
-                number: "Solo números!"
-            },
-            kmMuestra: {
-                required: "Km Obligatorio!",
-                number: "Solo números!"
-            }
-        }
-    });
-
     //**********VALIDAR ENTRADAS ************/
     //VALIDAR PLACA (AAA###)
     jQuery.validator.addMethod("validarplaca", function (value, element) {
@@ -146,10 +95,6 @@ $(function () {
     jQuery.validator.addMethod("validarllanta", function (value, element) {
         return this.optional(element) || /^\d{4,6}-\d{3}$/.test(value);
     }, "Formato Incorrecto!");
-    //VALIDAR DECIMALES (CARGA PROF LLANTAS)
-    jQuery.validator.addMethod("validarDecimal", function (value, element) {
-        return this.optional(element) || /(^\d{1,2}$|^\d{1,2}[.]\d{1,2}$)/.test(value);
-    }, "Formato incorrecto!");
 
     //*********     EVENTOS DE USUARIO       *********//
 
@@ -188,22 +133,10 @@ $(function () {
         llantasGuardar();
     });
 
-    $("#formMuestras").on("submit", function (event) {
-        event.preventDefault();
-        $("#formMuestras").validate();
-        var estado = $("#formMuestras").valid();
-        fechaTrabajo = $("#datepicker").val();
-        alert(fechaTrabajo)
-
-        if (estado != false) {
-            //REALIZAR ACCIONES CON LOS DATOS RECOGIDOS
-            eliminarPRessionesllantas();
-            $('#modMuestra').modal('hide');
-
-        }
-    });
-
-
+    //VALIDAR DECIMALES (CARGA PROF LLANTAS)
+    jQuery.validator.addMethod("validarDecimal", function (value, element) {
+        return this.optional(element) || /(^\d{1,2}$|^\d{1,2}[.]\d{1,2}$)/.test(value);
+    }, "Formato incorrecto!");
 
     //*********     FUNCIONES     *********//
 
@@ -585,9 +518,9 @@ $(function () {
             });
         $(_Caneca).append($nitem);
         var valor = $nitem.text();
-        var llanta= valor.split("-")[0];
-        var grupo= valor.split("-")[1];
-        desmontarLlanta(_placaActual,llanta,grupo,_kmTrabajoactual,_fechaActual)
+        var llanta = valor.split("-")[0];
+        var grupo = valor.split("-")[1];
+        desmontarLlanta(_placaActual, llanta, grupo, _kmTrabajoactual, _fechaActual)
         console.log("Se removio la llanta " + valor.split("-")[0] + " del grupo " + valor.split("-")[1]);
 
     };
@@ -745,7 +678,7 @@ $(function () {
     };
 
     //MUESTRA EL MODAL PARA DESMONTAR UNA LLANTA
-    function desmontarLlanta(_placa,_llanta,_grupo,_kmMEdida,_fechaMedida) {
+    function desmontarLlanta(_placa, _llanta, _grupo, _kmMEdida, _fechaMedida) {
         $("#idPlacaRmv").html("");
         $("#idPlacaRmv").html(_placa);
         $("#idLlantaRmv").html("");

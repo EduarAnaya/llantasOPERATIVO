@@ -46,6 +46,23 @@ namespace llantasAPP.Controllers
             return View();
         }
 
+        public ActionResult RecircularLlantas()
+        {
+            return View();
+        }
+        public ActionResult ReencaucheLlantas()
+        {
+            return View();
+        }
+        public ActionResult ReparacionLlantas()
+        {
+            return View();
+        }
+
+
+
+
+
 
         [HttpPost]
         public JsonResult cargarllantas(int _tipoVehiculo, string _placa)
@@ -227,7 +244,9 @@ namespace llantasAPP.Controllers
 
 
         [HttpPost]
-        public ActionResult removerllantas(string par_vehiculo, string par_llanta, string par_grupo, string par_profi, string par_profc, string par_profd, int par_posicion, int par_kilomi, int par_presion)
+        public ActionResult removerllantas
+            (string par_vehiculo, string par_llanta, string par_grupo, string par_profi,
+            string par_profc, string par_profd, int par_posicion, int par_kilomi, int par_presion)
         {
 
             return View();
