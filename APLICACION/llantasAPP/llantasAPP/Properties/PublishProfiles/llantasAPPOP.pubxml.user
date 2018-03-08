@@ -50,7 +50,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/02/2018 10:12:02</publishTime>
     </File>
     <File Include="bin/llantasAPP.dll">
-      <publishTime>03/07/2018 18:23:21</publishTime>
+      <publishTime>03/08/2018 17:10:45</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>03/02/2018 10:11:59</publishTime>
@@ -162,6 +162,9 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     </File>
     <File Include="Content/LibreriasProv/jquery-ui.min.css">
       <publishTime>02/23/2018 18:34:16</publishTime>
+    </File>
+    <File Include="Content/medios/borrarFile.png">
+      <publishTime>03/08/2018 11:54:51</publishTime>
     </File>
     <File Include="Content/medios/cambio_llantas.png">
       <publishTime>02/23/2018 18:34:17</publishTime>
@@ -853,6 +856,15 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="Scripts/libreriasPRoveedores/app.js">
       <publishTime>02/19/2018 07:12:29</publishTime>
     </File>
+    <File Include="Scripts/libreriasPRoveedores/bootstrap.min.js">
+      <publishTime>01/18/2018 11:33:36</publishTime>
+    </File>
+    <File Include="Scripts/libreriasPRoveedores/jquery-3.2.1.min.js">
+      <publishTime>02/23/2018 18:34:17</publishTime>
+    </File>
+    <File Include="Scripts/libreriasPRoveedores/jquery-ui.min.js">
+      <publishTime>03/05/2018 18:16:54</publishTime>
+    </File>
     <File Include="Scripts/libreriasPRoveedores/jquery.fileupload-angular.js">
       <publishTime>02/19/2018 07:12:29</publishTime>
     </File>
@@ -953,10 +965,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/07/2018 09:25:27</publishTime>
     </File>
     <File Include="Views/Shared/subir_archivo.cshtml">
-      <publishTime>03/07/2018 18:19:07</publishTime>
+      <publishTime>03/08/2018 17:10:12</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>03/07/2018 15:20:37</publishTime>
+      <publishTime>03/08/2018 13:58:31</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>03/02/2018 10:11:43</publishTime>
@@ -965,7 +977,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/02/2018 10:11:43</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/07/2018 18:23:22</publishTime>
+      <publishTime>03/08/2018 17:10:45</publishTime>
     </File>
   </ItemGroup>
 </Project>

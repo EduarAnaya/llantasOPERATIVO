@@ -9,16 +9,37 @@
 <script>
     $(function () {
 
+        var datos = [];
         $("#soportesDesmonte").on("change", function () {
 
-            var archivos = $("#soportesDesmonte")[0].files;
-            var nombreDoc = archivos[archivos.length - 1].name;
-            var tamañoDoc = archivos[archivos.length - 1].size;
+            var file = event.target.files[0];
 
-            //agregar a la tabla
-            var registro = '<tr><th scope="row">1</th><td>' + nombreDoc + '</td><td>' + tamañoDoc + '</td><td>X</td></tr>';
+            var nombreDoc = file.name;
+            var tamañoDoc = file.size;
 
-            $("#subidos tbody").append(registro)
+
+            var reader = new FileReader();
+            reader.onload = function (event) {
+                // El texto del archivo se mostrará por consola aquí
+
+                var registro = '<tr><th scope="row">1</th><td style="width:20%"><div class="col"><img src="' + event.target.result + '" style="width:100%;"/></div> </td><td>' + nombreDoc + '</td><td>' + tamañoDoc + '</td><td><img src="/Content/medios/borrarFile.png" /></td</tr>';
+
+                $("#subidos tbody").append(registro);
+            };
+
+            reader.readAsDataURL(file);
+
+            //var archivo = $("#soportesDesmonte")[0].files[0];
+
+            //var nombreDoc = archivo.name;
+            //var tamañoDoc = archivos.size;
+
+            //datos.push("hola")
+
+            ////agregar a la tabla
+            //var registro = '<tr><th scope="row">1</th><td>' + nombreDoc + '</td><td>' + tamañoDoc + '</td><td><img src="/Content/medios/borrarFile.png" /> </td></tr>';
+
+            //$("#subidos tbody").append(registro)
 
         })
     })

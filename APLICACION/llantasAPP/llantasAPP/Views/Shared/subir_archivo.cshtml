@@ -9,17 +9,35 @@
 <script>
     $(function () {
 
+        var datos = [];
         $("#soportesDesmonte").on("change", function () {
 
-            var archivos = $("#soportesDesmonte")[0].files;
-            var nombreDoc = archivos[archivos.length - 1].name;
-            var tamañoDoc = archivos[archivos.length - 1].size;
+            var file = event.target.files;
+            for (var i = 0; i < file.length; i++) {
+                var nombreDoc = file[i].name;
+                var tamañoDoc = (file[i].size / 1048576).toFixed(1);
 
-            //agregar a la tabla
-            var registro = '<tr><th scope="row">1</th><td>' + nombreDoc + '</td><td>' + tamañoDoc + '</td><td>X</td></tr>';
 
-            $("#subidos tbody").append(registro)
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    // El texto del archivo se mostrará por consola aquí
+
+                    var registro = '<tr><th scope="row">1</th><td style="width:20%"><div class="col"><img src="' + event.target.result + '" style="width:100%;"/></div> </td><td>' + nombreDoc + '</td><td>' + tamañoDoc + ' Mb</td><td><img class="borarFila" src="/Content/medios/borrarFile.png" /></td</tr>';
+
+                    $("#subidos tbody").append(registro);
+                    borrar();
+                };
+
+                reader.readAsDataURL(file[i]);
+            }
+
 
         })
+        function borrar() {
+            $(".borarFila").on("click", function () {
+
+                var s = $(this)[0].parentNode.parentNode.remove();
+            })
+        }
     })
 </script>
