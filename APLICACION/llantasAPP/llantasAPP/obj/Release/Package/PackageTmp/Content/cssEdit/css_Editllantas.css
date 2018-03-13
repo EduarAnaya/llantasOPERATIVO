@@ -42,9 +42,6 @@ span.tdesc {
     color: white;
 }
 
-.btn, input {
-    box-shadow: 1px 1px 5px black;
-}
 
 .badge-secondary {
     color: #fff;
@@ -114,7 +111,7 @@ button#cargarplaca, button#addllanta {
     display: flex;
     flex-flow: row wrap;
     border-radius: 10px;
-    background-color: #fff7f7;
+    background-color: #ffffff;
     box-shadow: 0px 0 11px black;
     min-height: 100px;
     max-height: 100px;

@@ -233,6 +233,7 @@
     <Content Include="Content\LibreriasProv\css\jquery.fileupload-ui.css" />
     <Content Include="Content\LibreriasProv\css\jquery.fileupload.css" />
     <Content Include="Content\LibreriasProv\css\style.css" />
+    <Content Include="Scripts\jsPersonalisados\timer.Js" />
     <Content Include="Scripts\libreriasPRoveedores\jquery.validate.min.js" />
     <Content Include="Scripts\libreriasPRoveedores\bootstrap.min.js" />
     <Content Include="Scripts\jsPersonalisados\datatables\AutoFill-2.2.2\css\autoFill.bootstrap.css" />
@@ -372,6 +373,7 @@
     <Content Include="Scripts\libreriasPRoveedores\jquery-3.2.1.min.js" />
     <Content Include="Scripts\libreriasPRoveedores\jquery-ui.min.js" />
     <Content Include="Scripts\jsPersonalisados\tactil.js" />
+    <Content Include="Scripts\libreriasPRoveedores\plugTimer.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -415,14 +417,13 @@
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>61796</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:54919/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl>http://192.168.30.82:8087</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

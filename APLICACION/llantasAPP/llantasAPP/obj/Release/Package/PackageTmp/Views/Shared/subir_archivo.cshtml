@@ -12,35 +12,33 @@
         var datos = [];
         $("#soportesDesmonte").on("change", function () {
 
-            var file = event.target.files[0];
+            var file = event.target.files;
+            for (var i = 0; i < file.length; i++) {
+                var nombreDoc = file[i].name;
+                var tamañoDoc = (file[i].size / 1048576).toFixed(1);
 
-            var nombreDoc = file.name;
-            var tamañoDoc = file.size;
+
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    // El texto del archivo se mostrará por consola aquí
+
+                    var registro = '<tr><th scope="row">1</th><td style="width:20%">'
+                    + '<div class="col"><img src="' + event.target.result + '" style="width:100%;"/></div> </td><td>' + nombreDoc + '</td><td>' + tamañoDoc + ' Mb</td><td><img class="borarFila" src="/Content/medios/borrarFile.png" /></td</tr>';
+
+                    $("#subidos tbody").append(registro);
+                    borrar();
+                };
+
+                reader.readAsDataURL(file[i]);
+            }
 
 
-            var reader = new FileReader();
-            reader.onload = function (event) {
-                // El texto del archivo se mostrará por consola aquí
+        });
+        function borrar() {
+            $(".borarFila").on("click", function () {
+                var s = $(this)[0].parentNode.parentNode.remove();
+            })
+        }
 
-                var registro = '<tr><th scope="row">1</th><td style="width:20%"><div class="col"><img src="' + event.target.result + '" style="width:100%;"/></div> </td><td>' + nombreDoc + '</td><td>' + tamañoDoc + '</td><td><img src="/Content/medios/borrarFile.png" /></td</tr>';
-
-                $("#subidos tbody").append(registro);
-            };
-
-            reader.readAsDataURL(file);
-
-            //var archivo = $("#soportesDesmonte")[0].files[0];
-
-            //var nombreDoc = archivo.name;
-            //var tamañoDoc = archivos.size;
-
-            //datos.push("hola")
-
-            ////agregar a la tabla
-            //var registro = '<tr><th scope="row">1</th><td>' + nombreDoc + '</td><td>' + tamañoDoc + '</td><td><img src="/Content/medios/borrarFile.png" /> </td></tr>';
-
-            //$("#subidos tbody").append(registro)
-
-        })
     })
 </script>

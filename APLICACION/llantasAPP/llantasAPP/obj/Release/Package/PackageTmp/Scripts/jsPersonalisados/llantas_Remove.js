@@ -68,4 +68,34 @@
     });
 
 
+    $("#selectCausa").change(function() {
+        var opc = $(this).val();
+        if (opc == 3) {
+          $("#grupo_quemadas").removeClass("visible");
+        } else {
+          $("#grupo_quemadas").addClass("visible");
+        }
+      });
+      
+      $("#checkTemperatura").change(function() {
+        var estado=$(this).prop("checked");
+        if (estado) {
+          $("#inutTemperatra").removeAttr("disabled")
+        }else{
+           $("#inutTemperatra").attr("disabled","")
+        }
+      });
+      
+      $("#checkPresion").change(function() {
+        var estado=$(this).prop("checked");
+        if (estado) {
+          $("#inutPresion").removeAttr("disabled")
+        }else{
+           $("#inutPresion").attr("disabled","")
+        }
+      });
+
+
+
+
 })

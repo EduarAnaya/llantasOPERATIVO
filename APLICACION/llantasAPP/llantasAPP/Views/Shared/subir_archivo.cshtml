@@ -22,7 +22,8 @@
                 reader.onload = function (event) {
                     // El texto del archivo se mostrará por consola aquí
 
-                    var registro = '<tr><th scope="row">1</th><td style="width:20%"><div class="col"><img src="' + event.target.result + '" style="width:100%;"/></div> </td><td>' + nombreDoc + '</td><td>' + tamañoDoc + ' Mb</td><td><img class="borarFila" src="/Content/medios/borrarFile.png" /></td</tr>';
+                    var registro = '<tr><th scope="row">1</th><td style="width:20%">'
+                    + '<div class="col"><img src="' + event.target.result + '" style="width:100%;"/></div> </td><td>' + nombreDoc + '</td><td>' + tamañoDoc + ' Mb</td><td><img class="borarFila" src="/Content/medios/borrarFile.png" /></td</tr>';
 
                     $("#subidos tbody").append(registro);
                     borrar();
@@ -32,12 +33,12 @@
             }
 
 
-        })
+        });
         function borrar() {
             $(".borarFila").on("click", function () {
-
                 var s = $(this)[0].parentNode.parentNode.remove();
             })
         }
+
     })
 </script>

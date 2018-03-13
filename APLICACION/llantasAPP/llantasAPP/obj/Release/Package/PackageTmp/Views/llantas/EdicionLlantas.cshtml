@@ -260,11 +260,9 @@
                         </div>
                     </div>
                 </div>
-
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-
             </div>
 
             <div class="modal-body">
@@ -303,7 +301,6 @@
                             </fieldset>
                         </div>
                         <div class="col">
-
                             <fieldset>
                                 <legend style="color: black !important;">Detalles del desmonte</legend>
                                 <div class="form-group">
@@ -320,14 +317,39 @@
                                         <option value="8">Llanta con filtración de aire</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlTextarea1">Observaciones del desmonte</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <div id="grupo_quemadas" class="form-group visible">
+                                    <div class="form-group ">
+                                        <fieldset>
+                                            <legend style="font-size: small">Sensores</legend>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="checkTemperatura">
+                                                        <label class="form-check-label" for="checkTemperatura">Temperatura</label>
+                                                    </div>
+                                                    <input id="inutTemperatra" type="text" class="form-control" placeholder="#°" disabled required="required">
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="checkPresion">
+                                                        <label class="form-check-label" for="checkPresion">Presión</label>
+                                                    </div>
+                                                    <input id="inutPresion" type="text" class="form-control" placeholder="PSI" disabled required="required">
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="form-group ">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="soportesDesmonte" multiple>
+                                            <label class="custom-file-label" for="customFile">Soportes</label>
+                                        </div>
+                                    </div>
                                 </div>
-                                <fieldset>
-                                    <legend style="color: black !important;">Documentación de soporte</legend>
-                                    @Html.Partial("subir_archivo")
-                                </fieldset>
+                                <div class="form-group ">
+                                    <label for="exampleFormControlTextarea1">Observaciones del desmonte</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required="required"></textarea>
+                                </div>
 
                             </fieldset>
 
