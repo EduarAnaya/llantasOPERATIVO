@@ -68,34 +68,34 @@
     });
 
 
-    $("#selectCausa").change(function() {
+    $("#selectCausa").change(function () {
         var opc = $(this).val();
+        if (opc != 3 || opc != 4) {
+            $("#grupo_quemadas").addClass("visible");
+            $("#grupo_reusadas").addClass("visible");
+        }
         if (opc == 3) {
-          $("#grupo_quemadas").removeClass("visible");
+            $("#grupo_quemadas").removeClass("visible");
+        } else if (opc == 4) {
+            $("#grupo_reusadas").removeClass("visible");
+        }
+    });
+
+    $("#checkTemperatura").change(function () {
+        var estado = $(this).prop("checked");
+        if (estado) {
+            $("#inutTemperatra").removeAttr("disabled")
         } else {
-          $("#grupo_quemadas").addClass("visible");
+            $("#inutTemperatra").attr("disabled", "")
         }
-      });
-      
-      $("#checkTemperatura").change(function() {
-        var estado=$(this).prop("checked");
+    });
+
+    $("#checkPresion").change(function () {
+        var estado = $(this).prop("checked");
         if (estado) {
-          $("#inutTemperatra").removeAttr("disabled")
-        }else{
-           $("#inutTemperatra").attr("disabled","")
+            $("#inutPresion").removeAttr("disabled")
+        } else {
+            $("#inutPresion").attr("disabled", "")
         }
-      });
-      
-      $("#checkPresion").change(function() {
-        var estado=$(this).prop("checked");
-        if (estado) {
-          $("#inutPresion").removeAttr("disabled")
-        }else{
-           $("#inutPresion").attr("disabled","")
-        }
-      });
-
-
-
-
+    });
 })
