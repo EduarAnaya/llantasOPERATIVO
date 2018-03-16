@@ -50,20 +50,17 @@ namespace llantasAPP.Controllers
         {
             return View();
         }
+        
         public ActionResult ReencaucheLlantas()
         {
             return View();
         }
+        
         public ActionResult ReparacionLlantas()
         {
             return View();
         }
-
-
-
-
-
-
+        
         [HttpPost]
         public JsonResult cargarllantas(int _tipoVehiculo, string _placa)
         {

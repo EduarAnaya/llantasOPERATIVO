@@ -1,8 +1,8 @@
 (function ($) {
 
-    $(document).idleTimer(5 * 60000);
+    $(document).idleTimer(1 * 60000);
     $(document).on("idle.idleTimer", function () {
-        alert("5 minutos de inactividad!")
+        alert("1 minuto de inactividad!")
         $(location).attr('href', "/llantas/Index");
         //console.log("pagina refrescada");
     });

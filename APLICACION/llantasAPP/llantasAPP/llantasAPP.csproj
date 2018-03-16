@@ -142,13 +142,6 @@
     <Content Include="Content\cssEdit\css_Editllantas.css" />
     <Content Include="Content\cssEdit\llantasHome.css" />
     <Content Include="Content\cssEdit\Site.css" />
-    <Content Include="Content\LibreriasProv\flie\jquery-ui-demo-ie8.css" />
-    <Content Include="Content\LibreriasProv\flie\jquery-ui-demo.css" />
-    <Content Include="Content\LibreriasProv\flie\jquery.fileupload-noscript.css" />
-    <Content Include="Content\LibreriasProv\flie\jquery.fileupload-ui-noscript.css" />
-    <Content Include="Content\LibreriasProv\flie\jquery.fileupload-ui.css" />
-    <Content Include="Content\LibreriasProv\flie\jquery.fileupload.css" />
-    <Content Include="Content\LibreriasProv\flie\style.css" />
     <Content Include="Content\LibreriasProv\jquery-ui.min.css" />
     <Content Include="Content\medios\borrarFile.png" />
     <Content Include="Content\medios\cambio_llantas.png" />
@@ -226,13 +219,6 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <None Include="Properties\PublishProfiles\llantasAPPOP.pubxml" />
-    <Content Include="Content\LibreriasProv\css\jquery-ui-demo-ie8.css" />
-    <Content Include="Content\LibreriasProv\css\jquery-ui-demo.css" />
-    <Content Include="Content\LibreriasProv\css\jquery.fileupload-noscript.css" />
-    <Content Include="Content\LibreriasProv\css\jquery.fileupload-ui-noscript.css" />
-    <Content Include="Content\LibreriasProv\css\jquery.fileupload-ui.css" />
-    <Content Include="Content\LibreriasProv\css\jquery.fileupload.css" />
-    <Content Include="Content\LibreriasProv\css\style.css" />
     <Content Include="Scripts\jsPersonalisados\timer.Js" />
     <Content Include="Scripts\libreriasPRoveedores\jquery.validate.min.js" />
     <Content Include="Scripts\libreriasPRoveedores\bootstrap.min.js" />
@@ -395,6 +381,7 @@
     <Content Include="Views\llantas\RecircularLlantas.cshtml" />
     <Content Include="Views\llantas\ReencaucheLlantas.cshtml" />
     <Content Include="Views\Shared\subir_archivo.cshtml" />
+    <Content Include="Views\llantas\ReparacionLlantas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

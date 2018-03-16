@@ -210,17 +210,17 @@
 
 
 @* toma de muestras para desmontar*@
-<div class="modal fade bd-example-modal" id="modMuestraDesmonta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal" id="modMuestraDesmonta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog" role="document" style="max-width: 800px">
         <div class="modal-content">
             <div class="modal-header" style="padding-bottom: 0;">
-                <div class="col-4">
+                <div class="col-5">
                     <div class="row">
-                        <div class="col" style="padding-left: 0;">
+                        <div class="col-3" style="padding-left: 0;">
                             <img src="~/Content/medios/medidas_llantas.png" style="width: 100%;" />
                         </div>
-                        <div class="col">
-                            <h5 class="modal-title">Desmontar llanta</h5>
+                        <div class="col" style="margin: auto; padding-left: 0;">
+                            <h3 class="modal-title">Desmontar llanta</h3>
                         </div>
                     </div>
 
@@ -299,7 +299,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-4 d-flex align-items-end">
                                         <img src="~/Content/medios/labrado.png" class="imgGuia" />
                                     </div>
                                 </div>
@@ -324,14 +324,21 @@
                                 </div>
                                 <div id="grupo_reusadas" class="form-group visible">
                                     <fieldset>
-                                        <legend style="font-size: small;color: black !important;">Acciones posteriores</legend>
+                                        <legend style="font-size: small; color: black !important;">Acciones posteriores</legend>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="radioOVechiculo" id="radioOtroVehiculo" value="1" required>
+                                            <input class="form-check-input" type="radio" name="radioOpciones" id="radioOtroVehiculo" value="1" required="required">
                                             <label class="form-check-label" for="radioOtroVehiculo">R. otro vehiculo</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="radioMVehiculo" id="radioMismoVehiculo" value="0" required>
+                                            <input class="form-check-input" type="radio" name="radioOpciones" id="radioMismoVehiculo" value="0" required="required">
                                             <label class="form-check-label" for="radioMismoVehiculo">R. mismo vehiculo</label>
+                                        </div>
+                                        <label for="radioOpciones" class="error"></label>
+                                        <div id="grupoFilesrepara" class="form-group visible">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="soportesDesmonte" name="archivosSoportes" multiple required="required">
+                                                <label class="custom-file-label" for="customFile">Subir archivos</label>
+                                            </div>
                                         </div>
                                     </fieldset>
 
@@ -339,7 +346,7 @@
                                 <div id="grupo_quemadas" class="form-group visible">
                                     <div class="form-group ">
                                         <fieldset>
-                                            <legend style="font-size: small;color: black !important;">Sensores</legend>
+                                            <legend style="font-size: small; color: black !important;">Sensores</legend>
                                             <div class="form-row">
                                                 <div class="col">
                                                     <div class="form-check">
@@ -360,14 +367,18 @@
                                     </div>
                                     <div class="form-group ">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="soportesDesmonte" multiple>
+                                            <input type="file" class="custom-file-input" id="soportesDesmonte" name="archivosSoportesRepara" multiple required="required">
                                             <label class="custom-file-label" for="customFile">Subir archivos</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group ">
-                                    <label for="exampleFormControlTextarea1">Observaciones del desmonte</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required="required"></textarea>
+                                    <label for="areaObservaciones">Observaciones del desmonte</label>
+                                    <textarea class="form-control" id="areaObservaciones" name="areaObservaciones" rows="3" required="required"></textarea>
+                                    <div class="col" style="text-align: right; color: #dee2e6;">
+                                        <label>Caracteres</label>
+                                        <label id="contadorarea">0/100</label>
+                                    </div>
                                 </div>
 
                             </fieldset>

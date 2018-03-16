@@ -56,7 +56,7 @@ $(function () {
             km: {
                 required: true,
                 number: true,
-                min: 1000
+                min: 1
             }
         },
         messages: {
@@ -66,7 +66,7 @@ $(function () {
             km: {
                 required: "Km obligatorio!",
                 number: "Solo números!",
-                min: "Debe mayor o igual que 1000"
+                min: "Km mayor a 0"
             }
         }
     });
