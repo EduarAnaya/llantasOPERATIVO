@@ -1,7 +1,6 @@
 
 $(function () {
-    var datos = [];
-    var daticos = "nuevos datos";
+    var contador=0;
     $(".soportesDesmonte").on("change", function () {
         var formulario=$("#formMuestrasDesmonta")[0];
         var formdata=new FormData(formulario);
@@ -17,13 +16,17 @@ $(function () {
             timeout: 600000,
             success: function (data) {
                 
+                var nombredoc=data.nombreArchivo;
+                var tamañodoc=((data.tamañoArchivo)*0.001).toFixed(0);//Byte=>Kilobyte (Kb)
+                contador++;
+
                 var registro = '<tr>'
-                + '<td scope="row">1</td>'
+                + '<td scope="row">'+contador+'</td>'
                 + '<td>'
-                + '<img src="' + event.target.result + '" style="width:20px;"/>'
+                + '<img src="/soportes/' +nombredoc+ '" style="width:20px;"/>'
                 + '</td>'
-                + '<td class="text-truncate" style="max-width:100px">' + data + '</td>'
-                + '<td>' + tamañoDoc + ' Kb</td>'
+                + '<td class="text-truncate" style="max-width:100px">' + nombredoc + '</td>'
+                + '<td>' + tamañodoc + ' Kb</td>'
                 + '<td>'
                 + '<img class="borarFila" src="/Content/medios/borrarFile.png" />'
                 + '</td>'
@@ -89,6 +92,7 @@ $(function () {
     function borrar() {
         $(".borarFila").on("click", function () {
             var s = $(this)[0].parentNode.parentNode.remove();
+            contador--;
         })
     }
 

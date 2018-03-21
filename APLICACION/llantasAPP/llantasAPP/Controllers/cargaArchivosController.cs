@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using llantasAPP.Models.cargaArchivos;
 using System.IO;
+using System.Collections;
 
 namespace llantasAPP.Controllers.cargaArchivos
 {
@@ -47,10 +48,12 @@ namespace llantasAPP.Controllers.cargaArchivos
                 archivos file = new archivos();
                 //nombre del archivo a guardar
                 file.nombreArchivo = Path.GetFileName(archivosSoportesRepara.FileName);
+                file.tamañoArchivo = archivosSoportesRepara.ContentLength;
+
                 //ruta de la carpeta del servidor en la que se guardara
-                string ruta = Path.Combine(Server.MapPath("~/soportes/"), file.nombreArchivo);
+                string ruta = Path.Combine(Server.MapPath(@"/soportes/"), file.nombreArchivo);
                 archivosSoportesRepara.SaveAs(ruta);
-                return Json(file.nombreArchivo);
+                return Json(file);
             }
             else
             {
