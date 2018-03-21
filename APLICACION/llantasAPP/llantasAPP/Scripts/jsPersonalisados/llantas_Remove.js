@@ -1,5 +1,5 @@
-﻿$(function () {
-
+﻿
+    var datos1="holas";
     //validacion del formulario
     $("#formMuestrasDesmonta").validate({
         rules: {
@@ -90,6 +90,9 @@
         var estado = $("#formMuestrasDesmonta").valid();
         if (estado != false) {
             //REALIZAR ACCIONES CON LOS DATOS RECOGIDOS
+
+
+
             $("#modMuestraDesmonta").modal("hide");
         }
     });
@@ -156,4 +159,3 @@
         }
     }
     init_contadorTa("areaObservaciones", "contadorarea", 100);
-})

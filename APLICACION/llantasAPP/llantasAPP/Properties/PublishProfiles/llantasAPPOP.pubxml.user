@@ -50,13 +50,19 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/02/2018 10:12:02</publishTime>
     </File>
     <File Include="bin/llantasAPP.dll">
-      <publishTime>03/16/2018 16:05:07</publishTime>
+      <publishTime>03/21/2018 13:20:41</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>03/02/2018 10:11:59</publishTime>
     </File>
+    <File Include="bin/Microsoft.Web.XmlTransform.dll">
+      <publishTime>03/20/2018 15:41:57</publishTime>
+    </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>03/02/2018 10:12:00</publishTime>
+    </File>
+    <File Include="bin/NuGet.Core.dll">
+      <publishTime>03/20/2018 15:41:57</publishTime>
     </File>
     <File Include="bin/Oracle.DataAccess.dll">
       <publishTime>08/31/2012 06:26:22</publishTime>
@@ -101,10 +107,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/02/2018 14:06:51</publishTime>
     </File>
     <File Include="Content/cssEdit/cssGeneral.css">
-      <publishTime>03/05/2018 18:16:54</publishTime>
+      <publishTime>03/16/2018 18:07:02</publishTime>
     </File>
     <File Include="Content/cssEdit/css_Editllantas.css">
-      <publishTime>03/13/2018 18:29:51</publishTime>
+      <publishTime>03/16/2018 18:07:02</publishTime>
     </File>
     <File Include="Content/cssEdit/css_home.css">
       <publishTime>03/05/2018 12:12:09</publishTime>
@@ -113,7 +119,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/05/2018 11:57:47</publishTime>
     </File>
     <File Include="Content/cssEdit/llantasHome.css">
-      <publishTime>03/05/2018 18:16:54</publishTime>
+      <publishTime>03/16/2018 18:07:02</publishTime>
     </File>
     <File Include="Content/cssEdit/Site.css">
       <publishTime>03/02/2018 10:11:43</publishTime>
@@ -164,7 +170,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/23/2018 18:34:16</publishTime>
     </File>
     <File Include="Content/medios/borrarFile.png">
-      <publishTime>03/08/2018 11:54:51</publishTime>
+      <publishTime>03/16/2018 18:07:02</publishTime>
     </File>
     <File Include="Content/medios/cambio_llantas.png">
       <publishTime>02/23/2018 18:34:17</publishTime>
@@ -179,10 +185,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/02/2018 17:23:59</publishTime>
     </File>
     <File Include="Content/medios/llanta_desmonta.png">
-      <publishTime>03/06/2018 11:25:13</publishTime>
+      <publishTime>03/16/2018 18:07:02</publishTime>
     </File>
     <File Include="Content/medios/llanta_ini.png">
-      <publishTime>03/05/2018 18:16:54</publishTime>
+      <publishTime>03/16/2018 18:07:02</publishTime>
     </File>
     <File Include="Content/medios/llanta_invent.png">
       <publishTime>03/02/2018 16:05:56</publishTime>
@@ -209,7 +215,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/23/2018 18:34:17</publishTime>
     </File>
     <File Include="Content/medios/sitioContruccion.png">
-      <publishTime>03/07/2018 09:39:27</publishTime>
+      <publishTime>03/16/2018 18:07:02</publishTime>
     </File>
     <File Include="Content/medios/success.png">
       <publishTime>02/23/2018 18:34:17</publishTime>
@@ -389,7 +395,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/02/2018 10:11:43</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>03/02/2018 10:12:03</publishTime>
+      <publishTime>03/20/2018 15:55:02</publishTime>
     </File>
     <File Include="Scripts/jquery-1.7.1.js">
       <publishTime>03/02/2018 10:11:57</publishTime>
@@ -429,6 +435,9 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     </File>
     <File Include="Scripts/jsPersonalisados/bootstrap.min.js">
       <publishTime>01/18/2018 11:33:36</publishTime>
+    </File>
+    <File Include="Scripts/jsPersonalisados/cargaArchivos.js">
+      <publishTime>03/21/2018 11:47:05</publishTime>
     </File>
     <File Include="Scripts/jsPersonalisados/datatables/AutoFill-2.2.2/css/autoFill.bootstrap.css">
       <publishTime>02/23/2018 18:34:16</publishTime>
@@ -836,19 +845,19 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/06/2018 16:25:51</publishTime>
     </File>
     <File Include="Scripts/jsPersonalisados/index_llantasEdit.js">
-      <publishTime>03/16/2018 09:34:59</publishTime>
+      <publishTime>03/16/2018 18:07:02</publishTime>
     </File>
     <File Include="Scripts/jsPersonalisados/jquery-3.2.1.min.js">
       <publishTime>02/23/2018 18:34:17</publishTime>
     </File>
     <File Include="Scripts/jsPersonalisados/llantas_Remove.js">
-      <publishTime>03/16/2018 14:49:33</publishTime>
+      <publishTime>03/20/2018 17:50:55</publishTime>
     </File>
     <File Include="Scripts/jsPersonalisados/tactil.js">
-      <publishTime>03/05/2018 18:16:54</publishTime>
+      <publishTime>03/16/2018 18:07:02</publishTime>
     </File>
     <File Include="Scripts/jsPersonalisados/timer.Js">
-      <publishTime>03/16/2018 16:17:32</publishTime>
+      <publishTime>03/20/2018 16:39:45</publishTime>
     </File>
     <File Include="Scripts/knockout-2.1.0.debug.js">
       <publishTime>03/02/2018 10:12:02</publishTime>
@@ -860,13 +869,13 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/19/2018 07:12:29</publishTime>
     </File>
     <File Include="Scripts/libreriasPRoveedores/bootstrap.min.js">
-      <publishTime>01/18/2018 11:33:36</publishTime>
+      <publishTime>03/16/2018 18:07:02</publishTime>
     </File>
     <File Include="Scripts/libreriasPRoveedores/jquery-3.2.1.min.js">
-      <publishTime>02/23/2018 18:34:17</publishTime>
+      <publishTime>03/16/2018 18:07:02</publishTime>
     </File>
     <File Include="Scripts/libreriasPRoveedores/jquery-ui.min.js">
-      <publishTime>03/05/2018 18:16:54</publishTime>
+      <publishTime>03/16/2018 18:07:02</publishTime>
     </File>
     <File Include="Scripts/libreriasPRoveedores/jquery.fileupload-angular.js">
       <publishTime>02/19/2018 07:12:29</publishTime>
@@ -899,7 +908,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/19/2018 07:12:29</publishTime>
     </File>
     <File Include="Scripts/libreriasPRoveedores/jquery.validate.min.js">
-      <publishTime>02/23/2018 18:34:17</publishTime>
+      <publishTime>03/16/2018 18:07:02</publishTime>
     </File>
     <File Include="Scripts/libreriasPRoveedores/js/app.js">
       <publishTime>03/07/2018 15:53:44</publishTime>
@@ -941,7 +950,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/19/2018 07:12:29</publishTime>
     </File>
     <File Include="Scripts/libreriasPRoveedores/plugTimer.js">
-      <publishTime>03/13/2018 10:50:12</publishTime>
+      <publishTime>03/16/2018 18:07:02</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.5.3.js">
       <publishTime>03/02/2018 10:11:59</publishTime>
@@ -949,35 +958,38 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="Scripts/_references.js">
       <publishTime>03/02/2018 10:11:58</publishTime>
     </File>
+    <File Include="soportes/imagenes/1.png">
+      <publishTime>03/21/2018 09:34:28</publishTime>
+    </File>
     <File Include="Views/llantas/EdicionLlantas.cshtml">
-      <publishTime>03/16/2018 15:55:07</publishTime>
+      <publishTime>03/21/2018 11:39:00</publishTime>
     </File>
     <File Include="Views/llantas/Index.cshtml">
-      <publishTime>03/16/2018 09:31:12</publishTime>
+      <publishTime>03/16/2018 18:07:02</publishTime>
     </File>
     <File Include="Views/llantas/Inventario.cshtml">
-      <publishTime>03/05/2018 18:16:54</publishTime>
+      <publishTime>03/16/2018 18:07:02</publishTime>
     </File>
     <File Include="Views/llantas/RecircularLlantas.cshtml">
-      <publishTime>03/07/2018 09:27:28</publishTime>
+      <publishTime>03/16/2018 18:07:02</publishTime>
     </File>
     <File Include="Views/llantas/ReencaucheLlantas.cshtml">
-      <publishTime>03/07/2018 09:27:51</publishTime>
+      <publishTime>03/16/2018 18:07:02</publishTime>
     </File>
     <File Include="Views/llantas/ReparacionLlantas.cshtml">
-      <publishTime>03/16/2018 09:30:46</publishTime>
+      <publishTime>03/16/2018 18:07:02</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>03/02/2018 10:11:43</publishTime>
     </File>
     <File Include="Views/Shared/siteConstruccion.cshtml">
-      <publishTime>03/07/2018 09:25:27</publishTime>
+      <publishTime>03/16/2018 18:07:02</publishTime>
     </File>
     <File Include="Views/Shared/subir_archivo.cshtml">
-      <publishTime>03/09/2018 10:26:31</publishTime>
+      <publishTime>03/20/2018 15:58:43</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>03/13/2018 10:51:23</publishTime>
+      <publishTime>03/20/2018 16:45:50</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>03/02/2018 10:11:43</publishTime>
@@ -986,7 +998,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/02/2018 10:11:43</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/16/2018 16:22:47</publishTime>
+      <publishTime>03/21/2018 13:20:41</publishTime>
     </File>
   </ItemGroup>
 </Project>

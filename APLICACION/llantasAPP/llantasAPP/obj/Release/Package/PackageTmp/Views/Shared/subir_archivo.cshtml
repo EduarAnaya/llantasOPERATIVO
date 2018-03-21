@@ -1,44 +1,9 @@
 ﻿<div class="custom-file">
-    <input type="file" class="custom-file-input" id="soportesDesmonte" multiple>
+    <input type="file" class="custom-file-input soportesDesmonte" id="soportesDesmonte" name="archivosSoportesRepara" multiple required="required" accept="text/plain,image/*,application/pdf,.docs,.docx">
     <label class="custom-file-label" for="customFile">Subir archivos</label>
 </div>
+
 <table id="subidos" class="table table-dark">
     <tbody>
     </tbody>
 </table>
-<script>
-    $(function () {
-
-        var datos = [];
-        $("#soportesDesmonte").on("change", function () {
-
-            var file = event.target.files;
-            for (var i = 0; i < file.length; i++) {
-                var nombreDoc = file[i].name;
-                var tamañoDoc = (file[i].size / 1048576).toFixed(1);
-
-
-                var reader = new FileReader();
-                reader.onload = function (event) {
-                    // El texto del archivo se mostrará por consola aquí
-
-                    var registro = '<tr><th scope="row">1</th><td style="width:20%">'
-                    + '<div class="col"><img src="' + event.target.result + '" style="width:100%;"/></div> </td><td>' + nombreDoc + '</td><td>' + tamañoDoc + ' Mb</td><td><img class="borarFila" src="/Content/medios/borrarFile.png" /></td</tr>';
-
-                    $("#subidos tbody").append(registro);
-                    borrar();
-                };
-
-                reader.readAsDataURL(file[i]);
-            }
-
-
-        });
-        function borrar() {
-            $(".borarFila").on("click", function () {
-                var s = $(this)[0].parentNode.parentNode.remove();
-            })
-        }
-
-    })
-</script>

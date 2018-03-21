@@ -271,7 +271,7 @@
             </div>
 
             <div class="modal-body">
-                <form id="formMuestrasDesmonta">
+               <form method="POST" enctype="multipart/form-data" id="formMuestrasDesmonta">
                     <div class="row">
                         <div class="col" style="border-right: solid">
                             <fieldset>
@@ -315,7 +315,7 @@
                                         <option value="1">Llanta para rehusar en otro vehículo</option>
                                         <option value="2">Llanta estallada</option>
                                         <option value="3">Llanta quemada</option>
-                                        <option value="4">Llanta para rreparar</option>
+                                        <option value="4">Llanta para reparar</option>
                                         <option value="5">Llanta prestada en carretera</option>
                                         <option value="6">Llanta en limite de desgaste</option>
                                         <option value="7">Llanta para enviar a ajuste</option>
@@ -335,10 +335,7 @@
                                         </div>
                                         <label for="radioOpciones" class="error"></label>
                                         <div id="grupoFilesrepara" class="form-group visible">
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="soportesDesmonte" name="archivosSoportes" multiple required="required">
-                                                <label class="custom-file-label" for="customFile">Subir archivos</label>
-                                            </div>
+                                            @Html.Partial("subir_archivo")
                                         </div>
                                     </fieldset>
 
@@ -366,10 +363,7 @@
                                         </fieldset>
                                     </div>
                                     <div class="form-group ">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="soportesDesmonte" name="archivosSoportesRepara" multiple required="required">
-                                            <label class="custom-file-label" for="customFile">Subir archivos</label>
-                                        </div>
+                                        @Html.Partial("subir_archivo")
                                     </div>
                                 </div>
                                 <div class="form-group ">

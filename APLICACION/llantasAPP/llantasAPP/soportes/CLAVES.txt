@@ -1,0 +1,11 @@
+http://192.168.30.70:8080/html/live.htm PRINCIPAL  // 1234
+http://192.168.31.40:8080/html/live.htm OPERATIVO // trafico
+http://192.168.32.40:8080/html/live.htm DESTOCA    // trafico
+
+
+Dirección física: ?00-23-AE-01-C1-35
+Habilitado para DHCP: No
+Dirección IPv4: 192.168.30.188
+Máscara de subred IPv4: 255.255.255.0
+Puerta de enlace predeterminada IPv4: 192.168.30.12
+Servidores DNS IPv4: 192.168.30.3, 192.168.30.4
