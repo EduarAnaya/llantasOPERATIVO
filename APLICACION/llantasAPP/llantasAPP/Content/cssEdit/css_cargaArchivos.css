@@ -1,0 +1,44 @@
+.badge-success {
+    color: #fff;
+    background-color: #28a745;
+    width: 100%;
+}
+
+.custom-file-label::after {
+    content: "Explorar" !important;
+}
+.visible{
+  display:none;
+}
+#subidos tbody{
+  height:40px;
+  overflow:auto;
+}
+.btnAddFile {
+    width: 20px;
+    margin: auto;
+    border-radius: 10px;
+    height: 20px;
+    padding: 0;
+    font-size: small;
+}
+.btndellFile {
+    width: 20px;
+    margin: auto;
+    border-radius: 10px;
+    height: 20px;
+    padding: 0;
+    font-size: small;
+}
+.subirArchivos{
+  font-size:xx-small;
+  text-align:center;
+  padding:0;
+}
+.boxFicheros {
+    font-size: xx-small;
+}
+.rowFicheros {
+    padding-top: 5px;
+    margin-bottom: 2px;
+}

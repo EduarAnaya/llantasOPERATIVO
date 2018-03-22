@@ -1,99 +1,82 @@
 
 $(function () {
-    var contador=0;
-    $(".soportesDesmonte").on("change", function () {
-        var formulario=$("#formMuestrasDesmonta")[0];
-        var formdata=new FormData(formulario);
 
-        $.ajax({
-            type: "POST",
-            enctype: 'multipart/form-data',
-            url: "/cargaArchivos/cargarArchivo",
-            data: formdata,
-            processData: false,
-            contentType: false,
-            cache: false,
-            timeout: 600000,
-            success: function (data) {
-                
-                var nombredoc=data.nombreArchivo;
-                var tamañodoc=((data.tamañoArchivo)*0.001).toFixed(0);//Byte=>Kilobyte (Kb)
-                contador++;
+    var maxFiles = 5;
+    var contador = 1;
+    renderContador();
+    $("#btnAddFile").on("click", function () {
+        if (contador < maxFiles) {
+            contador = contador + 1;
+            var nuevoInput =
+                '<div class="form-row rowFicheros">' +
+                '<div class="col-11">' +
+                '<input type="file" name="archivoDesmonte">' +
+                "</div>" +
+                "<div>" +
+                '<button type="button" class="btn btn-danger btndellFile">X</button>' +
+                "</div>" +
+                "</div>";
 
-                var registro = '<tr>'
-                + '<td scope="row">'+contador+'</td>'
-                + '<td>'
-                + '<img src="/soportes/' +nombredoc+ '" style="width:20px;"/>'
-                + '</td>'
-                + '<td class="text-truncate" style="max-width:100px">' + nombredoc + '</td>'
-                + '<td>' + tamañodoc + ' Kb</td>'
-                + '<td>'
-                + '<img class="borarFila" src="/Content/medios/borrarFile.png" />'
-                + '</td>'
-                + '</tr>';
+            $("#boxFicheros").append(nuevoInput);
 
-            $("#subidos tbody").append(registro);
-            borrar();
-            },
-            error: function (e) {
-                console.log("ERROR : ", e);
-            }
-        });
-
-
-
-
-
-
-        /* 
-        
-        
-                for (var i = 0; i < file.length; i++) {
-                    var nombreDoc = file[i].name;
-                    var tamañoDoc = (file[i].size / 1024).toFixed(1);
-        
-        
-                    $.post(
-                        'cargarArchivo/cargarArchivo',
-                        { archivo: archivosSoportesRepara }
-                    )
-        
-        
-        
-                    var reader = new FileReader();
-                    reader.onload = function (event) {
-                        // El texto del archivo se mostrará por consola aquí
-                        var archivosSoportesRepara = $("#soportesDesmonte");
-        
-        
-        
-                        var registro = '<tr>'
-                            + '<td scope="row">1</td>'
-                            + '<td>'
-                            + '<img src="' + event.target.result + '" style="width:20px;"/>'
-                            + '</td>'
-                            + '<td class="text-truncate" style="max-width:100px">' + nombreDoc + '</td>'
-                            + '<td>' + tamañoDoc + ' Kb</td>'
-                            + '<td>'
-                            + '<img class="borarFila" src="/Content/medios/borrarFile.png" />'
-                            + '</td>'
-                            + '</tr>';
-        
-                        $("#subidos tbody").append(registro);
-                        borrar();
-                    };
-        
-                    reader.readAsDataURL(file[i]);
-                }
-                console.log("subido"); */
-
-
+            delRowFile();
+            renderContador();
+        }
     });
-    function borrar() {
-        $(".borarFila").on("click", function () {
-            var s = $(this)[0].parentNode.parentNode.remove();
-            contador--;
-        })
+
+    function delRowFile() {
+        $(".btndellFile").on("click", function () {
+            var registro = $(this)[0].parentNode.parentNode;
+            registro.remove();
+            var activos = $(".boxFicheros .rowFicheros");
+            contador = activos.length;
+            renderContador();
+            return;
+        });
     }
+    function renderContador() {
+        $("#lblContador").html("");
+        $("#lblContador").html(contador + "/" + maxFiles);
+    }
+
+    /*     $(".soportesDesmonte").on("change", function () {
+            var formulario=$("#formMuestrasDesmonta")[0];
+            var formdata=new FormData(formulario);
+    
+            $.ajax({
+                type: "POST",
+                enctype: 'multipart/form-data',
+                url: "/cargaArchivos/cargarArchivo",
+                data: formdata,
+                processData: false,
+                contentType: false,
+                cache: false,
+                timeout: 600000,
+                success: function (data) {
+                    
+                    var nombredoc=data.nombreArchivo;
+                    var tamañodoc=((data.tamañoArchivo)*0.001).toFixed(0);//Byte=>Kilobyte (Kb)
+                    contador++;
+    
+                    var registro = '<tr>'
+                    + '<td scope="row">'+contador+'</td>'
+                    + '<td>'
+                    + '<img src="/soportes/' +nombredoc+ '" style="width:20px;"/>'
+                    + '</td>'
+                    + '<td class="text-truncate" style="max-width:100px">' + nombredoc + '</td>'
+                    + '<td>' + tamañodoc + ' Kb</td>'
+                    + '<td>'
+                    + '<img class="borarFila" src="/Content/medios/borrarFile.png" />'
+                    + '</td>'
+                    + '</tr>';
+    
+                $("#subidos tbody").append(registro);
+                borrar();
+                },
+                error: function (e) {
+                    console.log("ERROR : ", e);
+                }
+            });
+    */
 
 })

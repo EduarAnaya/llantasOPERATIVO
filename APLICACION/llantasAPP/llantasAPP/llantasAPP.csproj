@@ -148,6 +148,7 @@
     <Content Include="Content\bootstrap\bootstrap.css" />
     <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\cssEdit\cssGeneral.css" />
+    <Content Include="Content\cssEdit\css_cargaArchivos.css" />
     <Content Include="Content\cssEdit\css_Editllantas.css" />
     <Content Include="Content\cssEdit\llantasHome.css" />
     <Content Include="Content\cssEdit\Site.css" />
