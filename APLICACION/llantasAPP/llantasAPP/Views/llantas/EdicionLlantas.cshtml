@@ -214,13 +214,13 @@
     <div class="modal-dialog" role="document" style="max-width: 800px">
         <div class="modal-content">
             <div class="modal-header" style="padding-bottom: 0;">
-                <div class="col-5">
+                <div class="col-4">
                     <div class="row">
-                        <div class="col-3" style="padding-left: 0;">
+                        <div class="col" style="padding-left: 0;">
                             <img src="~/Content/medios/medidas_llantas.png" style="width: 100%;" />
                         </div>
-                        <div class="col" style="margin: auto; padding-left: 0;">
-                            <h3 class="modal-title">Desmontar llanta</h3>
+                        <div class="col">
+                            <h5 class="modal-title">Desmontar llanta</h5>
                         </div>
                     </div>
 
@@ -271,7 +271,7 @@
             </div>
 
             <div class="modal-body">
-               <form method="POST" enctype="multipart/form-data" id="formMuestrasDesmonta">
+                <form id="formMuestrasDesmonta">
                     <div class="row">
                         <div class="col" style="border-right: solid">
                             <fieldset>
@@ -299,7 +299,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-4 d-flex align-items-end">
+                                    <div class="col-4">
                                         <img src="~/Content/medios/labrado.png" class="imgGuia" />
                                     </div>
                                 </div>
@@ -315,7 +315,7 @@
                                         <option value="1">Llanta para rehusar en otro vehículo</option>
                                         <option value="2">Llanta estallada</option>
                                         <option value="3">Llanta quemada</option>
-                                        <option value="4">Llanta para reparar</option>
+                                        <option value="4">Llanta para rreparar</option>
                                         <option value="5">Llanta prestada en carretera</option>
                                         <option value="6">Llanta en limite de desgaste</option>
                                         <option value="7">Llanta para enviar a ajuste</option>
@@ -334,9 +334,6 @@
                                             <label class="form-check-label" for="radioMismoVehiculo">R. mismo vehiculo</label>
                                         </div>
                                         <label for="radioOpciones" class="error"></label>
-                                        <div id="grupoFilesrepara" class="form-group visible">
-                                            @Html.Partial("subir_archivo")
-                                        </div>
                                     </fieldset>
 
                                 </div>
@@ -363,9 +360,13 @@
                                         </fieldset>
                                     </div>
                                     <div class="form-group ">
-                                        @Html.Partial("subir_archivo")
                                     </div>
                                 </div>
+
+                                <div id="grupoFilesDesmonte" class="form-group visible">
+                                    @Html.Partial("subir_archivo")
+                                </div>
+
                                 <div class="form-group ">
                                     <label for="areaObservaciones">Observaciones del desmonte</label>
                                     <textarea class="form-control" id="areaObservaciones" name="areaObservaciones" rows="3" required="required"></textarea>
@@ -383,7 +384,6 @@
 
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-outline-success btn-lg btn-block">Retirar</button>
-
                     </div>
                 </form>
             </div>

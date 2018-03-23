@@ -1,24 +1,20 @@
 ﻿<link href="~/Content/cssEdit/css_cargaArchivos.css" rel="stylesheet" />
 
-
-
-<div class="form-row">
-  <div class="col-3 card subirArchivos">
-    <label for="">subir archivos</label>
-    
-    <button id="btnAddFile" type="button" class="btn btn-success btnAddFile">+</button>
-<label id="lblContador"></label>
-  </div>
-  <div id="boxFicheros" class="col boxFicheros card">
-    <div class="form-row rowFicheros">
-      <div class="col">
-        <input type="file" name="archivoDesmonte">
-      </div>
+<div class="form-row" aria-describedby="helpFilesDesmonte">
+    <div class="col-3 subirArchivos">
+        <label for="">subir archivos</label><br>
+        <button id="btnAddFile" type="button" class="btn btn-success btnAddFile">+</button>
     </div>
-  </div>
+    <div id="boxFicheros" class="col boxFicheros">
+        <div class="form-row rowFicheros">
+            <div class="col">
+                <input type="file" name="archivoDesmonte" required="required">
+            </div>
+        </div>
+    </div>
 </div>
-
-<table id="subidos" class="table table-dark">
-    <tbody>
-    </tbody>
-</table>
+<small id="helpFilesDesmonte" class="form-text text-muted">Máximo 5 adjuntos :
+                                        <label id="lblContador"></label>
+    <br>
+    Extensiones permitidas: *.docs,*.docsx,*.xls,*.xlsx,*.pdf,*.jpg,*.png
+</small>

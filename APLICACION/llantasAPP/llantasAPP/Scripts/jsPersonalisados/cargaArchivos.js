@@ -1,6 +1,7 @@
 
 $(function () {
 
+    //espacio para la arga de archivos
     var maxFiles = 5;
     var contador = 1;
     renderContador();
@@ -9,10 +10,10 @@ $(function () {
             contador = contador + 1;
             var nuevoInput =
                 '<div class="form-row rowFicheros">' +
-                '<div class="col-11">' +
-                '<input type="file" name="archivoDesmonte">' +
+                '<div class="col">' +
+                '<input type="file" name="archivoDesmonte" required="required">' +
                 "</div>" +
-                "<div>" +
+                '<div class="col">' +
                 '<button type="button" class="btn btn-danger btndellFile">X</button>' +
                 "</div>" +
                 "</div>";
@@ -38,7 +39,7 @@ $(function () {
         $("#lblContador").html("");
         $("#lblContador").html(contador + "/" + maxFiles);
     }
-
+    
     /*     $(".soportesDesmonte").on("change", function () {
             var formulario=$("#formMuestrasDesmonta")[0];
             var formdata=new FormData(formulario);

@@ -22,7 +22,7 @@ namespace llantasAPP.Controllers.cargaArchivos
 
         private bool tipoValido(string tipo)
         {
-            /*ELENEBTOS PERMITIROS PERMITIDOS:
+            /*ELENEMTOS PERMITIROS PERMITIDOS:
              * DOCUMENTOS:WORD, PDF,EXCEL
              * IMAGENES:JPG,PNG
              */
