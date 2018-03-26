@@ -12,16 +12,19 @@ namespace llantasAPP.Controllers
 {
     public class llantasController : Controller
     {
+        public string fechaSistema = DateTime.Now.Date.ToShortDateString();
         /*instancia de la clase de conexion a base de datos*/
         bdConexion bdcon = new bdConexion();
         /*Lista que almacenara las llantas antes de que sean manuladas (para poder ver el antes y el despues)*/
         public static List<llantas_Edit> llantaL = new List<llantas_Edit>();
+        public static List<llantas_delete> llantasRemoveL = new List<llantas_delete>();
 
         //
         // GET: /llantas/
 
         public ActionResult Index()
         {
+            ViewBag.Title = "Llantas-Home";
             return View();
         }
 
@@ -50,17 +53,17 @@ namespace llantasAPP.Controllers
         {
             return View();
         }
-        
+
         public ActionResult ReencaucheLlantas()
         {
             return View();
         }
-        
+
         public ActionResult ReparacionLlantas()
         {
             return View();
         }
-        
+
         [HttpPost]
         public JsonResult cargarllantas(int _tipoVehiculo, string _placa)
         {
@@ -241,12 +244,33 @@ namespace llantasAPP.Controllers
 
 
         [HttpPost]
-        public ActionResult removerllantas
+        public ActionResult removerllantas(string _placa, string _llanta, string _grupo, string _kmMEdida)
+        {
+            ViewBag._Placa = _placa;
+            ViewBag._Llanta = _llanta;
+            ViewBag._Grupo = _grupo;
+            ViewBag._KmMEdida = _kmMEdida;
+            ViewBag._fechaMedida = fechaSistema;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult removerllantasPost
             (string par_vehiculo, string par_llanta, string par_grupo, string par_profi,
             string par_profc, string par_profd, int par_posicion, int par_kilomi, int par_presion)
         {
-
-            return View();
+            llantas_delete llantaRemove = new llantas_delete();
+            llantaRemove.par_vehiculo = par_vehiculo;
+            llantaRemove.par_llanta = par_llanta;
+            llantaRemove.par_grupo = par_grupo;
+            llantaRemove.par_profi = par_profi;
+            llantaRemove.par_profc = par_profc;
+            llantaRemove.par_profd = par_profd;
+            llantaRemove.par_posicion = par_posicion;
+            llantaRemove.par_kilomi = par_kilomi;
+            llantaRemove.par_presion = par_presion;
+            llantasRemoveL.Add(llantaRemove);
+            return Json("Ok");
         }
 
     }

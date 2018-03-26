@@ -339,6 +339,7 @@
     <Content Include="Views\llantas\ReencaucheLlantas.cshtml" />
     <Content Include="Views\Shared\subir_archivo.cshtml" />
     <Content Include="Views\llantas\ReparacionLlantas.cshtml" />
+    <Content Include="Views\llantas\removerllantas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

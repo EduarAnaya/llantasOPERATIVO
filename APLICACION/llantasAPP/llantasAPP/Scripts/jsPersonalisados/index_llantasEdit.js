@@ -520,7 +520,8 @@ $(function () {
         var valor = $nitem.text();
         var llanta = valor.split("-")[0];
         var grupo = valor.split("-")[1];
-        desmontarLlanta(_placaActual, llanta, grupo, _kmTrabajoactual, _fechaActual)
+        //desmontarLlanta(_placaActual, llanta, grupo, _kmTrabajoactual, _fechaActual)
+        desmontarLlanta(_placaActual, llanta, grupo, _kmTrabajoactual)
         console.log("Se removio la llanta " + valor.split("-")[0] + " del grupo " + valor.split("-")[1]);
 
     };
@@ -678,18 +679,32 @@ $(function () {
     };
 
     //MUESTRA EL MODAL PARA DESMONTAR UNA LLANTA
-    function desmontarLlanta(_placa, _llanta, _grupo, _kmMEdida, _fechaMedida) {
-        $("#idPlacaRmv").html("");
-        $("#idPlacaRmv").html(_placa);
-        $("#idLlantaRmv").html("");
-        $("#idLlantaRmv").html(_llanta + "-" + _grupo);
-        $("#idKMMed").html("");
-        $("#idKMMed").html(_kmMEdida);
-        $("#idFechaMed").html("");
-        $("#idFechaMed").html(_fechaMedida);
-        $("#modMuestraDesmonta").modal('show');
+    /*     function desmontarLlanta(_placa, _llanta, _grupo, _kmMEdida, _fechaMedida) {
+            $("#idPlacaRmv").html("");
+            $("#idPlacaRmv").html(_placa);
+            $("#idLlantaRmv").html("");
+            $("#idLlantaRmv").html(_llanta + "-" + _grupo);
+            $("#idKMMed").html("");
+            $("#idKMMed").html(_kmMEdida);
+            $("#idFechaMed").html("");
+            $("#idFechaMed").html(_fechaMedida);
+            $("#modMuestraDesmonta").modal('show');
+        }; */
 
+    function desmontarLlanta(_placa, _llanta, _grupo, _kmMEdida) {
+
+        $.post(
+            '/llantas/removerllantas/',
+            { _placa: _placa, _llanta: _llanta, _grupo: _grupo, _kmMEdida: _kmMEdida }
+        ).done(
+            function (data) {
+                $('#modMuestraDesmonta').html(data);
+                $('#modMuestraDesmonta').modal('show');
+            }
+        );
     };
+
+
     //FUNCION QUE LIMPIA EL FORMULARIO DE INGRESODE PRESIONES DE LAS LLANTAS
     function eliminarPRessionesllantas() {
         $("#inputPresion").val("");
@@ -697,4 +712,5 @@ $(function () {
         $("#inputCent").val("");
         $("#inputDere").val("");
     };
+    export { _placaActual };
 });

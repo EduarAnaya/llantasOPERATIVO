@@ -41,7 +41,7 @@ namespace llantasAPP.Models
     {
         public string par_vehiculo { get; set; }
         public string par_llanta { get; set; }
-        string par_grupo { get; set; }
+        public string par_grupo { get; set; }
         public string par_profi { get; set; }
         public string par_profc { get; set; }
         public string par_profd { get; set; }

@@ -1,9 +1,20 @@
-﻿<div class="custom-file">
-    <input type="file" class="custom-file-input soportesDesmonte" id="soportesDesmonte" name="archivosSoportesRepara" multiple required="required" accept="text/plain,image/*,application/pdf,.docs,.docx">
-    <label class="custom-file-label" for="customFile">Subir archivos</label>
-</div>
+﻿<link href="~/Content/cssEdit/css_cargaArchivos.css" rel="stylesheet" />
 
-<table id="subidos" class="table table-dark">
-    <tbody>
-    </tbody>
-</table>
+<div class="form-row" aria-describedby="helpFilesDesmonte">
+    <div class="col-3 subirArchivos">
+        <label for="">subir archivos</label><br>
+        <button id="btnAddFile" type="button" class="btn btn-success btnAddFile">+</button>
+    </div>
+    <div id="boxFicheros" class="col boxFicheros">
+        <div class="form-row rowFicheros">
+            <div class="col">
+                <input type="file" name="archivoDesmonte" required="required">
+            </div>
+        </div>
+    </div>
+</div>
+<small id="helpFilesDesmonte" class="form-text text-muted">Máximo 5 adjuntos :
+                                        <label id="lblContador"></label>
+    <br>
+    Extensiones permitidas: *.docs,*.docsx,*.xls,*.xlsx,*.pdf,*.jpg,*.png
+</small>

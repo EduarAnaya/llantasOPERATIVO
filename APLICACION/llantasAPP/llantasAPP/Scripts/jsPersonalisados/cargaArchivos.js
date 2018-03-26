@@ -11,7 +11,8 @@ $(function () {
             var nuevoInput =
                 '<div class="form-row rowFicheros">' +
                 '<div class="col">' +
-                '<input type="file" name="archivoDesmonte" required="required">' +
+                '<input type="file" name="archivoDesmonte" required="true">' +
+                '<label class="error" for="archivoDesmonte">' +
                 "</div>" +
                 '<div class="col">' +
                 '<button type="button" class="btn btn-danger btndellFile">X</button>' +
@@ -39,7 +40,7 @@ $(function () {
         $("#lblContador").html("");
         $("#lblContador").html(contador + "/" + maxFiles);
     }
-    
+
     /*     $(".soportesDesmonte").on("change", function () {
             var formulario=$("#formMuestrasDesmonta")[0];
             var formdata=new FormData(formulario);
