@@ -7,185 +7,186 @@
 <!-- Modal -->
 @*<div class="modal fade bd-example-modal" id="modMuestraDesmonta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">*@
 <link href="~/Content/cssEdit/css_Editllantas.css" rel="stylesheet" />
-    <div class="modal-dialog" role="document" style="max-width: 800px">
-        <div class="modal-content">
-            <div class="modal-header" style="padding-bottom: 0;">
-                <div class="col-4">
-                    <div class="row">
-                        <div class="col-3" style="padding-left: 0;">
-                            <img src="~/Content/medios/medidas_llantas.png" style="width: 100%;" />
-                        </div>
-                        <div class="col">
-                            <h5 class="modal-title">Desmontar llanta</h5>
-                        </div>
+<div class="modal-dialog" role="document" style="max-width: 800px">
+    <div class="modal-content">
+        <div class="modal-header" style="padding-bottom: 0;">
+            <div class="col-4">
+                <div class="row">
+                    <div class="col-3" style="padding-left: 0;">
+                        <img src="~/Content/medios/medidas_llantas.png" style="width: 100%;" />
                     </div>
-
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col text-right">
-                                    <h6>Placa</h6>
-                                </div>
-                                <div class="col-7">
-                                    <h5><span class="badge badge-success" id="idPlacaRmv">@ViewBag._placa</span></h5>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col text-right">
-                                    <h6>Llanta</h6>
-                                </div>
-                                <div class="col-7">
-                                    <h5><span class="badge badge-success" id="idLlantaRmv">@ViewBag._Llanta-@ViewBag._grupo</span></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="row">
-                                <div class="col text-right">
-                                    <h6>KM</h6>
-                                </div>
-                                <div class="col-7">
-                                    <h5><span class="badge badge-success" id="idKMMed">@ViewBag._kmMEdida</span></h5>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col text-right">
-                                    <h6>FECHA</h6>
-                                </div>
-                                <div class="col-7">
-                                    <h5><span class="badge badge-success" id="idFechaMed">@ViewBag._fechaMedida</span></h5>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col">
+                        <h5 class="modal-title">Desmontar llanta</h5>
                     </div>
                 </div>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+
             </div>
-
-            <div class="modal-body">
-                <form id="formMuestrasDesmonta">
-                    <div class="row">
-                        <div class="col" style="border-right: solid">
-                            <fieldset>
-                                <legend style="color: black !important;">Muestreo del desmonte</legend>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group row">
-                                            <div class="col">
-                                                <input type="number" class="form-control" id="inputPresionRmv" name="inputPresionRmv" placeholder="Presión" required="required">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col">
-                                                <input type="number" class="form-control" id="inputLizqRmv" name="inputLizqRmv" placeholder="Labrado Izquierdo" required="required">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col">
-                                                <input type="number" class="form-control" id="inputCentRmv" name="inputCentRmv" placeholder="Labrado Centro" required="required">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col">
-                                                <input type="number" class="form-control" id="inputDereRmv" name="inputDereRmv" placeholder="Labrado Derecho" required="required">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="~/Content/medios/labrado.png" class="imgGuia" />
-                                    </div>
-                                </div>
-                            </fieldset>
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col text-right">
+                                <h6>Placa</h6>
+                            </div>
+                            <div class="col-7">
+                                <h5><span class="badge badge-success" id="idPlacaRmv">@ViewBag._placa</span></h5>
+                            </div>
                         </div>
-                        <div class="col">
-                            <fieldset>
-                                <legend style="color: black !important;">Detalles del desmonte</legend>
-                                <div class="form-group">
-                                    <label for="inputState">Causa</label>
-                                    <select id="selectCausa" name="selectCausa" class="form-control" required="required">
-                                        <option value="" selected>Seleccione...</option>
-                                        <option value="1">Llanta para rehusar en otro vehículo</option>
-                                        <option value="2">Llanta estallada</option>
-                                        <option value="3">Llanta quemada</option>
-                                        <option value="4">Llanta para rreparar</option>
-                                        <option value="5">Llanta prestada en carretera</option>
-                                        <option value="6">Llanta en limite de desgaste</option>
-                                        <option value="7">Llanta para enviar a ajuste</option>
-                                        <option value="8">Llanta con filtración de aire</option>
-                                    </select>
-                                </div>
-                                <div id="grupo_reusadas" class="form-group visible">
-                                    <fieldset>
-                                        <legend style="font-size: small; color: black !important;">Acciones posteriores</legend>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="radioOpciones" id="radioOtroVehiculo" value="1" required="required">
-                                            <label class="form-check-label" for="radioOtroVehiculo">R. otro vehiculo</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="radioOpciones" id="radioMismoVehiculo" value="0" required="required">
-                                            <label class="form-check-label" for="radioMismoVehiculo">R. mismo vehiculo</label>
-                                        </div>
-                                        <label for="radioOpciones" class="error"></label>
-                                    </fieldset>
-
-                                </div>
-                                <div id="grupo_quemadas" class="form-group visible">
-                                    <div class="form-group ">
-                                        <fieldset>
-                                            <legend style="font-size: small; color: black !important;">Sensores</legend>
-                                            <div class="form-row">
-                                                <div class="col">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="checkTemperatura">
-                                                        <label class="form-check-label" for="checkTemperatura">Temperatura</label>
-                                                    </div>
-                                                    <input id="inutTemperatra" type="text" class="form-control" placeholder="#°" disabled required="required">
-                                                </div>
-                                                <div class="col">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="checkPresion">
-                                                        <label class="form-check-label" for="checkPresion">Presión</label>
-                                                    </div>
-                                                    <input id="inutPresion" type="text" class="form-control" placeholder="PSI" disabled required="required">
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                    <div class="form-group ">
-                                    </div>
-                                </div>
-
-                                <div id="grupoFilesDesmonte" class="form-group visible">
-                                    @Html.Partial("subir_archivo")
-                                </div>
-
-                                <div class="form-group ">
-                                    <label for="areaObservaciones">Observaciones del desmonte</label>
-                                    <textarea class="form-control" id="areaObservaciones" name="areaObservaciones" rows="3" required="required"></textarea>
-                                    <div class="col" style="text-align: right; color: #dee2e6;">
-                                        <label>Caracteres</label>
-                                        <label id="contadorarea">0/100</label>
-                                    </div>
-                                </div>
-
-                            </fieldset>
-
+                        <div class="row">
+                            <div class="col text-right">
+                                <h6>Llanta</h6>
+                            </div>
+                            <div class="col-7">
+                                <h5><span class="badge badge-success" id="idLlantaRmv">@ViewBag._Llanta-@ViewBag._grupo</span></h5>
+                            </div>
                         </div>
-
                     </div>
-
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-outline-success btn-lg btn-block">Retirar</button>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col text-right">
+                                <h6>KM</h6>
+                            </div>
+                            <div class="col-7">
+                                <h5><span class="badge badge-success" id="idKMMed">@ViewBag._kmMEdida</span></h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-right">
+                                <h6>FECHA</h6>
+                            </div>
+                            <div class="col-7">
+                                <h5><span class="badge badge-success" id="idFechaMed">@ViewBag._fechaMedida</span></h5>
+                            </div>
+                        </div>
                     </div>
-                </form>
+                </div>
             </div>
-
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
+
+        <div class="modal-body">
+            <form id="formMuestrasDesmonta">
+                <div class="row">
+                    <div class="col" style="border-right: solid">
+                        <fieldset>
+                            <legend style="color: black !important;">Muestreo del desmonte</legend>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <div class="col">
+                                            <input type="number" class="form-control" id="inputPresionRmv" name="inputPresionRmv" placeholder="Presión" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col">
+                                            <input type="number" class="form-control" id="inputLizqRmv" name="inputLizqRmv" placeholder="Labrado Izquierdo" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col">
+                                            <input type="number" class="form-control" id="inputCentRmv" name="inputCentRmv" placeholder="Labrado Centro" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col">
+                                            <input type="number" class="form-control" id="inputDereRmv" name="inputDereRmv" placeholder="Labrado Derecho" required="required">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <img src="~/Content/medios/labrado.png" class="imgGuia" />
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="col">
+                        <fieldset>
+                            <legend style="color: black !important;">Detalles del desmonte</legend>
+                            <div class="form-group">
+                                <label for="inputState">Causa</label>
+                                <select id="selectCausa" name="selectCausa" class="form-control" required="required">
+                                    <option value="" selected>Seleccione...</option>
+                                    <option value="1">Llanta para rehusar en otro vehículo</option>
+                                    <option value="2">Llanta estallada</option>
+                                    <option value="3">Llanta quemada</option>
+                                    <option value="4">Llanta para rreparar</option>
+                                    <option value="5">Llanta prestada en carretera</option>
+                                    <option value="6">Llanta en limite de desgaste</option>
+                                    <option value="7">Llanta para enviar a ajuste</option>
+                                    <option value="8">Llanta con filtración de aire</option>
+                                </select>
+                            </div>
+                            <div id="grupo_reusadas" class="form-group visible">
+                                <fieldset>
+                                    <legend style="font-size: small; color: black !important;">Acciones posteriores</legend>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="radioOpciones" id="radioOtroVehiculo" value="1" required="required">
+                                        <label class="form-check-label" for="radioOtroVehiculo">R. otro vehiculo</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="radioOpciones" id="radioMismoVehiculo" value="0" required="required">
+                                        <label class="form-check-label" for="radioMismoVehiculo">R. mismo vehiculo</label>
+                                    </div>
+                                    <label for="radioOpciones" class="error"></label>
+                                </fieldset>
+
+                            </div>
+                            <div id="grupo_quemadas" class="form-group visible">
+                                <div class="form-group ">
+                                    <fieldset>
+                                        <legend style="font-size: small; color: black !important;">Sensores</legend>
+                                        <div class="form-row">
+                                            <div class="col">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="checkTemperatura">
+                                                    <label class="form-check-label" for="checkTemperatura">Temperatura</label>
+                                                </div>
+                                                <input id="inutTemperatra" type="text" class="form-control" placeholder="#°" disabled required="required">
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="checkPresion">
+                                                    <label class="form-check-label" for="checkPresion">Presión</label>
+                                                </div>
+                                                <input id="inutPresion" type="text" class="form-control" placeholder="PSI" disabled required="required">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="form-group ">
+                                </div>
+                            </div>
+
+                            <div id="grupoFilesDesmonte" class="form-group visible">
+                                @Html.Partial("subir_archivo")
+                            </div>
+
+                            <div class="form-group ">
+                                <label for="areaObservaciones">Observaciones del desmonte</label>
+                                <textarea class="form-control" id="areaObservaciones" name="areaObservaciones" rows="3" required="required"></textarea>
+                                <div class="col" style="text-align: right; color: #dee2e6;">
+                                    <label>Caracteres</label>
+                                    <label id="contadorarea">0/100</label>
+                                </div>
+                            </div>
+
+                        </fieldset>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-outline-success btn-lg btn-block">Retirar</button>
+                </div>
+            </form>
+        </div>
+
     </div>
+</div>
 @*</div>*@
+
 <script src="~/Scripts/jsPersonalisados/llantas_Remove.js"></script>
 <script src="~/Scripts/jsPersonalisados/cargaArchivos.js"></script>

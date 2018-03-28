@@ -700,6 +700,7 @@ $(function () {
             function (data) {
                 $('#modMuestraDesmonta').html(data);
                 $('#modMuestraDesmonta').modal('show');
+
             }
         );
     };
@@ -712,5 +713,4 @@ $(function () {
         $("#inputCent").val("");
         $("#inputDere").val("");
     };
-    export { _placaActual };
 });

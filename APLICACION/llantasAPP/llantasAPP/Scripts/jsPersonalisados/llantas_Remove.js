@@ -1,5 +1,4 @@
-﻿import placa from './index_llantasEdit';
-alert(placa);
+﻿
 //validacion del formulario
 $("#formMuestrasDesmonta").validate({
   rules: {
@@ -92,8 +91,7 @@ $("#formMuestrasDesmonta").on("submit", function (event) {
     //REALIZAR ACCIONES CON LOS DATOS RECOGIDOS
 
 
-    var configuraPost = {
-      "async": true,
+    /* var configuraPost = {
       "crossDomain": true,
       "url": "http://localhost:54919/llantas/removerllantasPost?par_vehiculo=SQL284&par_llanta=456626&par_grupo=000&par_profi=10&par_profc=15&par_profd=30&par_posicion=2&par_kilomi=42000&par_presion=13",
       "method": "POST",
@@ -107,10 +105,10 @@ $("#formMuestrasDesmonta").on("submit", function (event) {
     }
 
     $.post(configuraPost).done(function (response) {
-      if (date == "Ok") {
-        $("#modMuestraDesmonta").modal("hide");
-      }
-    });
+      if (date == "Ok") { */
+    $("#modMuestraDesmonta").modal("hide");
+    /*      }
+       }); */
   }
 });
 

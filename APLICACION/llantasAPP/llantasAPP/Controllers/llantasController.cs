@@ -16,8 +16,8 @@ namespace llantasAPP.Controllers
         /*instancia de la clase de conexion a base de datos*/
         bdConexion bdcon = new bdConexion();
         /*Lista que almacenara las llantas antes de que sean manuladas (para poder ver el antes y el despues)*/
-        public static List<llantas_Edit> llantaL = new List<llantas_Edit>();
-        public static List<llantas_delete> llantasRemoveL = new List<llantas_delete>();
+        public static List<llantas_Edit> llantasInicial = new List<llantas_Edit>();
+        public static List<llantas_delete> llantasDesmontadas = new List<llantas_delete>();
 
         //
         // GET: /llantas/
@@ -130,7 +130,7 @@ namespace llantasAPP.Controllers
 
                     if (vExiste)
                     {
-                        llantaL.Clear();//vaciamos la lista de llantas inicial
+                        llantasInicial.Clear();//vaciamos la lista de llantas inicial
                         string[] tablasv = { "LLANTAS" };
                         //string[] camposv = { "LLANTA", "GRUPO", "KINSTALA", "VEHICULO", "POSICION" };
                         string[] camposv = { "*" };
@@ -162,9 +162,9 @@ namespace llantasAPP.Controllers
 
 
                                 }
-                                llantaL.Add(llanta1);
+                                llantasInicial.Add(llanta1);
                             }
-                            datos.Add(llantaL);
+                            datos.Add(llantasInicial);
                         }
                         else
                         {
@@ -269,7 +269,7 @@ namespace llantasAPP.Controllers
             llantaRemove.par_posicion = par_posicion;
             llantaRemove.par_kilomi = par_kilomi;
             llantaRemove.par_presion = par_presion;
-            llantasRemoveL.Add(llantaRemove);
+            llantasDesmontadas.Add(llantaRemove);
             return Json("Ok");
         }
 
