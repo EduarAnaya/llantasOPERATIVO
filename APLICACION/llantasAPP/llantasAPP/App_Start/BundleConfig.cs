@@ -23,8 +23,9 @@ namespace llantasAPP
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css",
-                "~/Content/bootstrap/*.css"));
+            bundles.Add(new StyleBundle("~/CSS/css_Prove/").Include(
+                "~/CSS/css_Prove/bootstrap/bootstrap.min.css"));
+
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",

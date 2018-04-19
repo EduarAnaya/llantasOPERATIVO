@@ -1,0 +1,184 @@
+﻿/*Css Opciones /Index*/
+.opcMenu {
+    box-shadow: 1px 1px 10px 1px #9a9a9a;
+}
+
+.imgCards {
+    width: 35%;
+    margin: 1rem auto 0.1rem auto;
+}
+
+.link {
+    color: initial;
+}
+
+.noLink:hover {
+    color: #000000;
+    text-decoration: none;
+}
+
+/*Css /llantas/buscarLlantas*/
+
+.Container.cont_SearchsPlaca {
+    margin: 2rem 0px 3rem 0px;
+}
+
+.cont_SearchsPlaca {
+    width: 100%;
+}
+
+    .cont_SearchsPlaca .cont_Titulo {
+        font-family: 'Quicksand', sans-serif;
+        font-size: 2rem;
+    }
+
+
+.zonaBusqueda {
+    width: 100%;
+    padding: 1rem;
+    margin: auto;
+    display: flex;
+    background: white;
+    box-shadow: 0 2px 15px -4px #28a745;
+    border-radius: 10px;
+}
+
+    .zonaBusqueda > * {
+        margin: auto;
+    }
+
+
+button#cargarplaca {
+    width: 100%;
+}
+
+/*Css /llantas/Edit*/
+
+.Container.cont_EditLlantas {
+    box-shadow: 0 0 5px black;
+    background-color: #FFC107;
+}
+
+.vehiculo {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 20rem;
+    padding: 0;
+    margin: 0;
+    border-radius: 5px 0px 0px 0px;
+}
+
+.cont_lateralDer {
+    height: initial;
+    background-color: #343a40;
+    color: white;
+    border-radius: 0px 5px 0px 0px;
+}
+
+.tituloLegend {
+    font-size: 1rem;
+}
+
+.contAcciones {
+    height: 50%;
+}
+
+.ui-autocomplete {
+    top: 167px;
+    left: 756px;
+    width: 137.984px;
+    max-height: 50px;
+    margin-top: 5px;
+    background-color: #3a3a3a;
+    border-radius: 10px;
+    color: white;
+    border-color: #545454;
+    box-shadow: 0 0 1px #313131;
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 20% !important;
+}
+
+.contBasura {
+    height: 50%;
+}
+
+.contDetalles {
+    background-color: #343a40;
+    color: #f8f9fa;
+    border-radius: 0px 0px 5px 5px;
+    margin: 0.5rem 0px 0.5rem 0px;
+}
+
+    .contDetalles .tituloDesc {
+        font-size: inherit;
+        font-weight: bold;
+    }
+
+.badge-success {
+    color: #fff;
+    background-color: #28a745;
+    width: 100%;
+}
+
+button.btn.btn-dark {
+    width: 100%;
+}
+
+button.btn.btn-success {
+    width: 100%;
+}
+
+.camionCabezote {
+    background-image: url("/Content/medios/camion.png");
+}
+
+.caja {
+    margin: auto;
+    width: auto;
+    height: auto;
+    min-width: auto;
+    min-height: -webkit-fill-available;
+    background-color: grey;
+    border-radius: 10px;
+}
+
+.llanta {
+    background: url(/Content/medios/rueda.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: inherit;
+    z-index: 1;
+    width: 100%;
+    height: 30px;
+    border: 1px solid;
+    display: flex !important;
+    border-radius: 15px;
+    color: white;
+    font-size: small;
+    align-items: center;
+}
+
+.eje {
+    background-color: rgba(255, 255, 255, 0);
+    position: absolute;
+    width: 14%;
+    height: 31px;
+}
+
+.idllanta {
+    text-shadow: 0 0 1px black;
+    color: black;
+}
+
+.caneca {
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 0 11px black;
+    min-height: 100px;
+    max-height: 100px;
+}

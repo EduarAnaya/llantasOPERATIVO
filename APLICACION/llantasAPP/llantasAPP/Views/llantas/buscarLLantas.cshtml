@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "buscarLLantas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "llantas")">Inicio</a></li>
+        <li class="breadcrumb-item" aria-current="page">Buscar llantas</li>
+    </ol>
+</nav>
+<div class="Container cont_SearchsPlaca">
+    <h1 class="cont_Titulo">Cargar llantas de un Vehiculos</h1>
+    <p>Indique placa y kilometraje con el que quiera iniciar.</p>
+
+    @using (Html.BeginForm("editLlantas", "llantas", FormMethod.Post, new { id = "formSearchVehiculo" }))
+    {
+        <div class="row zonaBusqueda">
+            <div class="col-sm-12 col-md-4 col-lg-5">
+                <input type="text" class="form-control text-uppercase" id="inputsplaca" name="placa" placeholder="PLACA" maxlength="6" required="required">
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-5">
+                <input type="number" class="form-control text-uppercase" id="inputskm" name="km" placeholder="KILOMETRAGE" required="required">
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-2">
+                <button id="cargarplaca" type="submit" class="btn btn-success">
+                    Buscar
+                </button>
+            </div>
+
+        </div>
+        
+        if (TempData.Count > 0)
+        {
+        <div class="alert alert-danger" role="alert">
+            @TempData["Error"]
+        </div>
+        }
+    }
+
+</div>

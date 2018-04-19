@@ -1,0 +1,216 @@
+﻿@model IEnumerable<llantasAPP.Models.llantas_Edit>
+
+@{
+    ViewBag.Title = "editLlantas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index ", "llantas ")">Inicio</a></li>
+        <li class="breadcrumb-item" aria-current="page">Edición de llantas</li>
+    </ol>
+</nav>
+<div class="Container cont_EditLlantas">
+
+    <div class="row" style="margin: 0">
+
+        @if (@ViewBag.TV == 1)
+        {
+            @:<div class="col card vehiculo camionCabezote">   
+        }
+        @{
+            int con = 1;
+            
+                    }
+
+        @foreach (var item in Model)
+        {
+            string id = "eje" + con;
+            <div class="eje" id="@id">
+                <div class="caja">
+                    <div class="llanta">
+                        <span class="idllanta"> @Html.DisplayFor(modelItem => item.LLANTA)</span>
+                    </div>
+                </div>
+            </div>
+            con++;
+            @*
+                <div class="card">
+
+                    @Html.DisplayFor(modelItem => item.LLANTA)
+
+                    @Html.DisplayFor(modelItem => item.GRUPO)
+
+                    @Html.DisplayFor(modelItem => item.VALOR)
+                    @Html.DisplayFor(modelItem => item.FECHA)
+
+                    @Html.DisplayFor(modelItem => item.PROVEE)
+
+                    @Html.DisplayFor(modelItem => item.FACTURA)
+
+                    @Html.DisplayFor(modelItem => item.FICHA)
+
+                    @Html.DisplayFor(modelItem => item.NEUMA)
+
+                    @Html.DisplayFor(modelItem => item.VALORRN)
+
+                    @Html.DisplayFor(modelItem => item.PROTEC)
+
+                    @Html.DisplayFor(modelItem => item.VALORP)
+
+                    @Html.DisplayFor(modelItem => item.VEHICULO)
+
+                    @Html.DisplayFor(modelItem => item.POSICION)
+
+                    @Html.DisplayFor(modelItem => item.KINSTALA)
+                    @Html.DisplayFor(modelItem => item.FECHAI)
+
+                </div>*@
+        }
+                <script>
+                    $(function () {
+                        $("#eje1").css({ 'top': '72%', 'left': '2%' });
+                        $("#eje2").css({ 'top': '20%', 'left': '2%' });
+                        $("#eje3").css({ 'top': '88%', 'left': '43%' });
+                        $("#eje4").css({ 'top': '72%', 'left': '43%' });
+                        $("#eje5").css({ 'top': '20%', 'left': '43%' });
+                        $("#eje6").css({ 'top': '3%', 'left': '43%' });
+                        $("#eje7").css({ 'top': '88%', 'left': '85%' });
+                        $("#eje8").css({ 'top': '72%', 'left': '85%' });
+                        $("#eje9").css({ 'top': '20%', 'left': '85%' });
+                        $("#eje10").css({ 'top': '3%', 'left': '85%' });
+                    })
+                </script>
+        </div>
+        <div class="col-3 cont_lateralDer">
+            <div class="row contAcciones">
+                <div class="col">
+
+                    <fieldset>
+                        <legend class="tituloLegend">Montar llantas</legend>
+                        <div class="form-row">
+                            <div class="form-group col-8">
+
+                                <input type="text" class="form-control form-control-sm text-uppercase" id="inputnllanta" name="nllanta" placeholder="LLANTA" required="required">
+                                <script type="text/javascript">
+                                    var myArray = [];
+                                    @foreach (string d in ViewBag.Countries)
+                                    {
+                                        @:myArray.push("@d");
+                                                                         }
+                                    $("#inputnllanta").autocomplete(
+                                        {
+                                            source:myArray
+                                        })
+                                </script>
+                            </div>
+                            <div class="form-group col-4">
+                                <button id="addllanta" type="submit" class="btn btn-success btn-sm">
+                                    <img src="~/Content/medios/plus.svg" /></button>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div id="nuevallanta">
+                    </div>
+                </div>
+            </div>
+            <div class="row contBasura">
+                <div class="col">
+                    <fieldset>
+                        <legend class="tituloLegend">Remover Llanta</legend>
+
+                    </fieldset>
+                    <div class="clas caneca">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row contDetalles">
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <fieldset>
+                        <legend class="tituloDesc">Detalles del Vehiculo</legend>
+                        <div class="row">
+                            <div class="col">
+                                <h6>Placa</h6>
+                            </div>
+                            <div class="col">
+                                <h5>
+                                    <span class="badge badge-success">SQL427</span></h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h6>Tipo Vehiculo</h6>
+                            </div>
+                            <div class="col">
+                                <h5>
+                                    <span class="badge badge-success">CABEZOTE</span></h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h6>Nro. Ejes</h6>
+                            </div>
+                            <div class="col">
+                                <h5>
+                                    <span class="badge badge-success">3</span></h5>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="col">
+                    <fieldset>
+                        <legend class="tituloDesc">Detalles del Trabajo</legend>
+                        <div class="row">
+                            <div class="col">
+                                <h6>Kilometraje</h6>
+                            </div>
+                            <div class="col">
+                                <h5>
+                                    <span class="badge badge-success">1000000</span></h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h6>Llantas cargadas</h6>
+                            </div>
+                            <div class="col">
+                                <h5>
+                                    <span class="badge badge-success">10</span></h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h6>Fecha</h6>
+                            </div>
+                            <div class="col">
+                                <h5><span class="badge badge-success">14/04/2018</span></h5>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="col-3 offset-3">
+                    <fieldset>
+                        <legend class="tituloDesc">Acciones del Trabajo</legend>
+                        <div class="row">
+                            <div class="col">
+                                <button type="button" class="btn btn-dark">Cancelar</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <button type="button" class="btn btn-success">Guardar</button>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

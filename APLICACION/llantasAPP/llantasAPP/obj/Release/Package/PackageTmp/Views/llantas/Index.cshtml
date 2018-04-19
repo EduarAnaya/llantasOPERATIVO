@@ -1,64 +1,75 @@
 ﻿@{
-    ViewBag.Title = "Lllantas-Home";
+    ViewBag.Title = ViewBag.Title;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link href="~/Content/cssEdit/llantasHome.css" rel="stylesheet" />
-<div class="container" style="text-align: center;">
 
-    <div class="row d-flex justify-content-around">
+<div class="row text-center">
+    <!--Menu-->
 
-        <div class="col-sm-12 col-md-3 card opcMenu mb-3">
-            <div class="card-header">
-                <h6>Inventario de Llantas</h6>
+    <!--Link inventario-->
+    <div class="col-lg-3 col-md-6 mb-4">
+        <a href="@Url.Action("Inventario", "llantas")" class="link noLink">
+            <div class="card opcMenu">
+                <img class="imgCards" src="~/Content/medios/llanta_invent.png" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">Inventario de Llantas</h5>
+                    <p class="card-text">Ver existencias de llantas.</p>
+                </div>
             </div>
-            <div class="card-body">
-                <a href="@Url.Action("Inventario", "llantas")">
-                    <img src="~/Content/medios/llanta_invent.png" style="width: 50%;" /></a>
-                <p class="card-text">Ver existencias de llantas.</p>
-            </div>
-        </div>
-
-        <div class="col-sm-12 col-md-3 card opcMenu mb-3">
-            <div class="card-header">
-                <h6>Edición de Llantas</h6>
-            </div>
-            <div class="card-body">
-                <a href="@Url.Action("EdicionLlantas","llantas")">
-                    <img src="~/Content/medios/cambio_llantas.png" style="width: 50%;" /></a>
-                <p class="card-text">Añade, quita y rota las llantas de un vehículo.</p>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-3 card opcMenu mb-3">
-            <div class="card-header">
-                <h6>Recircular Llantas</h6>
-            </div>
-            <div class="card-body">
-                 <a href="@Url.Action("RecircularLlantas","llantas")">
-                    <img src="~/Content/medios/llanta_circula.png" style="width: 50%;" /></a>
-                <p class="card-text">Pasar llantas de recircular o transición a Inventario.</p>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-3 card opcMenu mb-3">
-            <div class="card-header">
-                <h6>Reencauche de Llantas</h6>
-            </div>
-            <div class="card-body">
-                 <a href="@Url.Action("ReencaucheLlantas","llantas")">
-                <img src="~/Content/medios/llanta_reencauche.png" style="width: 50%;" /></a>
-                <p class="card-text">Enviar llantas a proceso de reencauche.</p>
-            </div>
-        </div>
-
-        <div class="col-sm-12 col-md-3 card opcMenu mb-3">
-            <div class="card-header">
-                <h6>Reparación de Llantas</h6>
-            </div>
-            <div class="card-body">
-                <a href="@Url.Action("ReparacionLlantas","llantas")">
-                <img src="~/Content/medios/llanta_repara.png" style="width: 50%;" /></a>
-                <p class="card-text">Reparación de llantas sin retirar del vehículo.</p>
-            </div>
-        </div>
-
+        </a>
     </div>
+
+    <!--Link EditarLlantas-->
+    <div class="col-lg-3 col-md-6 mb-4">
+        <a href="@Url.Action("buscarLlantas", "llantas")" class="link noLink">
+            <div class="card opcMenu">
+                <img class="imgCards" src="~/Content/medios/cambio_llantas.png" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">Edición de Llantas</h5>
+                    <p class="card-text">Añade, quita y rota las llantas de un vehículo.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!--Link RecircularLlantas-->
+    <div class="col-lg-3 col-md-6 mb-4">
+        <a href="@Url.Action("RecircularLlantas", "llantas")" class="link noLink">
+            <div class="card opcMenu">
+                <img class="imgCards" src="~/Content/medios/llanta_circula.png" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">Recircular Llantas</h5>
+                    <p class="card-text">Pasar llantas de recircular o transición a Inventario.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!--Link ReencaucheLlantas-->
+    <div class="col-lg-3 col-md-6 mb-4">
+        <a href="@Url.Action("ReencaucheLlantas", "llantas")" class="link noLink">
+            <div class="card opcMenu">
+                <img class="imgCards" src="~/Content/medios/llanta_reencauche.png" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">Reencauche de Llantas</h5>
+                    <p class="card-text">Enviar llantas a proceso de reencauche.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!--Link ReparacionLlantas-->
+    <div class="col-lg-3 col-md-6 mb-4">
+        <a href="@Url.Action("ReparacionLlantas", "llantas")" class="link noLink">
+            <div class="card opcMenu">
+                <img class="imgCards" src="~/Content/medios/llanta_repara.png" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">Reparación de Llantas</h5>
+                    <p class="card-text">Reparación de llantas sin retirar del vehículo.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!--./Fin Menu-->
 </div>
