@@ -1,17 +1,16 @@
 ﻿@model IEnumerable<llantasAPP.Models.llantas_Edit>
 
 @{
-    ViewBag.Title = "editLlantas";
+    ViewBag.Title = @ViewBag.title;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="@Url.Action("Index ", "llantas ")">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Inicio</a></li>
         <li class="breadcrumb-item" aria-current="page">Edición de llantas</li>
     </ol>
 </nav>
-<div class="Container cont_EditLlantas">
+<div class="Container cont_EditLlantas _ContAccion">
 
     <div class="row" style="margin: 0">
 
@@ -21,184 +20,187 @@
         }
         @{
             int con = 1;
-            
-                    }
+            }
 
         @foreach (var item in Model)
         {
-            string id = "eje" + con;
-            <div class="eje" id="@id">
-                <div class="caja">
-                    <div class="llanta">
-                        <img class="imgSentido" src="~/Content/medios/left.png" />
-                        <span class="idllanta"> @Html.DisplayFor(modelItem => item.LLANTA)</span>
+            <div class="eje" id="@("eje" + con)">
+                <div class="caja">                    
+                    <div id="@item.LLANTA" class="llanta btn btn-outline-success"  href="@("#infoLlanta" + @item.LLANTA)"  role="button">
+   
+                                @if (item.SENTIDO == 0)//SENTIDOS;0=NO HA SIDO VOLTEADA;1=LLANTA GIRADA
+                                {
+                                    <img class="imgSentido btn" src="~/Content/medios/left.png" tag="0" onclick="cambio_Sentido($(this))"/>//izquierda a DERECHA
+                                }
+                                else
+                                {
+                                    <img class="imgSentido btn" src="~/Content/medios/right.png" tag="1" onclick="cambio_Sentido($(this))"/>//derecha a INQUIERDA
+                                }
+                                <span class="idllanta"> @Html.DisplayFor(modelItem => item.LLANTA)-@Html.DisplayFor(modelItem => item.GRUPO)</span>
+                                <div class="collapse infoLlanta" id="@("infoLlanta" + @item.LLANTA)">
+                                    <div class="card card-body" style="padding:0;">
+                                        <dl class="row" style="margin:0;">
+                                            <dt class="col-5 marginTituloDesc">Grupo</dt>
+                                            <dd class="col-5 marginDescTtulo">@Html.DisplayFor(modelItem => item.GRUPO)</dd>
+                                            <dt class="col-5 marginTituloDesc">Fecha Inst</dt>
+                                            <dd class="col-5 marginDescTtulo">@Html.DisplayFor(modelItem => item.FECHAI)</dd>
+                                            <dt class="col-5 marginTituloDesc">Km Instala</dt>
+                                            <dd class="col-5 marginDescTtulo">@Html.DisplayFor(modelItem => item.KINSTALA)</dd>
+                                        </dl>
+
+                                    </div>
+                                </div>
                     </div>
                 </div>
             </div>
-            con++;
-            @*
-                <div class="card">
-
-                    @Html.DisplayFor(modelItem => item.LLANTA)
-
-                    @Html.DisplayFor(modelItem => item.GRUPO)
-
-                    @Html.DisplayFor(modelItem => item.VALOR)
-                    @Html.DisplayFor(modelItem => item.FECHA)
-
-                    @Html.DisplayFor(modelItem => item.PROVEE)
-
-                    @Html.DisplayFor(modelItem => item.FACTURA)
-
-                    @Html.DisplayFor(modelItem => item.FICHA)
-
-                    @Html.DisplayFor(modelItem => item.NEUMA)
-
-                    @Html.DisplayFor(modelItem => item.VALORRN)
-
-                    @Html.DisplayFor(modelItem => item.PROTEC)
-
-                    @Html.DisplayFor(modelItem => item.VALORP)
-
-                    @Html.DisplayFor(modelItem => item.VEHICULO)
-
-                    @Html.DisplayFor(modelItem => item.POSICION)
-
-                    @Html.DisplayFor(modelItem => item.KINSTALA)
-                    @Html.DisplayFor(modelItem => item.FECHAI)
-
-                </div>*@
+                                con++;//contadora mas 1
         }
                 <script>
                     $(function () {
                         $("#eje1").css({ 'top': '72%', 'left': '2%' });
-                        $("#eje2").css({ 'top': '20%', 'left': '2%' });
+                        $("#eje2").css({ 'top': '19%', 'left': '2%' });
                         $("#eje3").css({ 'top': '88%', 'left': '43%' });
                         $("#eje4").css({ 'top': '72%', 'left': '43%' });
-                        $("#eje5").css({ 'top': '20%', 'left': '43%' });
+                        $("#eje5").css({ 'top': '19%', 'left': '43%' });
                         $("#eje6").css({ 'top': '3%', 'left': '43%' });
                         $("#eje7").css({ 'top': '88%', 'left': '85%' });
                         $("#eje8").css({ 'top': '72%', 'left': '85%' });
-                        $("#eje9").css({ 'top': '20%', 'left': '85%' });
+                        $("#eje9").css({ 'top': '19%', 'left': '85%' });
                         $("#eje10").css({ 'top': '3%', 'left': '85%' });
                     })
                 </script>
         </div>
-        <div class="col-3 cont_lateralDer">
+        <div class="col-sm-12 col-md-3 col-lg-3 cont_lateralDer">
             <div class="row contAcciones">
                 <div class="col">
-
-                    <fieldset>
-                        <legend class="tituloLegend">Montar llantas</legend>
-                        <div class="form-row">
-                            <div class="form-group col-8">
-
-                                <input type="text" class="form-control form-control-sm text-uppercase" id="inputnllanta" name="nllanta" placeholder="LLANTA" required="required">
-                                <script type="text/javascript">
-                                    var myArray = [];
-                                    @foreach (string d in ViewBag.Countries)
+                    <div class="row">
+                        <div class="col">
+                            <form id="fomrAddllanta">
+                                <fieldset>
+                                    <legend class="tituloLegend">Montar llantas</legend>
+                                    <div class="row">
+                                        <div class="col-8" style="padding-right: 0;">
+                                            <input type="text" class="form-control form-control-sm text-uppercase" id="inputnllanta" name="nllanta" placeholder="LLANTA" required="required" style="height: 100%" />
+                                            <script type="text/javascript">
+                                                var listaLllantas = [];
+                                    @foreach (var llantaInf in ViewBag.Countries)
                                     {
-                                        @:myArray.push("@d");
+                                        @:listaLllantas.push("@llantaInf[0]" + "-" + "@llantaInf[1]");
                                                                          }
-                                    $("#inputnllanta").autocomplete(
-                                        {
-                                            source: myArray
-                                        })
-                                </script>
-                            </div>
-                            <div class="form-group col-4">
-                                <button id="addllanta" type="submit" class="btn btn-success btn-sm">
-                                    <img src="~/Content/medios/plus.svg" /></button>
-                            </div>
+                                                $("#inputnllanta").autocomplete(
+                                                    {
+                                                        source: listaLllantas
+                                                    })
+                                            </script>
+                                        </div>
+                                        <div class="col-3" style="padding: 0;">
+                                            <button id="addllanta" type="submit" class="btn btn-success btn-sm">
+                                                <img src="~/Content/medios/plus.svg" /></button>
+                                        </div>
+                                    </div>
+                                    <label for="inputnllanta" class="error" style="display: none;" />
+                                </fieldset>
+                            </form>
                         </div>
-                    </fieldset>
+
+                    </div>
+                    @* Llantas importadas *@
                     <div id="nuevallanta">
+                        @* Espacio ara las llantas Importadas *@
                     </div>
                 </div>
             </div>
+            @* Espacio donde se retiran las llantas *@
             <div class="row contBasura">
                 <div class="col">
                     <fieldset>
                         <legend class="tituloLegend">Remover Llanta</legend>
                     </fieldset>
                     <div class="clas caneca">
+                        @* Espacio para las llantas que se retiran *@
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    @* Zona de detalles y acciones *@
     <div class="row contDetalles">
         <div class="col">
             <div class="row">
-                <div class="col">
+                @* Detalles Vehiculo*@
+                <div id="colDetall1" class="col colDetall">
                     <fieldset>
                         <legend class="tituloDesc">Detalles del Vehiculo</legend>
                         <div class="row">
-                            <div class="col">
-                                <h6>Placa</h6>
+                            <div class="col colTitulodesc">
+                                <h6 class="descDetall">Placa</h6>
                             </div>
-                            <div class="col">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
                                 <h5>
-                                    <span class="badge badge-success">@TempData["_llanta"]</span></h5>
+                                    <span id="_PlacaAct" class="badge badge-success">@TempData["_llanta"]</span></h5>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <h6>Tipo Vehiculo</h6>
+                            <div class="col colTitulodesc">
+                                <h6 class="descDetall">Tipo Vehiculo</h6>
                             </div>
-                            <div class="col">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
                                 <h5>
                                     <span class="badge badge-success">@TempData["_TV"]</span></h5>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <h6>Nro. Ejes</h6>
+                            <div class="col colTitulodesc">
+                                <h6 class="descDetall">Nro. Ejes</h6>
                             </div>
-                            <div class="col">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
                                 <h5>
                                     <span class="badge badge-success">@TempData["_nEjes"]</span></h5>
                             </div>
                         </div>
                     </fieldset>
                 </div>
-                <div class="col">
+
+
+                @*Detalles Trabajo*@
+                <div id="colDetall2" class="col colDetall">
                     <fieldset>
                         <legend class="tituloDesc">Detalles del Trabajo</legend>
                         <div class="row">
-                            <div class="col">
-                                <h6>Kilometraje</h6>
+                            <div class="col colTitulodesc">
+                                <h6 class="descDetall">Kilometraje</h6>
                             </div>
-                            <div class="col">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
                                 <h5>
-                                    <span class="badge badge-success">@TempData["_km"]</span></h5>
+                                    <span id="_KmAct" class="badge badge-success">@TempData["_km"]</span></h5>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <h6>Llantas cargadas</h6>
+                            <div class="col colTitulodesc">
+                                <h6 class="descDetall">Llantas cargadas</h6>
                             </div>
-                            <div class="col">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
                                 <h5>
                                     <span class="badge badge-success">@TempData["_nLlantas"]</span></h5>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <h6>Fecha</h6>
+                            <div class="col colTitulodesc">
+                                <h6 class="descDetall">Fecha</h6>
                             </div>
-                            <div class="col">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
                                 <h5><span class="badge badge-success">@TempData["_fecActual"]</span></h5>
                             </div>
                         </div>
                     </fieldset>
                 </div>
-                <div class="col-3 offset-3">
+                @* Guardar/Cancelar *@
+                <div id="colDetallSave" class="col-sm-12 col-md-3 col-lg-3 offset-md-3 offset-lg-3">
                     <fieldset>
                         <legend class="tituloDesc">Acciones del Trabajo</legend>
                         <div class="row">
                             <div class="col">
-                                <button type="button" class="btn btn-danger">Cancelar</button>
+                                <button type="button" class="btn btn-danger" onclick="location.href='buscarLlantas'">Cancelar</button>
                             </div>
                         </div>
                         <div class="row">
@@ -213,4 +215,3 @@
         </div>
     </div>
 </div>
-

@@ -1,15 +1,16 @@
 ﻿@{
-    ViewBag.Title = "buscarLLantas";
+    ViewBag.Title = @ViewBag.title;
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="@Url.Action("Index", "llantas")">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Inicio</a></li>
         <li class="breadcrumb-item" aria-current="page">Buscar llantas</li>
     </ol>
 </nav>
-<div class="Container cont_SearchsPlaca">
-    <h1 class="cont_Titulo">Cargar llantas de un Vehiculos</h1>
+<div class="Container cont_SearchsPlaca _ContAccion">
+    <h1 class="cont_Titulo">Cargar llantas de un Vehiculo</h1>
     <p>Indique placa y kilometraje con el que quiera iniciar.</p>
 
     @using (Html.BeginForm("editLlantas", "llantas", FormMethod.Post, new { id = "formSearchVehiculo" }))

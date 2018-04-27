@@ -33,6 +33,7 @@ namespace llantasAPP.Models
         public int VALORP { get; set; }
         public string VEHICULO { get; set; }
         public int POSICION { get; set; }
+        public int SENTIDO { get; set; }
         public int KINSTALA { get; set; }
         public string FECHAI { get; set; }
     }

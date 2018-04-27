@@ -28,6 +28,18 @@
     color: red;
 }
 
+.alertTimeOut {
+    display: block;
+    position: relative;
+    top: 10rem;
+    width: 40%;
+    margin: auto;
+    background-color: #dc3545;
+    color: white;
+    border-color: white;
+    z-index: 1000;
+}
+
 @media (max-width: 1024px) {
     .container {
         max-width: 100%;
