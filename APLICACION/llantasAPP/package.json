@@ -1,0 +1,16 @@
+{
+  "name": "llantasapp",
+  "version": "1.0.0",
+  "description": "Contenedor de paquetes npm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eduar Anaya",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^3.0.0"
+  }
+}
