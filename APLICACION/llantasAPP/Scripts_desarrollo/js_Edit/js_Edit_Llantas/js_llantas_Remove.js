@@ -87,7 +87,45 @@ $("#formMuestrasDesmonta").on("submit", function(event) {
   $("#formMuestrasDesmonta").validate();
   var estado = $("#formMuestrasDesmonta").valid();
   if (estado != false) {
+    /*Información que requiere el paquete de la base de datos (el paquete no se ejecuta desde aquí)
+    PROCEDURE PDB_DESMONTARLLANTA(par_vehiculo_e CHAR, par_llanta_e VARCHAR, par_grupo_e CHAR,
+   par_observacion_e NUMBER,par_kilomi_e NUMBER, par_fechai_e DATE,  par_retorno_s OUT VARCHAR);
+    */
+
+    //validar que la llanta ya no este en la caneca
+
+    var par_vehiculo_e = $("#idPlacaRmv").text(),
+      valLlanta = $("#idLlantaRmv").text(),
+      par_llanta_e = valLlanta.split("-")[0],
+      par_grupo_e = valLlanta.split("-")[1],
+      par_observacion_e = $("#selectCausa")[0].value,
+      par_kilomi_e = $("#idKMMed").text(),
+      par_fechai_e = $("#idFechaMed").text();
+
+    var llantaRemove = {
+      par_vehiculo_e: par_vehiculo_e,
+      par_llanta_e: par_llanta_e,
+      par_grupo_e: par_grupo_e,
+      par_observacion_e: par_observacion_e,
+      par_kilomi_e: par_kilomi_e,
+      par_fechai_e: par_fechai_e
+    };
+
+    arrayDesmonta.push(llantaRemove);
+
+    var $nitem = $("#" + par_llanta_e)
+      .detach()
+      .css({
+        left: "0",
+        top: "0"
+      });
+    $caneca.append($nitem);
+    $nitem["0"].attributes[4].value = "Pl_removed";
+
+    console.log(arrayDesmonta);
     //REALIZAR ACCIONES CON LOS DATOS RECOGIDOS
+
+    console.log("Se removio la llanta " + par_llanta_e);
 
     /* var configuraPost = {
       "crossDomain": true,
@@ -109,7 +147,16 @@ $("#formMuestrasDesmonta").on("submit", function(event) {
        }); */
   }
 });
-
+//si el usuario considera cancelar la operacion
+$("#btnCancelremove").on("click", function() {
+  var valLlanta = $("#idLlantaRmv").text(),
+    par_llanta_e = valLlanta.split("-")[0];
+//Se devuelve a donde estaba
+  $("#" + par_llanta_e).css({
+    left: "0",
+    top: "0"
+  });
+});
 /**** ESTAS ACCIONES ESTÁN PENDIENTES PARA IMPLEMENTAS DEBIDO A LA FALTA DE DESARROLLO ****
  * descomentarear para habilitar
  

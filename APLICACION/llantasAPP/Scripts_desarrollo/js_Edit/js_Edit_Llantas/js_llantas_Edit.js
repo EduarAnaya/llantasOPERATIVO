@@ -3,6 +3,7 @@ var $cajas = $(".caja");
 var $llantas = $(".llanta");
 var _kmTrabajoactual = $("#_KmAct")[0].innerText;
 var _placaActual = $("#_PlacaAct")[0].innerText;
+var arrayDesmonta=[];
 
 llantaDraggable($llantas);
 canecaDoppable($caneca);
@@ -242,21 +243,12 @@ function canecaDoppable(objetos) {
 
 //ENVIAR UNA LLANTA A LA CANECA
 function remover($item) {
-  var $nitem = $($item)
-    .detach()
-    .css({
-      left: "0",
-      top: "0"
-    });
-  $caneca.append($nitem);
-  $item["0"].attributes[4].value = "Pl_removed";
   var valor = $item["0"].children["0"].innerText;
   var llanta = valor.split("-")[0];
   var grupo = valor.split("-")[1];
 
   /*PENDIENTE PARA TERMINAR DE DESARROLLAR Y HABILITAR*/
   desmontarLlanta(_placaActual, llanta, grupo, _kmTrabajoactual);
-  console.log("Se removio la llanta " + llanta + " del grupo " + grupo);
 }
 //FUNCNIONES QUE PERMITEN LA INTERACCION DINAMICA DEL USUARIO CON LAS LLANTAS
 
@@ -270,6 +262,7 @@ function desmontarLlanta(_placa, _llanta, _grupo, _kmMEdida) {
   }).done(function(data) {
     //$("#modMuestraDesmonta").modal("show");
     //$("#modMuestraDesmonta").modal("show");
+    $("#modMuestraDesmonta").html("");
     $("#modMuestraDesmonta").append(data);
     $("#modMuestraDesmonta").modal("show");
   });

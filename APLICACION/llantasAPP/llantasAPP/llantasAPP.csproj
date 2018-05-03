@@ -166,6 +166,7 @@
     <Content Include="Content\medios\load.gif" />
     <Content Include="Content\medios\logoTS_1.jpg" />
     <Content Include="Content\medios\medidas_llantas.png" />
+    <Content Include="Content\medios\new_search.png" />
     <Content Include="Content\medios\plus.svg" />
     <Content Include="Content\medios\right.png" />
     <Content Include="Content\medios\rueda.png" />
@@ -194,8 +195,9 @@
     <Content Include="CSS\css_Prove\bootstrap\bootstrap.css.map" />
     <Content Include="CSS\css_Prove\bootstrap\bootstrap.min.css.map" />
     <None Include="Properties\PublishProfiles\llantasAPPOP.pubxml" />
-    <Content Include="Scripts\jsPersonalisados_Old\cargaArchivos.js" />
-    <Content Include="Scripts\js_Edit\timer.Js" />
+    <Content Include="Scripts\js_Edit\js_Edit_Llantas\js_cargaArchivos.js" />
+    <Content Include="Scripts\js_Edit\js_Edit_Llantas\js_llantas_Remove.js" />
+    <Content Include="Scripts\js_Edit\js_timer.Js" />
     <Content Include="Scripts\js_Edit\js_Edit_Llantas\js_llantas_Edit.js" />
     <Content Include="Scripts\js_Edit\js_Edit_Llantas\js_SearchsLlantas.js" />
     <Content Include="Scripts\js_Prove\bootstrap\bootstrap.bundle.js" />
@@ -304,7 +306,7 @@
     <Content Include="Scripts\js_Prove\datatables\DataTables-1.10.16\js\jquery.dataTables.min.js" />
     <Content Include="Scripts\js_Prove\datatables\datatables.css" />
     <Content Include="Scripts\js_Prove\datatables\datatables.js" />
-    <Content Include="Scripts\js_Prove\datatables\datatables.min.css" />
+    <Content Include="CSS\css_Prove\datatables\datatables.min.css" />
     <Content Include="Scripts\js_Prove\datatables\datatables.min.js" />
     <Content Include="Scripts\js_Prove\datatables\Scroller-1.4.4\css\scroller.bootstrap.css" />
     <Content Include="Scripts\js_Prove\datatables\Scroller-1.4.4\css\scroller.bootstrap.min.css" />
@@ -441,7 +443,6 @@
     <Content Include="Scripts\jsPersonalisados_Old\datatables\datatables.js" />
     <Content Include="Scripts\jsPersonalisados_Old\datatables\datatables.min.css" />
     <Content Include="Scripts\jsPersonalisados_Old\datatables\datatables.min.js" />
-    <Content Include="Scripts\jsPersonalisados_Old\llantas_Remove.js" />
     <Content Include="Scripts\jsPersonalisados_Old\datatables\Scroller-1.4.4\css\scroller.bootstrap.css" />
     <Content Include="Scripts\jsPersonalisados_Old\datatables\Scroller-1.4.4\css\scroller.bootstrap.min.css" />
     <Content Include="Scripts\jsPersonalisados_Old\datatables\Scroller-1.4.4\css\scroller.bootstrap4.css" />
@@ -492,13 +493,13 @@
     <Content Include="Views\llantas\Inventario.cshtml" />
     <Content Include="Scripts\jsPersonalisados_Old\datatables\Buttons-1.5.1\css\common.scss" />
     <Content Include="Scripts\jsPersonalisados_Old\datatables\Buttons-1.5.1\css\mixins.scss" />
-    <Content Include="Views\llantas\EdicionLlantasOld.cshtml" />
+    <Content Include="Views\llantas\OldEdicionLlantas.cshtml" />
     <Content Include="Views\Shared\siteConstruccion.cshtml" />
     <Content Include="Views\llantas\RecircularLlantas.cshtml" />
     <Content Include="Views\llantas\ReencaucheLlantas.cshtml" />
     <Content Include="Views\Shared\subir_archivo.cshtml" />
     <Content Include="Views\llantas\ReparacionLlantas.cshtml" />
-    <Content Include="Views\llantas\removerllantas.cshtml" />
+    <Content Include="Views\llantas\Oldremoverllantas.cshtml" />
     <Content Include="Scripts\js_Prove\bootstrap\bootstrap.bundle.js.map" />
     <Content Include="Scripts\js_Prove\bootstrap\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\js_Prove\bootstrap\bootstrap.js.map" />
@@ -509,6 +510,8 @@
     <Content Include="Views\llantas\editLlantas.cshtml" />
     <Content Include="Scripts\js_Prove\datatables\Buttons-1.5.1\css\common.scss" />
     <Content Include="Scripts\js_Prove\datatables\Buttons-1.5.1\css\mixins.scss" />
+    <Content Include="Views\llantas\llantasRemovePendiente.cshtml" />
+    <Content Include="Views\llantas\llantasRemove.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

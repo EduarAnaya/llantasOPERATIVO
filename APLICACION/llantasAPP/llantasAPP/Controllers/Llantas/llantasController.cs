@@ -260,7 +260,7 @@ namespace llantasAPP.Controllers
         // GET: /llantas/
 
         /*variables generales*/
-        public string fechaSistema = DateTime.Now.Date.ToShortDateString();
+        public string fechaSistema = DateTime.Now.ToString("dd/MM/yyyy");
         public string _placaActual;
         public int _km = 0;
 
@@ -448,6 +448,28 @@ namespace llantasAPP.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult llantasRemove
+            (string _placa, string _llanta, string _grupo, int _kmMEdida)
+        {
+            llantas_delete llantaRemove = new llantas_delete();
+            //llantaRemove.par_vehiculo = par_vehiculo;
+            //llantaRemove.par_llanta = par_llanta;
+            //llantaRemove.par_grupo = par_grupo;
+            //llantaRemove.par_profi = par_profi;
+            //llantaRemove.par_profc = par_profc;
+            //llantaRemove.par_profd = par_profd;
+            //llantaRemove.par_posicion = par_posicion;
+            //llantaRemove.par_kilomi = par_kilomi;
+            //llantaRemove.par_presion = par_presion;
+            //llantasDesmontadas.Add(llantaRemove);
+            ViewBag._placa = _placa;
+            ViewBag._llanta = _llanta;
+            ViewBag._grupo = _grupo;
+            ViewBag._kmMEdida = _kmMEdida;
+            ViewBag._fechaMedida = fechaSistema;
+            return View();
+        }
 
     }
     #endregion

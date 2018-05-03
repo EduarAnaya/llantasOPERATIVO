@@ -17,15 +17,21 @@
 .breadcrumb {
     background-color: transparent;
     padding: 0;
+    font-size: small;
+    margin-bottom: 0;
 }
 
+.btnFull {
+    width: 100%;
+}
 /*Errores*/
-.error::before {
+.errors::before {
     content: url(../../Content/medios/error_label.png);
 }
 
 .error {
     color: red;
+    margin: 0;
 }
 
 .alertTimeOut {
@@ -37,7 +43,7 @@
     background-color: #dc3545;
     color: white;
     border-color: white;
-    z-index: 1000;
+    z-index: 5000;
 }
 
 @media (max-width: 1024px) {

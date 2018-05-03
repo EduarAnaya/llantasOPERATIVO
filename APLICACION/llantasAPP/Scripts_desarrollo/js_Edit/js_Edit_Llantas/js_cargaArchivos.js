@@ -4,7 +4,6 @@ $(function () {
     //espacio para la arga de archivos
     var maxFiles = 5;
     var contador = 1;
-    renderContador();
     $("#btnAddFile").on("click", function () {
         if (contador < maxFiles) {
             contador = contador + 1;
@@ -27,7 +26,7 @@ $(function () {
     });
 
     function delRowFile() {
-        $(".btndellFile").on("click", function () {
+        $(".btndellFile").on("click", function() {
             var registro = $(this)[0].parentNode.parentNode;
             registro.remove();
             var activos = $(".boxFicheros .rowFicheros");
@@ -82,3 +81,4 @@ $(function () {
     */
 
 })
+renderContador();

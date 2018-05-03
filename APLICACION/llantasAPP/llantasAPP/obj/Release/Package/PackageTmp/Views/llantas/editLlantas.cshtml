@@ -7,11 +7,13 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="@Url.Action("buscarLlantas", "llantas")">Buscar Llantas</a></li>
         <li class="breadcrumb-item" aria-current="page">Edición de llantas</li>
     </ol>
-</nav>
-<div class="Container cont_EditLlantas _ContAccion">
 
+</nav>
+
+<div class="Container cont_EditLlantas _ContAccion">
     <div class="row" style="margin: 0">
 
         @if (@ViewBag.TV == 1)
@@ -26,17 +28,18 @@
         {
             <div class="eje" id="@("eje" + con)">
                 <div class="caja">                    
-                    <div id="@item.LLANTA" class="llanta btn btn-outline-success"  href="@("#infoLlanta" + @item.LLANTA)"  role="button">
-   
-                                @if (item.SENTIDO == 0)//SENTIDOS;0=NO HA SIDO VOLTEADA;1=LLANTA GIRADA
+                    <div id="@item.LLANTA" class="llanta btn btn-outline-success"  href="@("#infoLlanta" + @item.LLANTA)"  role="button" tag="preload">
+                        
+                        @* Pendiente para aplicar *@
+                        @*@if (item.SENTIDO == 0)//SENTIDOS;0=NO HA SIDO VOLTEADA;1=LLANTA GIRADA
                                 {
                                     <img class="imgSentido btn" src="~/Content/medios/left.png" tag="0" onclick="cambio_Sentido($(this))"/>//izquierda a DERECHA
                                 }
                                 else
                                 {
                                     <img class="imgSentido btn" src="~/Content/medios/right.png" tag="1" onclick="cambio_Sentido($(this))"/>//derecha a INQUIERDA
-                                }
-                                <span class="idllanta"> @Html.DisplayFor(modelItem => item.LLANTA)-@Html.DisplayFor(modelItem => item.GRUPO)</span>
+                                }*@
+                                <span class="idllanta">@item.LLANTA-@item.GRUPO</span>
                                 <div class="collapse infoLlanta" id="@("infoLlanta" + @item.LLANTA)">
                                     <div class="card card-body" style="padding:0;">
                                         <dl class="row" style="margin:0;">
@@ -53,7 +56,7 @@
                     </div>
                 </div>
             </div>
-                                con++;//contadora mas 1
+            con++;//contadora mas 1
         }
                 <script>
                     $(function () {
@@ -94,7 +97,7 @@
                                             </script>
                                         </div>
                                         <div class="col-3" style="padding: 0;">
-                                            <button id="addllanta" type="submit" class="btn btn-success btn-sm">
+                                            <button id="addllanta" type="submit" class="btn btn-success btn-sm btnFull">
                                                 <img src="~/Content/medios/plus.svg" /></button>
                                         </div>
                                     </div>
@@ -200,12 +203,12 @@
                         <legend class="tituloDesc">Acciones del Trabajo</legend>
                         <div class="row">
                             <div class="col">
-                                <button type="button" class="btn btn-danger" onclick="location.href='buscarLlantas'">Cancelar</button>
+                                <button type="button" class="btn btn-danger btnFull" onclick="location.href='buscarLlantas'">Cancelar</button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
-                                <button type="button" class="btn btn-success">Guardar</button>
+                                <button type="button" class="btn btn-success btnFull">Guardar</button>
                             </div>
                         </div>
 
@@ -214,4 +217,7 @@
             </div>
         </div>
     </div>
+</div>
+@* Zona de Modals *@
+<div class="modal fade" id="modMuestraDesmonta" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
 </div>
