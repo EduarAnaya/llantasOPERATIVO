@@ -32,7 +32,7 @@ jQuery.validator.addMethod("validarplaca", function (value, element) {
 $("#formSearchVehiculo").on("submit", function (event) {
     $("#formSearchVehiculo").validate();
     var estado = $("#formSearchVehiculo").valid();
-    if (estado != true) {//detienen la ejecucion predeterminada en caso que que el formulario no sea valido
+    if (estado != true) { //detienen la ejecucion predeterminada en caso que que el formulario no sea valido
         event.preventDefault();
     }
 });

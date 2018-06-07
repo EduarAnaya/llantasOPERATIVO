@@ -1,329 +1,360 @@
 ﻿/*Css Opciones /Index*/
 .opcMenu {
-  box-shadow: 1px 1px 10px 1px #9a9a9a;
+    box-shadow: 1px 1px 10px 1px #9a9a9a;
 }
 
 .imgCards {
-  width: 35%;
-  margin: 1rem auto 0.1rem auto;
+    width: 35%;
+    margin: 1rem auto 0.1rem auto;
 }
 
 .link {
-  color: initial;
+    color: initial;
 }
 
 .noLink:hover {
-  color: #000000;
-  text-decoration: none;
+    color: #000000;
+    text-decoration: none;
 }
 
 /*Css /llantas/buscarLlantas*/
 
 .Container.cont_SearchsPlaca {
-  margin: 2rem 0px 3rem 0px;
+    margin: 2rem 0px 3rem 0px;
 }
 
 .cont_SearchsPlaca {
-  width: 100%;
+    width: 100%;
 }
 
-.cont_SearchsPlaca .cont_Titulo {
-  font-family: "Quicksand", sans-serif;
-  font-size: 2rem;
-}
+    .cont_SearchsPlaca .cont_Titulo {
+        font-family: "Quicksand", sans-serif;
+        font-size: 2rem;
+    }
 
 .zonaBusqueda {
-  width: 100%;
-  padding: 1rem;
-  margin: auto;
-  display: flex;
-  background: white;
-  box-shadow: 0 2px 15px -4px #28a745;
-  border-radius: 10px;
+    width: 100%;
+    padding: 1rem;
+    margin: auto;
+    display: flex;
+    background: white;
+    box-shadow: 0 2px 15px -4px #28a745;
+    border-radius: 10px;
 }
 
-.zonaBusqueda > * {
-  margin: auto;
-}
+    .zonaBusqueda > * {
+        margin: auto;
+    }
 
 button#cargarplaca {
-  width: 100%;
+    width: 100%;
 }
 
 /*Css /llantas/Edit*/
 
 .Container.cont_EditLlantas {
-  box-shadow: 0 0 5px black;
-  background-color: #ffc107;
-  border-radius: 5px;
+    box-shadow: 0 0 5px black;
+    background-color: #ffc107;
+    border-radius: 5px;
 }
 
 .btnNewSearch {
-  background-color: #f8f9fa;
-  color: #000000;
-  position: absolute;
-  z-index: 1;
-  font-size: xx-small;
-  padding-left: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  box-shadow: 0 0 5px black;
+    background-color: #f8f9fa;
+    color: #000000;
+    position: absolute;
+    z-index: 1;
+    font-size: xx-small;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    box-shadow: 0 0 5px black;
 }
 
 .vehiculo {
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  height: 20rem;
-  padding: 0;
-  margin: 0;
-  border-radius: 5px 0px 0px 0px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 20rem;
+    padding: 0;
+    margin: 0;
+    border-radius: 5px 0px 0px 0px;
 }
 
 .cont_lateralDer {
-  height: initial;
-  background-color: #343a40;
-  color: white;
-  border-radius: 0px 5px 0px 0px;
+    height: initial;
+    background-color: #343a40;
+    color: white;
+    border-radius: 0px 5px 0px 0px;
 }
 
 .tituloLegend {
-  font-size: 1rem;
+    font-size: 1rem;
 }
 
 .ui-autocomplete {
-  top: 167px;
-  left: 756px;
-  width: 137.984px;
-  margin-top: 5px;
-  background-color: #3a3a3a;
-  border-radius: 10px;
-  color: white;
-  border-color: #545454;
-  box-shadow: 0 0 1px #313131;
-  max-height: 200px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  width: 10rem !important;
+    top: 167px;
+    left: 756px;
+    width: 137.984px;
+    margin-top: 5px;
+    background-color: #3a3a3a;
+    border-radius: 10px;
+    color: white;
+    border-color: #545454;
+    box-shadow: 0 0 1px #313131;
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 10rem !important;
 }
 
 #nuevallanta {
-  max-height: 150px;
-  display: flex;
-  flex-wrap: wrap;
-  text-overflow: ellipsis;
-  background-color: #ffffff;
-  border-radius: 5px;
+    max-height: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    text-overflow: ellipsis;
+    background-color: #ffffff;
+    border-radius: 5px;
 }
 
-#nuevallanta .llanta {
-  width: 50%;
-}
+    #nuevallanta .llanta {
+        width: 50%;
+    }
 
 .contBasura {
-  height: 50%;
+    height: 50%;
 }
 
 .colDetall {
-  border-right: 1px solid #c7c7c7;
+    border-right: 1px solid #c7c7c7;
 }
 
 .contDetalles {
-  background-color: #343a40;
-  color: #f8f9fa;
-  border-radius: 0px 0px 5px 5px;
-  margin: 0.5rem 0px 0.5rem 0px;
+    background-color: #343a40;
+    color: #f8f9fa;
+    border-radius: 0px 0px 5px 5px;
+    margin: 0.5rem 0px 0.5rem 0px;
 }
 
-.contDetalles .tituloDesc {
-  font-size: inherit;
-  font-weight: bold;
-}
+    .contDetalles .tituloDesc {
+        font-size: inherit;
+        font-weight: bold;
+    }
 
 .descDetall {
-  font-size: 0.8rem;
+    font-size: 0.8rem;
 }
 
 .badge-success {
-  color: #fff;
-  background-color: #28a745;
-  width: 100%;
-  text-transform: uppercase;
-  font-size: 1rem;
+    color: #fff;
+    background-color: #28a745;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 0.8rem;
 }
 
 .colTitulodesc {
-  padding-right: 0;
+    padding-right: 0;
 }
 
 .camionCabezote {
-  background-image: url("/Content/medios/camion.png");
+    background-image: url("/Content/medios/camion.png");
 }
 
 .caja {
-  margin: auto;
-  width: auto;
-  height: auto;
-  min-width: auto;
-  min-height: -webkit-fill-available;
-  background-color: grey;
-  border-radius: 10px;
+    margin: auto;
+    width: auto;
+    height: auto;
+    min-width: auto;
+    min-height: -webkit-fill-available;
+    background-color: grey;
+    border-radius: 10px;
 }
 
 .imgSentido {
-  width: 1.2rem;
-  padding: 0;
-  position: absolute;
+    width: 1.2rem;
+    padding: 0;
+    position: absolute;
 }
 
 .llanta {
-  background: url(/Content/medios/rueda.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  margin: inherit;
-  padding: 0;
-  z-index: 1;
-  width: 100%;
-  height: 30px;
-  border: 1px solid;
-  display: flex !important;
-  border-radius: 10px;
-  color: white;
-  font-size: small;
-  align-items: center;
+    background: url(/Content/medios/rueda.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: inherit;
+    padding: 0;
+    z-index: 1;
+    width: 100%;
+    height: 30px;
+    border: 1px solid;
+    display: flex !important;
+    border-radius: 10px;
+    color: white;
+    font-size: small;
+    align-items: center;
 }
 
 .eje {
-  background-color: rgba(255, 255, 255, 0);
-  position: absolute;
-  width: 14%;
-  height: 31px;
+    background-color: rgba(255, 255, 255, 0);
+    position: absolute;
+    width: 14%;
+    height: 31px;
 }
 
 .idllanta {
-  text-shadow: 0 0 1px black;
-  color: black;
-  /*margin-left: 1.5rem;*/
-  overflow: hidden;
-  position: relative;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+    text-shadow: 0 0 1px black;
+    color: black;
+    overflow: hidden;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .infoLlanta {
-  position: absolute;
-  top: 2rem;
-  z-index: 1500;
-  color: black;
-  width: 8rem;
-  height: auto;
-  font-size: xx-small;
+    position: absolute;
+    top: 2rem;
+    z-index: 1500;
+    color: black;
+    width: 8rem;
+    height: auto;
+    font-size: xx-small;
 }
 
 .marginTituloDesc {
-  margin: 0px 5px 0px 0px;
-  padding: 0;
-  text-align: right;
+    margin: 0px 5px 0px 0px;
+    padding: 0;
+    text-align: right;
 }
 
 .marginDescTtulo {
-  padding: 0;
-  text-align: left;
-  margin: 0;
+    padding: 0;
+    text-align: left;
+    margin: 0;
 }
 
 .caneca {
-  margin: auto;
-  display: flex;
-  flex-flow: row wrap;
-  border-radius: 10px;
-  background-color: #ffffff;
-  box-shadow: 0px 0 11px black;
-  min-height: 100px;
-  max-height: 150px;
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 0 11px black;
+    min-height: 100px;
+    max-height: 150px;
 }
 
-.caneca .llanta {
-  width: 50%;
-}
+    .caneca .llanta {
+        width: 50%;
+    }
 
 .caneca_over {
-  box-shadow: 0px 0px 15px 4px #ff0a07;
+    box-shadow: 0px 0px 15px 4px #ff0a07;
 }
 
 .llanta_dragg {
-  box-shadow: 0px 0px 10px #343a40;
+    box-shadow: 0px 0px 10px #343a40;
 }
 /*meqdy quey para los dispositivos pequeños*/
 @media (max-width: 575.98px) {
-  #colDetallSave {
-    order: 1;
-  }
+    #colDetallSave {
+        order: 1;
+    }
 
-  #colDetall1 {
-    order: 2;
-  }
+    #colDetall1 {
+        order: 2;
+    }
 
-  #colDetall2 {
-    order: 3;
-  }
+    #colDetall2 {
+        order: 3;
+    }
 }
 /*Css remove Modal*/
 
 .imgGuia {
-  width: 90%;
-  box-shadow: 4px 4px 5px #cecece;
-  border-radius: 20px;
+    width: 50%;
+    box-shadow: 4px 4px 5px #cecece;
+    border-radius: 20px;
 }
 
-input#inputLizqRmv {
-  box-shadow: 1px 1px 5px #038fcc;
+input#inputLizq {
+    box-shadow: 1px 1px 5px #038fcc;
 }
 
-input#inputCentRmv {
-  box-shadow: 1px 1px 5px #00c915;
+input#inputCent {
+    box-shadow: 1px 1px 5px #00c915;
 }
 
-input#inputDereRmv {
-  box-shadow: 1px 1px 5px #f41f4a;
+input#inputDere {
+    box-shadow: 1px 1px 5px #f41f4a;
 }
 /*Carga de archivos*/
 
 .custom-file-label::after {
-  content: "Explorar" !important;
+    content: "Explorar" !important;
 }
 
 .btnAddFile {
-  width: 20px;
-  margin: auto;
-  border-radius: 10px;
-  height: 20px;
-  padding: 0;
-  font-size: small;
+    width: 20px;
+    margin: auto;
+    border-radius: 10px;
+    height: 20px;
+    padding: 0;
+    font-size: small;
 }
 
 .btndellFile {
-  width: 20px;
-  margin: auto;
-  border-radius: 10px;
-  height: 20px;
-  padding: 0;
-  font-size: 0.5rem;
+    width: 20px;
+    margin: auto;
+    border-radius: 10px;
+    height: 20px;
+    padding: 0;
+    font-size: 0.5rem;
 }
 
 .subirArchivos {
-  font-size: xx-small;
-  text-align: center;
-  padding: 0;
+    font-size: xx-small;
+    text-align: center;
+    padding: 0;
 }
 
 .boxFicheros {
-  font-size: xx-small;
-  align-self: center;
+    font-size: xx-small;
+    align-self: center;
 }
 
 .rowFicheros {
-  font-size: xx-small;
-  display: inline-flex;
-  flex-wrap: wrap;
-  margin-bottom: 2px;
+    font-size: xx-small;
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-bottom: 2px;
+}
+
+/*CSS guardar*/
+.imgResponse {
+    width: 1rem;
+}
+
+#listaResultados {
+    margin: auto;
+    max-height: 20rem;
+    overflow: auto;
+    width: 70%;
+    color: #9e9e9e;
+    font-size: smaller;
+}
+
+.centrado {
+    margin: auto;
+}
+
+.Text_cero {
+    font-size: 2rem;
+    color: #878787;
+}
+
+.img_respuestaHead {
+    width: 40px;
+    height: 40px;
+}
+
+tr th {
+    padding: 0 !important;
 }

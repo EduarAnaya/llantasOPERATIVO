@@ -2,9 +2,18 @@
     padding-top: 4rem;
 }
 
-.Contapp {
-    margin-bottom: 1rem;
+footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2000;
+    height: 3rem;
 }
+
+/*.Contapp {
+    margin-bottom: 10rem;
+}*/
 
 .card {
     height: 100%;
@@ -24,7 +33,9 @@
 .btnFull {
     width: 100%;
 }
+
 /*Errores*/
+
 .errors::before {
     content: url(../../Content/medios/error_label.png);
 }
@@ -46,8 +57,18 @@
     z-index: 5000;
 }
 
+.timeTransac {
+    font-size: xx-small;
+}
+
 @media (max-width: 1024px) {
     .container {
         max-width: 100%;
+    }
+}
+
+@media (max-width: 1024px) {
+    footer {
+        display: none;
     }
 }

@@ -48,9 +48,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\NuGet.Core.2.14.0\lib\net40-Client\NuGet.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Oracle.DataAccess, Version=4.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\orant\Oda11\product\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -136,10 +141,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\bdConexion.cs" />
+    <Compile Include="Models\bd_con\bdConexion.cs" />
     <Compile Include="Models\cargaArchivos\archivos.cs" />
     <Compile Include="Models\llantasModel.cs" />
-    <Compile Include="Models\paramConn.cs" />
+    <Compile Include="Models\bd_con\paramConn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +157,7 @@
     <Content Include="Content\cssEdit_old\Site.css" />
     <Content Include="Content\LibreriasProv_Old\jquery-ui.min.css" />
     <Content Include="Content\medios\borrarFile.png" />
+    <Content Include="Content\medios\calendar.png" />
     <Content Include="Content\medios\cambio_llantas.png" />
     <Content Include="Content\medios\camion.png" />
     <Content Include="Content\medios\error_label.png" />
@@ -173,6 +179,7 @@
     <Content Include="Content\medios\search.svg" />
     <Content Include="Content\medios\sitioContruccion.png" />
     <Content Include="Content\medios\success.png" />
+    <Content Include="Content\medios\timerSucces.png" />
     <Content Include="Content\medios\tire.ico" />
     <Content Include="Content\medios\trailerx1.png" />
     <Content Include="Content\medios\trailerx2.png" />
@@ -196,6 +203,7 @@
     <Content Include="CSS\css_Prove\bootstrap\bootstrap.min.css.map" />
     <None Include="Properties\PublishProfiles\llantasAPPOP.pubxml" />
     <Content Include="Scripts\js_Edit\js_Edit_Llantas\js_cargaArchivos.js" />
+    <Content Include="Scripts\js_Edit\js_Edit_Llantas\js_llantas_Monta.js" />
     <Content Include="Scripts\js_Edit\js_Edit_Llantas\js_llantas_Remove.js" />
     <Content Include="Scripts\js_Edit\js_timer.Js" />
     <Content Include="Scripts\js_Edit\js_Edit_Llantas\js_llantas_Edit.js" />
@@ -336,7 +344,26 @@
     <Content Include="Scripts\js_Prove\datatables\Select-1.2.5\css\select.semanticui.min.css" />
     <Content Include="Scripts\js_Prove\datatables\Select-1.2.5\js\dataTables.select.js" />
     <Content Include="Scripts\js_Prove\datatables\Select-1.2.5\js\dataTables.select.min.js" />
+    <Content Include="Scripts\js_Prove\jqueryUI\AUTHORS.txt" />
+    <Content Include="Scripts\js_Prove\jqueryUI\external\jquery\jquery.js" />
+    <Content Include="Scripts\js_Prove\jqueryUI\images\ui-icons_444444_256x240.png" />
+    <Content Include="Scripts\js_Prove\jqueryUI\images\ui-icons_555555_256x240.png" />
+    <Content Include="Scripts\js_Prove\jqueryUI\images\ui-icons_777620_256x240.png" />
+    <Content Include="Scripts\js_Prove\jqueryUI\images\ui-icons_777777_256x240.png" />
+    <Content Include="Scripts\js_Prove\jqueryUI\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Scripts\js_Prove\jqueryUI\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Scripts\js_Prove\jqueryUI\index.html" />
+    <Content Include="Scripts\js_Prove\jqueryUI\jquery-ui.css" />
+    <Content Include="Scripts\js_Prove\jqueryUI\jquery-ui.js" />
+    <Content Include="Scripts\js_Prove\jqueryUI\jquery-ui.min.css" />
+    <Content Include="Scripts\js_Prove\jqueryUI\jquery-ui.min.js" />
+    <Content Include="Scripts\js_Prove\jqueryUI\jquery-ui.structure.css" />
+    <Content Include="Scripts\js_Prove\jqueryUI\jquery-ui.structure.min.css" />
+    <Content Include="Scripts\js_Prove\jqueryUI\jquery-ui.theme.css" />
+    <Content Include="Scripts\js_Prove\jqueryUI\jquery-ui.theme.min.css" />
+    <Content Include="Scripts\js_Prove\jqueryUI\LICENSE.txt" />
     <Content Include="Scripts\js_Prove\jQuery\jquery-ui.min.js" />
+    <Content Include="Scripts\js_Prove\jQuery\jquery.validate.js" />
     <Content Include="Scripts\js_Prove\jQuery\jquery.validate.min.js" />
     <Content Include="Scripts\libreriasPRoveedores_Old\bootstrap.min.js" />
     <Content Include="Scripts\jsPersonalisados_Old\datatables\AutoFill-2.2.2\css\autoFill.bootstrap.css" />
@@ -512,6 +539,10 @@
     <Content Include="Scripts\js_Prove\datatables\Buttons-1.5.1\css\mixins.scss" />
     <Content Include="Views\llantas\llantasRemovePendiente.cshtml" />
     <Content Include="Views\llantas\llantasRemove.cshtml" />
+    <Content Include="Views\Shared\_Error.cshtml" />
+    <Content Include="Views\llantas\llantasMonta.cshtml" />
+    <Content Include="Scripts\js_Prove\jqueryUI\package.json" />
+    <Content Include="Views\llantas\llantasGuardar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

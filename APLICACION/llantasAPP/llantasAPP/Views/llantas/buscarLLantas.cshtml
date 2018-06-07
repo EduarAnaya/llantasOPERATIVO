@@ -17,10 +17,12 @@
     {
         <div class="row zonaBusqueda">
             <div class="col-sm-12 col-md-4 col-lg-5">
-                <input type="text" class="form-control text-uppercase" id="inputsplaca" name="placa" placeholder="PLACA" maxlength="6" required="required">
+                <input type="text" class="form-control text-uppercase" id="inputsplaca" name="placa" placeholder="PLACA" maxlength="6" required="required"autofocus="autofocus"/>
+                <label class="error errors visible" for="inputsplaca"></label>
             </div>
             <div class="col-sm-12 col-md-4 col-lg-5">
-                <input type="number" class="form-control text-uppercase" id="inputskm" name="km" placeholder="KILOMETRAGE" required="required">
+                <input type="number" class="form-control text-uppercase" id="inputskm" name="km" placeholder="KILOMETRAJE" required="required"/>
+                <label class="error errors visible" for="inputskm"></label>
             </div>
             <div class="col-sm-12 col-md-4 col-lg-2">
                 <button id="cargarplaca" type="submit" class="btn btn-success">

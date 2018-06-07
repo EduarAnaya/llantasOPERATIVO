@@ -4,86 +4,88 @@
     ViewBag.Title = "Inventario";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb" style="padding: 0">
-        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Inicio</a></li>
-        <li class="breadcrumb-item" aria-current="page">Inventario de llantas</li>
-    </ol>
-</nav>
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" style="padding: 0">
+            <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Inicio</a></li>
+            <li class="breadcrumb-item" aria-current="page">Inventario de llantas</li>
+        </ol>
+    </nav>
 
-@*<h4>Inventario de Llantas</h4>*@
-<script type="text/javascript">
-    $(function () {
-        $("#table_id").DataTable();
-    });
-</script>
-<table id="table_id" class=" table display" style="font-size: small;">
-    <thead>
-        <tr>
-            <th>
-                @*@Html.DisplayNameFor(model => model.LLANTA)*@
-                Nro. Llanta
-            </th>
-            <th>
-                @*@Html.DisplayNameFor(model => model.GRUPO)*@
-                Grupo
-            </th>
-            <th>
-                @*@Html.DisplayNameFor(model => model.INVENT)*@
-                Inventario
-            </th>
-            <th>
-                @*  @Html.DisplayNameFor(model => model.VALOR)*@
-                Valor
-            </th>
-            <th>
-                @*@Html.DisplayNameFor(model => model.FECHA)*@
-                Fecha
-            </th>
-            <th>
-                @*@Html.DisplayNameFor(model => model.PROVE)*@
-                Proveedor
-            </th>
-            <th>
-                @*@Html.DisplayNameFor(model => model.FACTURA)*@
-                Nro. Factura
-            </th>
-            <th>
-                @*@Html.DisplayNameFor(model => model.FICHA)*@
-                Nro. Ficha
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    @*<h4>Inventario de Llantas</h4>*@
+    <script type="text/javascript">
+        $(function () {
+            $("#table_id").DataTable();
+        });
+    </script>
+    <table id="table_id" class=" table display" style="font-size: small;">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LLANTA)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GRUPO)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.INVENT)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.VALOR)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FECHA)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PROVE)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FACTURA)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FICHA)
-                </td>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.LLANTA)*@
+                    Nro. Llanta
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.GRUPO)*@
+                    Grupo
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.INVENT)*@
+                    Inventario
+                </th>
+                <th>
+                    @*  @Html.DisplayNameFor(model => model.VALOR)*@
+                    Valor
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.FECHA)*@
+                    Fecha
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.PROVE)*@
+                    Proveedor
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.FACTURA)*@
+                    Nro. Factura
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.FICHA)*@
+                    Nro. Ficha
+                </th>
             </tr>
-        }
-    </tbody>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LLANTA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GRUPO)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.INVENT)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VALOR)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FECHA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PROVE)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FACTURA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FICHA)
+                    </td>
+                </tr>
+            }
+        </tbody>
 
-</table>
+    </table>
+</div>

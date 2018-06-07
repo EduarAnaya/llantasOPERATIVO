@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="~/Content/medios/tire.ico" />
     <title>@ViewBag.title</title>
     <link href="~/CSS/css_Prove/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/CSS/css_Prove/jQuery/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Scripts/js_Prove/jqueryUI/jquery-ui.min.css" rel="stylesheet" />
     <link href="~/CSS/css_Prove/datatables/datatables.min.css" rel="stylesheet" />
     <link href="~/CSS/css_Edits/css_Gral.css" rel="stylesheet" />
     <link href="~/CSS/css_Edits/css_Llantas_Edit.css" rel="stylesheet" />
@@ -17,37 +17,40 @@
     <!-- Archivos Scripts -->
     <script src="~/Scripts/js_Prove/jQuery/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/js_Prove/jQuery/jquery.validate.min.js"></script>
-    <script src="~/Scripts/js_Prove/jQuery/jquery-ui.min.js"></script>
-    <script src="~/Scripts/js_Prove/modernizr-2.5.3.js"></script>
     <script src="~/Scripts/js_Prove/bootstrap/bootstrap.min.js"></script>
+    <script src="~/Scripts/js_Prove/jqueryUI/jquery-ui.min.js"></script>
+    <script src="~/Scripts/js_Prove/modernizr-2.5.3.js"></script>
     <script src="~/Scripts/js_Prove/datatables/datatables.min.js"></script>
     <script src="~/Scripts/js_Prove/plugTimer.js"></script>
     <script src="~/Scripts/js_Prove/tactil.js"></script>
-
-    <!-- Navigation -->
+    <!-- Navegacion -->
     <nav id="barraMenu" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="@Url.Action("Index","Home")">
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")">
                 <img src="~/Content/medios/llanta_ini.png" style="width: 2rem" alt="Inicio" />
                 Llantas Operativo
             </a>
         </div>
     </nav>
-    <div class="container Contapp">
-        @RenderBody()
-    </div>
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">
-                &copy <a href="http://www.transer.com.co/" target="_blank">Transportes y Servicios Transer S.A.</a>Versión 3.0 2018
-            </p>
+    <section id="RenderBody">
+        <div class="container Contapp">
+            @RenderBody()
         </div>
-        <!-- /.container -->
-    </footer>
+    </section>
+    <section id="footer">
+        <footer class="bg-dark">
+            <div class="container">
+                <p class="m-0 text-center text-white">
+                    &copy <a href="http://www.transer.com.co/" target="_blank">Transportes y Servicios Transer S.A.</a>Versión 3.0 @DateTime.Now.Year
+                </p>
+            </div>
+            <!-- /.container -->
+        </footer>
+    </section>
 
     <!-- Archivos Scripts -->
-    <script src="~/Scripts/js_Edit/js_Edit_Llantas/js_SearchsLlantas.js"></script>
-    <script src="~/Scripts/js_Edit/js_Edit_Llantas/js_llantas_Edit.js"></script>
+    <script src="~/Scripts/js_Edit/js_Edit_Llantas/js_SearchsLlantas.js?v3.0"></script>
+    <script src="~/Scripts/js_Edit/js_Edit_Llantas/js_llantas_Edit.js?v3.0"></script>
     <script src="~/Scripts/js_Edit/js_timer.Js"></script>
 </body>
 </html>

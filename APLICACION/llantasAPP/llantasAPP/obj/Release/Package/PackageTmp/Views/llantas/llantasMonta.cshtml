@@ -1,0 +1,114 @@
+﻿@{
+    ViewBag.Title = "Llantas-Edicion";
+    Layout = null;
+}
+<div class="modal-dialog" role="document" style="max-width: 800px">
+    <div class="modal-content">
+        <div class="modal-header" style="padding-bottom: 0; display: block;">
+            <div class="row">
+                <div class="col-sm-12 col-md-5 col-lg-5">
+                    <div class="row">
+                        <div class="col-3" style="/* padding-left: 0; */">
+                            <img src="/Content/medios/medidas_llantas.png" style="width: 3rem;" />
+                        </div>
+                        <div class="col">
+                            <h5 class="modal-title">Ingreso de Muestras</h5>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-12 col-md-7 col-lg-7">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col text-right">
+                                    <h6>Placa</h6>
+                                </div>
+                                <div class="col-sm-12 col-md-7 col-lg-7">
+                                    <h5><span class="badge badge-success" id="idPlacaMonta">@ViewBag._placa</span></h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col text-right">
+                                    <h6>Llanta</h6>
+                                </div>
+                                <div class="col-sm-12 col-md-7 col-lg-7">
+                                    <h5><span class="badge badge-success" id="idLlantaMonta">@ViewBag._Llanta-@ViewBag._grupo</span></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col text-right">
+                                    <h6>KM</h6>
+                                </div>
+                                <div class="col-sm-12 col-md-7 col-lg-7">
+                                    <h5><span class="badge badge-success" id="idKMMed">@ViewBag._kmMEdida</span></h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col text-right">
+                                    <h6>Fecha Sis.</h6>
+                                </div>
+                                <div class="col-sm-12 col-md-7 col-lg-7">
+                                    <h5><span class="badge badge-success" id="idFechaMed">@ViewBag._fechaMedida</span></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <form id="formMuestras">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="inputPresion" name="inputPresion" placeholder="Presión" required="required" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="inputLizq" name="inputLizq" placeholder="Labrado Izquierdo" required="required" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="inputCent" name="inputCent" placeholder="Labrado Centro" required="required" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="inputDere" name="inputDere" placeholder="Labrado Derecho" required="required" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                    <label for="datePick">Fecha del Muestreo</label>
+                                    <input type="text" class="form-control" id="dtpFecMuestra" name="datePick" placeholder="Fecha de toma" value="@ViewBag._fechaMedida" disabled="disabled"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <img src="~/Content/medios/labrado.png" class="imgGuia" />
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="display: block;">
+                        <div class="row">
+                            <div class="col">
+                                <button type="submit" id="btnmontarllanta" class="btn btn-outline-success btn-lg btn-block">Aceptar</button>
+                            </div>
+                            <div class="col">
+                                <button id="btnCancelAdd" class="btn btn-outline-secondary btn-lg btn-block">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<script src="~/Scripts/js_Edit/js_Edit_Llantas/js_llantas_Monta.js?v1.3"></script>

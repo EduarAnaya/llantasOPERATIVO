@@ -1,0 +1,253 @@
+﻿@{
+    ViewBag.Title = "llantasGuardar";
+    Layout = null;
+}
+
+@{ 
+    //LENGUAJE DE SERVIDOR C#
+    List<llantasAPP.Models.llantas_Rota> lisRotadas = ViewBag.rotadas;
+    List<llantasAPP.Models.llantas_Monta> lisMontadas = ViewBag.montadas;
+    List<llantasAPP.Models.llantas_Desmonta> lisRemove = ViewBag.removidas;
+    List<llantasAPP.Models.llantas_Monta> lisMuestras = ViewBag.muestreos;
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <img class="centrado" src="https://cdn1.iconfinder.com/data/icons/basic-ui-elements-color/700/011_yes-64.png" alt="" />
+            </div>
+            <div class="row">
+                <h4 class="centrado">Transacción terminada</h4>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!--LLANTAS ROTADAS-->
+        <ul id="listaResultados" class="list-unstyled">
+            @if (lisRotadas.Count > 0)
+            {
+                <li class="media">
+                    <img class="mr-3 img_respuestaHead" src="https://cdn0.iconfinder.com/data/icons/smashicons-arrows-flat-vol-2-1/58/124_-_Change_Orientation_arrow_direction_orientation-64.png" />
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1">Llantas Rotadas</h5>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Pos Ini </th>
+                                        <th>Pos Fin</th>
+                                        <th>Estado T</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var llanta in lisRotadas)//carga de rotadas
+                                    {
+                                        <tr>
+                                            <td>@llanta.par_llanta</td>
+                                            <td>@llanta.par_posicion_ini</td>
+                                            <td>@llanta.par_posicion_fin</td>
+                                            <td>
+                                                @switch (llanta.response)
+                                                {
+                                                    case 1:
+                                                    <img src="~/Content/medios/success.png" class="imgResponse" />
+                                                        break;
+                                                    case 2:
+                                                    <img src="~/Content/medios/error_label.png" class="imgResponse" />
+                                                        break;
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </li>
+            }
+            else
+            {
+                <li class="media">
+                    <img class="mr-3 img_respuestaHead" src="https://cdn0.iconfinder.com/data/icons/smashicons-arrows-flat-vol-2-1/58/124_-_Change_Orientation_arrow_direction_orientation-64.png" />
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1">Llantas Rotadas</h5>
+                        <div class="table-responsive">
+                            <p class="font-weight-bold Text_cero">0</p>
+                        </div>
+                    </div>
+                </li>
+            }
+            <!--LLANTAS MONTADAS-->
+
+            @if (lisMontadas.Count > 0)
+            {
+                <li class="media">
+                    <img class="mr-3 img_respuestaHead" src="https://cdn0.iconfinder.com/data/icons/unigrid-mechanics/59/025_car_wheel_tires_service_maintenance-64.png" />
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1">Llantas Montadas</h5>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Posición</th>
+                                        <th>Estado T</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var llanta in lisMontadas)
+                                    {
+                                        <tr>
+                                            <td>@llanta.par_llanta_e</td>
+                                            <td>@llanta.par_posicion_e</td>
+                                            <td>
+                                                @switch (llanta.response)
+                                                {
+                                                    case 1:
+                                                    <img src="~/Content/medios/success.png" class="imgResponse" />
+                                                        break;
+                                                    case 2:
+                                                    <img src="~/Content/medios/error_label.png" class="imgResponse" />
+                                                        break;
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </li>
+
+            }
+            else
+            {
+                <li class="media">
+                    <img class="mr-3 img_respuestaHead" src="https://cdn0.iconfinder.com/data/icons/unigrid-mechanics/59/025_car_wheel_tires_service_maintenance-64.png" />
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1">Llantas Montadas</h5>
+                        <div class="table-responsive">
+                            <p class="font-weight-bold Text_cero">0</p>
+                        </div>
+                    </div>
+                </li>
+                        
+            }
+
+            @if (lisRemove.Count > 0)
+            {
+                <li class="media">
+                    <img class="mr-3 img_respuestaHead" src="https://cdn3.iconfinder.com/data/icons/car-parts-2-retro-2/60/25_-Flat_Tire-_car_part_vehicle-64.png" />
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1">Llantas Removidas</h5>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Posición</th>
+                                        <th>Estado T</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var llanta in lisRemove)
+                                    {
+                                        <tr>
+                                            <td>@llanta.par_llanta_e</td>
+                                            <td>@llanta.par_posicion_e</td>
+                                            <td>
+                                                @switch (llanta.response)
+                                                {
+                                                    case 1:
+                                                    <img src="~/Content/medios/success.png" class="imgResponse" />
+                                                        break;
+                                                    case 2:
+                                                    <img src="~/Content/medios/error_label.png" class="imgResponse" />
+                                                        break;
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </li>
+
+            }
+            else
+            {
+                <li class="media">
+                    <img class="mr-3 img_respuestaHead" src="https://cdn3.iconfinder.com/data/icons/car-parts-2-retro-2/60/25_-Flat_Tire-_car_part_vehicle-64.png" />
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1">Llantas Removidas</h5>
+                        <div class="table-responsive">
+                            <p class="font-weight-bold Text_cero">0</p>
+                        </div>
+                    </div>
+                </li>
+            }
+
+            @if (lisMuestras.Count > 0)
+            {
+                <li class="media">
+                    <img class="mr-3 img_respuestaHead" src="https://cdn0.iconfinder.com/data/icons/tire-2/200/1215-64.png" />
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1">Muestreos Realizados</h5>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Posición</th>
+                                        <th>Estado T</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var llanta in lisMuestras)
+                                    {
+                                        <tr>
+                                            <td>@llanta.par_llanta_e</td>
+                                            <td>@llanta.par_posicion_e</td>
+                                            <td>
+                                                @switch (llanta.response)
+                                                {
+                                                    case 1:
+                                                    <img src="~/Content/medios/success.png" class="imgResponse" />
+                                                        break;
+                                                    case 2:
+                                                    <img src="~/Content/medios/error_label.png" class="imgResponse" />
+                                                        break;
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </li>     
+            }
+            else
+            {
+                <li class="media">
+                    <img class="mr-3 img_respuestaHead" src="https://cdn0.iconfinder.com/data/icons/tire-2/200/1215-64.png" />
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1">Muestreos Realizados</h5>
+                        <div class="table-responsive">
+                            <p class="font-weight-bold Text_cero">0</p>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-primary btn-lg btn-block" href="/">Aceptar</a>
+        </div>
+    </div>
+</div>

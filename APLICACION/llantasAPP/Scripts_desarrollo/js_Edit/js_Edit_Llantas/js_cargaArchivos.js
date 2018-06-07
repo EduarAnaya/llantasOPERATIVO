@@ -1,4 +1,3 @@
-
 $(function () {
 
     //espacio para la arga de archivos
@@ -26,7 +25,7 @@ $(function () {
     });
 
     function delRowFile() {
-        $(".btndellFile").on("click", function() {
+        $(".btndellFile").on("click", function () {
             var registro = $(this)[0].parentNode.parentNode;
             registro.remove();
             var activos = $(".boxFicheros .rowFicheros");
@@ -35,6 +34,7 @@ $(function () {
             return;
         });
     }
+
     function renderContador() {
         $("#lblContador").html("");
         $("#lblContador").html(contador + "/" + maxFiles);

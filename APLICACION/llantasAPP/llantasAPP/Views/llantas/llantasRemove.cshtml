@@ -2,64 +2,66 @@
     ViewBag.Title = "Llantas-Edicion";
     Layout = null;
 }
-<div class="modal-dialog" role="document" style="max-width: 800px">
+@*<div class="modal-dialog" role="document" style="max-width: 800px">
     <div class="modal-content">
         <div class="modal-header" style="padding-bottom: 0;">
-            <div class="col-4">
-                <div class="row">
-                    <div class="col-3" style="padding-left: 0;">
-                        <img src="~/Content/medios/medidas_llantas.png" style="width: 100%;" />
+            <div class="row">
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-3" style="padding-left: 0;">
+                            <img src="~/Content/medios/medidas_llantas.png" style="width: 100%;" />
+                        </div>
+                        <div class="col">
+                            <h5 class="modal-title">Desmontar llanta</h5>
+                        </div>
                     </div>
-                    <div class="col">
-                        <h5 class="modal-title">Desmontar llanta</h5>
-                    </div>
-                </div>
 
-            </div>
-            <div class="col">
-                <div class="row">
-                    <div class="col">
-                        <div class="row">
-                            <div class="col text-right">
-                                <h6>Placa</h6>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col text-right">
+                                    <h6>Placa</h6>
+                                </div>
+                                <div class="col-7">
+                                    <h5><span class="badge badge-success" id="idPlacaRmv">@ViewBag._placa</span></h5>
+                                </div>
                             </div>
-                            <div class="col-7">
-                                <h5><span class="badge badge-success" id="idPlacaRmv">@ViewBag._placa</span></h5>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col text-right">
-                                <h6>Llanta</h6>
-                            </div>
-                            <div class="col-7">
-                                <h5><span class="badge badge-success" id="idLlantaRmv">@ViewBag._Llanta-@ViewBag._grupo</span></h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="row">
-                            <div class="col text-right">
-                                <h6>KM</h6>
-                            </div>
-                            <div class="col-7">
-                                <h5><span class="badge badge-success" id="idKMMed">@ViewBag._kmMEdida</span></h5>
+                            <div class="row">
+                                <div class="col text-right">
+                                    <h6>Llanta</h6>
+                                </div>
+                                <div class="col-7">
+                                    <h5><span class="badge badge-success" id="idLlantaRmv">@ViewBag._Llanta-@ViewBag._grupo</span></h5>
+                                </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col text-right">
-                                <h6>FECHA</h6>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col text-right">
+                                    <h6>KM</h6>
+                                </div>
+                                <div class="col-7">
+                                    <h5><span class="badge badge-success" id="idKMMed">@ViewBag._kmMEdida</span></h5>
+                                </div>
                             </div>
-                            <div class="col-7">
-                                <h5><span class="badge badge-success" id="idFechaMed">@ViewBag._fechaMedida</span></h5>
+                            <div class="row">
+                                <div class="col text-right">
+                                    <h6>FECHA</h6>
+                                </div>
+                                <div class="col-7">
+                                    <h5><span class="badge badge-success" id="idFechaMed">@ViewBag._fechaMedida</span></h5>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <button id="btnCancelremove" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            </div>*@
+@*<button id="btnCancelremove" type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
+            </button>*@
+@*        </div>
 
         <div class="modal-body">
             <form id="formMuestrasDesmonta">
@@ -102,15 +104,142 @@
 
                 </div>
 
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-outline-success btn-lg btn-block">Retirar</button>
+                <div class="modal-footer" style="display: block;">
+                    <div class="row">
+                        <div class="col">
+                            <button id="btnCancelremove" class="btn btn-outline-secondary btn-lg btn-block">Cancelar</button>
+                        </div>
+                        <div class="col">
+                            <button type="submit" class="btn btn-outline-success btn-lg btn-block">Retirar</button>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
+*@
 
+
+
+
+
+
+<div class="modal-dialog" role="document" style="max-width: 800px">
+    <div class="modal-content">
+        <div class="modal-header" style="padding-bottom: 0; display: block;">
+            <div class="row">
+                <div class="col-sm-12 col-md-5 col-lg-5">
+                    <div class="row">
+                        <div class="col-3" style="/* padding-left: 0; */">
+                            <img src="/Content/medios/medidas_llantas.png" style="width: 3rem;" />
+                        </div>
+                        <div class="col">
+                            <h5 class="modal-title">Desmontar llanta</h5>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-12 col-md-7 col-lg-7">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col text-right">
+                                    <h6>Placa</h6>
+                                </div>
+                                <div class="col-sm-12 col-md-7 col-lg-7">
+                                    <h5><span class="badge badge-success" id="idPlacaRmv">@ViewBag._placa</span></h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col text-right">
+                                    <h6>Llanta</h6>
+                                </div>
+                                <div class="col-sm-12 col-md-7 col-lg-7">
+                                    <h5><span class="badge badge-success" id="idLlantaRmv">@ViewBag._Llanta-@ViewBag._grupo</span></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col text-right">
+                                    <h6>KM</h6>
+                                </div>
+                                <div class="col-sm-12 col-md-7 col-lg-7">
+                                    <h5><span class="badge badge-success" id="idKMMed">@ViewBag._kmMEdida</span></h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col text-right">
+                                    <h6>FECHA</h6>
+                                </div>
+                                <div class="col-sm-12 col-md-7 col-lg-7">
+                                    <h5><span class="badge badge-success" id="idFechaMed">@ViewBag._fechaMedida</span></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="modal-body">
+            <form id="formMuestrasDesmonta" novalidate="novalidate">
+                <div class="row">
+                    <div class="col">
+                        <fieldset>
+                            <legend style="color: black !important;">Detalles del desmonte</legend>
+                            <div class="form-group">
+                                <label for="inputState">Causa</label>
+                                <select id="selectCausa" name="selectCausa" class="form-control" required="required">
+                                    <option value="" selected="">Seleccione...</option>
+                                    <option value="0">POR DEFINIR</option>
+                                    <option value="1">ERROR AL DIGITAR</option>
+                                    <option value="2">ESTALLADA</option>
+                                    <option value="3">REENCAUCHE LEVANTADO</option>
+                                    <option value="4">SALIDA A REENCAUCHE</option>
+                                    <option value="5">DEVOLUCION PRUEBA FABRICANTE</option>
+                                    <option value="6">PARA UTILIZAR EN OTRO VEHICULO</option>
+                                    <option value="7">EN LONAS</option>
+                                    <option value="8">PERDIDA DE PACHA</option>
+                                    <option value="9">ENVIADA A REPARACION</option>
+                                    <option value="10">ENTREGA DE BOTELLEROS CLIENTE</option>
+                                </select>
+                                <label class="error errors visible" for="selectCausa"></label>
+                            </div>
+
+                            <div class="form-group ">
+                                <label for="areaObservaciones">Observaciones del desmonte</label>
+                                <textarea class="form-control" id="areaObservaciones" name="areaObservaciones" rows="3" required="required" maxlength="100"></textarea>
+                                <label for="areaObservaciones" class="error errors visible"></label>
+                                <div class="col" style="text-align: right; color: #dee2e6;">
+                                    <label>Caracteres</label>
+                                    <label id="contadorarea">0/100</label>
+                                </div>
+                            </div>
+
+                        </fieldset>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer" style="display: block;">
+                    <div class="row">
+
+                        <div class="col">
+                            <button type="submit" id="btnDesmonta" class="btn btn-outline-success btn-lg btn-block">Retirar</button>
+                        </div>
+                        <div class="col">
+                            <button id="btnCancelremove" class="btn btn-outline-secondary btn-lg btn-block">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <script src="~/Scripts/js_Edit/js_Edit_Llantas/js_llantas_Remove.js"></script>
-
 @* pendiente para desarrollo *@
 @*<script src="~/Scripts/js_Edit/js_Edit_Llantas/js_cargaArchivos.js"></script>*@

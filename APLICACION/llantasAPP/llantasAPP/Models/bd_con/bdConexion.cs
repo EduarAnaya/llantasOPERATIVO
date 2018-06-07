@@ -4,8 +4,9 @@ using System.Linq;
 using System.Data;
 using System.Text;
 using System.Threading.Tasks;
-//using Oracle.DataAccess.Client;
-using MODELOS;
+using Oracle.DataAccess.Client;
+using System.Configuration;
+using llantasAPP.Models;
 
 
 namespace llantasAPP
@@ -13,94 +14,87 @@ namespace llantasAPP
     public class bdConexion
     {
         //***********************************************************
-        //private OracleConnection ora_Connection;
-        //private OracleCommand comando;
-        //private string cadena;
+        private OracleConnection ora_Connection;
+        private string cadena;
 
         //***********************************************************
-        //public OracleConnection Ora_Connection
-        //{
-        //    get { return ora_Connection; }
-        //    set { ora_Connection = value; }
-        //}
+        public OracleConnection Ora_Connection
+        {
+            get { return ora_Connection; }
+            set { ora_Connection = value; }
+        }
 
-        //public string Cadena
-        //{
-        //    get { return cadena; }
-        //    set { cadena = value; }
-        //}
+        public string Cadena
+        {
+            get { return cadena; }
+            set { cadena = value; }
+        }
 
         paramConn paramConn = new paramConn();
 
         //contructor
-        //public bdConexion()
-        //{
-        //    //this.Conectar();
-        //    string _servidor, _dbname, _usuario, _contrasena;
-        //    _servidor = paramConn.Servidor;
-        //    _dbname = paramConn.Dbname;
-        //    _usuario = paramConn.Usuario;
-        //    _contrasena = paramConn.Contrasena;
-        //    Cadena = @"User Id=" + _usuario + ";Password="
-        //        + _contrasena + ";Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST="
-        //        + _servidor + ")(PORT=1521))(CONNECT_DATA=(SID=" + _dbname + ")));";
-        //    try
-        //    {
-        //        Ora_Connection = new OracleConnection();
-        //    }
-        //    catch (Exception)
-        //    {
+        public bdConexion()
+        {
+            //this.Conectar();
+            string _servidor, _dbname, _usuario, _contrasena;
+            _servidor = paramConn.Servidor;
+            _dbname = paramConn.Dbname;
+            _usuario = paramConn.Usuario;
+            _contrasena = paramConn.Contrasena;
+            Cadena = @"User Id=" + _usuario + ";Password="
+                + _contrasena + ";Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST="
+                + _servidor + ")(PORT=1521))(CONNECT_DATA=(SID=" + _dbname + ")));";
+            Ora_Connection = new OracleConnection();
+        }
 
-        //        return;
-        //    }
-            
-        //}
+        public OracleConnection Conectar()
+        {
+            try
+            {
+                if (Ora_Connection != null)
+                {
+                    // Fijamos la cadena de conexión de la base de datos.
+                    Ora_Connection.ConnectionString = Cadena;
+                    Ora_Connection.Open();
+                }
+                return ora_Connection;
+            }
+            catch (OracleException oraEx)
+            {
+                throw oraEx;
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
 
 
-        //public bool Conectar()
-        //{
-        //    bool ok = false;
-        //    try
-        //    {
-        //        if (Ora_Connection != null)
-        //        {
-        //            // Fijamos la cadena de conexión de la base de datos.
-        //            Ora_Connection = new OracleConnection();
-        //            Ora_Connection.ConnectionString = Cadena;
-        //            Ora_Connection.Open();
-        //            ok = true;
-        //        }
-        //    }
-
-        //    catch (Exception)
-        //    {
-        //        Desconectar();
-        //        ok = false;
-        //    }
-        //    return ok;
-
-        //}
-        //public bool Desconectar()
-        //{
-        //    try
-        //    {
-        //        // Cerramos la conexion
-        //        if (ora_Connection != null)
-        //        {
-        //            if (ora_Connection.State != ConnectionState.Closed)
-        //            {
-        //                ora_Connection.Close();
-        //            }
-        //        }
-        //        // Liberamos su memoria.
-        //        ora_Connection.Dispose();
-        //        return false;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return false;
-        //    }
-        //}
+        }
+        public bool Desconectar()
+        {
+            try
+            {
+                // Cerramos la conexion
+                if (ora_Connection != null)
+                {
+                    if (ora_Connection.State != ConnectionState.Closed)
+                    {
+                        ora_Connection.Close();
+                    }
+                }
+                // Liberamos su memoria.
+                ora_Connection.Dispose();
+                return false;
+            }
+            catch (OracleException oraEx)
+            {
+                throw oraEx;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
         //public DataTable select(string[] _campo, string[] _tabla, string _condicion)
         //{
@@ -265,8 +259,8 @@ namespace llantasAPP
         //    string resu = string.Empty;
         //    return resu;
         //}
-    
-    
+
+
     }
 
 
