@@ -417,7 +417,8 @@ namespace llantasAPP.Controllers
                 {
                     tiempos.Stop();
                     ViewBag.tiempoProceso = tiempos.Elapsed.TotalSeconds;
-                    TempData["Error"] = "La placa " + placa + " no existe.";
+                    ViewBag.error = 1;
+                    ModelState.AddModelError("ErrorDesc", "La placa " + placa + " no existe.");
                     return View("buscarLlantas");
                 }
             }

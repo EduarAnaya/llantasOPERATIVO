@@ -1,4 +1,5 @@
 ﻿/*Css Opciones /Index*/
+
 .opcMenu {
     box-shadow: 1px 1px 10px 1px #9a9a9a;
 }
@@ -27,10 +28,10 @@
     width: 100%;
 }
 
-    .cont_SearchsPlaca .cont_Titulo {
-        font-family: "Quicksand", sans-serif;
-        font-size: 2rem;
-    }
+.cont_SearchsPlaca .cont_Titulo {
+    font-family: "Quicksand", sans-serif;
+    font-size: 2rem;
+}
 
 .zonaBusqueda {
     width: 100%;
@@ -42,9 +43,9 @@
     border-radius: 10px;
 }
 
-    .zonaBusqueda > * {
-        margin: auto;
-    }
+.zonaBusqueda>* {
+    margin: auto;
+}
 
 button#cargarplaca {
     width: 100%;
@@ -115,9 +116,9 @@ button#cargarplaca {
     border-radius: 5px;
 }
 
-    #nuevallanta .llanta {
-        width: 50%;
-    }
+#nuevallanta .llanta {
+    width: 50%;
+}
 
 .contBasura {
     height: 50%;
@@ -134,10 +135,10 @@ button#cargarplaca {
     margin: 0.5rem 0px 0.5rem 0px;
 }
 
-    .contDetalles .tituloDesc {
-        font-size: inherit;
-        font-weight: bold;
-    }
+.contDetalles .tituloDesc {
+    font-size: inherit;
+    font-weight: bold;
+}
 
 .descDetall {
     font-size: 0.8rem;
@@ -159,14 +160,32 @@ button#cargarplaca {
     background-image: url("/Content/medios/camion.png");
 }
 
+.camionTrailerx1 {
+    background-image: url("/Content/medios/trailerx1.png");
+}
+
+.camionTrailerx2 {
+    background-image: url("/Content/medios/trailerx2.png");
+}
+
+.camionTrailerx3 {
+    background-image: url("/Content/medios/trailerx3.png");
+}
+
 .caja {
     margin: auto;
     width: auto;
     height: auto;
     min-width: auto;
     min-height: -webkit-fill-available;
-    background-color: grey;
+    background-color: #fcfcfc;
     border-radius: 10px;
+    background-image: url(/Content/medios/empty.png);
+    background-repeat-x: no-repeat;
+    background-repeat-y: no-repeat;
+    background-size: 50% 100%;
+    background-position: center;
+    box-shadow: inset 0px 0px 5px 0px black;
 }
 
 .imgSentido {
@@ -241,9 +260,9 @@ button#cargarplaca {
     max-height: 150px;
 }
 
-    .caneca .llanta {
-        width: 50%;
-    }
+.caneca .llanta {
+    width: 50%;
+}
 
 .caneca_over {
     box-shadow: 0px 0px 15px 4px #ff0a07;
@@ -252,20 +271,21 @@ button#cargarplaca {
 .llanta_dragg {
     box-shadow: 0px 0px 10px #343a40;
 }
+
 /*meqdy quey para los dispositivos pequeños*/
+
 @media (max-width: 575.98px) {
     #colDetallSave {
         order: 1;
     }
-
     #colDetall1 {
         order: 2;
     }
-
     #colDetall2 {
         order: 3;
     }
 }
+
 /*Css remove Modal*/
 
 .imgGuia {
@@ -285,6 +305,7 @@ input#inputCent {
 input#inputDere {
     box-shadow: 1px 1px 5px #f41f4a;
 }
+
 /*Carga de archivos*/
 
 .custom-file-label::after {
@@ -328,6 +349,7 @@ input#inputDere {
 }
 
 /*CSS guardar*/
+
 .imgResponse {
     width: 1rem;
 }

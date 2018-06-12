@@ -25,35 +25,27 @@
         <thead>
             <tr>
                 <th>
-                    @*@Html.DisplayNameFor(model => model.LLANTA)*@
                     Nro. Llanta
                 </th>
                 <th>
-                    @*@Html.DisplayNameFor(model => model.GRUPO)*@
                     Grupo
                 </th>
                 <th>
-                    @*@Html.DisplayNameFor(model => model.INVENT)*@
                     Inventario
                 </th>
                 <th>
-                    @*  @Html.DisplayNameFor(model => model.VALOR)*@
                     Valor
                 </th>
                 <th>
-                    @*@Html.DisplayNameFor(model => model.FECHA)*@
                     Fecha
                 </th>
                 <th>
-                    @*@Html.DisplayNameFor(model => model.PROVE)*@
                     Proveedor
                 </th>
                 <th>
-                    @*@Html.DisplayNameFor(model => model.FACTURA)*@
                     Nro. Factura
                 </th>
                 <th>
-                    @*@Html.DisplayNameFor(model => model.FICHA)*@
                     Nro. Ficha
                 </th>
             </tr>
@@ -72,7 +64,7 @@
                         @Html.DisplayFor(modelItem => item.INVENT)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.VALOR)
+                        <span class="money">@Html.DisplayFor(modelItem => item.VALOR)</span>
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.FECHA)
@@ -90,5 +82,8 @@
             }
         </tbody>
     </table>
+    <script>
+        $('.money').formatCurrency('.money');
+    </script>
     <span class="timeTransac">Tiempo de transacción: @ViewBag.tiempoProceso Segundos</span>
 </div>

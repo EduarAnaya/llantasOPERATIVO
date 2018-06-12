@@ -21,6 +21,8 @@
     <script src="~/Scripts/js_Prove/jqueryUI/jquery-ui.min.js"></script>
     <script src="~/Scripts/js_Prove/modernizr-2.5.3.js"></script>
     <script src="~/Scripts/js_Prove/datatables/datatables.min.js"></script>
+    <script src="~/Scripts/js_Prove/formatCurrency/jquery.formatCurrency-1.4.0.js"></script>
+    <script src="~/Scripts/js_Prove/formatCurrency/jquery.formatCurrency.es-CO.js"></script>
     <script src="~/Scripts/js_Prove/plugTimer.js"></script>
     <script src="~/Scripts/js_Prove/tactil.js"></script>
     <!-- Navegacion -->
@@ -37,16 +39,15 @@
             @RenderBody()
         </div>
     </section>
-    <section id="footer">
-        <footer class="bg-dark">
-            <div class="container">
-                <p class="m-0 text-center text-white">
-                    &copy <a href="http://www.transer.com.co/" target="_blank">Transportes y Servicios Transer S.A.</a>Versión 3.0 @DateTime.Now.Year
-                </p>
-            </div>
-            <!-- /.container -->
-        </footer>
-    </section>
+    <!-- Footer -->
+    <footer class="bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">
+               Llantas Operativo Versión 3.0 @DateTime.Now.Year<br /> &copy <a href="http://www.transer.com.co/" target="_blank">Transportes y Servicios Transer S.A.</a>
+            </p>
+        </div>
+        <!-- /.container -->
+    </footer>
 
     <!-- Archivos Scripts -->
     <script src="~/Scripts/js_Edit/js_Edit_Llantas/js_SearchsLlantas.js?v3.0"></script>

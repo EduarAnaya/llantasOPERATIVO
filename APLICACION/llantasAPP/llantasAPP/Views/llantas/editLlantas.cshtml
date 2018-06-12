@@ -19,42 +19,53 @@
     <div class="row" style="margin: 0;">
         <!--DIAGRAMA DE LLANTAS-->
         <div class="col card vehiculo">
-            @* @{
+            @{
+                /*
+                 * Dentro de la consulta puede que hayan posiciones vacías,
+                 * para poder montar todas las llantas consultadas en la posición correspondiste
+                 * se debe conocer el número máximo de llantas que podría tener un vehículo, (esto se puede saber según el numero de ejes),
+                 * luego recorrer cada posible posición y compararlo con la llantas consultadas,
+                 * se valida si en la posición se monta o no una llanta (la llanta consultada) de no coincidir se asume que esa posición quedara vacía.
+                 */
                 int nroEjes = infoEdit[0].nroEjes;
-                int ejes = 0;
+                int llantasMax = 0;
 
                 switch (nroEjes)
                 {
                     case 1:
-                        ejes = 4;
+                        llantasMax = 4;
                         break;
                     case 2:
-                        ejes = 8;
+                        llantasMax = 8;
                         break;
                     case 3:
-                        ejes = 12;
+                        llantasMax = 12;
                         break;
                 }
-            for (int i = 1; i < ejes + 1; i++)
-                {}
-            }*@
-            <!--POR CADA LLANTA-->
-            @if (Model.Count() > 0)
-            {
-                foreach (var item in Model)
+
+                for (int i = 1; i < llantasMax + 1; i++)//recorrer todas la posibles posiciones
                 {
+                    bool Salir = true;//false
+                    bool existe = false;
+                    while (Salir == true)
+                    {
+                        foreach (var item in Model)//recorrer las llantas consultadas
+                        {
+                            if (i == item.POSICION)
+                            {
+
                 <div class="eje" id="@("eje" + item.POSICION)">
                     <div class="caja">
                         <div id="@item.LLANTA" class="llanta btn btn-outline-success"  href="@("#infoLlanta" + @item.LLANTA)"  role="button" tag="preload">
                             @* Pendiente para aplicar *@
                             @*@if (item.SENTIDO == 0)//SENTIDOS;0=NO HA SIDO VOLTEADA;1=LLANTA GIRADA
-                                {
-                                    <img class="imgSentido btn" src="~/Content/medios/left.png" tag="0" onclick="cambio_Sentido($(this))"/>//izquierda a DERECHA
-                                }
-                                else
-                                {
-                                    <img class="imgSentido btn" src="~/Content/medios/right.png" tag="1" onclick="cambio_Sentido($(this))"/>//derecha a INQUIERDA
-                                }*@
+                                    {
+                                        <img class="imgSentido btn" src="~/Content/medios/left.png" tag="0" onclick="cambio_Sentido($(this))"/>//izquierda a DERECHA
+                                    }
+                                    else
+                                    {
+                                        <img class="imgSentido btn" src="~/Content/medios/right.png" tag="1" onclick="cambio_Sentido($(this))"/>//derecha a INQUIERDA
+                                    }*@
                             <span class="idllanta">@item.LLANTA-@item.GRUPO</span>
                             <div class="collapse infoLlanta" id="@("infoLlanta" + @item.LLANTA)">
                                 <div class="card card-body" style="padding: 0;">
@@ -71,10 +82,29 @@
                         </div>
                     </div>
                 </div>
+                                
+                                Salir = false;
+                                existe = true;
+                                break;
+                            }
+                            else
+                            {
+                                Salir = false;
+                                existe = false;
+                            }
+                        }
+                        break;
+                    }
+                    if (existe == false)//La posicion en el eje I no tiene una llanta montada, por ende se crea una caja vacia (para poder montar )
+                    {
+                <div class="eje" id="@("eje" + i)">
+                    <div class="caja"></div>
+                </div>
+                    }
+
                 }
             }
-
-@* Edicion de CSS *@
+            @* Edicion de CSS *@
             @if (infoEdit[0].tipoVehiculo == 1)
             {
                 <script>

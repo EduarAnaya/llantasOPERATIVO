@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col">
             <div class="row">
-                <img class="centrado" src="https://cdn1.iconfinder.com/data/icons/basic-ui-elements-color/700/011_yes-64.png" alt="" />
+                <img class="centrado" src="/Content/medios/taskSuccess.png" />
             </div>
             <div class="row">
                 <h4 class="centrado">Transacción terminada</h4>
@@ -23,12 +23,12 @@
         </div>
     </div>
     <div class="row">
-        <!--LLANTAS ROTADAS-->
         <ul id="listaResultados" class="list-unstyled">
+            <!--LLANTAS ROTADAS-->
             @if (lisRotadas.Count > 0)
             {
                 <li class="media">
-                    <img class="mr-3 img_respuestaHead" src="https://cdn0.iconfinder.com/data/icons/smashicons-arrows-flat-vol-2-1/58/124_-_Change_Orientation_arrow_direction_orientation-64.png" />
+                    <img class="mr-3 img_respuestaHead" src="/Content/medios/tires_rotate.png" />
                     <div class="media-body">
                         <h5 class="mt-0 mb-1">Llantas Rotadas</h5>
                         <div class="table-responsive">
@@ -54,10 +54,10 @@
                                                 @switch (llanta.response)
                                                 {
                                                     case 1:
-                                                    <img src="~/Content/medios/success.png" class="imgResponse" />
+                                                    <img src="/Content/medios/success.png" class="imgResponse" />
                                                         break;
                                                     case 2:
-                                                    <img src="~/Content/medios/error_label.png" class="imgResponse" />
+                                                    <img src="/Content/medios/error_label.png" class="imgResponse" />
                                                         break;
                                                 }
                                             </td>
@@ -72,7 +72,7 @@
             else
             {
                 <li class="media">
-                    <img class="mr-3 img_respuestaHead" src="https://cdn0.iconfinder.com/data/icons/smashicons-arrows-flat-vol-2-1/58/124_-_Change_Orientation_arrow_direction_orientation-64.png" />
+                    <img class="mr-3 img_respuestaHead" src="/Content/medios/tires_rotate.png" />
                     <div class="media-body">
                         <h5 class="mt-0 mb-1">Llantas Rotadas</h5>
                         <div class="table-responsive">
@@ -82,11 +82,10 @@
                 </li>
             }
             <!--LLANTAS MONTADAS-->
-
             @if (lisMontadas.Count > 0)
             {
                 <li class="media">
-                    <img class="mr-3 img_respuestaHead" src="https://cdn0.iconfinder.com/data/icons/unigrid-mechanics/59/025_car_wheel_tires_service_maintenance-64.png" />
+                    <img class="mr-3 img_respuestaHead" src="/Content/medios/tires_mont.png" />
                     <div class="media-body">
                         <h5 class="mt-0 mb-1">Llantas Montadas</h5>
                         <div class="table-responsive">
@@ -129,7 +128,7 @@
             else
             {
                 <li class="media">
-                    <img class="mr-3 img_respuestaHead" src="https://cdn0.iconfinder.com/data/icons/unigrid-mechanics/59/025_car_wheel_tires_service_maintenance-64.png" />
+                    <img class="mr-3 img_respuestaHead" src="/Content/medios/tires_mont.png" />
                     <div class="media-body">
                         <h5 class="mt-0 mb-1">Llantas Montadas</h5>
                         <div class="table-responsive">
@@ -139,11 +138,11 @@
                 </li>
                         
             }
-
+            <!--LLANTAS DESMONTADAS-->
             @if (lisRemove.Count > 0)
             {
                 <li class="media">
-                    <img class="mr-3 img_respuestaHead" src="https://cdn3.iconfinder.com/data/icons/car-parts-2-retro-2/60/25_-Flat_Tire-_car_part_vehicle-64.png" />
+                    <img class="mr-3 img_respuestaHead" src="/Content/medios/tires_remove.png" />
                     <div class="media-body">
                         <h5 class="mt-0 mb-1">Llantas Removidas</h5>
                         <div class="table-responsive">
@@ -186,7 +185,7 @@
             else
             {
                 <li class="media">
-                    <img class="mr-3 img_respuestaHead" src="https://cdn3.iconfinder.com/data/icons/car-parts-2-retro-2/60/25_-Flat_Tire-_car_part_vehicle-64.png" />
+                    <img class="mr-3 img_respuestaHead" src="/Content/medios/tires_remove.png" />
                     <div class="media-body">
                         <h5 class="mt-0 mb-1">Llantas Removidas</h5>
                         <div class="table-responsive">
@@ -195,11 +194,11 @@
                     </div>
                 </li>
             }
-
+            <!--MUESTREOS-->
             @if (lisMuestras.Count > 0)
             {
                 <li class="media">
-                    <img class="mr-3 img_respuestaHead" src="https://cdn0.iconfinder.com/data/icons/tire-2/200/1215-64.png" />
+                    <img class="mr-3 img_respuestaHead" src="/Content/medios/tires_test.png" />
                     <div class="media-body">
                         <h5 class="mt-0 mb-1">Muestreos Realizados</h5>
                         <div class="table-responsive">
@@ -242,7 +241,7 @@
             else
             {
                 <li class="media">
-                    <img class="mr-3 img_respuestaHead" src="https://cdn0.iconfinder.com/data/icons/tire-2/200/1215-64.png" />
+                    <img class="mr-3 img_respuestaHead" src="/Content/medios/tires_test.png" />
                     <div class="media-body">
                         <h5 class="mt-0 mb-1">Muestreos Realizados</h5>
                         <div class="table-responsive">

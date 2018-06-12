@@ -57,6 +57,10 @@ footer {
     z-index: 5000;
 }
 
+.timeTransac {
+    font-size: xx-small;
+}
+
 @media (max-width: 1024px) {
     .container {
         max-width: 100%;

@@ -178,8 +178,14 @@ button#cargarplaca {
     height: auto;
     min-width: auto;
     min-height: -webkit-fill-available;
-    background-color: grey;
+    background-color: #fcfcfc;
     border-radius: 10px;
+    background-image: url(/Content/medios/empty.png);
+    background-repeat-x: no-repeat;
+    background-repeat-y: no-repeat;
+    background-size: 50% 100%;
+    background-position: center;
+    box-shadow: inset 0px 0px 5px 0px black;
 }
 
 .imgSentido {

@@ -160,6 +160,7 @@
     <Content Include="Content\medios\calendar.png" />
     <Content Include="Content\medios\cambio_llantas.png" />
     <Content Include="Content\medios\camion.png" />
+    <Content Include="Content\medios\empty.png" />
     <Content Include="Content\medios\error_label.png" />
     <Content Include="Content\medios\labrado.png" />
     <Content Include="Content\medios\left.png" />
@@ -170,6 +171,7 @@
     <Content Include="Content\medios\llanta_reencauche.png" />
     <Content Include="Content\medios\llanta_repara.png" />
     <Content Include="Content\medios\load.gif" />
+    <Content Include="Content\medios\logotranser.gif" />
     <Content Include="Content\medios\logoTS_1.jpg" />
     <Content Include="Content\medios\medidas_llantas.png" />
     <Content Include="Content\medios\new_search.png" />
@@ -179,8 +181,13 @@
     <Content Include="Content\medios\search.svg" />
     <Content Include="Content\medios\sitioContruccion.png" />
     <Content Include="Content\medios\success.png" />
+    <Content Include="Content\medios\taskSuccess.png" />
     <Content Include="Content\medios\timerSucces.png" />
     <Content Include="Content\medios\tire.ico" />
+    <Content Include="Content\medios\tires_mont.png" />
+    <Content Include="Content\medios\tires_remove.png" />
+    <Content Include="Content\medios\tires_rotate.png" />
+    <Content Include="Content\medios\tires_test.png" />
     <Content Include="Content\medios\trailerx1.png" />
     <Content Include="Content\medios\trailerx2.png" />
     <Content Include="Content\medios\trailerx3.png" />
@@ -344,6 +351,9 @@
     <Content Include="Scripts\js_Prove\datatables\Select-1.2.5\css\select.semanticui.min.css" />
     <Content Include="Scripts\js_Prove\datatables\Select-1.2.5\js\dataTables.select.js" />
     <Content Include="Scripts\js_Prove\datatables\Select-1.2.5\js\dataTables.select.min.js" />
+    <Content Include="Scripts\js_Prove\formatCurrency\jquery.formatCurrency-1.4.0.js" />
+    <Content Include="Scripts\js_Prove\formatCurrency\jquery.formatCurrency-1.4.0.min.js" />
+    <Content Include="Scripts\js_Prove\formatCurrency\jquery.formatCurrency.es-CO.js" />
     <Content Include="Scripts\js_Prove\jqueryUI\AUTHORS.txt" />
     <Content Include="Scripts\js_Prove\jqueryUI\external\jquery\jquery.js" />
     <Content Include="Scripts\js_Prove\jqueryUI\images\ui-icons_444444_256x240.png" />
