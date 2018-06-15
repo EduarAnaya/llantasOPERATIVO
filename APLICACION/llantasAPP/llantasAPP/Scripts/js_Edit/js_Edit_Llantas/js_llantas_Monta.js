@@ -32,7 +32,7 @@
             buttonImageOnly: true,
             changeMonth: true,
             changeYear: true,
-            dateFormat: 'dd/mm/yy',
+            dateFormat: 'yy-mm-dd',
             yearRange: '-18: +0',
             maxDate: '+0m +0d'
         });

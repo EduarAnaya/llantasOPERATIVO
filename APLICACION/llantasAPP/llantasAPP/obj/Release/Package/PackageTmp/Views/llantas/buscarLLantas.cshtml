@@ -35,10 +35,11 @@
 
     @if (ViewData.ModelState.Any(x => x.Value.Errors.Any()))
     {
+        
         <div class="alert alert-primary">
             <a href="#" class="close" data-dismiss="alert">×</a>
-            @Html.ValidationMessage("ErrorDesc")
-
+            @Html.ValidationSummary(true, "Aviso:")
+            @Html.ValidationMessage("ErrorLlantas")
         </div>
     }
 </div>

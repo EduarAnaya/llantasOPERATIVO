@@ -183,7 +183,7 @@ button#cargarplaca {
     background-image: url(/Content/medios/empty.png);
     background-repeat-x: no-repeat;
     background-repeat-y: no-repeat;
-    background-size: 50% 100%;
+    background-size: 100% 100%;
     background-position: center;
     box-shadow: inset 0px 0px 5px 0px black;
 }

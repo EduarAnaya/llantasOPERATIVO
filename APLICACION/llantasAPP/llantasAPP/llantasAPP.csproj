@@ -170,11 +170,7 @@
     <Content Include="Content\medios\llanta_invent.png" />
     <Content Include="Content\medios\llanta_reencauche.png" />
     <Content Include="Content\medios\llanta_repara.png" />
-    <Content Include="Content\medios\load.gif" />
-    <Content Include="Content\medios\logotranser.gif" />
-    <Content Include="Content\medios\logoTS_1.jpg" />
     <Content Include="Content\medios\medidas_llantas.png" />
-    <Content Include="Content\medios\new_search.png" />
     <Content Include="Content\medios\plus.svg" />
     <Content Include="Content\medios\right.png" />
     <Content Include="Content\medios\rueda.png" />

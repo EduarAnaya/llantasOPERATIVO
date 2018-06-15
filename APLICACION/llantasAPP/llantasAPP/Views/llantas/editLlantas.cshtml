@@ -3,6 +3,8 @@
 @{
     ViewBag.Title = @ViewBag.title;
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+
 }
 
 <nav aria-label="breadcrumb">
@@ -20,40 +22,18 @@
         <!--DIAGRAMA DE LLANTAS-->
         <div class="col card vehiculo">
             @{
-                /*
-                 * Dentro de la consulta puede que hayan posiciones vacías,
-                 * para poder montar todas las llantas consultadas en la posición correspondiste
-                 * se debe conocer el número máximo de llantas que podría tener un vehículo, (esto se puede saber según el numero de ejes),
-                 * luego recorrer cada posible posición y compararlo con la llantas consultadas,
-                 * se valida si en la posición se monta o no una llanta (la llanta consultada) de no coincidir se asume que esa posición quedara vacía.
-                 */
+                string placa = infoEdit[0].placa;
+                int tipoVehiculo = infoEdit[0].tipoVehiculo;
                 int nroEjes = infoEdit[0].nroEjes;
-                int llantasMax = 0;
+                int kilometraje = infoEdit[0].km;
+                int llantasCargadas = infoEdit[0].llantasCargadas;
+                string fechaSistema = infoEdit[0].fechaSistema;
 
-                switch (nroEjes)
-                {
-                    case 1:
-                        llantasMax = 4;
-                        break;
-                    case 2:
-                        llantasMax = 8;
-                        break;
-                    case 3:
-                        llantasMax = 12;
-                        break;
-                }
 
-                for (int i = 1; i < llantasMax + 1; i++)//recorrer todas la posibles posiciones
+                foreach (var item in Model)
                 {
-                    bool Salir = true;//false
-                    bool existe = false;
-                    while (Salir == true)
+                    if (item.montar)
                     {
-                        foreach (var item in Model)//recorrer las llantas consultadas
-                        {
-                            if (i == item.POSICION)
-                            {
-
                 <div class="eje" id="@("eje" + item.POSICION)">
                     <div class="caja">
                         <div id="@item.LLANTA" class="llanta btn btn-outline-success"  href="@("#infoLlanta" + @item.LLANTA)"  role="button" tag="preload">
@@ -82,30 +62,17 @@
                         </div>
                     </div>
                 </div>
-                                
-                                Salir = false;
-                                existe = true;
-                                break;
-                            }
-                            else
-                            {
-                                Salir = false;
-                                existe = false;
-                            }
-                        }
-                        break;
                     }
-                    if (existe == false)//La posicion en el eje I no tiene una llanta montada, por ende se crea una caja vacia (para poder montar )
+                    else
                     {
-                <div class="eje" id="@("eje" + i)">
+                <div class="eje" id="@("eje" + item.POSICION)">
                     <div class="caja"></div>
                 </div>
                     }
-
-                }
+                }   
             }
             @* Edicion de CSS *@
-            @if (infoEdit[0].tipoVehiculo == 1)
+            @if (tipoVehiculo == 1)
             {
                 <script>
                     $(function () {
@@ -123,9 +90,9 @@
                     })
                 </script>
             }
-            else if (infoEdit[0].tipoVehiculo == 2)
+            else if (tipoVehiculo == 2)
             {
-                if (infoEdit[0].nroEjes == 1)
+                if (nroEjes == 1)
                 {
                 <script>
                     $(function () {
@@ -137,7 +104,7 @@
                     })
                 </script>
                 }
-                if (infoEdit[0].nroEjes == 2)
+                if (nroEjes == 2)
                 {
                 <script>
                     $(function () {
@@ -153,7 +120,7 @@
                     })
                 </script>
                 }
-                if (infoEdit[0].nroEjes == 3)
+                if (nroEjes == 3)
                 {
                 <script>
                     $(function () {
@@ -243,7 +210,7 @@
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <h5>
-                                    <span id="_PlacaAct" class="badge badge-success">@infoEdit[0].placa</span></h5>
+                                    <span id="_PlacaAct" class="badge badge-success">@placa</span></h5>
                             </div>
                         </div>
                         <div class="row">
@@ -252,7 +219,7 @@
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <h5>
-                                    @if (infoEdit[0].tipoVehiculo == 1)
+                                    @if (tipoVehiculo == 1)
                                     {
                                         <span class="badge badge-success">CABEZOTE</span>    
                                     }
@@ -270,7 +237,7 @@
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <h5>
-                                    <span class="badge badge-success">@infoEdit[0].nroEjes</span></h5>
+                                    <span class="badge badge-success">@nroEjes</span></h5>
                             </div>
                         </div>
                     </fieldset>
@@ -285,7 +252,7 @@
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <h5>
-                                    <span id="_KmAct" class="badge badge-success">@infoEdit[0].km</span></h5>
+                                    <span id="_KmAct" class="badge badge-success">@kilometraje</span></h5>
                             </div>
                         </div>
                         <div class="row">
@@ -294,7 +261,7 @@
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <h5>
-                                    <span class="badge badge-success">@infoEdit[0].llantasCargadas</span></h5>
+                                    <span class="badge badge-success">@llantasCargadas</span></h5>
                             </div>
                         </div>
                         <div class="row">
@@ -302,7 +269,7 @@
                                 <h6 class="descDetall">Fecha</h6>
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6">
-                                <h5><span class="badge badge-success">@infoEdit[0].fechaSistema</span></h5>
+                                <h5><span class="badge badge-success">@fechaSistema</span></h5>
                             </div>
                         </div>
                     </fieldset>

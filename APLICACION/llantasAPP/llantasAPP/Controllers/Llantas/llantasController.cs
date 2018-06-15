@@ -41,177 +41,13 @@ namespace llantasAPP.Controllers
     #region deficnicion de Controlador
     public class llantasController : Controller
     {
-        //[HttpPost]
-        //public JsonResult cargarllantass(int _tipoVehiculo, string _placa)
-        //{
-        //    ArrayList datos = new ArrayList();
-        //    //List<llantas_model> llantaL = new List<llantas_model>();
-        //    DataTable dt = new DataTable();
-        //    DataTable dtv = new DataTable();
-        //    try
-        //    {
-        //        bool preguntar = bdcon.Conectar();
-        //        if (preguntar)
-        //        {
-        //            string tipoV;
-        //            string nroEjes;
-        //            /*
-        //             ENTONCE:
-        //             * _tipoVehiculo =1: ES UN CABEZOTE
-        //             * _tipoVehiculo =2: ES UN TRAILER
-        //             */
-        //            bool vExiste = false;//EL VEHICULO EXISTE 1:0
-        //            string[] datosVehiculos;//TIPO Y NUMERO DE EJES
-
-
-        //            if (_tipoVehiculo == 1)
-        //            {
-        //                string[] tablas = { "VEHICULOS" };
-        //                string[] campos = { "VEHI_PLACA_CH" };
-        //                string condicion = "VEHI_PLACA_CH='" + _placa + "'";
-        //                dt = bdcon.select(campos, tablas, condicion);
-        //                if (dt.Rows.Count == 1)
-        //                {
-        //                    vExiste = true;
-        //                    datosVehiculos = new string[] { tipoV = "C", nroEjes = "3" };
-        //                    datos.Add(datosVehiculos);
-        //                }
-        //                else
-        //                {
-        //                    datos.Add(0);//VEHICULO NO EXISTE
-        //                }
-        //            }
-        //            else if (_tipoVehiculo == 2)
-        //            {
-        //                string[] tablas = { "TRAILERS" };
-        //                string[] campos = { "TRAI_PLACA_CH", "TRAI_NOEJES_NB" };
-        //                string condicion = "TRAI_PLACA_CH='" + _placa + "'";
-        //                dt = new DataTable();
-        //                dt = bdcon.select(campos, tablas, condicion);
-        //                if (dt.Rows.Count >0)
-        //                {
-        //                    vExiste = true;
-        //                    foreach (DataRow row in dt.Rows)
-        //                    {
-        //                        tipoV = "T";
-        //                        nroEjes = row.ItemArray[1].ToString();
-        //                        datosVehiculos = new string[] { tipoV, nroEjes };
-        //                        datos.Add(datosVehiculos);
-        //                    }
-        //                }
-        //                else
-        //                {
-        //                    datos.Add(0);//VEHICULO NO EXISTE
-        //                }
-        //            }
-
-        //            if (vExiste)
-        //            {
-        //                llantasInicial.Clear();//vaciamos la lista de llantas inicial
-        //                string[] tablasv = { "LLANTAS" };
-        //                //string[] camposv = { "LLANTA", "GRUPO", "KINSTALA", "VEHICULO", "POSICION" };
-        //                string[] camposv = { "*" };
-        //                string condicionv = "VEHICULO='" + _placa + "'";
-        //                dtv = bdcon.select(camposv, tablasv, condicionv);
-        //                bdcon.Desconectar();
-        //                if (dtv.Rows.Count > 0)
-        //                {
-        //                    foreach (DataRow row in dtv.Rows)
-        //                    {
-        //                        llantas_Edit llanta1 = new llantas_Edit();
-        //                        foreach (DataColumn column in dtv.Columns)
-        //                        {
-        //                            llanta1.LLANTA = row[0].ToString();
-        //                            llanta1.GRUPO = row[1].ToString();
-        //                            llanta1.VALOR = (int)row[2];
-        //                            llanta1.FECHA = Convert.ToDateTime(row[3]).ToString("dd/mm/yyyy");
-        //                            llanta1.PROVEE = (int)row[4];
-        //                            llanta1.FACTURA = (int)row[5];
-        //                            llanta1.FICHA = (int)row[6];
-        //                            llanta1.NEUMA = (short)row[7];
-        //                            llanta1.VALORRN = (int)row[8];
-        //                            llanta1.PROTEC = (short)row[9];
-        //                            llanta1.VALORP = (int)row[10];
-        //                            llanta1.VEHICULO = row[11].ToString();
-        //                            llanta1.POSICION = (short)row[12];
-        //                            llanta1.KINSTALA = (int)row[13];
-        //                            llanta1.FECHAI = Convert.ToDateTime(row[14]).ToString("dd/mm/yyyy");
-
-
-        //                        }
-        //                        llantasInicial.Add(llanta1);
-        //                    }
-        //                    datos.Add(llantasInicial);
-        //                }
-        //                else
-        //                {
-        //                    datos.Add(0);//SI ELVEHICUO EXISTE PERO DEVUELE 0 LLANTAS
-        //                }
-        //            }
-        //            else
-        //            {
-        //                bdcon.Desconectar();
-        //                datos.Add(0);//SI ELVEHICUO NO EXISTE DEVUELE 0 LLANTAS COSULTADAS
-        //            }
-
-        //        }
-
-        //        return Json(datos);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return Json("ERROR");
-        //    }
-        //}
-
-        //[HttpPost]
-        //public ActionResult llantasDisponibles()
-        //{
-        //    List<string[,]> llantasD = new List<string[,]>();
-
-        //    try
-        //    {
-        //        bool testCon = bdcon.Conectar();
-        //        if (testCon)
-        //        {
-        //            string[] tablas = { "INVENTARIO" };
-        //            string[] campos = { "LLANTA", "GRUPO" };
-        //            string condicion = "";
-
-        //            DataTable dt = new DataTable();
-        //            dt = bdcon.select(campos, tablas, condicion);
-        //            bdcon.Desconectar();
-
-        //            foreach (DataRow row in dt.Rows)
-        //            {
-        //                string[,] datos = new string[1, 2];
-
-        //                string z = row.ItemArray[0].ToString();
-        //                string k = row.ItemArray[1].ToString();
-        //                datos[0, 0] = z;
-        //                datos[0, 1] = k;
-
-        //                llantasD.Add(datos);
-        //            }
-
-        //        }
-        //        return Json(llantasD);
-        //    }
-        //    catch
-        //    {
-        //        return Json("");
-        //    }
-        //}
-
-        /**************************nueva version**************************/
         //
         // GET: /llantas/
 
         /*variables generales*/
-        public string fechaSistema = DateTime.Now.ToString("dd/MM/yyyy");
+        public string fechaSistema = DateTime.Now.ToString("yyyy-MM-dd");
         /*Lista que almacenara las llantas antes de que sean manuladas (para poder ver el antes y el despues)*/
         public static List<llantas_Edit> llantasInicial = new List<llantas_Edit>();
-        public static int t_vehiculo = 0;//1:Cabezote;2:Trailer
         public static Stopwatch tiempos = new Stopwatch();
 
 
@@ -260,9 +96,11 @@ namespace llantasAPP.Controllers
         }
 
         [HttpPost]
-        //[OutputCache(Duration = 0, Location = OutputCacheLocation.None, VaryByParam = "None")]
+        [OutputCache(Duration = 0, Location = OutputCacheLocation.None)]
         public ActionResult editLlantas(string placa, int km)
         {
+            OutputCacheParameters d = new OutputCacheParameters();
+            string _placa = placa.ToUpper();
             tiempos.Start();
             try
             {
@@ -270,119 +108,47 @@ namespace llantasAPP.Controllers
                 Response.Cache.SetAllowResponseInBrowserHistory(false);
                 Response.Cache.SetNoStore();
 
+                int t_vehiculo = 0;//1:Cabezote;2:Trailer
+                llantas_Edit llantaInterfaz = new llantas_Edit();
+
+                #region VALIDAR VEHICULO
                 Regex expr_Cabezote = new Regex(@"(^[a-zA-Z]{3}\d{3}$)");
                 Regex expr_Trailer = new Regex(@"(^[a-zA-Z]{1}\d{5}$)");
-
-                bool S = expr_Cabezote.IsMatch(placa);
-
-                TempDataDictionary _dataTrabajo = new TempDataDictionary();
-                ViewBag.title = "Llantas-Edicion";
-
-                //validar el tipo de vehiculo (Trailer o Cabezote)
-                if (expr_Cabezote.IsMatch(placa))//la placa es valida para cabezote
+                int valido = 0;
+                if (expr_Cabezote.IsMatch(_placa))//la placa es valida para cabezote
                 {
-                    #region MONTURA DE LLANTAS
+                    t_vehiculo = 1;
+                    valido = llantaInterfaz.valVehiculo(_placa, t_vehiculo).Rows.Count;
+                }
+                if (expr_Trailer.IsMatch(_placa))//la placa es valida para trailer
+                {
                     t_vehiculo = 2;
-                    //consultar a la base da datos la placa del cabezote (retorna 10 llantas)
+                    valido = llantaInterfaz.valVehiculo(_placa, t_vehiculo).Rows.Count;
+                }
+                #endregion
+
+                #region MONTURA DE LLANTAS
+                if (valido != 0)//el vehiculo existe
+                {
+                    DataTable dt = new DataTable();
                     List<llantas_Edit> listaLlantas = new List<llantas_Edit>();
-                    llantas_Edit llanta1 = new llantas_Edit();
-                    llantas_Edit llanta2 = new llantas_Edit();
-                    llantas_Edit llanta3 = new llantas_Edit();
-                    llantas_Edit llanta4 = new llantas_Edit();
-                    llantas_Edit llanta5 = new llantas_Edit();
-                    llantas_Edit llanta6 = new llantas_Edit();
-                    llantas_Edit llanta7 = new llantas_Edit();
-                    llantas_Edit llanta8 = new llantas_Edit();
-                    llantas_Edit llanta9 = new llantas_Edit();
-                    llantas_Edit llanta10 = new llantas_Edit();
-                    llantas_Edit llanta11 = new llantas_Edit();
-                    llantas_Edit llanta12 = new llantas_Edit();
-                    llanta1.LLANTA = "123456";
-                    llanta1.GRUPO = "255";
-                    llanta1.FECHAI = "30/12/2018";
-                    llanta1.POSICION = 1;
-                    llanta1.SENTIDO = 1;
-
-                    llanta2.LLANTA = "2123456";
-                    llanta2.GRUPO = "255";
-                    llanta2.FECHAI = "30/12/2018";
-                    llanta2.POSICION = 2;
-                    llanta2.SENTIDO = 1;
-
-                    llanta3.LLANTA = "3123456";
-                    llanta3.GRUPO = "255";
-                    llanta3.FECHAI = "30/12/2018";
-                    llanta3.POSICION = 3;
-                    llanta3.SENTIDO = 1;
-
-                    llanta4.LLANTA = "4123456";
-                    llanta4.GRUPO = "255";
-                    llanta4.FECHAI = "30/12/2018";
-                    llanta4.POSICION = 4;
-                    llanta4.SENTIDO = 1;
-
-                    llanta5.LLANTA = "5123456";
-                    llanta5.GRUPO = "255";
-                    llanta5.FECHAI = "30/12/2018";
-                    llanta5.POSICION = 5;
-                    llanta5.SENTIDO = 1;
-
-                    llanta6.LLANTA = "6123456";
-                    llanta6.GRUPO = "255";
-                    llanta6.FECHAI = "30/12/2018";
-                    llanta6.POSICION = 6;
-                    llanta6.SENTIDO = 1;
-
-                    llanta7.LLANTA = "7123456";
-                    llanta7.GRUPO = "255";
-                    llanta7.FECHAI = "30/12/2018";
-                    llanta7.POSICION = 7;
-                    llanta7.SENTIDO = 1;
-
-                    llanta8.LLANTA = "8123456";
-                    llanta8.GRUPO = "255";
-                    llanta8.FECHAI = "30/12/2018";
-                    llanta8.POSICION = 8;
-                    llanta8.SENTIDO = 1;
-
-                    llanta9.LLANTA = "9123456";
-                    llanta9.GRUPO = "255";
-                    llanta9.FECHAI = "30/12/2018";
-                    llanta9.POSICION = 9;
-                    llanta9.SENTIDO = 1;
-
-                    llanta10.LLANTA = "1012345";
-                    llanta10.GRUPO = "255";
-                    llanta10.FECHAI = "30/12/2018";
-                    llanta10.POSICION = 10;
-                    llanta10.SENTIDO = 1;
-
-                    llanta11.LLANTA = "1112345";
-                    llanta11.GRUPO = "111";
-                    llanta11.FECHAI = "30/12/2018";
-                    llanta11.POSICION = 11;
-                    llanta11.SENTIDO = 1;
-
-                    llanta12.LLANTA = "1212345";
-                    llanta12.GRUPO = "121";
-                    llanta12.FECHAI = "30/12/2018";
-                    llanta12.POSICION = 12;
-                    llanta12.SENTIDO = 1;
-
-                    listaLlantas.Add(llanta1);
-                    listaLlantas.Add(llanta2);
-                    listaLlantas.Add(llanta3);
-                    listaLlantas.Add(llanta4);
-                    listaLlantas.Add(llanta5);
-                    listaLlantas.Add(llanta6);
-                    listaLlantas.Add(llanta7);
-                    listaLlantas.Add(llanta8);
-                    listaLlantas.Add(llanta9);
-                    listaLlantas.Add(llanta10);
-                    listaLlantas.Add(llanta11);
-                    listaLlantas.Add(llanta12);
+                    dt = llantaInterfaz.FDB_DATOS_PLACA_2_0(_placa);
+                    int NroEjes = 0;
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        NroEjes = int.Parse(item["NOEJES"].ToString());
+                        llantas_Edit llantaItem = new llantas_Edit();
+                        llantaItem.LLANTA = item["NOLLANTA"].ToString();
+                        llantaItem.GRUPO = item["GRUPO"].ToString();
+                        llantaItem.FECHAI = item["FECINSTALA"].ToString();
+                        llantaItem.POSICION = int.Parse(item["POSICION"].ToString());
+                        llantaItem.montar = true;
+                        listaLlantas.Add(llantaItem);
+                    }
                     llantasInicial = listaLlantas;
+                #endregion
 
+                    #region LLANTAS DISPONIBLES
                     ArrayList datos = new ArrayList();//guarda la info de llas llantas en inventario
                     string _llanta = "17496", _grupo = "123";
                     string _llanta2 = "27496", _grupo2 = "456";
@@ -397,65 +163,112 @@ namespace llantasAPP.Controllers
                     List<llantas_Edit> infEditL = new List<llantas_Edit>();
                     llantas_Edit infoVehic = new llantas_Edit();
                     /*informacion de edicion*/
-                    infoVehic.placa = placa.ToUpper();
+                    ViewBag.title = "Llantas-Edicion";
+                    infoVehic.placa = _placa;
                     infoVehic.tipoVehiculo = t_vehiculo;
-                    infoVehic.nroEjes = 3;//debe probenir de la consulta
+                    infoVehic.nroEjes = NroEjes;
                     infoVehic.km = km;
-                    infoVehic.llantasCargadas = listaLlantas.Count;
                     infoVehic.fechaSistema = fechaSistema;
+                    switch (NroEjes)
+                    {
+                        case 1:
+                            infoVehic.llantasMax = 4;
+                            break;
+                        case 2:
+                            infoVehic.llantasMax = 8;
+                            break;
+                        case 3:
+                            if (t_vehiculo == 1)
+                            {
+                                infoVehic.llantasMax = 10;
+                            }
+                            else
+                            {
+                                infoVehic.llantasMax = 12;
+                            }
+                            break;
+                    }
+                    if (listaLlantas.Count > infoVehic.llantasMax)
+                    {
+                        tiempos.Stop();
+                        ViewBag.tiempoProceso = tiempos.Elapsed.TotalSeconds;
+                        string _errorDisplay = "LL-002: Se ha encontrado inconsistencias en la relación de llantas montadas " +
+                        "y la capacidad real del vehículo, por favor informar a sistemas.";
+                        ModelState.AddModelError("ErrorLlantas", _errorDisplay);
+                        return View("buscarLlantas");
+                    }
+
+                    /*
+                 * Dentro de la consulta puede que hayan posiciones vacías,
+                 * para poder montar todas las llantas consultadas en la posición correspondiste
+                 * se debe conocer el número máximo de llantas que podría tener un vehículo, (esto se puede saber según el numero de ejes),
+                 * luego recorrer cada posible posición y compararlo con la llantas consultadas,
+                 * se valida si en la posición se monta o no una llanta (la llanta consultada) de no coincidir se asume que esa posición quedara vacía.
+                 */
+                    List<llantas_Edit> llantasMontadas = new List<llantas_Edit>();
+                    for (int i = 1; i < infoVehic.llantasMax + 1; i++)//recorrer todas la posibles posiciones
+                    {
+                        llantas_Edit llantaMonta = new llantas_Edit();
+                        bool Salir = true;//false
+                        bool existe = false;
+                        while (Salir == true)
+                        {
+                            foreach (llantas_Edit item in listaLlantas)//recorrer las llantas consultadas
+                            {
+                                if (i == item.POSICION)
+                                {
+                                    llantasMontadas.Add(item);
+                                    Salir = false;
+                                    existe = true;
+                                    break;
+                                }
+                                else
+                                {
+                                    Salir = false;
+                                    existe = false;
+                                }
+                            }
+                            break;
+                        }
+                        if (existe == false)//La posicion en el eje I no tiene una llanta montada, por ende se crea una caja vacia (para poder montar )
+                        {
+                            llantaMonta.POSICION = i;
+                            llantaMonta.montar = false;
+                            llantasMontadas.Add(llantaMonta);
+                        }
+
+                    }
+
+                    infoVehic.llantasCargadas = listaLlantas.Count;//las consultadas
                     infEditL.Add(infoVehic);
                     ViewBag.infoEdit = infEditL;
+
                     /*
                      * 
                      */
                     tiempos.Stop();
                     ViewBag.tiempoProceso = tiempos.Elapsed.TotalSeconds;
-                    return View(listaLlantas);
+                    //return View(listaLlantas);
+                    return View(llantasMontadas);
                     #endregion
                 }
                 else
                 {
                     tiempos.Stop();
                     ViewBag.tiempoProceso = tiempos.Elapsed.TotalSeconds;
-                    ViewBag.error = 1;
-                    ModelState.AddModelError("ErrorDesc", "La placa " + placa + " no existe.");
+                    string _errorDisplay = "LL-000: La placa " + _placa + " no existe.";
+                    ModelState.AddModelError("ErrorLlantas", _errorDisplay);
                     return View("buscarLlantas");
                 }
             }
+
             catch (Exception Ex)
             {
                 ModelState.AddModelError("ErrorDesc", Ex.Message);
                 return View("_Error");
             }
 
-            //if (expr_Trailer.IsMatch(placa))//la placa es valida para trailer
-            //{
-            //    t_vehiculo = 2;
-            //}
-
-
-            //if (km == 10)//la placa no existe
-            //{
-            //    TempData["Error"] = "La placa " + placa + " no existe.";
-            //    return View("buscarLlantas");
-            //}
-
-
-            //else
-            //{
-            //    List<llantas_Edit> listaLlantas = new List<llantas_Edit>();
-            //    llantas_Edit llanta = new llantas_Edit();
-            //    llanta.LLANTA = "10255";
-            //    listaLlantas.Add(llanta);
-            //    return View(listaLlantas);
-            //}
-
         }
-
-        //public ActionResult EdicionsLlantas()
-        //{
-        //    return View();
-        //}
 
         public ActionResult RecircularLlantas()
         {
@@ -599,7 +412,7 @@ namespace llantasAPP.Controllers
                     llantaDesmontada.par_kilomi_e = _arrayDesmonta[i].par_kilomi_e;
                     llantaDesmontada.par_fechai_e = _arrayDesmonta[i].par_fechai_e;
                     llantaDesmontada.par_posicion_e = _arrayDesmonta[i].par_posicion_e;
-                    llantaDesmontada.response = 1;
+                    llantaDesmontada.response = llantaDesmontada.desmontarLlantas(llantaDesmontada.par_vehiculo_e, llantaDesmontada.par_llanta_e, llantaDesmontada.par_grupo_e, llantaDesmontada.par_observacion_e, llantaDesmontada.par_kilomi_e, llantaDesmontada.par_fechai_e);
                     llantasDesmontadasL.Add(llantaDesmontada);
                 }
                 #endregion
