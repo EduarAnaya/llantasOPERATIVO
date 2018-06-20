@@ -1,4 +1,4 @@
-﻿@model IEnumerable<llantasAPP.Models.llantas_Edit>
+﻿@model IEnumerable<llantasAPP.Models.edicionLlantas.llantas_Edit>
 
 @{
     ViewBag.Title = @ViewBag.title;
@@ -6,7 +6,6 @@
 
 
 }
-
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Inicio</a></li>
@@ -15,8 +14,9 @@
     </ol>
 </nav>
 <div class="Container cont_EditLlantas _ContAccion">
-    @{List<llantasAPP.Models.llantas_Edit> infoEdit = ViewBag.infoEdit;
-      List<llantasAPP.Models.llantas_Edit> disponiblesL = ViewBag.disponibles;
+    @{
+        List<llantasAPP.Models.edicionLlantas.llantas_Edit> infoEdit = ViewBag.infoEdit;
+        List<llantasAPP.Models.edicionLlantas.llantas_Edit> disponiblesL = ViewBag.disponibles;
     }
     <div class="row" style="margin: 0;">
         <!--DIAGRAMA DE LLANTAS-->
@@ -152,21 +152,23 @@
                                 <fieldset>
                                     <legend class="tituloLegend">Montar llantas</legend>
                                     <div class="row">
-                                        <div class="col-8" style="padding-right: 0;">
-                                            <input type="text" class="form-control form-control-sm text-uppercase" id="inputnllanta" name="nllanta" placeholder="LLANTA" required="required" style="height: 100%" />
+                                        <div class="col">
+                                            @* <input type="text" class="form-control form-control-sm text-uppercase" id="inputnllanta" name="nllanta" placeholder="LLANTA" required="required" style="height: 100%" />*@
+                                            <select id="comboDisponibles" name="nllanta" class="form-control" required="required">
+                                                <option value="" selected="selected">Seleccione...</option>
+                                            </select>
+
                                             <script type="text/javascript">
                                                 var listaLllantas = [];
-                                    @foreach (var llantaInf in ViewBag.Countries)
-                                    {
-                                        @:listaLllantas.push("@llantaInf[0]" + "-" + "@llantaInf[1]");
-                                                                         }
-                                                $("#inputnllanta").autocomplete(
-                                                    {
-                                                        source: listaLllantas
-                                                    })
+                                                @foreach (var llantaInf in ViewBag.llantasDinponibles)
+                                                {
+                                                    @:var valor = "@llantaInf[0]" + "-" + "@llantaInf[1]";
+                                                                                                    @:var opcionValue = $('<option value="' + valor + '">' + valor + '</option>');
+                                                                                                    @:$("#comboDisponibles").append(opcionValue);
+                                                                                                }
                                             </script>
                                         </div>
-                                        <div class="col-3" style="padding: 0;">
+                                        <div class="col-4">
                                             <button id="addllanta" type="submit" class="btn btn-success btn-sm btnFull">
                                                 <img src="~/Content/medios/plus.svg" /></button>
                                         </div>

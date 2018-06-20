@@ -136,6 +136,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Home\HomeController.cs" />
+    <Compile Include="Models\edicionLlantas\procLlantas.cs" />
     <Compile Include="Controllers\manageFiles\cargaArchivosController.cs" />
     <Compile Include="Controllers\Llantas\llantasController.cs" />
     <Compile Include="Global.asax.cs">
@@ -143,7 +144,7 @@
     </Compile>
     <Compile Include="Models\bd_con\bdConexion.cs" />
     <Compile Include="Models\cargaArchivos\archivos.cs" />
-    <Compile Include="Models\llantasModel.cs" />
+    <Compile Include="Models\edicionLlantas\llantasModel.cs" />
     <Compile Include="Models\bd_con\paramConn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -170,6 +171,7 @@
     <Content Include="Content\medios\llanta_invent.png" />
     <Content Include="Content\medios\llanta_reencauche.png" />
     <Content Include="Content\medios\llanta_repara.png" />
+    <Content Include="Content\medios\Logo_Head.png" />
     <Content Include="Content\medios\medidas_llantas.png" />
     <Content Include="Content\medios\plus.svg" />
     <Content Include="Content\medios\right.png" />
@@ -187,7 +189,9 @@
     <Content Include="Content\medios\trailerx1.png" />
     <Content Include="Content\medios\trailerx2.png" />
     <Content Include="Content\medios\trailerx3.png" />
+    <Content Include="Content\medios\trashEdittires.png" />
     <Content Include="CSS\css_Edits\css_Gral.css" />
+    <Content Include="CSS\css_Edits\css_Inventario.css" />
     <Content Include="CSS\css_Edits\css_Llantas_Edit.css" />
     <Content Include="CSS\css_Prove\bootstrap\bootstrap-grid.css" />
     <Content Include="CSS\css_Prove\bootstrap\bootstrap-grid.min.css" />

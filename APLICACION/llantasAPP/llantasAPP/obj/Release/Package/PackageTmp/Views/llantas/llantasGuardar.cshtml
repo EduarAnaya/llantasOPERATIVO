@@ -5,11 +5,17 @@
 
 @{ 
     //LENGUAJE DE SERVIDOR C#
-    List<llantasAPP.Models.llantas_Rota> lisRotadas = ViewBag.rotadas;
-    List<llantasAPP.Models.llantas_Monta> lisMontadas = ViewBag.montadas;
-    List<llantasAPP.Models.llantas_Desmonta> lisRemove = ViewBag.removidas;
-    List<llantasAPP.Models.llantas_Monta> lisMuestras = ViewBag.muestreos;
+    List<llantasAPP.Models.edicionLlantas.llantas_Rota> lisRotadas = ViewBag.rotadas;
+    List<llantasAPP.Models.edicionLlantas.llantas_Monta> lisMontadas = ViewBag.montadas;
+    List<llantasAPP.Models.edicionLlantas.llantas_Desmonta> lisRemove = ViewBag.removidas;
+    List<llantasAPP.Models.edicionLlantas.llantas_Monta> lisMuestras = ViewBag.muestreos;
+    int task = 0;
 }
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
 
 <div class="container">
     <div class="row">
@@ -27,6 +33,7 @@
             <!--LLANTAS ROTADAS-->
             @if (lisRotadas.Count > 0)
             {
+                task = 1;
                 <li class="media">
                     <img class="mr-3 img_respuestaHead" src="/Content/medios/tires_rotate.png" />
                     <div class="media-body">
@@ -54,10 +61,10 @@
                                                 @switch (llanta.response)
                                                 {
                                                     case 1:
-                                                    <img src="/Content/medios/success.png" class="imgResponse" />
+                                                    <img src="/Content/medios/success.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="La llanta se roto correctamente." />
                                                         break;
-                                                    case 2:
-                                                    <img src="/Content/medios/error_label.png" class="imgResponse" />
+                                                    case 0:
+                                                    <img src="/Content/medios/error_label.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="Ocurrio un error al rotar esta llanta." />
                                                         break;
                                                 }
                                             </td>
@@ -69,21 +76,10 @@
                     </div>
                 </li>
             }
-            else
-            {
-                <li class="media">
-                    <img class="mr-3 img_respuestaHead" src="/Content/medios/tires_rotate.png" />
-                    <div class="media-body">
-                        <h5 class="mt-0 mb-1">Llantas Rotadas</h5>
-                        <div class="table-responsive">
-                            <p class="font-weight-bold Text_cero">0</p>
-                        </div>
-                    </div>
-                </li>
-            }
             <!--LLANTAS MONTADAS-->
             @if (lisMontadas.Count > 0)
             {
+                task = 1;
                 <li class="media">
                     <img class="mr-3 img_respuestaHead" src="/Content/medios/tires_mont.png" />
                     <div class="media-body">
@@ -109,10 +105,10 @@
                                                 @switch (llanta.response)
                                                 {
                                                     case 1:
-                                                    <img src="~/Content/medios/success.png" class="imgResponse" />
+                                                    <img src="~/Content/medios/success.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="La llanta se monto correctamente." />
                                                         break;
-                                                    case 2:
-                                                    <img src="~/Content/medios/error_label.png" class="imgResponse" />
+                                                    case 0:
+                                                    <img src="~/Content/medios/error_label.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="Ocurrio un error al montar esta llanta." />
                                                         break;
                                                 }
                                             </td>
@@ -125,22 +121,10 @@
                 </li>
 
             }
-            else
-            {
-                <li class="media">
-                    <img class="mr-3 img_respuestaHead" src="/Content/medios/tires_mont.png" />
-                    <div class="media-body">
-                        <h5 class="mt-0 mb-1">Llantas Montadas</h5>
-                        <div class="table-responsive">
-                            <p class="font-weight-bold Text_cero">0</p>
-                        </div>
-                    </div>
-                </li>
-                        
-            }
             <!--LLANTAS DESMONTADAS-->
             @if (lisRemove.Count > 0)
             {
+                task = 1;
                 <li class="media">
                     <img class="mr-3 img_respuestaHead" src="/Content/medios/tires_remove.png" />
                     <div class="media-body">
@@ -166,10 +150,10 @@
                                                 @switch (llanta.response)
                                                 {
                                                     case 1:
-                                                    <img src="~/Content/medios/success.png" class="imgResponse" />
+                                                    <img src="~/Content/medios/success.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="La llanta se desmonto correctamente." />
                                                         break;
-                                                    case 2:
-                                                    <img src="~/Content/medios/error_label.png" class="imgResponse" />
+                                                    case 0:
+                                                    <img src="~/Content/medios/error_label.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="Ocurrio un error al desmontar esta llanta." />
                                                         break;
                                                 }
                                             </td>
@@ -182,21 +166,10 @@
                 </li>
 
             }
-            else
-            {
-                <li class="media">
-                    <img class="mr-3 img_respuestaHead" src="/Content/medios/tires_remove.png" />
-                    <div class="media-body">
-                        <h5 class="mt-0 mb-1">Llantas Removidas</h5>
-                        <div class="table-responsive">
-                            <p class="font-weight-bold Text_cero">0</p>
-                        </div>
-                    </div>
-                </li>
-            }
             <!--MUESTREOS-->
             @if (lisMuestras.Count > 0)
             {
+                task = 1;
                 <li class="media">
                     <img class="mr-3 img_respuestaHead" src="/Content/medios/tires_test.png" />
                     <div class="media-body">
@@ -222,10 +195,10 @@
                                                 @switch (llanta.response)
                                                 {
                                                     case 1:
-                                                    <img src="~/Content/medios/success.png" class="imgResponse" />
+                                                    <img src="~/Content/medios/success.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="Se tomaron los muestreos correctamente." />
                                                         break;
-                                                    case 2:
-                                                    <img src="~/Content/medios/error_label.png" class="imgResponse" />
+                                                    case 0:
+                                                    <img src="~/Content/medios/error_label.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="Ocurrió un error al registrar el muestreo." />
                                                         break;
                                                 }
                                             </td>
@@ -238,12 +211,11 @@
                     </div>
                 </li>     
             }
-            else
+            @if (task == 0)
             {
-                <li class="media">
-                    <img class="mr-3 img_respuestaHead" src="/Content/medios/tires_test.png" />
+                <li class="media" style="text-align: center">
                     <div class="media-body">
-                        <h5 class="mt-0 mb-1">Muestreos Realizados</h5>
+                        <h5 class="mt-0 mb-1">Tareas realizadas</h5>
                         <div class="table-responsive">
                             <p class="font-weight-bold Text_cero">0</p>
                         </div>
@@ -251,8 +223,8 @@
                 </li>
             }
         </ul>
+        <span class="timeTransac" style="bottom: 0; position: absolute; right: 0;">Tiempo de transacción: @ViewBag.tiempoProceso Segundos</span>
     </div>
-    <span class="timeTransac">Tiempo de transacción: @ViewBag.tiempoProceso Segundos</span>
     <div class="row">
         <div class="col">
             <a class="btn btn-primary btn-lg btn-block" href="/">Aceptar</a>

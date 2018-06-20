@@ -1,0 +1,20 @@
+﻿thead {
+    background-color: #8c8c8c;
+    color: white;
+}
+
+table {
+    width: 100%;
+}
+
+tr {
+    text-align: center;
+}
+
+    tr.odd {
+        background-color: #e9ecef8a;
+    }
+
+    tr.even {
+        background-color: white;
+    }

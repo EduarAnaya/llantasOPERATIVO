@@ -28,6 +28,16 @@
                 <button id="cargarplaca" type="submit" class="btn btn-success">
                     Buscar
                 </button>
+                <script>
+                    $(function () {
+                        var _reload = true;
+                        sessionStorage.setItem("_reload", _reload);
+                        $("#formSearchVehiculo").on("submit", function () {
+                            var _reload = false;
+                            sessionStorage.setItem("_reload", _reload);
+                        })
+                    })
+                </script>
             </div>
 
         </div>   

@@ -7,11 +7,13 @@
     <meta name="author" content="Eduar Anaya">
     <link rel="shortcut icon" href="~/Content/medios/tire.ico" />
     <title>@ViewBag.title</title>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
     <link href="~/CSS/css_Prove/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Scripts/js_Prove/jqueryUI/jquery-ui.min.css" rel="stylesheet" />
     <link href="~/CSS/css_Prove/datatables/datatables.min.css" rel="stylesheet" />
-    <link href="~/CSS/css_Edits/css_Gral.css" rel="stylesheet" />
-    <link href="~/CSS/css_Edits/css_Llantas_Edit.css" rel="stylesheet" />
+    <link href="~/CSS/css_Edits/css_Gral.css?v1.6" rel="stylesheet" />
+    <link href="~/CSS/css_Edits/css_Llantas_Edit.css?v1.4" rel="stylesheet" />
+    <link href="~/CSS/css_Edits/css_Inventario.css?v1.1" rel="stylesheet" />
 </head>
 <body>
     <!-- Archivos Scripts -->
@@ -26,14 +28,22 @@
     <script src="~/Scripts/js_Prove/plugTimer.js"></script>
     <script src="~/Scripts/js_Prove/tactil.js"></script>
     <!-- Navegacion -->
-    <nav id="barraMenu" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="@Url.Action("Index", "Home")">
-                <img src="~/Content/medios/llanta_ini.png" style="width: 2rem" alt="Inicio" />
-                Llantas Operativo
-            </a>
-        </div>
-    </nav>
+    <header>
+        <nav id="barraMenu" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <div class="row" style="width: 100%;">
+                    <div class="col">
+                        <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                            <img src="~/Content/medios/Logo_Head.png" style="width: 6rem" alt="Inicio" /></a>
+                    </div>
+                    <div class="col">
+                        <strong class="titulo">Llantas Operativo
+                        </strong>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
     <section id="RenderBody">
         <div class="container Contapp">
             @RenderBody()
@@ -42,8 +52,9 @@
     <!-- Footer -->
     <footer class="bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">
-               Llantas Operativo Versión 3.0 @DateTime.Now.Year<br /> &copy <a href="http://www.transer.com.co/" target="_blank">Transportes y Servicios Transer S.A.</a>
+            <p class="m-0 text-center texFooter">
+                Llantas Operativo Versión 3.0 @DateTime.Now.Year<br />
+                &copy <a href="http://www.transer.com.co/" target="_blank" style="color: black;">Transportes y Servicios Transer S.A.</a>
             </p>
         </div>
         <!-- /.container -->
@@ -51,7 +62,7 @@
 
     <!-- Archivos Scripts -->
     <script src="~/Scripts/js_Edit/js_Edit_Llantas/js_SearchsLlantas.js?v3.0"></script>
-    <script src="~/Scripts/js_Edit/js_Edit_Llantas/js_llantas_Edit.js?v3.0"></script>
+    <script src="~/Scripts/js_Edit/js_Edit_Llantas/js_llantas_Edit.js?v3.1"></script>
     <script src="~/Scripts/js_Edit/js_timer.Js"></script>
 </body>
 </html>

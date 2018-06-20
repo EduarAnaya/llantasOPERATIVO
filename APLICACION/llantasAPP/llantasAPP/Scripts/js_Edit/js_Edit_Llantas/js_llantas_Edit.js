@@ -16,6 +16,148 @@ llantaDraggable($llantas);
 canecaDoppable($caneca);
 cajaDroppable($cajas);
 
+$(function () {
+    var _reload = sessionStorage.getItem("_reload");
+    if (_reload == "true") {
+        $(location).attr("href", "/");
+    }
+    /*jquery UI para el select de la sllantas disponibles*/
+    $.widget("custom.combobox", {
+        _create: function () {
+            this.wrapper = $("<span>")
+                .addClass("custom-combobox")
+                .insertAfter(this.element);
+
+            this.element.hide();
+            this._createAutocomplete();
+            this._createShowAllButton();
+        },
+
+        _createAutocomplete: function () {
+            var selected = this.element.children(":selected"),
+                value = selected.val() ? selected.text() : "";
+
+            this.input = $("<input>")
+                .appendTo(this.wrapper)
+                .val(value)
+                .attr("title", "")
+                .addClass("custom-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left")
+                .autocomplete({
+                    delay: 0,
+                    minLength: 0,
+                    source: $.proxy(this, "_source")
+                })
+                .tooltip({
+                    classes: {
+                        "ui-tooltip": "ui-state-highlight"
+                    }
+                });
+
+            this._on(this.input, {
+                autocompleteselect: function (event, ui) {
+                    ui.item.option.selected = true;
+                    this._trigger("select", event, {
+                        item: ui.item.option
+                    });
+                },
+
+                autocompletechange: "_removeIfInvalid"
+            });
+        },
+
+        _createShowAllButton: function () {
+            var input = this.input,
+                wasOpen = false;
+
+            $("<a>")
+                .attr("tabIndex", -1)
+                .attr("title", "Ver todo")
+                .tooltip()
+                .appendTo(this.wrapper)
+                .button({
+                    icons: {
+                        primary: "ui-icon-triangle-1-s"
+                    },
+                    text: false
+                })
+                .removeClass("ui-corner-all")
+                .addClass("custom-combobox-toggle ui-corner-right")
+                .on("mousedown", function () {
+                    wasOpen = input.autocomplete("widget").is(":visible");
+                })
+                .on("click", function () {
+                    input.trigger("focus");
+
+                    // Close if already visible
+                    if (wasOpen) {
+                        return;
+                    }
+
+                    // Pass empty string as value to search for, displaying all results
+                    input.autocomplete("search", "");
+                });
+        },
+
+        _source: function (request, response) {
+            var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
+            response(this.element.children("option").map(function () {
+                var text = $(this).text();
+                if (this.value && (!request.term || matcher.test(text)))
+                    return {
+                        label: text,
+                        value: text,
+                        option: this
+                    };
+            }));
+        },
+
+        _removeIfInvalid: function (event, ui) {
+
+            // Selected an item, nothing to do
+            if (ui.item) {
+                return;
+            }
+
+            // Search for a match (case-insensitive)
+            var value = this.input.val(),
+                valueLowerCase = value.toLowerCase(),
+                valid = false;
+            this.element.children("option").each(function () {
+                if ($(this).text().toLowerCase() === valueLowerCase) {
+                    this.selected = valid = true;
+                    return false;
+                }
+            });
+
+            // Found a match, nothing to do
+            if (valid) {
+                return;
+            }
+
+            // Remove invalid value
+            this.input
+                .val("")
+                .attr("title", value + " no existe en la lista.")
+                .tooltip("open");
+            this.element.val("");
+            this._delay(function () {
+                this.input.tooltip("close").attr("title", "");
+            }, 2500);
+            this.input.autocomplete("instance").term = "";
+        },
+
+        _destroy: function () {
+            this.wrapper.remove();
+            this.element.show();
+        }
+    });
+
+    $("#comboDisponibles").combobox();
+    $("#toggle").on("click", function () {
+        $("#comboDisponibles").toggle();
+    });
+});
+
 //evento que permite mostrar un collapse y ocultar los demás que estén abiertos.
 $(".collapse").on("show.bs.collapse", function (e) {
     var dataID = e.target.id;
@@ -62,7 +204,7 @@ $("#fomrAddllanta").on("submit", function (event) {
     var estado = $("#fomrAddllanta").valid();
     if (estado != false) {
         if (_llantaData <= 9) {
-            var nroLlanta = $("#inputnllanta")
+            var nroLlanta = $("#comboDisponibles")
                 .val()
                 .toUpperCase();
             add_nuevallanta(nroLlanta);
@@ -74,6 +216,7 @@ $("#fomrAddllanta").on("submit", function (event) {
 /***************************GUARDAR LOS CAMBIOS*********************** */
 $("#btnGUARDAR").on("click", function () {
     enviarCambios(arrayCamion, arrayMonta, arrayDesmonta, arrayMuestras);
+    sessionStorage.setItem("_reload", "true")
 })
 
 function fotovehiculo() {
@@ -128,17 +271,10 @@ function cambio_Sentido($img) {
 
 //PREPARA UNA NUEVA LLANTA DEL INVENTARIO PARA SER ARRASTRADA AL VEHICULO
 function add_nuevallanta(nroLlanta) {
-    //OBTENER LA POSICION DE LA LLANTA
-    var pos = listaLllantas.indexOf(nroLlanta);
-    /*
-      ENTONCES:
-      - POS <0  = EL NUMERO DE LLANTA INDICADO NO EXISTE DENTRO DE LA LISTA DISPONIBLE, EL USUARIO PUDO INGRESARLO MANUALMENTE
-      - POS >=0 = EL NUMERO DE LLANTA INDICADO EXISTE DENTRO DE LA LISTA DISPONIBLE, SE PERMITE EL REENDERIZADO DE LA LLANTA IMPORTADA
-      */
-    if (pos > -1) {
+    if (nroLlanta != "") {
         //SE ELIMINA LA LLANTA INPORTADA DE LA LISTA, PARA QUE NO LA INGRESEN MAS DE UNA VEZ
-        listaLllantas.splice(pos, 1);
-        $("#inputnllanta").val("");
+        $("#comboDisponibles option[value='" + nroLlanta + "']").remove();
+        $(".custom-combobox-input").val("");
         //SE PREPARA ELEMENTO
         var llanta = nroLlanta.split("-")[0];
         var grupo = nroLlanta.split("-")[1];

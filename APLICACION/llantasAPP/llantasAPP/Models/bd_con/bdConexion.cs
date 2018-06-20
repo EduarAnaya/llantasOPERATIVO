@@ -44,13 +44,14 @@ namespace llantasAPP
             Cadena = @"User Id=" + _usuario + ";Password="
                 + _contrasena + ";Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST="
                 + _servidor + ")(PORT=1521))(CONNECT_DATA=(SID=" + _dbname + ")));";
-            Ora_Connection = new OracleConnection();
+
         }
 
         public OracleConnection Conectar()
         {
             try
             {
+                Ora_Connection = new OracleConnection();
                 if (Ora_Connection != null)
                 {
                     // Fijamos la cadena de conexión de la base de datos.
