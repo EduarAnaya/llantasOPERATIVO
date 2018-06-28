@@ -40,6 +40,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Google.Protobuf, Version=3.5.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 8.0.11\Assemblies\v4.5.2\Google.Protobuf.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.XmlTransform">
       <HintPath>..\packages\Microsoft.Web.Xdt.2.1.2\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
@@ -157,6 +161,7 @@
     <Content Include="Content\cssEdit_old\llantasHome.css" />
     <Content Include="Content\cssEdit_old\Site.css" />
     <Content Include="Content\LibreriasProv_Old\jquery-ui.min.css" />
+    <Content Include="Content\medios\bajar.png" />
     <Content Include="Content\medios\borrarFile.png" />
     <Content Include="Content\medios\calendar.png" />
     <Content Include="Content\medios\cambio_llantas.png" />
@@ -178,11 +183,13 @@
     <Content Include="Content\medios\rueda.png" />
     <Content Include="Content\medios\search.svg" />
     <Content Include="Content\medios\sitioContruccion.png" />
+    <Content Include="Content\medios\subir.png" />
     <Content Include="Content\medios\success.png" />
     <Content Include="Content\medios\taskSuccess.png" />
     <Content Include="Content\medios\timerSucces.png" />
     <Content Include="Content\medios\tire.ico" />
     <Content Include="Content\medios\tires_mont.png" />
+    <Content Include="Content\medios\tires_Orientation.png" />
     <Content Include="Content\medios\tires_remove.png" />
     <Content Include="Content\medios\tires_rotate.png" />
     <Content Include="Content\medios\tires_test.png" />
@@ -210,6 +217,7 @@
     <Content Include="CSS\css_Prove\bootstrap\bootstrap.min.css.map" />
     <None Include="Properties\PublishProfiles\llantasAPPOP.pubxml" />
     <Content Include="Scripts\js_Edit\js_Edit_Llantas\js_cargaArchivos.js" />
+    <Content Include="Scripts\js_Edit\js_Edit_Llantas\js_Gral.js" />
     <Content Include="Scripts\js_Edit\js_Edit_Llantas\js_llantas_Monta.js" />
     <Content Include="Scripts\js_Edit\js_Edit_Llantas\js_llantas_Remove.js" />
     <Content Include="Scripts\js_Edit\js_timer.Js" />

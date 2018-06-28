@@ -25,6 +25,7 @@ namespace llantasAPP.Models.edicionLlantas
         public string LLANTA { get; set; }
         public string GRUPO { get; set; }
         public int POSICION { get; set; }
+        public int SENTIDO { get; set; }
         public int KINSTALA { get; set; }
         public string FECHAI { get; set; }
 
@@ -45,14 +46,15 @@ namespace llantasAPP.Models.edicionLlantas
         public string par_vehiculo_e { get; set; }
         public string par_llanta_e { get; set; }
         public string par_grupo_e { get; set; }
-        public int par_profi_e { get; set; }
-        public int par_profc_e { get; set; }
-        public int par_profd_e { get; set; }
+        public decimal par_profi_e { get; set; }
+        public decimal par_profc_e { get; set; }
+        public decimal par_profd_e { get; set; }
         public int par_posicion_e { get; set; }
+        public int par_sentido { get; set; }
         public int par_kilomi_e { get; set; }
         public DateTime par_fechai_e { get; set; }
-        public int par_presion_e { get; set; }
-        public int response { get; set; }
+        public decimal par_presion_e { get; set; }
+        public string[] response { get; set; }
     }
     public class llantas_Rota
     {
@@ -60,7 +62,15 @@ namespace llantasAPP.Models.edicionLlantas
         public string par_grupo { get; set; }
         public int par_posicion_ini { get; set; }
         public int par_posicion_fin { get; set; }
-        public int response { get; set; }
+        public int par_sentido { get; set; }
+        public string[] response { get; set; }
+    }
+    public class llantas_Sentidos
+    {
+        public string par_llanta { get; set; }
+        public int par_sentido_Ini { get; set; }
+        public int par_sentido_Fin { get; set; }
+        public string[] response { get; set; }
     }
     public class llantas_Desmonta
     {
@@ -71,6 +81,6 @@ namespace llantasAPP.Models.edicionLlantas
         public int par_kilomi_e { get; set; }
         public DateTime par_fechai_e { get; set; }
         public int par_posicion_e { get; set; }
-        public int response { get; set; }
+        public string[] response { get; set; }
     }
 }

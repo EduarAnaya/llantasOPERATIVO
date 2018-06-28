@@ -9,6 +9,7 @@
     List<llantasAPP.Models.edicionLlantas.llantas_Monta> lisMontadas = ViewBag.montadas;
     List<llantasAPP.Models.edicionLlantas.llantas_Desmonta> lisRemove = ViewBag.removidas;
     List<llantasAPP.Models.edicionLlantas.llantas_Monta> lisMuestras = ViewBag.muestreos;
+    List<llantasAPP.Models.edicionLlantas.llantas_Sentidos> lisSentidos = ViewBag.sentidos;
     int task = 0;
 }
 <script>
@@ -46,6 +47,7 @@
                                         <th>Grupo</th>
                                         <th>Pos Ini </th>
                                         <th>Pos Fin</th>
+                                        <th>Sentido</th>
                                         <th>Estado T</th>
                                     </tr>
                                 </thead>
@@ -58,14 +60,31 @@
                                             <td>@llanta.par_posicion_ini</td>
                                             <td>@llanta.par_posicion_fin</td>
                                             <td>
-                                                @switch (llanta.response)
-                                                {
-                                                    case 1:
-                                                    <img src="/Content/medios/success.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="La llanta se roto correctamente." />
-                                                        break;
-                                                    case 0:
-                                                    <img src="/Content/medios/error_label.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="Ocurrio un error al rotar esta llanta." />
-                                                        break;
+                                                @{
+                                        switch (llanta.par_sentido)
+                                        {
+                                            case 0:
+                                                    <span>IZQ -> DER</span>
+                                                break;
+                                            case 1:
+                                                    <span>DER -> IZQ</span>
+                                                break;
+                                        }
+                                                }
+
+                                            </td>
+                                            <td>
+                                                @{
+                                        string respuestaTransac = llanta.response[0];
+                                        switch (respuestaTransac)
+                                        {
+                                            case "1":
+                                                    <img src="/Content/medios/success.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="@llanta.response[1]" />
+                                                break;
+                                            case "0":
+                                                    <img src="/Content/medios/error_label.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="@llanta.response[1]" />
+                                                break;
+                                        }
                                                 }
                                             </td>
                                         </tr>
@@ -91,6 +110,7 @@
                                         <th>Llanta</th>
                                         <th>Grupo</th>
                                         <th>Posición</th>
+                                        <th>Sentido</th>
                                         <th>Estado T</th>
                                     </tr>
                                 </thead>
@@ -102,14 +122,31 @@
                                             <td>@llanta.par_grupo_e</td>
                                             <td>@llanta.par_posicion_e</td>
                                             <td>
-                                                @switch (llanta.response)
-                                                {
-                                                    case 1:
-                                                    <img src="~/Content/medios/success.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="La llanta se monto correctamente." />
-                                                        break;
-                                                    case 0:
-                                                    <img src="~/Content/medios/error_label.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="Ocurrio un error al montar esta llanta." />
-                                                        break;
+                                                @{
+                                        switch (llanta.par_sentido)
+                                        {
+                                            case 0:
+                                                    <span>IZQ -> DER</span>
+                                                break;
+                                            case 1:
+                                                    <span>DER -> IZQ</span>
+                                                break;
+                                        }
+                                                }
+
+                                            </td>
+                                            <td>
+                                                @{
+                                        string respuestaTransac = llanta.response[0];
+                                        switch (respuestaTransac)
+                                        {
+                                            case "1":
+                                                    <img src="/Content/medios/success.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="@llanta.response[1]" />
+                                                break;
+                                            case "0":
+                                                    <img src="/Content/medios/error_label.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="@llanta.response[1]" />
+                                                break;
+                                        }
                                                 }
                                             </td>
                                         </tr>
@@ -147,14 +184,17 @@
                                             <td>@llanta.par_grupo_e</td>
                                             <td>@llanta.par_posicion_e</td>
                                             <td>
-                                                @switch (llanta.response)
-                                                {
-                                                    case 1:
-                                                    <img src="~/Content/medios/success.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="La llanta se desmonto correctamente." />
-                                                        break;
-                                                    case 0:
-                                                    <img src="~/Content/medios/error_label.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="Ocurrio un error al desmontar esta llanta." />
-                                                        break;
+                                                @{
+                                        string respuestaTransac = llanta.response[0];
+                                        switch (respuestaTransac)
+                                        {
+                                            case "1":
+                                                    <img src="/Content/medios/success.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="@llanta.response[1]" />
+                                                break;
+                                            case "0":
+                                                    <img src="/Content/medios/error_label.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="@llanta.response[1]" />
+                                                break;
+                                        }
                                                 }
                                             </td>
                                         </tr>
@@ -192,14 +232,89 @@
                                             <td>@llanta.par_grupo_e</td>
                                             <td>@llanta.par_posicion_e</td>
                                             <td>
-                                                @switch (llanta.response)
-                                                {
-                                                    case 1:
-                                                    <img src="~/Content/medios/success.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="Se tomaron los muestreos correctamente." />
-                                                        break;
-                                                    case 0:
-                                                    <img src="~/Content/medios/error_label.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="Ocurrió un error al registrar el muestreo." />
-                                                        break;
+                                                @{
+                                        string respuestaTransac = llanta.response[0];
+                                        switch (respuestaTransac)
+                                        {
+                                            case "1":
+                                                    <img src="/Content/medios/success.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="@llanta.response[1]" />
+                                                break;
+                                            case "0":
+                                                    <img src="/Content/medios/error_label.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="@llanta.response[1]" />
+                                                break;
+                                        }
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </li>     
+            }
+            <!--SENTIDOS-->
+            @if (lisSentidos.Count > 0)
+            {
+                task = 1;
+                <li class="media">
+                    <img class="mr-3 img_respuestaHead" src="/Content/medios/tires_Orientation.png" />
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1">Cambio de Sentidos</h5>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Llanta</th>
+                                        <th>Sent. Ini</th>
+                                        <th>Sent. Fin</th>
+                                        <th>Estado T</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var llanta in lisSentidos)
+                                    {
+                                        <tr>
+                                            <td>@llanta.par_llanta</td>
+                                            <td>
+                                                @{
+                                        switch (llanta.par_sentido_Ini)
+                                        {
+                                            case 0:
+                                                    <span>Der - Izq (<=)</span>
+                                                break;
+                                            case 1:
+                                                    <span>Izq - Der  (=>)</span>
+                                                break;
+                                        }
+                                                }
+                                            </td>
+                                            <td>
+                                                @{
+                                        switch (llanta.par_sentido_Fin)
+                                        {
+                                            case 0:
+                                                    <span>Der - Izq (<=)</span>
+                                                break;
+                                            case 1:
+                                                    <span>Izq - Der  (=>)</span>
+                                                break;
+                                        }
+                                                }
+                                            </td>
+                                            <td>
+                                                @{
+                                        string respuestaTransac = llanta.response[0];
+                                        switch (respuestaTransac)
+                                        {
+                                            case "1":
+                                                    <img src="/Content/medios/success.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="@llanta.response[1]" />
+                                                break;
+                                            case "0":
+                                                    <img src="/Content/medios/error_label.png" class="imgResponse" data-toggle="tooltip" data-placement="right" title="@llanta.response[1]" />
+                                                break;
+                                        }
                                                 }
                                             </td>
                                         </tr>
@@ -225,8 +340,8 @@
         </ul>
         <span class="timeTransac" style="bottom: 0; position: absolute; right: 0;">Tiempo de transacción: @ViewBag.tiempoProceso Segundos</span>
     </div>
-    <div class="row">
-        <div class="col">
+    <div class="row" style="display: block;">
+        <div class="col colbtnSave">
             <a class="btn btn-primary btn-lg btn-block" href="/">Aceptar</a>
         </div>
     </div>

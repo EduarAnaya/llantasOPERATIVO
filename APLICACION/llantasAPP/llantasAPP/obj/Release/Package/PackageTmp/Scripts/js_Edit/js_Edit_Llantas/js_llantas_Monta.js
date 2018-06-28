@@ -4,62 +4,35 @@
     var _fechaActual,
         fechaTrabajo;
     //********* ACCIONES INICIALES*********//
-    actualizarFecha();
-
-    function actualizarFecha() {
-
-        var fecha = new Date();
-        var dia = fecha.getDate();
-        var mesA = new Array();
-        mesA[0] = "01";
-        mesA[1] = "02";
-        mesA[2] = "03";
-        mesA[3] = "04";
-        mesA[4] = "05";
-        mesA[5] = "06";
-        mesA[6] = "07";
-        mesA[7] = "08";
-        mesA[8] = "09";
-        mesA[9] = "10";
-        mesA[10] = "11";
-        mesA[11] = "12";
-        var mes = mesA[fecha.getMonth()];
-        var ano = fecha.getFullYear();
-        _fechaActual = dia + "/" + mes + "/" + ano;
-        $("#dtpFecMuestra").datepicker({
-            showOn: "button",
-            buttonImage: "/Content/medios/calendar.png",
-            buttonImageOnly: true,
-            changeMonth: true,
-            changeYear: true,
-            dateFormat: 'yy-mm-dd',
-            yearRange: '-18: +0',
-            maxDate: '+0m +0d'
-        });
-    }
+    $("#dtpFecMuestra").datepicker({
+        showOn: "button",
+        buttonImage: "/Content/medios/calendar.png",
+        buttonImageOnly: true,
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: 'yy-mm-dd',
+        yearRange: '-18: +0',
+        maxDate: '+0m +0d'
+    });
 
     //VALIDAR FONMULARIOS
     $("#formMuestras").validate({
         rules: {
             inputPresion: {
                 required: true,
-                validarDecimal: true,
-                number: true
+                validarDecimal: true
             },
             inputLizq: {
                 required: true,
-                validarDecimal: true,
-                number: true
+                validarDecimal: true
             },
             inputCent: {
                 required: true,
-                validarDecimal: true,
-                number: true
+                validarDecimal: true
             },
             inputDere: {
                 required: true,
-                validarDecimal: true,
-                number: true
+                validarDecimal: true
             },
             datePick: {
                 required: true,
@@ -90,8 +63,8 @@
     });
     //VALIDAR DECIMALES (CARGA PROF LLANTAS)
     jQuery.validator.addMethod("validarDecimal", function (value, element) {
-        return this.optional(element) || /(^\d{1,5}$|^\d{1,2}[.]\d{1,2}$)/.test(value);
-    }, "Formato incorrecto!");
+        return this.optional(element) || /^(\d{1,2}\.\d{1})?$/.test(value); //#####,##
+    }, "Formato incorrectos!");
     jQuery.validator.addMethod("validarFecha", function (value, element) {
         return this.optional(element) || /(^\d{2}[\/]\d{2}[\/]\d{4}$)/.test(value);
     }, "Formato incorrecto!");
@@ -119,6 +92,7 @@
                 par_profc_e = $("#inputCent").val(),
                 par_profd_e = $("#inputDere").val(),
                 par_posicion_e = cajaNueva["0"].parentElement.id.split("eje")[1],
+                par_sentido = $('#' + par_llanta_e + ' .imgSentido').attr('tag'),
                 par_kilomi_e = $("#idKMMed").text(),
                 par_fechai_e = $("#dtpFecMuestra").val(),
                 par_presion_e = $("#inputPresion").val();
@@ -131,6 +105,7 @@
                 par_profc_e: par_profc_e,
                 par_profd_e: par_profd_e,
                 par_posicion_e: par_posicion_e,
+                par_sentido: par_sentido,
                 par_kilomi_e: par_kilomi_e,
                 par_fechai_e: par_fechai_e,
                 par_presion_e: par_presion_e

@@ -13,11 +13,13 @@
         <li class="breadcrumb-item" aria-current="page">Edición de llantas</li>
     </ol>
 </nav>
-<div class="Container cont_EditLlantas _ContAccion">
+
+<div id="cont_EditLlantas" class="Container cont_EditLlantas _ContAccion">
     @{
         List<llantasAPP.Models.edicionLlantas.llantas_Edit> infoEdit = ViewBag.infoEdit;
         List<llantasAPP.Models.edicionLlantas.llantas_Edit> disponiblesL = ViewBag.disponibles;
     }
+    <!--Zona de Edicion-->
     <div class="row" style="margin: 0;">
         <!--DIAGRAMA DE LLANTAS-->
         <div class="col card vehiculo">
@@ -37,19 +39,28 @@
                 <div class="eje" id="@("eje" + item.POSICION)">
                     <div class="caja">
                         <div id="@item.LLANTA" class="llanta btn btn-outline-success"  href="@("#infoLlanta" + @item.LLANTA)"  role="button" tag="preload">
-                            @* Pendiente para aplicar *@
-                            @*@if (item.SENTIDO == 0)//SENTIDOS;0=NO HA SIDO VOLTEADA;1=LLANTA GIRADA
+                            <div class="row">
+                                <div class="col">
+                                    @if (item.SENTIDO == 0)//SENTIDOS;0=NO HA SIDO VOLTEADA;1=LLANTA GIRADA
                                     {
-                                        <img class="imgSentido btn" src="~/Content/medios/left.png" tag="0" onclick="cambio_Sentido($(this))"/>//izquierda a DERECHA
+                                        <img class="imgSentido btn" src="~/Content/medios/left.png" tag="0" onclick="cambio_Sentido($(this))" />//izquierda a DERECHA
                                     }
                                     else
                                     {
-                                        <img class="imgSentido btn" src="~/Content/medios/right.png" tag="1" onclick="cambio_Sentido($(this))"/>//derecha a INQUIERDA
-                                    }*@
-                            <span class="idllanta">@item.LLANTA-@item.GRUPO</span>
+                                        <img class="imgSentido btn" src="~/Content/medios/right.png" tag="1" onclick="cambio_Sentido($(this))" />//derecha a INQUIERDA
+                                    }
+                                </div>
+                                <div class="col">
+                                    <span class="idllanta">@item.LLANTA-@item.GRUPO</span>
+                                </div>
+                            </div>
+
+
                             <div class="collapse infoLlanta" id="@("infoLlanta" + @item.LLANTA)">
                                 <div class="card card-body" style="padding: 0;">
                                     <dl class="row" style="margin: 0;">
+                                        <dt class="col-5 marginTituloDesc">Llanta</dt>
+                                        <dd class="col-5 marginDescTtulo">@Html.DisplayFor(modelItem => item.LLANTA)</dd>
                                         <dt class="col-5 marginTituloDesc">Grupo</dt>
                                         <dd class="col-5 marginDescTtulo">@Html.DisplayFor(modelItem => item.GRUPO)</dd>
                                         <dt class="col-5 marginTituloDesc">Fecha Inst</dt>
@@ -143,7 +154,8 @@
             }
         </div>
 
-        <div class="col-sm-12 col-md-3 col-lg-3 cont_lateralDer">
+        <!--Montaje y desmontaje de llantas-->
+        <div class="col-sm-3 col-md-3 col-lg-3 cont_lateralDer">
             <div class="row contAcciones">
                 <div class="col">
                     <div class="row">
@@ -163,12 +175,12 @@
                                                 @foreach (var llantaInf in ViewBag.llantasDinponibles)
                                                 {
                                                     @:var valor = "@llantaInf[0]" + "-" + "@llantaInf[1]";
-                                                                                                    @:var opcionValue = $('<option value="' + valor + '">' + valor + '</option>');
-                                                                                                    @:$("#comboDisponibles").append(opcionValue);
-                                                                                                }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    @:var opcionValue = $('<option value="' + valor + '">' + valor + '</option>');
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    @:$("#comboDisponibles").append(opcionValue);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
                                             </script>
                                         </div>
-                                        <div class="col-4">
+                                        <div class="col-4" style="padding-right: 0;">
                                             <button id="addllanta" type="submit" class="btn btn-success btn-sm btnFull">
                                                 <img src="~/Content/medios/plus.svg" /></button>
                                         </div>
@@ -200,6 +212,12 @@
     </div>
     @* Zona de detalles y acciones *@
     <div class="row contDetalles">
+        <a id="viewDetails" class="scroll-to-top rounded visible" href="#colDetall1">
+            <img class="moreInfo" src="~/Content/medios/bajar.png" />
+        </a>
+        <a id="viewminDetails" class="scroll-to-top rounded visible" href="#cont_EditLlantas">
+            <img class="moreInfo" src="~/Content/medios/subir.png" />
+        </a>
         <div class="col">
             <div class="row">
                 @* Detalles Vehiculo*@
@@ -223,11 +241,11 @@
                                 <h5>
                                     @if (tipoVehiculo == 1)
                                     {
-                                        <span class="badge badge-success">CABEZOTE</span>    
+                                        <span id="t_vehiculo" class="badge badge-success">CABEZOTE</span>    
                                     }
                                     else
                                     {
-                                        <span class="badge badge-success">TRAILER</span>
+                                        <span id="t_vehiculo" class="badge badge-success">TRAILER</span>
                                     }
 
                                 </h5>
@@ -239,7 +257,7 @@
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <h5>
-                                    <span class="badge badge-success">@nroEjes</span></h5>
+                                    <span id="NroEjes" class="badge badge-success">@nroEjes</span></h5>
                             </div>
                         </div>
                     </fieldset>
@@ -282,12 +300,12 @@
                         <legend class="tituloDesc">Acciones del Trabajo</legend>
                         <div class="row">
                             <div class="col">
-                                <button type="button" class="btn btn-danger btnFull" onclick="location.href='buscarLlantas'">Cancelar</button>
+                                <button type="button" class="btn btn-danger btn-block" onclick="location.href='buscarLlantas'">Cancelar</button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
-                                <button type="button" id="btnGUARDAR" class="btn btn-success btnFull">Guardar</button>
+                                <button type="button" id="btnGUARDAR" class="btn btn-success btn-block">Guardar</button>
                             </div>
                         </div>
 

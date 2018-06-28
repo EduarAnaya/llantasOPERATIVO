@@ -21,6 +21,7 @@ using System.Web.UI;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 using llantasAPP.Models.edicionLlantas;
+using System.Globalization;
 
 
 namespace llantasAPP.Controllers
@@ -46,19 +47,22 @@ namespace llantasAPP.Controllers
         //
         // GET: /llantas/
 
-        /*variables generales*/
+        #region VARIABLES GENERALES
         public string fechaSistema = DateTime.Now.ToString("yyyy-MM-dd");
         /*Lista que almacenara las llantas antes de que sean manuladas (para poder ver el antes y el despues)*/
         public static List<llantas_Edit> llantasInicial = new List<llantas_Edit>();
+        public string _placa = string.Empty;
+        public int t_vehiculo = 0;//1:Cabezote;2:Trailer
+        public string t_vehiculoOt = string.Empty;
+        public int valido = 0;
         public procLlantas _llantasProc = new procLlantas();
         public static Stopwatch tiempos = new Stopwatch();
+        #endregion
 
         public ActionResult Inventario()
         {
             tiempos.Start();
             List<llantasInventario> tablaInvenario = new List<llantasInventario>();
-            bdConexion bdcon = new bdConexion();
-
             try
             {
                 DataTable dtInventaio = new DataTable();
@@ -100,7 +104,7 @@ namespace llantasAPP.Controllers
         [OutputCache(Duration = 0, Location = OutputCacheLocation.None)]
         public ActionResult editLlantas(string placa, int km)
         {
-            string _placa = placa.ToUpper();
+            _placa = placa.ToUpper();
             tiempos.Start();
             try
             {
@@ -119,22 +123,23 @@ namespace llantasAPP.Controllers
                 Regex expr_Cabezote = new Regex(@"(^[a-zA-Z]{3}\d{3}$)");
                 Regex expr_Trailer = new Regex(@"(^[a-zA-Z]{1}\d{5}$)");
 
-                int t_vehiculo = 0;//1:Cabezote;2:Trailer
-                int valido = 0;
                 if (expr_Cabezote.IsMatch(_placa))//la placa es valida para cabezote
                 {
                     t_vehiculo = 1;
+                    t_vehiculoOt = "C";
                     valido = _llantasProc.valVehiculo(_placa, t_vehiculo).Rows.Count;
                 }
                 if (expr_Trailer.IsMatch(_placa))//la placa es valida para trailer
                 {
                     t_vehiculo = 2;
+                    t_vehiculoOt = "T";
                     valido = _llantasProc.valVehiculo(_placa, t_vehiculo).Rows.Count;
                 }
                 #endregion
 
                 #region MONTURA DE LLANTAS
-                if (valido != 0)//el vehiculo existe
+                int valOTVehiculo = _llantasProc.PDB_MIL_VALIDA_OT_2_0(t_vehiculoOt, _placa, "");
+                if (valido != 0 && valOTVehiculo != 1)//el vehiculo existe y tiene una orden abierta
                 {
                     DataTable dt = new DataTable();
                     List<llantas_Edit> listaLlantas = new List<llantas_Edit>();
@@ -145,12 +150,13 @@ namespace llantasAPP.Controllers
                     {
                         foreach (DataRow item in dt.Rows)
                         {
-                            // NroEjes = int.Parse(item["NOEJES"].ToString());
                             llantas_Edit llantaItem = new llantas_Edit();
                             llantaItem.LLANTA = item["NOLLANTA"].ToString();
                             llantaItem.GRUPO = item["GRUPO"].ToString();
                             llantaItem.FECHAI = item["FECINSTALA"].ToString();
                             llantaItem.POSICION = int.Parse(item["POSICION"].ToString());
+                            //llantaItem.SENTIDO = 1;
+                            llantaItem.SENTIDO = int.Parse(item["SENTIDO"].ToString());
                             llantaItem.KINSTALA = int.Parse(item["KINSTALA"].ToString());
                             llantaItem.montar = true;
                             listaLlantas.Add(llantaItem);
@@ -272,7 +278,7 @@ namespace llantasAPP.Controllers
                 {
                     tiempos.Stop();
                     ViewBag.tiempoProceso = tiempos.Elapsed.TotalSeconds;
-                    string _errorDisplay = "LL-000: La placa " + _placa + " no existe.";
+                    string _errorDisplay = "LL-000: La placa " + _placa + " no existe ó no tiene una OT abierta.";
                     ModelState.AddModelError("ErrorLlantas", _errorDisplay);
                     return View("buscarLlantas");
                 }
@@ -313,18 +319,46 @@ namespace llantasAPP.Controllers
         }
 
         [HttpPost]
-        public ActionResult llantasMonta(string _placa, string _llanta, string _grupo, int _kmMEdida)
+        public ActionResult llantasMonta(string _placa, string _llanta, string _grupo, int _kmMEdida, int _operacion)
         {
+            switch (_operacion)
+            {
+                case 1://montar
+                    ViewBag.tutuloModal = "Montar Llanta";
+                    break;
+                case 2://muestreo
+                    ViewBag.tutuloModal = "Muestreo de Llanta";
+                    break;
+            }
+
             ViewBag._placa = _placa;
             ViewBag._llanta = _llanta;
             ViewBag._grupo = _grupo;
             ViewBag._kmMEdida = _kmMEdida;
             ViewBag._fechaMedida = fechaSistema;
-            return View();
+
+
+            int valOTVehiculo = _llantasProc.PDB_MIL_VALIDA_OT_2_0("I", _placa, _llanta);
+            if (valOTVehiculo == 2)
+            {
+                return View();
+            }
+            else
+            {
+                string _errorDisplay = "La llanta " + _llanta + " no tiene una OT abierta.";
+                ModelState.AddModelError("ErrorOT", _errorDisplay);
+                return View();
+            }
+
         }
 
+        /// <summary>
+        /// finalizacion del procedimiento
+        /// </summary>
+        /// <remarks>contiene los metodos que recorre cada arreglo</remarks>
+        /// <returns>Vista de confirmacion</returns>
         [HttpPost]
-        public ActionResult llantasGuardar(string arrayCamion, string arrayMonta, string arrayDesmonta, string arrayMuestras)
+        public ActionResult llantasGuardar(string arrayCamion, string arrayMonta, string arrayDesmonta, string arrayMuestras, string arraySentido)
         {
             tiempos.Start();
             try
@@ -335,6 +369,7 @@ namespace llantasAPP.Controllers
                 dynamic _arrayMonta = JsonConvert.DeserializeObject(arrayMonta);
                 dynamic _arrayDesmonta = JsonConvert.DeserializeObject(arrayDesmonta);
                 dynamic _arrayMuestras = JsonConvert.DeserializeObject(arrayMuestras);
+                dynamic _arraySentido = JsonConvert.DeserializeObject(arraySentido);
                 #endregion
 
                 #region LISTAS
@@ -342,6 +377,7 @@ namespace llantasAPP.Controllers
                 List<llantas_Monta> llantasMontadasL = new List<llantas_Monta>();
                 List<llantas_Desmonta> llantasDesmontadasL = new List<llantas_Desmonta>();
                 List<llantas_Monta> llantasMuestrasL = new List<llantas_Monta>();
+                List<llantas_Sentidos> llantasSentidoL = new List<llantas_Sentidos>();
                 #endregion
 
                 #region ROTACION LLANTAS
@@ -354,6 +390,7 @@ namespace llantasAPP.Controllers
                 List<llantas_Rota> llantasRotaL = new List<llantas_Rota>();
                 for (int i = 0; i < dimCamion.Count; i++)
                 {
+                    string placa = _arrayCamion[i].PLACA.Value;
                     string llantaMod = _arrayCamion[i].LLANTA.Value;//LLANTA MODIFICADA
                     int posMod = int.Parse(_arrayCamion[i].POS.Value);//LLANTA MODIFICADA
                     string grupoMod = _arrayCamion[i].GRUPO.Value;
@@ -374,7 +411,8 @@ namespace llantasAPP.Controllers
                                     _rota.par_grupo = grupoOrig;
                                     _rota.par_posicion_ini = posOri;
                                     _rota.par_posicion_fin = int.Parse(posMod.ToString());
-                                    _rota.response = 1;
+                                    _rota.par_sentido = int.Parse(_arrayCamion[i].SENT.Value);
+                                    _rota.response = _llantasProc.PDB_ROTARLLANTA(_rota.par_llanta, _rota.par_posicion_fin, _rota.par_sentido, placa.ToUpper());
                                     llantasRotaL.Add(_rota);
                                 }
                                 break;
@@ -385,7 +423,7 @@ namespace llantasAPP.Controllers
                     } while (encontrado);
 
                 }
-                #endregion
+                #endregion//falta paquete
 
                 #region MONTADAS
                 JArray dimMontadas = JArray.Parse(arrayMonta);
@@ -399,10 +437,12 @@ namespace llantasAPP.Controllers
                     llantaMondata.par_profc_e = _arrayMonta[i].par_profc_e;
                     llantaMondata.par_profd_e = _arrayMonta[i].par_profd_e;
                     llantaMondata.par_posicion_e = _arrayMonta[i].par_posicion_e;
+                    llantaMondata.par_sentido = _arrayMonta[i].par_sentido;//SIN ENVIAR
                     llantaMondata.par_kilomi_e = _arrayMonta[i].par_kilomi_e;
                     llantaMondata.par_fechai_e = DateTime.Parse(String.Format("{0:dd/MM/yyyy}", _arrayMonta[i].par_fechai_e.Value));
                     llantaMondata.par_presion_e = _arrayMonta[i].par_presion_e;
-                    llantaMondata.response = _llantasProc.PDB_MONTARLLANTA_2_0(llantaMondata.par_vehiculo_e, llantaMondata.par_llanta_e, llantaMondata.par_grupo_e, llantaMondata.par_profi_e, llantaMondata.par_profc_e, llantaMondata.par_profd_e, llantaMondata.par_posicion_e, llantaMondata.par_kilomi_e, llantaMondata.par_fechai_e, llantaMondata.par_presion_e);
+                    llantaMondata.par_sentido = _arrayMonta[i].par_sentido;
+                    llantaMondata.response = _llantasProc.PDB_MONTARLLANTA_2_0(llantaMondata.par_vehiculo_e, llantaMondata.par_llanta_e, llantaMondata.par_grupo_e, llantaMondata.par_profi_e, llantaMondata.par_profc_e, llantaMondata.par_profd_e, llantaMondata.par_posicion_e, llantaMondata.par_kilomi_e, llantaMondata.par_fechai_e, llantaMondata.par_presion_e, llantaMondata.par_sentido);
                     llantasMontadasL.Add(llantaMondata);
                 }
 
@@ -441,8 +481,43 @@ namespace llantasAPP.Controllers
                     llantaMuestra.par_kilomi_e = _arrayMuestras[i].par_kilomi_e;
                     llantaMuestra.par_fechai_e = DateTime.Parse(String.Format("{0:dd/MM/yyyy}", _arrayMuestras[i].par_fechai_e));
                     llantaMuestra.par_presion_e = _arrayMuestras[i].par_presion_e;
-                    llantaMuestra.response = 1;
+                    llantaMuestra.response = _llantasProc.PDB_PROFUNDIDAD_2_0(llantaMuestra.par_llanta_e, llantaMuestra.par_grupo_e, llantaMuestra.par_profi_e, llantaMuestra.par_profc_e, llantaMuestra.par_profd_e, llantaMuestra.par_kilomi_e, llantaMuestra.par_fechai_e, llantaMuestra.par_presion_e);
+                    //llantaMuestra.response = 1;
                     llantasMuestrasL.Add(llantaMuestra);
+                }
+                #endregion
+
+                #region CAMBIO SENTIDO
+                JArray dimSetidos = JArray.Parse(arraySentido);
+                for (int i = 0; i < dimSetidos.Count; i++)
+                {
+                    string llantaMod = _arraySentido[i].LLANTA.Value;//LLANTA MODIFICADA
+                    int sentidoMod = int.Parse(_arraySentido[i].SENTIDO.Value);//LLANTA MODIFICADA
+                    bool encontrado;
+                    do
+                    {
+                        for (int j = 0; j < llantasInicial.Count; j++)
+                        {
+                            string llantaOri = llantasInicial[j].LLANTA;//LLANTA INICIAL
+                            int sentidoOri = llantasInicial[j].SENTIDO;//LLANTA INICIAL
+                            if (llantaMod == llantaOri)
+                            {
+                                if (sentidoOri != sentidoMod)
+                                {
+                                    llantas_Sentidos _sentido = new llantas_Sentidos();
+                                    _sentido.par_llanta = llantaOri;
+                                    _sentido.par_sentido_Ini = sentidoOri;
+                                    _sentido.par_sentido_Fin = sentidoMod;
+                                    //_sentido.response = _llantasProc.PDB_ROTARLLANTA(_rota.par_llanta);
+                                    _sentido.response = new string[] { "1", "1" };
+                                    llantasSentidoL.Add(_sentido);
+                                }
+                                break;
+                            }
+                        }
+                        encontrado = false;
+
+                    } while (encontrado);
                 }
                 #endregion
 
@@ -451,6 +526,7 @@ namespace llantasAPP.Controllers
                 ViewBag.montadas = llantasMontadasL;
                 ViewBag.removidas = llantasDesmontadasL;
                 ViewBag.muestreos = llantasMuestrasL;
+                ViewBag.sentidos = llantasSentidoL;
 
                 tiempos.Stop();
                 ViewBag.tiempoProceso = tiempos.Elapsed.TotalSeconds;

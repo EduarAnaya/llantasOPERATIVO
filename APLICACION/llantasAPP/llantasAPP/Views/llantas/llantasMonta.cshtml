@@ -12,7 +12,7 @@
                             <img src="/Content/medios/medidas_llantas.png" style="width: 3rem;" />
                         </div>
                         <div class="col">
-                            <h5 class="modal-title">Ingreso de Muestras</h5>
+                            <h5 class="modal-title">@ViewBag.tutuloModal</h5>
                         </div>
                     </div>
 
@@ -60,55 +60,69 @@
             </div>
 
             <div class="modal-body">
-                <form id="formMuestras">
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group row">
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="inputPresion" name="inputPresion" placeholder="Presión" required="required" autofocus="autofocus"/>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="inputLizq" name="inputLizq" placeholder="Labrado Izquierdo" required="required" />
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="inputCent" name="inputCent" placeholder="Labrado Centro" required="required" />
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="inputDere" name="inputDere" placeholder="Labrado Derecho" required="required" />
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-10">
-                                    <label for="datePick">Fecha del Muestreo</label>
-                                    <input type="text" class="form-control" id="dtpFecMuestra" name="datePick" placeholder="Fecha de toma" value="@ViewBag._fechaMedida" disabled="disabled"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <img src="~/Content/medios/labrado.png" class="imgGuia" />
-                        </div>
+                @if (ViewData.ModelState.Any(x => x.Value.Errors.Any()))
+                {
+                    <div class="alert alert-primary">
+                        @*<a href="#" class="close" data-dismiss="alert">×</a>*@
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        @Html.ValidationSummary(true, "Aviso:")
+                        @Html.ValidationMessage("ErrorOT")
                     </div>
-                    <div class="modal-footer" style="display: block;">
+                }
+                else
+                {
+                    <form id="formMuestras">
                         <div class="row">
                             <div class="col">
-                                <button type="submit" id="btnmontarllanta" class="btn btn-outline-success btn-lg btn-block">Aceptar</button>
+                                <div class="form-group row">
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputPresion" name="inputPresion" placeholder="Presión" required="required" autofocus="autofocus" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputLizq" name="inputLizq" placeholder="Labrado Izquierdo" required="required" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputCent" name="inputCent" placeholder="Labrado Centro" required="required" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputDere" name="inputDere" placeholder="Labrado Derecho" required="required" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-10">
+                                        <label for="datePick">Fecha del Muestreo</label>
+                                        <input type="text" class="form-control" id="dtpFecMuestra" name="datePick" placeholder="Fecha de toma" value="@ViewBag._fechaMedida" disabled="disabled"/>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col">
-                                <button id="btnCancelAdd" class="btn btn-outline-secondary btn-lg btn-block">Cancelar</button>
+                            <div class="col-4">
+                                <img src="~/Content/medios/labrado.png" class="imgGuia" />
                             </div>
                         </div>
-                    </div>
-                </form>
+                        <div class="modal-footer" style="display: block;">
+                            <div class="row">
+                                <div class="col">
+                                    <button type="submit" id="btnmontarllanta" class="btn btn-outline-success btn-lg btn-block">Aceptar</button>
+                                </div>
+                                <div class="col">
+                                    <button id="btnCancelAdd" class="btn btn-outline-secondary btn-lg btn-block">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                }
             </div>
 
         </div>
     </div>
 
 </div>
-<script src="~/Scripts/js_Edit/js_Edit_Llantas/js_llantas_Monta.js?v1.3"></script>
+<script src="~/Scripts/js_Edit/js_Edit_Llantas/js_llantas_Monta.js?v2.1"></script>

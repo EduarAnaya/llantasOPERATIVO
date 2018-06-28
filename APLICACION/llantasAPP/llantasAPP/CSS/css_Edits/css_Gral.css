@@ -1,22 +1,24 @@
 ﻿body {
     font-family: 'IBM Plex Sans', sans-serif;
+    background-color: #fcfcfc !important;
 }
 
 nav#barraMenu {
     box-shadow: 0 0 10px 0px #a6a6a6;
 }
 
-header {
-    margin-bottom: 4rem;
+section#RenderBody {
+    margin-top: 4rem;
 }
 
 footer {
-    position: fixed;
+    box-shadow: 0 0 10px 0px #a6a6a6;
     right: 0;
     bottom: 0;
     left: 0;
     z-index: 2000;
-    height: 3rem;
+    height: -webkit-fill-available;
+    margin-top: 1rem;
 }
 
 .texFooter {
@@ -24,11 +26,11 @@ footer {
 }
 
 .bg-dark {
-    background-color: #dededeb0 !important;
+    background-color: #e9e9e9 !important;
 }
 
 .titulo {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: #495057;
     right: 0;
     position: absolute;
@@ -87,15 +89,63 @@ footer {
 .timeTransac {
     font-size: xx-small;
 }
+
+
+img.imgLogo {
+    width: 6rem;
+}
+
+@media (max-width: 400px) {
+    body {
+    }
+
+    .titulo {
+        font-size: 1.14rem;
+        color: #495057;
+        right: 0;
+        position: absolute;
+    }
+
+    footer {
+        height: -webkit-fill-available !important;
+        position: relative;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2000;
+        height: 3rem;
+        margin-top: 1rem;
+    }
+}
 /*Dispositivos extra pequeños (teléfonos de retrato, menos de 576px)*/
 @media (max-width: 575.98px) {
     body {
+    }
+
+    footer {
+        position: relative;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2000;
+        margin-top: 1rem;
     }
 }
 
 /*Dispositivos pequeños (teléfonos apaisados, 576px y más)*/
 @media (min-width: 576px) and (max-width: 767.98px) {
     body {
+    }
+
+    footer {
+        height: -webkit-fill-available !important;
+        position: relative;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2000;
+        height: 3rem;
+        margin-top: 1rem;
     }
 }
 
@@ -110,18 +160,15 @@ footer {
     body {
     }
 
-    .Text_cero {
-        font-size: 1rem !important;
-        color: #878787 !important;
-    }
-
-    #listaResultados {
-        margin: auto !important;
-        max-height: 20rem !important;
-        overflow: auto !important;
-        width: 40% !important;
-        color: #9e9e9e !important;
-        font-size: smaller !important;
+    footer {
+        height: -webkit-fill-available !important;
+        position: relative;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2000;
+        height: 3rem;
+        margin-top: 1rem;
     }
 }
 
@@ -129,22 +176,8 @@ footer {
 @media (min-width: 1200px) {
     body {
     }
-}
 
-
-
-
-
-
-
-@media (max-width: 1024px) {
-    .container {
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 1024px) {
-    footer {
-        display: none;
+    section#RenderBody {
+        margin-top: 5rem;
     }
 }
