@@ -4,6 +4,7 @@ using Oracle.DataAccess.Client;
 using System.Linq;
 using System.Web;
 using System.Data;
+using System.ComponentModel;
 
 namespace llantasAPP.Models.edicionLlantas
 {
@@ -26,8 +27,10 @@ namespace llantasAPP.Models.edicionLlantas
         public string GRUPO { get; set; }
         public int POSICION { get; set; }
         public int SENTIDO { get; set; }
+        public string ITEM { get; set; }
         public int KINSTALA { get; set; }
         public string FECHAI { get; set; }
+        public bool montar { get; set; }
 
     }
     public partial class llantas_Edit
@@ -39,7 +42,6 @@ namespace llantasAPP.Models.edicionLlantas
         public int km { get; set; }
         public int llantasCargadas { get; set; }
         public string fechaSistema { get; set; }
-        public bool montar { get; set; }
     }//extencion para la informacion del trabajo actual
     public class llantas_Monta
     {
@@ -78,9 +80,29 @@ namespace llantasAPP.Models.edicionLlantas
         public string par_llanta_e { get; set; }
         public string par_grupo_e { get; set; }
         public int par_observacion_e { get; set; }
+        public int par_nroItem { get; set; }
+        public int par_destInven { get; set; }
         public int par_kilomi_e { get; set; }
         public DateTime par_fechai_e { get; set; }
         public int par_posicion_e { get; set; }
         public string[] response { get; set; }
     }
+
+    public class infoVehiculo
+    {
+        public string placa { get; set; }
+        public int tipoVehiculo { get; set; }
+        public int nroEjes { get; set; }
+        public int llantasMax { get; set; }
+        public int km { get; set; }
+        public int llantasCargadas { get; set; }
+        public int nroOt { get; set; }
+        public string fechaSistema { get; set; }
+        public bool otAbierta { get; set; }
+        [DefaultValue(false)]
+        public bool contsinOT { get; set; }
+
+        public static infoVehiculo trabajoVehiculo { get; set; }
+    }
+
 }

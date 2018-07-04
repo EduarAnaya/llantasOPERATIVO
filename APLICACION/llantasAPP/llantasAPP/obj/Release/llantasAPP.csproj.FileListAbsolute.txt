@@ -66,4 +66,3 @@ D:\DESARROLLO\Desarrollo Web\llantasOPERATIVO\APLICACION\llantasAPP\llantasAPP\b
 D:\DESARROLLO\Desarrollo Web\llantasOPERATIVO\APLICACION\llantasAPP\llantasAPP\obj\Release\llantasAPP.csprojResolveAssemblyReference.cache
 D:\DESARROLLO\Desarrollo Web\llantasOPERATIVO\APLICACION\llantasAPP\llantasAPP\obj\Release\llantasAPP.dll
 D:\DESARROLLO\Desarrollo Web\llantasOPERATIVO\APLICACION\llantasAPP\llantasAPP\obj\Release\llantasAPP.pdb
-D:\BIBLIOTECAS\DESARROLLO\DESARROLLO WEB\llantasOPERATIVO\APLICACION\llantasAPP\llantasAPP\bin\Oracle.DataAccess.dll

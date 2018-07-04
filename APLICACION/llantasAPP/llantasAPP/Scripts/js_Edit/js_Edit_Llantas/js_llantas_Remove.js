@@ -31,6 +31,9 @@ $("#formMuestrasDesmonta").validate({
         areaObservaciones: {
             required: true
         },
+        destinoLlanta: {
+            required: true
+        },
         archivosSoportes: {
             required: true
         },
@@ -64,8 +67,8 @@ $("#formMuestrasDesmonta").validate({
         selectCausa: {
             required: "Se debe especificar la causa del desmonte!"
         },
-        radioOpciones: {
-            required: "Seleccione el destino de la llanta!"
+        destinoLlanta: {
+            required: "Seleccione el inventario de destino!"
         },
         areaObservaciones: {
             required: "Describe la causa del desmonte!"
@@ -98,11 +101,15 @@ $("#formMuestrasDesmonta").on("submit", function (event) {
 
         //validar que la llanta ya no este en la caneca
 
+        var s;
         var par_vehiculo_e = $("#idPlacaRmv").text(),
             valLlanta = $("#idLlantaRmv").text(),
             par_llanta_e = valLlanta.split("-")[0],
             par_grupo_e = valLlanta.split("-")[1],
             par_observacion_e = $("#selectCausa")[0].value,
+            par_destInven = $('input:radio[name=destinoLlanta]:checked').val(),
+            s = $('#' + par_llanta_e + '')[0],
+            par_nroItem = s.children[1].children["0"].children["0"].children[9].innerText,
             par_kilomi_e = $("#idKMMed").text(),
             par_fechai_e = $("#idFechaMed").text(),
             par_posicion_e = cajaRemove.offsetParent.id.split("eje")[1];
@@ -112,6 +119,8 @@ $("#formMuestrasDesmonta").on("submit", function (event) {
             par_llanta_e: par_llanta_e,
             par_grupo_e: par_grupo_e,
             par_observacion_e: par_observacion_e,
+            par_nroItem: par_nroItem,
+            par_destInven: par_destInven,
             par_kilomi_e: par_kilomi_e,
             par_fechai_e: par_fechai_e,
             par_posicion_e: par_posicion_e

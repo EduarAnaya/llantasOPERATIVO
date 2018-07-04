@@ -62,61 +62,91 @@
         </div>
 
         <div class="modal-body">
-            <form id="formMuestrasDesmonta" novalidate="novalidate">
-                <div class="row">
-                    <div class="col">
-                        <fieldset>
-                            <legend style="color: black !important;">Detalles del desmonte</legend>
-                            <div class="form-group">
-                                <label for="inputState">Causa</label>
-                                <select id="selectCausa" name="selectCausa" class="form-control" required="required">
-                                    <option value="" selected="">Seleccione...</option>
-                                    <option value="0">POR DEFINIR</option>
-                                    <option value="1">ERROR AL DIGITAR</option>
-                                    <option value="2">ESTALLADA</option>
-                                    <option value="3">REENCAUCHE LEVANTADO</option>
-                                    <option value="4">SALIDA A REENCAUCHE</option>
-                                    <option value="5">DEVOLUCION PRUEBA FABRICANTE</option>
-                                    <option value="6">PARA UTILIZAR EN OTRO VEHICULO</option>
-                                    <option value="7">EN LONAS</option>
-                                    <option value="8">PERDIDA DE PACHA</option>
-                                    <option value="9">ENVIADA A REPARACION</option>
-                                    <option value="10">ENTREGA DE BOTELLEROS CLIENTE</option>
-                                </select>
-                                <label class="error errors visible" for="selectCausa"></label>
-                            </div>
-
-                            <div class="form-group ">
-                                <label for="areaObservaciones">Observaciones del desmonte</label>
-                                <textarea class="form-control" id="areaObservaciones" name="areaObservaciones" rows="3" required="required" maxlength="100"></textarea>
-                                <label for="areaObservaciones" class="error errors visible"></label>
-                                <div class="col" style="text-align: right; color: #dee2e6;">
-                                    <label>Caracteres</label>
-                                    <label id="contadorarea">0/100</label>
-                                </div>
-                            </div>
-
-                        </fieldset>
-
-                    </div>
-
+            @if (ViewData.ModelState.Any(x => x.Value.Errors.Any()))
+            {
+                <div class="alert alert-primary">
+                    @*<a href="#" class="close" data-dismiss="alert">×</a>*@
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    @Html.ValidationSummary(true, "Aviso:")
+                    @Html.ValidationMessage("ErrorOT")
+                    <script>
+                        $(function () {
+                            $('#' +@ViewBag._Llanta +'').css({ left: "0", top: "0" });
+                        })
+                    </script>
                 </div>
-
-                <div class="modal-footer" style="display: block;">
+            }
+            else
+            {
+                <form id="formMuestrasDesmonta" novalidate="novalidate">
                     <div class="row">
+                        <div class="col">
+                            <fieldset>
+                                <legend style="color: black !important;">Detalles del desmonte</legend>
+                                <div class="form-group">
+                                    <label for="inputState">Causa</label>
+                                    <select id="selectCausa" name="selectCausa" class="form-control" required="required">
+                                        <option value="" selected="">Seleccione...</option>
+                                        <option value="0">POR DEFINIR</option>
+                                        <option value="1">ERROR AL DIGITAR</option>
+                                        <option value="2">ESTALLADA</option>
+                                        <option value="3">REENCAUCHE LEVANTADO</option>
+                                        <option value="4">SALIDA A REENCAUCHE</option>
+                                        <option value="5">DEVOLUCION PRUEBA FABRICANTE</option>
+                                        <option value="6">PARA UTILIZAR EN OTRO VEHICULO</option>
+                                        <option value="7">EN LONAS</option>
+                                        <option value="8">PERDIDA DE PACHA</option>
+                                        <option value="9">ENVIADA A REPARACION</option>
+                                        <option value="10">ENTREGA DE BOTELLEROS CLIENTE</option>
+                                    </select>
+                                    <label class="error errors visible" for="selectCausa"></label>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="inputState">Destino de la llanta</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="destinoLlanta" id="rbtnReparar" value="1" required="required" />
+                                        <label class="form-check-label" for="rbtnReparar">Reparar</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="destinoLlanta" id="rbtnTransicion" value="2" required="required" />
+                                        <label class="form-check-label" for="rbtnTransicion">Inv. Reparadas (Transición)</label>
+                                    </div>
+                                    <label class="error errors visible" for="destinoLlanta"></label>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="areaObservaciones">Observaciones del desmonte</label>
+                                    <textarea class="form-control" id="areaObservaciones" name="areaObservaciones" rows="3" required="required" maxlength="100"></textarea>
+                                    <label for="areaObservaciones" class="error errors visible"></label>
+                                    <div class="col" style="text-align: right; color: #dee2e6;">
+                                        <label>Caracteres</label>
+                                        <label id="contadorarea">0/100</label>
+                                    </div>
+                                </div>
 
-                        <div class="col">
-                            <button type="submit" id="btnDesmonta" class="btn btn-outline-success btn-lg btn-block">Retirar</button>
+                            </fieldset>
+
                         </div>
-                        <div class="col">
-                            <button id="btnCancelremove" class="btn btn-outline-secondary btn-lg btn-block">Cancelar</button>
+
+                    </div>
+
+                    <div class="modal-footer" style="display: block;">
+                        <div class="row">
+
+                            <div class="col">
+                                <button type="submit" id="btnDesmonta" class="btn btn-outline-success btn-lg btn-block">Retirar</button>
+                            </div>
+                            <div class="col">
+                                <button id="btnCancelremove" class="btn btn-outline-secondary btn-lg btn-block">Cancelar</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            }
         </div>
     </div>
 </div>
-<script src="~/Scripts/js_Edit/js_Edit_Llantas/js_llantas_Remove.js"></script>
+<script src="~/Scripts/js_Edit/js_Edit_Llantas/js_llantas_Remove.js?v1.5"></script>
 @* pendiente para desarrollo *@
 @*<script src="~/Scripts/js_Edit/js_Edit_Llantas/js_cargaArchivos.js"></script>*@

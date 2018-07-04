@@ -3,8 +3,6 @@
 @{
     ViewBag.Title = @ViewBag.title;
     Layout = "~/Views/Shared/_Layout.cshtml";
-
-
 }
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
@@ -15,8 +13,10 @@
 </nav>
 
 <div id="cont_EditLlantas" class="Container cont_EditLlantas _ContAccion">
+    @using llantasAPP.Models.edicionLlantas
     @{
-        List<llantasAPP.Models.edicionLlantas.llantas_Edit> infoEdit = ViewBag.infoEdit;
+        
+        //List<llantasAPP.Models.edicionLlantas.infoVehiculo> infoEdit = ViewBag.infoEdit;
         List<llantasAPP.Models.edicionLlantas.llantas_Edit> disponiblesL = ViewBag.disponibles;
     }
     <!--Zona de Edicion-->
@@ -24,12 +24,13 @@
         <!--DIAGRAMA DE LLANTAS-->
         <div class="col card vehiculo">
             @{
-                string placa = infoEdit[0].placa;
-                int tipoVehiculo = infoEdit[0].tipoVehiculo;
-                int nroEjes = infoEdit[0].nroEjes;
-                int kilometraje = infoEdit[0].km;
-                int llantasCargadas = infoEdit[0].llantasCargadas;
-                string fechaSistema = infoEdit[0].fechaSistema;
+                string placa = infoVehiculo.trabajoVehiculo.placa;
+                int tipoVehiculo = infoVehiculo.trabajoVehiculo.tipoVehiculo;
+                int nroEjes = infoVehiculo.trabajoVehiculo.nroEjes;
+                int nroOt = infoVehiculo.trabajoVehiculo.nroOt;
+                int kilometraje = infoVehiculo.trabajoVehiculo.km;
+                int llantasCargadas = infoVehiculo.trabajoVehiculo.llantasCargadas;
+                string fechaSistema = infoVehiculo.trabajoVehiculo.fechaSistema;
 
 
                 foreach (var item in Model)
@@ -67,6 +68,8 @@
                                         <dd class="col-5 marginDescTtulo">@Html.DisplayFor(modelItem => item.FECHAI)</dd>
                                         <dt class="col-5 marginTituloDesc">Km Instala</dt>
                                         <dd class="col-5 marginDescTtulo">@Html.DisplayFor(modelItem => item.KINSTALA)</dd>
+                                        <dt class="col-5 marginTituloDesc">Codigo Item</dt>
+                                        <dd class="col-5 marginDescTtulo codItem">@Html.DisplayFor(modelItem => item.ITEM)</dd>
                                     </dl>
                                 </div>
                             </div>
@@ -175,9 +178,9 @@
                                                 @foreach (var llantaInf in ViewBag.llantasDinponibles)
                                                 {
                                                     @:var valor = "@llantaInf[0]" + "-" + "@llantaInf[1]";
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    @:var opcionValue = $('<option value="' + valor + '">' + valor + '</option>');
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    @:$("#comboDisponibles").append(opcionValue);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    @:var opcionValue = $('<option value="' + valor + '">' + valor + '</option>');
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    @:$("#comboDisponibles").append(opcionValue);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
                                             </script>
                                         </div>
                                         <div class="col-4" style="padding-right: 0;">
@@ -266,6 +269,15 @@
                 <div id="colDetall2" class="col colDetall">
                     <fieldset>
                         <legend class="tituloDesc">Detalles del Trabajo</legend>
+                        <div class="row">
+                            <div class="col colTitulodesc">
+                                <h6 class="descDetall">Nro. OT</h6>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <h5>
+                                    <span id="nroOT" class="badge badge-success">@nroOt</span></h5>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col colTitulodesc">
                                 <h6 class="descDetall">Kilometraje</h6>

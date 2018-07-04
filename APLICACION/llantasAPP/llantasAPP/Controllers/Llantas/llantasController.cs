@@ -22,6 +22,8 @@ using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 using llantasAPP.Models.edicionLlantas;
 using System.Globalization;
+using llantasAPP.Models.bd_con;
+using llantasAPP.seguridad;
 
 
 namespace llantasAPP.Controllers
@@ -42,8 +44,11 @@ namespace llantasAPP.Controllers
     /// </summary>
 
     #region deficnicion de Controlador
+
+    [CustomAuthorize(Roles = "Admin")]
     public class llantasController : Controller
     {
+
         //
         // GET: /llantas/
 
@@ -54,8 +59,10 @@ namespace llantasAPP.Controllers
         public string _placa = string.Empty;
         public int t_vehiculo = 0;//1:Cabezote;2:Trailer
         public string t_vehiculoOt = string.Empty;
+        public int NroEjes = 0;
         public int valido = 0;
-        public procLlantas _llantasProc = new procLlantas();
+        public procLlantas _llantasProc = new procLlantas(paramDbConexion.parametrosConexion);
+        public VarGlobals variablesGlobales = VarGlobals.variablesGlobales;
         public static Stopwatch tiempos = new Stopwatch();
         #endregion
 
@@ -100,20 +107,21 @@ namespace llantasAPP.Controllers
             return View();
         }
 
-        [HttpPost]
-        [OutputCache(Duration = 0, Location = OutputCacheLocation.None)]
-        public ActionResult editLlantas(string placa, int km)
+        public ActionResult loadVehiculo()
         {
-            _placa = placa.ToUpper();
+            ViewBag.title = "Llantas-Buscar";
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult loadVehiculo(infoVehiculo inv)
+        {
+
+            _placa = inv.placa.ToUpper();
             tiempos.Start();
+            ViewBag.title = "Llantas-Buscar";
             try
             {
-                Response.Cache.SetCacheability(HttpCacheability.ServerAndNoCache);
-                Response.Cache.SetAllowResponseInBrowserHistory(false);
-                Response.Cache.SetNoStore();
-
-                llantas_Edit llantaInterfaz = new llantas_Edit();
-
                 #region VALIDAR VEHICULO
                 /*
                  * 1.Identificar el tipo de vechiculo Cabezote/Trailer segun las caracteristicas de la placa
@@ -122,29 +130,76 @@ namespace llantasAPP.Controllers
                  */
                 Regex expr_Cabezote = new Regex(@"(^[a-zA-Z]{3}\d{3}$)");
                 Regex expr_Trailer = new Regex(@"(^[a-zA-Z]{1}\d{5}$)");
+                infoVehiculo.trabajoVehiculo = inv;
 
                 if (expr_Cabezote.IsMatch(_placa))//la placa es valida para cabezote
                 {
                     t_vehiculo = 1;
+                    infoVehiculo.trabajoVehiculo.tipoVehiculo = t_vehiculo;
                     t_vehiculoOt = "C";
                     valido = _llantasProc.valVehiculo(_placa, t_vehiculo).Rows.Count;
                 }
                 if (expr_Trailer.IsMatch(_placa))//la placa es valida para trailer
                 {
                     t_vehiculo = 2;
+                    infoVehiculo.trabajoVehiculo.tipoVehiculo = t_vehiculo;
                     t_vehiculoOt = "T";
                     valido = _llantasProc.valVehiculo(_placa, t_vehiculo).Rows.Count;
                 }
-                #endregion
-
-                #region MONTURA DE LLANTAS
-                int valOTVehiculo = _llantasProc.PDB_MIL_VALIDA_OT_2_0(t_vehiculoOt, _placa, "");
-                if (valido != 0 && valOTVehiculo != 1)//el vehiculo existe y tiene una orden abierta
+                if (valido != 0)//el vehiculo existe
                 {
-                    DataTable dt = new DataTable();
-                    List<llantas_Edit> listaLlantas = new List<llantas_Edit>();
-                    dt = _llantasProc.FDB_DATOS_PLACA_2_0(_placa);
-                    int NroEjes = int.Parse(dt.Rows[0].ItemArray[0].ToString());
+                    int valOTVehiculo = _llantasProc.PDB_MIL_VALIDA_OT_2_0(t_vehiculoOt, _placa, "");
+                    if (valOTVehiculo != 1)//es 2 tiene una ot abierta
+                    {
+                        inv.otAbierta = true;
+                        DataTable dt = new DataTable();
+                        dt = _llantasProc.FDB_MIL_DATOS_OTPL_2_0(t_vehiculoOt, _placa);
+                        inv.nroOt = int.Parse(dt.Rows[0]["ORTR_CODIGO_NB"].ToString());
+                        infoVehiculo.trabajoVehiculo = inv;
+                        return RedirectToAction("editLlantas", "llantas", new { placa = inv.placa, km = inv.km });
+                    }
+                    else
+                    {
+                        tiempos.Stop();
+                        ViewBag.tiempoProceso = tiempos.Elapsed.TotalSeconds;
+                        inv.otAbierta = false;
+                        infoVehiculo.trabajoVehiculo = inv;
+                        string _errorDisplay = "LL-010: La placa " + _placa + " no tiene una OT abierta.";//¿desea crearla?
+                        ModelState.AddModelError("ErrorLlantas", _errorDisplay);
+                        return View("loadVehiculo", inv);
+                    }
+                }
+                else
+                {
+                    tiempos.Stop();
+                    ViewBag.tiempoProceso = tiempos.Elapsed.TotalSeconds;
+                    string _errorDisplay = "LL-000: La placa " + _placa + " no existe.";
+                    ModelState.AddModelError("ErrorLlantas", _errorDisplay);
+                    return View("loadVehiculo", null);
+                }
+                #endregion
+            }
+            catch (Exception Ex)
+            {
+                ModelState.AddModelError("ErrorDesc", Ex.StackTrace);
+                return View("_Error");
+            }
+        }
+
+        [OutputCache(Duration = 0, Location = OutputCacheLocation.None)]
+        public ActionResult editLlantas(string placa, int km)
+        {
+            _placa = placa.ToUpper();
+            tiempos.Start();
+            try
+            {
+                #region MONTURA DE LLANTAS
+                DataTable dt = new DataTable();
+                List<llantas_Edit> listaLlantas = new List<llantas_Edit>();
+                dt = _llantasProc.FDB_DATOS_PLACA_2_0(_placa);
+                if (dt.Rows.Count > 0)
+                {
+                    NroEjes = int.Parse(dt.Rows[0].ItemArray[0].ToString());
                     string tipo = dt.Rows[0].ItemArray[1].ToString();
                     if (tipo != "")
                     {
@@ -155,133 +210,132 @@ namespace llantasAPP.Controllers
                             llantaItem.GRUPO = item["GRUPO"].ToString();
                             llantaItem.FECHAI = item["FECINSTALA"].ToString();
                             llantaItem.POSICION = int.Parse(item["POSICION"].ToString());
-                            //llantaItem.SENTIDO = 1;
                             llantaItem.SENTIDO = int.Parse(item["SENTIDO"].ToString());
+                            llantaItem.ITEM = item["CODITEM"].ToString();
                             llantaItem.KINSTALA = int.Parse(item["KINSTALA"].ToString());
                             llantaItem.montar = true;
                             listaLlantas.Add(llantaItem);
                         }
                         llantasInicial = listaLlantas;
                     }
-                #endregion
-
-                    #region LLANTAS DISPONIBLES
-                    ArrayList _listaDisponible = new ArrayList();//guarda la info de llas llantas en inventario
-                    DataTable _listadisponibles = _llantasProc.llantasDisponibles();
-
-                    foreach (DataRow llanta in _listadisponibles.Rows)
-                    {
-                        string[] infollanta = { llanta["LLANTA"].ToString(), llanta["GRUPO"].ToString() };
-                        _listaDisponible.Add(infollanta);
-                    }
-                    ViewBag.llantasDinponibles = _listaDisponible;
-                    #endregion
-
-                    #region RETORNA
-                    List<llantas_Edit> infEditL = new List<llantas_Edit>();
-                    llantas_Edit infoVehic = new llantas_Edit();
-                    /*informacion de edicion*/
-                    ViewBag.title = "Llantas-Edicion";
-                    infoVehic.placa = _placa;
-                    infoVehic.tipoVehiculo = t_vehiculo;
-                    infoVehic.nroEjes = NroEjes;
-                    infoVehic.km = km;
-                    infoVehic.fechaSistema = fechaSistema;
-                    switch (NroEjes)
-                    {
-                        case 1:
-                            infoVehic.llantasMax = 4;
-                            break;
-                        case 2:
-                            infoVehic.llantasMax = 8;
-                            break;
-                        case 3:
-                            if (t_vehiculo == 1)
-                            {
-                                infoVehic.llantasMax = 10;
-                            }
-                            else
-                            {
-                                infoVehic.llantasMax = 12;
-                            }
-                            break;
-                    }
-                    if (listaLlantas.Count > infoVehic.llantasMax)
-                    {
-                        tiempos.Stop();
-                        ViewBag.tiempoProceso = tiempos.Elapsed.TotalSeconds;
-                        string _errorDisplay = "LL-002: Se ha encontrado inconsistencias en la relación de llantas montadas " +
-                        "y la capacidad real del vehículo, por favor informar a sistemas.";
-                        ModelState.AddModelError("ErrorLlantas", _errorDisplay);
-                        return View("buscarLlantas");
-                    }
-
-                    /*
-                 * Dentro de la consulta puede que hayan posiciones vacías,
-                 * para poder montar todas las llantas consultadas en la posición correspondiste
-                 * se debe conocer el número máximo de llantas que podría tener un vehículo, (esto se puede saber según el numero de ejes),
-                 * luego recorrer cada posible posición y compararlo con la llantas consultadas,
-                 * se valida si en la posición se monta o no una llanta (la llanta consultada) de no coincidir se asume que esa posición quedara vacía.
-                 */
-                    List<llantas_Edit> llantasMontadas = new List<llantas_Edit>();
-                    for (int i = 1; i < infoVehic.llantasMax + 1; i++)//recorrer todas la posibles posiciones
-                    {
-                        llantas_Edit llantaMonta = new llantas_Edit();
-                        bool Salir = true;//false
-                        bool existe = false;
-                        if (listaLlantas.Count > 0)
-                        {
-                            while (Salir == true)
-                            {
-                                foreach (llantas_Edit item in listaLlantas)//recorrer las llantas consultadas
-                                {
-                                    if (i == item.POSICION)
-                                    {
-                                        llantasMontadas.Add(item);
-                                        Salir = false;
-                                        existe = true;
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        Salir = false;
-                                        existe = false;
-                                    }
-                                }
-                                break;
-                            }
-                        }
-
-                        if (existe == false)//La posicion en el eje I no tiene una llanta montada, por ende se crea una caja vacia (para poder montar )
-                        {
-                            llantaMonta.POSICION = i;
-                            llantaMonta.montar = false;
-                            llantasMontadas.Add(llantaMonta);
-                        }
-
-                    }
-
-                    infoVehic.llantasCargadas = listaLlantas.Count;//las consultadas
-                    infEditL.Add(infoVehic);
-                    ViewBag.infoEdit = infEditL;
-
-                    /*
-                     * 
-                     */
-                    tiempos.Stop();
-                    ViewBag.tiempoProceso = tiempos.Elapsed.TotalSeconds;
-                    //return View(listaLlantas);
-                    return View(llantasMontadas);
-                    #endregion
                 }
                 else
                 {
                     tiempos.Stop();
                     ViewBag.tiempoProceso = tiempos.Elapsed.TotalSeconds;
-                    string _errorDisplay = "LL-000: La placa " + _placa + " no existe ó no tiene una OT abierta.";
+                    string _errorDisplay = "LL-011: No se pueden cargar las llantas para la placa " + _placa + ", o no existen registros, por favor valídelo con Sistemas.";
                     ModelState.AddModelError("ErrorLlantas", _errorDisplay);
-                    return View("buscarLlantas");
+                    return View("loadVehiculo", null);
                 }
+                #endregion
+
+                #region LLANTAS DISPONIBLES
+                ArrayList _listaDisponible = new ArrayList();//guarda la info de llas llantas en inventario
+                DataTable _listadisponibles = _llantasProc.llantasDisponibles();
+
+                foreach (DataRow llanta in _listadisponibles.Rows)
+                {
+                    string[] infollanta = { llanta["LLANTA"].ToString(), llanta["GRUPO"].ToString() };
+                    _listaDisponible.Add(infollanta);
+                }
+                ViewBag.llantasDinponibles = _listaDisponible;
+                #endregion
+
+                #region RETORNA
+                List<llantas_Edit> infEditL = new List<llantas_Edit>();
+
+                /*informacion de edicion*/
+                ViewBag.title = "Llantas-Edicion";
+                infoVehiculo.trabajoVehiculo.placa = _placa;
+                t_vehiculo = infoVehiculo.trabajoVehiculo.tipoVehiculo;
+                infoVehiculo.trabajoVehiculo.nroEjes = NroEjes;
+                infoVehiculo.trabajoVehiculo.km = km;
+                infoVehiculo.trabajoVehiculo.fechaSistema = fechaSistema;
+                switch (NroEjes)
+                {
+                    case 1:
+                        infoVehiculo.trabajoVehiculo.llantasMax = 4;
+                        break;
+                    case 2:
+                        infoVehiculo.trabajoVehiculo.llantasMax = 8;
+                        break;
+                    case 3:
+                        if (t_vehiculo == 1)
+                        {
+                            infoVehiculo.trabajoVehiculo.llantasMax = 10;
+                        }
+                        else
+                        {
+                            infoVehiculo.trabajoVehiculo.llantasMax = 12;
+                        }
+                        break;
+                }
+                if (listaLlantas.Count > infoVehiculo.trabajoVehiculo.llantasMax)
+                {
+                    tiempos.Stop();
+                    ViewBag.tiempoProceso = tiempos.Elapsed.TotalSeconds;
+                    string _errorDisplay = "LL-002: Se ha encontrado inconsistencias en la relación de llantas montadas " +
+                    "y la capacidad real del vehículo, por favor informar a sistemas.";
+                    ModelState.AddModelError("ErrorLlantas", _errorDisplay);
+                    return View("loadVehiculo");
+                }
+
+                /*
+             * Dentro de la consulta puede que hayan posiciones vacías,
+             * para poder montar todas las llantas consultadas en la posición correspondiste
+             * se debe conocer el número máximo de llantas que podría tener un vehículo, (esto se puede saber según el numero de ejes),
+             * luego recorrer cada posible posición y compararlo con la llantas consultadas,
+             * se valida si en la posición se monta o no una llanta (la llanta consultada) de no coincidir se asume que esa posición quedara vacía.
+             */
+                List<llantas_Edit> llantasMontadas = new List<llantas_Edit>();
+                for (int i = 1; i < infoVehiculo.trabajoVehiculo.llantasMax + 1; i++)//recorrer todas la posibles posiciones
+                {
+                    llantas_Edit llantaMonta = new llantas_Edit();
+                    bool Salir = true;//false
+                    bool existe = false;
+                    if (listaLlantas.Count > 0)
+                    {
+                        while (Salir == true)
+                        {
+                            foreach (llantas_Edit item in listaLlantas)//recorrer las llantas consultadas
+                            {
+                                if (i == item.POSICION)
+                                {
+                                    llantasMontadas.Add(item);
+                                    Salir = false;
+                                    existe = true;
+                                    break;
+                                }
+                                else
+                                {
+                                    Salir = false;
+                                    existe = false;
+                                }
+                            }
+                            break;
+                        }
+                    }
+
+                    if (existe == false)//La posicion en el eje I no tiene una llanta montada, por ende se crea una caja vacia (para poder montar )
+                    {
+                        llantaMonta.POSICION = i;
+                        llantaMonta.montar = false;
+                        llantasMontadas.Add(llantaMonta);
+                    }
+
+                }
+
+                infoVehiculo.trabajoVehiculo.llantasCargadas = listaLlantas.Count;//las consultadas
+                ViewBag.infoEdit = infoVehiculo.trabajoVehiculo;
+
+                /*
+                 * 
+                 */
+                tiempos.Stop();
+                ViewBag.tiempoProceso = tiempos.Elapsed.TotalSeconds;
+                //return View(listaLlantas);
+                return View(llantasMontadas);
+                #endregion
             }
 
             catch (Exception Ex)
@@ -289,7 +343,6 @@ namespace llantasAPP.Controllers
                 ModelState.AddModelError("ErrorDesc", Ex.StackTrace);
                 return View("_Error");
             }
-
         }
 
         public ActionResult RecircularLlantas()
@@ -315,7 +368,19 @@ namespace llantasAPP.Controllers
             ViewBag._grupo = _grupo;
             ViewBag._kmMEdida = _kmMEdida;
             ViewBag._fechaMedida = fechaSistema;
-            return View();
+
+
+            int valOTVehiculo = _llantasProc.PDB_MIL_VALIDA_OT_2_0("I", _placa, _llanta);
+            if (valOTVehiculo == 1)
+            {
+                return View();
+            }
+            else
+            {
+                string _errorDisplay = "La llanta " + _llanta + " tiene una OT abiertam no es posible desmontar.";
+                ModelState.AddModelError("ErrorOT", _errorDisplay);
+                return View();
+            }
         }
 
         [HttpPost]
@@ -337,19 +402,7 @@ namespace llantasAPP.Controllers
             ViewBag._kmMEdida = _kmMEdida;
             ViewBag._fechaMedida = fechaSistema;
 
-
-            int valOTVehiculo = _llantasProc.PDB_MIL_VALIDA_OT_2_0("I", _placa, _llanta);
-            if (valOTVehiculo == 2)
-            {
-                return View();
-            }
-            else
-            {
-                string _errorDisplay = "La llanta " + _llanta + " no tiene una OT abierta.";
-                ModelState.AddModelError("ErrorOT", _errorDisplay);
-                return View();
-            }
-
+            return View();
         }
 
         /// <summary>
@@ -457,6 +510,8 @@ namespace llantasAPP.Controllers
                     llantaDesmontada.par_llanta_e = _arrayDesmonta[i].par_llanta_e;
                     llantaDesmontada.par_grupo_e = _arrayDesmonta[i].par_grupo_e;
                     llantaDesmontada.par_observacion_e = _arrayDesmonta[i].par_observacion_e;
+                    llantaDesmontada.par_nroItem = _arrayDesmonta[i].par_nroItem;
+                    llantaDesmontada.par_destInven = _arrayDesmonta[i].par_destInven;
                     llantaDesmontada.par_kilomi_e = _arrayDesmonta[i].par_kilomi_e;
                     llantaDesmontada.par_fechai_e = _arrayDesmonta[i].par_fechai_e;
                     llantaDesmontada.par_posicion_e = _arrayDesmonta[i].par_posicion_e;

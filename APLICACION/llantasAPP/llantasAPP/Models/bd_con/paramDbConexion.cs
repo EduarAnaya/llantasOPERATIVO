@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace llantasAPP
+
+namespace llantasAPP.Models.bd_con
 {
-    class paramConn
+    public class paramDbConexion
     {
         private string servidor;
         private string dbname;
         private string usuario;
         private string contrasena;
-        
+
+
         public string Usuario
         {
             get { return usuario; }
@@ -34,12 +35,14 @@ namespace llantasAPP
             set { dbname = value; }
         }
 
-        public paramConn() {
-            this.Servidor = "192.168.30.11";
-            this.Dbname = "MILDESA";
-            this.Usuario = "TRANSER";
-            this.Contrasena = "DBACONNECT";
-        }
+        public paramDbConexion(string _Servidor, string _Dbname, string _Usuario, string _Contraseña)
+        {
+            this.Servidor = _Servidor;
+            this.Dbname = _Dbname;
+            this.Usuario = _Usuario;
+            this.Contrasena = _Contraseña;
 
+        }
+        public static paramDbConexion parametrosConexion { get; set; }
     }
 }

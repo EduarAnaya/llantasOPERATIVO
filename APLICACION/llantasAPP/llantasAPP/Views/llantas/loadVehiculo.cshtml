@@ -1,0 +1,66 @@
+﻿@model llantasAPP.Models.edicionLlantas.infoVehiculo
+
+@{
+    ViewBag.Title = "loadVehiculo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Inicio</a></li>
+        <li class="breadcrumb-item" aria-current="page">Buscar llantas</li>
+    </ol>
+</nav>
+<div class="Container cont_SearchsPlaca _ContAccion">
+    <h1 class="cont_Titulo">Cargar llantas de un Vehiculo</h1>
+    <p>Indique placa y kilometraje con el que quiera iniciar.</p>
+    @using llantasAPP.Models.edicionLlantas
+    @using (Html.BeginForm("loadVehiculo", "llantas", FormMethod.Post, new { id = "formSearchVehiculo" }))
+    {
+        <div class="row zonaBusqueda">
+            <div class="col-12 colSearch">
+                @Html.TextBoxFor(m => m.placa, htmlAttributes: new { type = "text", @class = "form-control text-uppercase inputsSearch", id = "inputsplaca", name = "placa", placeholder = "PLACA", maxlength = "6", required = "required", autofocus = "autofocus" })
+                <label class="error errors visible" for="inputsplaca"></label>
+            </div>
+            <div class="col-12 colSearch">
+                @Html.TextBoxFor(m => m.km, htmlAttributes: new { type = "number", @class = "form-control text-uppercase inputsSearch", id = "inputskm", name = "km", placeholder = "KILOMETRAJE", required = "required" })
+                <label class="error errors visible" for="inputskm"></label>
+            </div>
+            <div class="col-12 colSearch" style="margin: 0;">
+                <button id="cargarplaca" type="submit" class="btn btn-block btn-success">
+                    Buscar
+                </button>
+                <script>
+                    $(function () {
+                        var _reload = true;
+                        sessionStorage.setItem("_reload", _reload);
+                        $("#formSearchVehiculo").on("submit", function () {
+                            var _reload = false;
+                            sessionStorage.setItem("_reload", _reload);
+                        })
+                    })
+                </script>
+            </div>
+
+        </div>   
+    }
+
+    @if (ViewData.ModelState.Any(x => x.Value.Errors.Any()))
+    {
+        <div class="alert alert-primary">
+            <a href="#" class="close" data-dismiss="alert">×</a>
+            @Html.ValidationSummary(true, "Aviso:")
+            @Html.ValidationMessage("ErrorLlantas")
+            @if (Model != null)
+            {
+                if (!Model.otAbierta)
+                {
+                    Model.contsinOT = true;
+                    infoVehiculo.trabajoVehiculo = Model;
+                @Html.ActionLink("¿Desea crearla?", "editLlantas", "llantas", new { placa = Model.placa, km = Model.km }, null)
+                }
+            }
+
+        </div>
+    }
+</div>

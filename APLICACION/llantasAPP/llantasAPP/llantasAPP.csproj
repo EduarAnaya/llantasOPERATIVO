@@ -52,15 +52,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\NuGet.Core.2.14.0\lib\net40-Client\NuGet.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Oracle.DataAccess, Version=4.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Oracle.DataAccess, Version=4.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
       <HintPath>C:\orant\Oda11\product\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -133,24 +135,35 @@
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccesoDenegadoController.cs" />
+    <Compile Include="Controllers\Account\AccountController.cs" />
     <Compile Include="Controllers\Home\HomeController.cs" />
-    <Compile Include="Models\edicionLlantas\procLlantas.cs" />
+    <Compile Include="Models\Account\Account.cs" />
+    <Compile Include="Models\Account\AccountModel.cs" />
+    <Compile Include="Models\Account\AccountViewModel.cs" />
+    <Compile Include="Models\bd_con\bdConexionSession.cs" />
+    <Compile Include="Models\bd_con\paramDbConexion.cs" />
+    <Compile Include="Models\bd_con\VarGlobals.cs" />
+    <Compile Include="Models\bd_con\procLlantas.cs" />
     <Compile Include="Controllers\manageFiles\cargaArchivosController.cs" />
     <Compile Include="Controllers\Llantas\llantasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\bd_con\bdConexion.cs" />
     <Compile Include="Models\cargaArchivos\archivos.cs" />
     <Compile Include="Models\edicionLlantas\llantasModel.cs" />
-    <Compile Include="Models\bd_con\paramConn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="seguridad\CustomAuthorizeAttribute.cs" />
+    <Compile Include="seguridad\CustomPrincipal.cs" />
+    <Compile Include="seguridad\SessionPersister.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap_Old\bootstrap.css" />
@@ -177,6 +190,7 @@
     <Content Include="Content\medios\llanta_reencauche.png" />
     <Content Include="Content\medios\llanta_repara.png" />
     <Content Include="Content\medios\Logo_Head.png" />
+    <Content Include="Content\medios\logSecure128x128.png" />
     <Content Include="Content\medios\medidas_llantas.png" />
     <Content Include="Content\medios\plus.svg" />
     <Content Include="Content\medios\right.png" />
@@ -200,6 +214,7 @@
     <Content Include="CSS\css_Edits\css_Gral.css" />
     <Content Include="CSS\css_Edits\css_Inventario.css" />
     <Content Include="CSS\css_Edits\css_Llantas_Edit.css" />
+    <Content Include="CSS\css_Edits\css_Login.css" />
     <Content Include="CSS\css_Prove\bootstrap\bootstrap-grid.css" />
     <Content Include="CSS\css_Prove\bootstrap\bootstrap-grid.min.css" />
     <Content Include="CSS\css_Prove\bootstrap\bootstrap-reboot.css" />
@@ -533,7 +548,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\llantas\Inventario.cshtml" />
     <Content Include="Scripts\jsPersonalisados_Old\datatables\Buttons-1.5.1\css\common.scss" />
@@ -561,6 +575,10 @@
     <Content Include="Views\llantas\llantasMonta.cshtml" />
     <Content Include="Scripts\js_Prove\jqueryUI\package.json" />
     <Content Include="Views\llantas\llantasGuardar.cshtml" />
+    <Content Include="Views\Shared\_LoginTemplate.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\AccesoDenegado\Index.cshtml" />
+    <Content Include="Views\llantas\loadVehiculo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

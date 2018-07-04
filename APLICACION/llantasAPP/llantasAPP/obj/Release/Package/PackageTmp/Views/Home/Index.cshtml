@@ -21,7 +21,8 @@
 
     <!--Link EditarLlantas-->
     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5 mb-4">
-        <a href="@Url.Action("buscarLlantas", "llantas")" class="link noLink">
+        @*<a href="@Url.Action("buscarLlantas", "llantas")" class="link noLink">*@
+            <a href="@Url.Action("loadVehiculo", "llantas")" class="link noLink">
             <div class="card opcMenu">
                 <img class="imgCards" src="~/Content/medios/cambio_llantas.png" alt="" width="10" />
                 <div class="card-body">
@@ -31,6 +32,9 @@
             </div>
         </a>
     </div>
+
+
+
 
     @*<!--Link RecircularLlantas-->
     <div class="col-lg-3 col-md-6 mb-4">

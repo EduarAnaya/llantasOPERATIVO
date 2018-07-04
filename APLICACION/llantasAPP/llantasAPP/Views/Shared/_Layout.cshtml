@@ -30,17 +30,21 @@
     <!-- Navegacion -->
     <header>
         <nav id="barraMenu" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <div class="container">
-                <div class="row" style="width: 100%;">
-                    <div class="col">
-                        <a class="navbar-brand" href="@Url.Action("Index", "Home")">
-                            <img class="imgLogo" src="~/Content/medios/Logo_Head.png" alt="Inicio" /></a>
-                    </div>
-                    <div class="col">
-                        <strong class="titulo">Llantas Operativo
-                        </strong>
-                    </div>
-                </div>
+            <a class="navbar-brand titulo" href="@Url.Action("Index", "Home")">
+                <img src="~/Content/medios/Logo_Head.png" width="70" height="30" class="d-inline-block align-top" />
+                Llantas Operativo
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        @using llantasAPP.seguridad;
+                        <span>@SessionPersister.Username @Html.ActionLink("Cerrar sesión", "Logout", "Account")</span>
+                    </li>
+                </ul>
+                
             </div>
         </nav>
     </header>
@@ -63,7 +67,7 @@
     <!-- Archivos Scripts -->
     <script src="~/Scripts/js_Edit/js_Edit_Llantas/js_Gral.js"></script>
     <script src="~/Scripts/js_Edit/js_Edit_Llantas/js_SearchsLlantas.js?v3.0"></script>
-    <script src="~/Scripts/js_Edit/js_Edit_Llantas/js_llantas_Edit.js?v3.1"></script>
+    <script src="~/Scripts/js_Edit/js_Edit_Llantas/js_llantas_Edit.js?v3.2"></script>
     <script src="~/Scripts/js_Edit/js_timer.Js"></script>
 </body>
 </html>

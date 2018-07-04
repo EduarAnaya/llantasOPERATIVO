@@ -1,0 +1,38 @@
+﻿@model llantasAPP.Models.Account.AccountViewModel
+
+@{
+    ViewBag.Title = @ViewBag.Title;
+    Layout = "~/Views/Shared/_LoginTemplate.cshtml";
+}
+<link href="~/CSS/css_Edits/css_Login.css" rel="stylesheet" />
+<div class="container ContAppLogin">
+    @{using (Html.BeginForm("Login", "Account", FormMethod.Post, new { id = "formLogin", @class = "form-signin" }))
+      {
+        <img class="mb-4" src="~/Content/medios/logSecure128x128.png" alt="" width="128" />
+        <h5 class="mb-3 font-weight-normal">Autenticación de usuarios</h5>
+        <div class="form-group">
+            @Html.TextBoxFor(m => m.account.Usuario, htmlAttributes: new { type = "text", id = "inputUsuario", @class = "form-control text-uppercase", placeholder = "USUARIO", required = "", autofocus = "" })
+        </div>
+        <div class="form-group">
+            @Html.PasswordFor(m => m.account.Contrasena, htmlAttributes: new { type = "password", id = "inputContraseña", @class = "form-control text-uppercase", placeholder = "CONTRASEÑA", required = "" })
+        </div>
+       
+        <div class="form-group">
+            @Html.LabelFor(m => m.account.Oficina)
+            @Html.DropDownListFor(model => model.account.Oficina, new SelectList(
+                  new List<Object> { new { value = "", text = "-- Seleccione" }, new { value = 17, text = "OF. OPERATIVO" }, new { value = 19, text = "OF. DUITAMA" } }, "value", "text", 1), htmlAttributes: new { @class = "form-control", required = "" })
+        </div>
+        
+        
+          if (ViewData.ModelState.Any(x => x.Value.Errors.Any()))
+          {
+        <div class="alert alert-warning">
+            <a href="#" class="close" data-dismiss="alert">×</a>
+            @Html.ValidationMessage("ErrorLogin")
+        </div>
+          }
+        <button id="SendLogin" class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
+        <p class="mt-5 mb-3 text-muted">&copy Transer @DateTime.Now.Year</p>
+      }
+    }
+</div>

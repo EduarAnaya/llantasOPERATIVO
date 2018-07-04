@@ -28,12 +28,12 @@ footer {
 .bg-dark {
     background-color: #e9e9e9 !important;
 }
+.ml-auto {
+    margin-left: auto;
+}
 
 .titulo {
-    font-size: 1.5rem;
-    color: #495057;
-    right: 0;
-    position: absolute;
+    color: #495057 !important;
 }
 
 .rowMenu {
@@ -97,13 +97,6 @@ img.imgLogo {
 
 @media (max-width: 400px) {
     body {
-    }
-
-    .titulo {
-        font-size: 1.14rem;
-        color: #495057;
-        right: 0;
-        position: absolute;
     }
 
     footer {

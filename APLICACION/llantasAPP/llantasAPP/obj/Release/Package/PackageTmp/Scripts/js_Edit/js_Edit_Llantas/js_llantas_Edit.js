@@ -21,14 +21,14 @@ llantaDraggable($llantas);
 canecaDoppable($caneca);
 cajaDroppable($cajas);
 
-$(function () {
+$(function() {
   var _reload = sessionStorage.getItem("_reload");
   if (_reload == "true") {
     $(location).attr("href", "/");
   }
   /*jquery UI para el select de la sllantas disponibles*/
   $.widget("custom.combobox", {
-    _create: function () {
+    _create: function() {
       this.wrapper = $("<span>")
         .addClass("custom-combobox")
         .insertAfter(this.element);
@@ -38,7 +38,7 @@ $(function () {
       this._createShowAllButton();
     },
 
-    _createAutocomplete: function () {
+    _createAutocomplete: function() {
       var selected = this.element.children(":selected"),
         value = selected.val() ? selected.text() : "";
 
@@ -61,7 +61,7 @@ $(function () {
         });
 
       this._on(this.input, {
-        autocompleteselect: function (event, ui) {
+        autocompleteselect: function(event, ui) {
           ui.item.option.selected = true;
           this._trigger("select", event, {
             item: ui.item.option
@@ -72,7 +72,7 @@ $(function () {
       });
     },
 
-    _createShowAllButton: function () {
+    _createShowAllButton: function() {
       var input = this.input,
         wasOpen = false;
 
@@ -89,10 +89,10 @@ $(function () {
         })
         .removeClass("ui-corner-all")
         .addClass("custom-combobox-toggle ui-corner-right")
-        .on("mousedown", function () {
+        .on("mousedown", function() {
           wasOpen = input.autocomplete("widget").is(":visible");
         })
-        .on("click", function () {
+        .on("click", function() {
           input.trigger("focus");
 
           // Close if already visible
@@ -105,13 +105,13 @@ $(function () {
         });
     },
 
-    _source: function (request, response) {
+    _source: function(request, response) {
       var matcher = new RegExp(
         $.ui.autocomplete.escapeRegex(request.term),
         "i"
       );
       response(
-        this.element.children("option").map(function () {
+        this.element.children("option").map(function() {
           var text = $(this).text();
           if (this.value && (!request.term || matcher.test(text)))
             return {
@@ -123,7 +123,7 @@ $(function () {
       );
     },
 
-    _removeIfInvalid: function (event, ui) {
+    _removeIfInvalid: function(event, ui) {
       // Selected an item, nothing to do
       if (ui.item) {
         return;
@@ -133,11 +133,11 @@ $(function () {
       var value = this.input.val(),
         valueLowerCase = value.toLowerCase(),
         valid = false;
-      this.element.children("option").each(function () {
+      this.element.children("option").each(function() {
         if (
           $(this)
-          .text()
-          .toLowerCase() === valueLowerCase
+            .text()
+            .toLowerCase() === valueLowerCase
         ) {
           this.selected = valid = true;
           return false;
@@ -155,32 +155,32 @@ $(function () {
         .attr("title", value + " no existe en la lista.")
         .tooltip("open");
       this.element.val("");
-      this._delay(function () {
+      this._delay(function() {
         this.input.tooltip("close").attr("title", "");
       }, 2500);
       this.input.autocomplete("instance").term = "";
     },
 
-    _destroy: function () {
+    _destroy: function() {
       this.wrapper.remove();
       this.element.show();
     }
   });
 
   $("#comboDisponibles").combobox();
-  $("#toggle").on("click", function () {
+  $("#toggle").on("click", function() {
     $("#comboDisponibles").toggle();
   });
 });
 
 //evento que permite mostrar un collapse y ocultar los demás que estén abiertos.
-$(".collapse").on("show.bs.collapse", function (e) {
+$(".collapse").on("show.bs.collapse", function(e) {
   var dataID = e.target.id;
   $(".collapse").collapse("hide");
   $(dataID).collapse();
 });
 //evento click de la clase llanta que permite distinguir ente la imagen y el botón que llama el evento
-$(".llanta").on("click", function (event) {
+$(".llanta").on("click", function(event) {
   var triger = event.target.className;
   var llact = $(this);
   if (triger != "imgSentido btn") {
@@ -192,7 +192,7 @@ $(".llanta").on("click", function (event) {
     $(llact).removeAttr("data-toggle", "aria-expanded");
   }
 });
-$(".llanta").on("dblclick", function (event) {
+$(".llanta").on("dblclick", function(event) {
   transaccion = 1;
   llNueva = [];
   cajaNueva = $(this.parentElement);
@@ -212,7 +212,7 @@ $("#fomrAddllanta").validate({
     }
   }
 });
-$("#fomrAddllanta").on("submit", function (event) {
+$("#fomrAddllanta").on("submit", function(event) {
   event.preventDefault();
   $("#fomrAddllanta").validate();
   var estado = $("#fomrAddllanta").valid();
@@ -228,7 +228,7 @@ $("#fomrAddllanta").on("submit", function (event) {
 });
 
 /***************************GUARDAR LOS CAMBIOS*********************** */
-$("#btnGUARDAR").on("click", function () {
+$("#btnGUARDAR").on("click", function() {
   fotovehiculo();
   SentidoLlantas();
   enviarCambios(
@@ -241,12 +241,12 @@ $("#btnGUARDAR").on("click", function () {
   sessionStorage.setItem("_reload", "true");
 });
 
-$("#viewDetails").on("click", function () {
+$("#viewDetails").on("click", function() {
   $("#viewDetails").css("display", "none");
   $(".colDetall").css("display", "inline");
   $("#viewminDetails").css("display", "inline");
 });
-$("#viewminDetails").on("click", function () {
+$("#viewminDetails").on("click", function() {
   $("#viewDetails").css("display", "inline");
   $(".colDetall").css("display", "none");
   $("#viewminDetails").css("display", "none");
@@ -278,11 +278,13 @@ function fotovehiculo() {
   var listaCamion = $(".vehiculo [tag='preload']");
   for (let index = 0; index < listaCamion.length; index++) {
     var idLlanta = $(listaCamion[index]).attr("Id");
-    var valorLlanta = $('#' + idLlanta + ' .idllanta')[0].innerText;
+    var valorLlanta = $("#" + idLlanta + " .idllanta")[0].innerText;
     var llanta = valorLlanta.split("-")[0];
     var grupo = valorLlanta.split("-")[1];
-    var posicion = listaCamion[index].parentNode.parentElement.id.split("eje")[1];
-    var sentido = $('#' + idLlanta + ' .imgSentido')[0].attributes[2].value;
+    var posicion = listaCamion[index].parentNode.parentElement.id.split(
+      "eje"
+    )[1];
+    var sentido = $("#" + idLlanta + " .imgSentido")[0].attributes[2].value;
     var llantaPreload = {
       PLACA: _placaActual,
       LLANTA: llanta,
@@ -322,7 +324,7 @@ function enviarCambios(
     arrayDesmonta: JSON.stringify(arrayDesmonta),
     arrayMuestras: JSON.stringify(arrayMuestras),
     arraySentido: JSON.stringify(arraySentido)
-  }).done(function (data) {
+  }).done(function(data) {
     // $(location).load(data);
     $(".Contapp").html("");
     $(".Contapp").html(data);
@@ -360,67 +362,67 @@ function add_nuevallanta(nroLlanta) {
     /* HABILITAR LA IMG PARA EL SENTIDO DE LA LLANTA */
     var _importLlanta = $(
       '<div id="' +
-      llanta +
-      '" class="Nllanta llanta btn btn-outline-success"  href="#infoLlanta' +
-      llanta +
-      '" role="button" tag="Nllanta">' +
-      '<div class="row"> <div class = "col" > ' +
-      '<img class="imgSentido btn" src="/Content/medios/right.png" tag="1" onclick="cambio_Sentido($(this))"/>' +
-      '</div>' +
-      '<div class="col">' +
-      '<span class="idllanta">' +
-      llanta +
-      "-" +
-      grupo +
-      "</span>" +
-      '</div> </div>' +
-      '<div class="collapse infoLlanta" id ="infoLlanta' +
-      llanta +
-      '" >' +
-      '<div class="card card-body" style="padding:0;">' +
-      '<dl class="row" style="margin:0;">' +
-      '<dt class="col-5 marginTituloDesc">Grupo</dt>' +
-      '<dd class="col-5 marginDescTtulo">' +
-      grupo +
-      "</dd>" +
-      '<dt class="col-5 marginTituloDesc">Km Instala</dt>' +
-      '<dd class="col-5 marginDescTtulo">' +
-      _kmTrabajoactual +
-      "</dd>" +
-      "</dl>" +
-      "</div>" +
-      "</div>" +
-      "</div >"
+        llanta +
+        '" class="Nllanta llanta btn btn-outline-success"  href="#infoLlanta' +
+        llanta +
+        '" role="button" tag="Nllanta">' +
+        '<div class="row"> <div class = "col" > ' +
+        '<img class="imgSentido btn" src="/Content/medios/right.png" tag="1" onclick="cambio_Sentido($(this))"/>' +
+        "</div>" +
+        '<div class="col">' +
+        '<span class="idllanta">' +
+        llanta +
+        "-" +
+        grupo +
+        "</span>" +
+        "</div> </div>" +
+        '<div class="collapse infoLlanta" id ="infoLlanta' +
+        llanta +
+        '" >' +
+        '<div class="card card-body" style="padding:0;">' +
+        '<dl class="row" style="margin:0;">' +
+        '<dt class="col-5 marginTituloDesc">Grupo</dt>' +
+        '<dd class="col-5 marginDescTtulo">' +
+        grupo +
+        "</dd>" +
+        '<dt class="col-5 marginTituloDesc">Km Instala</dt>' +
+        '<dd class="col-5 marginDescTtulo">' +
+        _kmTrabajoactual +
+        "</dd>" +
+        "</dl>" +
+        "</div>" +
+        "</div>" +
+        "</div >"
     );
 
     var _importLlantas = $(
       '<div id="' +
-      llanta +
-      '" class="Nllanta llanta btn btn-outline-success"  href="#infoLlanta' +
-      llanta +
-      '" role="button" tag="Nllanta">' +
-      '<span class="idllanta">' +
-      llanta +
-      "-" +
-      grupo +
-      "</span>" +
-      '<div class="collapse infoLlanta" id ="infoLlanta' +
-      llanta +
-      '" >' +
-      '<div class="card card-body" style="padding:0;">' +
-      '<dl class="row" style="margin:0;">' +
-      '<dt class="col-5 marginTituloDesc">Grupo</dt>' +
-      '<dd class="col-5 marginDescTtulo">' +
-      grupo +
-      "</dd>" +
-      '<dt class="col-5 marginTituloDesc">Km Instala</dt>' +
-      '<dd class="col-5 marginDescTtulo">' +
-      _kmTrabajoactual +
-      "</dd>" +
-      "</dl>" +
-      "</div>" +
-      "</div>" +
-      "</div >"
+        llanta +
+        '" class="Nllanta llanta btn btn-outline-success"  href="#infoLlanta' +
+        llanta +
+        '" role="button" tag="Nllanta">' +
+        '<span class="idllanta">' +
+        llanta +
+        "-" +
+        grupo +
+        "</span>" +
+        '<div class="collapse infoLlanta" id ="infoLlanta' +
+        llanta +
+        '" >' +
+        '<div class="card card-body" style="padding:0;">' +
+        '<dl class="row" style="margin:0;">' +
+        '<dt class="col-5 marginTituloDesc">Grupo</dt>' +
+        '<dd class="col-5 marginDescTtulo">' +
+        grupo +
+        "</dd>" +
+        '<dt class="col-5 marginTituloDesc">Km Instala</dt>' +
+        '<dd class="col-5 marginDescTtulo">' +
+        _kmTrabajoactual +
+        "</dd>" +
+        "</dl>" +
+        "</div>" +
+        "</div>" +
+        "</div >"
     );
 
     //SE REENDERIZA LA LLANTA IMPORTADA
@@ -434,10 +436,10 @@ function add_nuevallanta(nroLlanta) {
 function llantaDraggable(objetos) {
   $(objetos).draggable({
     revert: "invalid",
-    start: function (event, ui) {
+    start: function(event, ui) {
       $(this).addClass("llanta_dragg");
     },
-    stop: function (event, ui) {
+    stop: function(event, ui) {
       $(this).removeClass("llanta_dragg");
     }
   });
@@ -447,7 +449,7 @@ function llantaDraggable(objetos) {
 function cajaDroppable(objetos) {
   $(objetos).droppable({
     accept: ".llanta",
-    drop: function (ev, llantaEntra) {
+    drop: function(ev, llantaEntra) {
       var caja = $(this); //CONTENEDOR EN LA QUE SE SUELTA LA LLANTA
       cajaNueva = caja;
       var llanta = $(llantaEntra.draggable); //LA LLANTA QUE SE SUELTA EN LA CAJA
@@ -530,19 +532,16 @@ function cajaDroppable(objetos) {
 function canecaDoppable(objetos) {
   $(objetos).droppable({
     accept: ".llanta",
-    drop: function (e, u) {
+    drop: function(e, u) {
       $caneca.removeClass("caneca_over");
       cajaRemove = u.draggable[0];
       var $elemento = $(u.draggable);
       llNueva = $();
       var tagLlanta = $($elemento).attr("tag"); //valido con el tag si la llanta es importada, precargada o removida
 
-      if (tagLlanta == "import") {
+      if (tagLlanta == "import" || tagLlanta == "Nllanta") {
         $("#nuevallanta").append($elemento);
-        $($elemento).css({
-          left: "0",
-          top: "0"
-        });
+        $($elemento).css({ left: "0", top: "0" });
         //como la llanta fue habilitada para ser importada nuevamente se debe remover del arreglo de llantas montadas
         var llantaRev = $($elemento)["0"].id;
         for (let index = 0; index < arrayMonta.length; index++) {
@@ -556,10 +555,10 @@ function canecaDoppable(objetos) {
         remover($elemento[0]);
       }
     },
-    over: function (u, e) {
+    over: function(u, e) {
       $(this).addClass("caneca_over");
     },
-    out: function (u, e) {
+    out: function(u, e) {
       $(this).removeClass("caneca_over");
     }
   });
@@ -568,7 +567,7 @@ function canecaDoppable(objetos) {
 //ENVIAR UNA LLANTA A LA CANECA
 function remover($item) {
   var idllanta = $($item).attr("Id");
-  var valor = $('#' + idllanta + ' .idllanta')[0].innerText;
+  var valor = $("#" + idllanta + " .idllanta")[0].innerText;
   var llanta = valor.split("-")[0];
   var grupo = valor.split("-")[1];
   desmontarLlanta(_placaActual, llanta, grupo, _kmTrabajoactual);
@@ -582,8 +581,8 @@ function remover($item) {
 }
 //prepara el metodo para montar una llanta
 function montar($item, Operacion) {
-  var idllanta = $($item).attr('Id');
-  var valor = $('#' + idllanta + ' .idllanta')[0].innerText;
+  var idllanta = $($item).attr("Id");
+  var valor = $("#" + idllanta + " .idllanta")[0].innerText;
   var llanta = valor.split("-")[0];
   var grupo = valor.split("-")[1];
   montarLlanta(_placaActual, llanta, grupo, _kmTrabajoactual, Operacion);
@@ -604,7 +603,7 @@ function desmontarLlanta(_placa, _llanta, _grupo, _kmMEdida) {
     _llanta: _llanta,
     _grupo: _grupo,
     _kmMEdida: _kmMEdida
-  }).done(function (data) {
+  }).done(function(data) {
     $("#modMuestraDesmonta").html("");
     $("#modMuestraDesmonta").append(data);
     $("#modMuestraDesmonta").modal("show");
@@ -618,12 +617,12 @@ function montarLlanta(_placa, _llanta, _grupo, _kmMEdida, Operacion) {
     _grupo: _grupo,
     _kmMEdida: _kmMEdida,
     _operacion: Operacion
-  }).done(function (data) {
+  }).done(function(data) {
     $("#modMuestraMonta").html("");
     $("#modMuestraMonta").append(data);
     $("#modMuestraMonta").modal("show");
   });
-};
+}
 
 //CAMBIAR UNA LLANTA POR OTRA
 function cambiar(nuevo, actual) {
